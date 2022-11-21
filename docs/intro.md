@@ -1,6 +1,6 @@
 ---
 slug: /
-title: Thougts and Ideas
+title: Thoughts and Ideas
 tags:
   - writing
 ---
