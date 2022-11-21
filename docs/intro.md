@@ -1,6 +1,6 @@
 ---
 slug: /
-title: Sibelius Zettelkasten - My Knowledge Base
+title: Thougts and Ideas
 tags:
   - writing
 ---
