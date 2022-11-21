@@ -1,0 +1,13 @@
+{
+  "label": "Bio",
+  "collapsible": true,
+  "collapsed": true,
+  "className": "red",
+  "link": {
+    "type": "generated-index",
+    "title": "Bio overview"
+  },
+  "customProps": {
+    "description": "Bio documentation"
+  }
+}
