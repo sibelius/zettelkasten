@@ -13,7 +13,11 @@ module.exports = {
   organizationName: 'sibelius', // Usually your GitHub org/user name.
   projectName: 'zettelkasten', // Usually your repo name.
   trailingSlash: false,
-  plugins: [require.resolve('@cmfcmf/docusaurus-search-local')],
+  plugins: [
+    [require.resolve('@cmfcmf/docusaurus-search-local'), {
+      indexBlog: false,
+    }]
+  ],
   themeConfig: {
     navbar: {
       title: 'Sibelius Zettelkasten',
@@ -23,20 +27,20 @@ module.exports = {
       },
       items: [
         {
-          href: "https://twitter.com/sseraphini",
-          position: "right",
-          label: "🐦",
+          href: 'https://twitter.com/sseraphini',
+          position: 'right',
+          label: '🐦',
         },
         {
-          href: "https://github.com/sibelius",
-          position: "right",
-          label: "🐙",
+          href: 'https://github.com/sibelius',
+          position: 'right',
+          label: '🐙',
         },
         {
-          href: "https://github.com/sibelius/zettelkasten",
-          position: "right",
-          className: "header-github-link",
-          "aria-label": "GitHub repository",
+          href: 'https://github.com/sibelius/zettelkasten',
+          position: 'right',
+          className: 'header-github-link',
+          'aria-label': 'GitHub repository',
         },
       ],
     },
@@ -45,8 +49,7 @@ module.exports = {
       darkTheme: darkCodeTheme,
     },
     footer: {
-      links: [
-      ],
+      links: [],
       copyright: 'Copyright © Sibelius Seraphini',
     },
   },
@@ -57,7 +60,7 @@ module.exports = {
         docs: {
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
-          routeBasePath: "/",
+          routeBasePath: '/',
           path: './docs',
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl: ({ locale, versionDocsDirPath, docPath }) => {
