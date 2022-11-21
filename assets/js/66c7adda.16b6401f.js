@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdev_docs=self.webpackChunkdev_docs||[]).push([[57],{1596:e=>{e.exports=JSON.parse('{"title":"Bio overview","slug":"/category/bio","permalink":"/zettelkasten/category/bio","navigation":{"next":{"title":"Bio","permalink":"/zettelkasten/bio/"}}}')}}]);

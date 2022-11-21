@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdev_docs=self.webpackChunkdev_docs||[]).push([[830],{7581:e=>{e.exports=JSON.parse('{"label":"mysefl","permalink":"/zettelkasten/tags/mysefl","allTagsPath":"/zettelkasten/tags","count":1,"items":[{"id":"bio/bio","title":"Bio","description":"Bio","permalink":"/zettelkasten/bio/"}]}')}}]);
