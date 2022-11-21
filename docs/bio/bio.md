@@ -3,7 +3,7 @@ id: bio
 title: Bio
 tags:
   - bio
-  - mysefl
+  - myself
 ---
 
 ## Bio

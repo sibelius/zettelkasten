@@ -27,6 +27,11 @@ module.exports = {
       },
       items: [
         {
+          to: 'tags',
+          position: 'right',
+          label: 'Tags',
+        },
+        {
           href: 'https://twitter.com/sseraphini',
           position: 'right',
           label: '🐦',
