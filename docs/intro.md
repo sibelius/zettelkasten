@@ -1,6 +1,7 @@
 ---
 slug: /
 title: Thoughts and Ideas
+sidebar_position: 0
 tags:
   - writing
 ---
