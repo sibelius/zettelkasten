@@ -1,0 +1,13 @@
+{
+  "label": "Structure",
+  "collapsible": true,
+  "collapsed": true,
+  "className": "red",
+  "link": {
+    "type": "generated-index",
+    "title": "Structure overview"
+  },
+  "customProps": {
+    "description": "Structure documentation"
+  }
+}
