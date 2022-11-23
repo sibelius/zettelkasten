@@ -1,0 +1,79 @@
+---
+id: advice-for-developers
+title: Advice for Developers
+tags:
+- advice
+- developers
+---
+
+## tips to evolve as a developer
+
+developers get stuck, paralized
+
+[https://nav.al/finding-time](https://nav.al/finding-time)
+
+[https://www.oreilly.com/library/view/apprenticeship-patterns/9780596806842/ch04.html](https://www.oreilly.com/library/view/apprenticeship-patterns/9780596806842/ch04.html)
+
+Make It Stick [https://www.amazon.com.br/Make-Stick-Science-Successful-Learning/dp/0674729013](https://www.amazon.com.br/Make-Stick-Science-Successful-Learning/dp/0674729013)
+
+[https://www.swyx.io/writing/learn-in-public/](https://www.swyx.io/writing/learn-in-public/)
+
+Learn in Public is better when you fail 
+
+[https://twitter.com/sseraphini/status/1235325086099529728](https://twitter.com/sseraphini/status/1235325086099529728)
+
+how to become a better developer
+
+[https://twitter.com/sseraphini/status/1125758446563934208](https://twitter.com/sseraphini/status/1125758446563934208)
+
+watch repo that you wanna contribute, answer all issues, review all pull requests, try to fix bugs and improvements, improve docs
+
+[https://www.swyx.io/writing/specialize-in-the-new/](https://www.swyx.io/writing/specialize-in-the-new/)
+
+[https://www.ycombinator.com/resources/](https://www.ycombinator.com/resources/)
+
+zero to one
+
+accept reality, ray dale principles
+
+outliers 10k of practice
+
+how to get rich [https://twitter.com/naval/status/1002103360646823936](https://twitter.com/naval/status/1002103360646823936)
+
+where good ideas come from
+
+[http://blog.samaltman.com/how-to-be-successful](http://blog.samaltman.com/how-to-be-successful)
+
+taleb books
+
+black swan
+
+antifragile
+
+skin in the game
+
+ask people advice, they can tell you where you are doing wrong. They can see what you can’t
+
+[https://pmarchive.com/](https://pmarchive.com/)
+
+keep notes in evernote/notion
+
+at least one note per day
+
+F is for finishers [https://medium.com/personal-growth/the-f-is-for-finisher-3c6936a00342](https://medium.com/personal-growth/the-f-is-for-finisher-3c6936a00342)
+
+don’t be afraid to code
+
+don’t be afraid to fail
+
+don’t be afraid to introduce a bug
+
+code fearless
+
+[http://cam.ly/blog/2010/12/code-fearlessly/](http://cam.ly/blog/2010/12/code-fearlessly/)
+
+build stuff
+
+## References
+
+[https://gist.github.com/sibelius/a347a5a49d3731eab27bdc99b7af478e](https://gist.github.com/sibelius/a347a5a49d3731eab27bdc99b7af478e)
