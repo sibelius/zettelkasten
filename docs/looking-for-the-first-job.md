@@ -58,6 +58,7 @@ tweets about it
 [https://twitter.com/apompliano/status/1388872396174725125?s=21](https://twitter.com/apompliano/status/1388872396174725125?s=21)
 
 [https://github.com/alinebastos/fullstack-challenges](https://github.com/alinebastos/fullstack-challenges)
+
 [https://github.com/felipefialho/frontend-challenges](https://github.com/felipefialho/frontend-challenges)
 
 [https://akinncar.substack.com/p/how-to-get-better-job-opportunities?s=w](https://akinncar.substack.com/p/how-to-get-better-job-opportunities?s=w)
