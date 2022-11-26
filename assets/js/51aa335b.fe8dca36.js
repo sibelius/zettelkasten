@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdev_docs=self.webpackChunkdev_docs||[]).push([[908],{2367:e=>{e.exports=JSON.parse('{"label":"book","permalink":"/zettelkasten/tags/book","allTagsPath":"/zettelkasten/tags","count":1,"items":[{"id":"culture","title":"Culture","description":"Culture is what people do when you are not looking","permalink":"/zettelkasten/culture"}]}')}}]);
