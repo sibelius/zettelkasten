@@ -1,0 +1,13 @@
+{
+  "label": "Learning Path",
+  "collapsible": true,
+  "collapsed": true,
+  "className": "red",
+  "link": {
+    "type": "generated-index",
+    "title": "Learning Path overview"
+  },
+  "customProps": {
+    "description": "Learning Path documentation"
+  }
+}
