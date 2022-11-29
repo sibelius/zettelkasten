@@ -4,6 +4,14 @@ Watch the repo to get new content
 
 ## How to run
 
+Install dependencies
+
+```bash
+  yarn
 ```
-yarn start
+
+Start the server
+
+```bash
+  yarn start
 ```
