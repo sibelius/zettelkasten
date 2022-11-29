@@ -7,6 +7,8 @@ tags:
 - hack
 ---
 
+import Embed from 'react-embed';
+
 [Versão em Português](https://gist.github.com/sermoud/b30a36058cdad95d4a048740307b8e71)
 
 This is a very common state for people in college, people before/after a bootcamp, or people from another area.
@@ -17,7 +19,9 @@ The interview will be harder than the job itself
 
 After knowing a bit of programming, you need to practice a lot (like many hours, 10k hours) to get really good at it.
 
-read the book outliers about it (10k rule). gap ([https://twitter.com/sseraphini/status/1376509751861854214](https://twitter.com/sseraphini/status/1376509751861854214))
+read the book outliers about it (10k rule). gap 
+
+<Embed url="https://twitter.com/sseraphini/status/1376509751861854214" />
 
 I do recommend building open source projects with the stack you want to learn and improve. I recommend fullstack javascript
 
@@ -43,19 +47,21 @@ There are many ways to learn something, so consume content in a variety of mediu
 
 You need to be active and build stuff using something that you are reading/watching about it.
 
-advice [https://gist.github.com/sibelius/a347a5a49d3731eab27bdc99b7af478e](https://gist.github.com/sibelius/a347a5a49d3731eab27bdc99b7af478e)
+[Advice for developers](./advice-for-developers)
 
 tweets about it
 
-[https://twitter.com/sseraphini/status/1204858540831236096](https://twitter.com/sseraphini/status/1204858540831236096) - apply to learn
+<Embed url="https://twitter.com/sseraphini/status/1204858540831236096" />
 
-[https://twitter.com/sseraphini/status/1382330962273525760](https://twitter.com/sseraphini/status/1382330962273525760) - tweet about stack you wanna work on
+<Embed url="https://twitter.com/sseraphini/status/1382330962273525760" />
 
-[https://twitter.com/sseraphini/status/1080928496057307137](https://twitter.com/sseraphini/status/1080928496057307137) - how to get hired
+<Embed url="https://twitter.com/sseraphini/status/1080928496057307137" />
 
-[https://twitter.com/sseraphini/status/1387401430047367171](https://twitter.com/sseraphini/status/1387401430047367171) - how to get stuck
+<Embed url="https://twitter.com/sseraphini/status/1387401430047367171" />
 
-[https://twitter.com/apompliano/status/1388872396174725125?s=21](https://twitter.com/apompliano/status/1388872396174725125?s=21)
+<Embed url="https://twitter.com/apompliano/status/1388872396174725125" />
+
+<Embed url="https://akinncar.substack.com/p/how-to-get-better-job-opportunities" />
 
 [https://github.com/alinebastos/fullstack-challenges](https://github.com/alinebastos/fullstack-challenges)
 
