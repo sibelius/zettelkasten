@@ -49,6 +49,11 @@ module.exports = {
         },
       ],
     },
+    colorMode: {
+      defaultMode: 'dark',
+      disableSwitch: false,
+      respectPrefersColorScheme: false,
+    },
     prism: {
       theme: lightCodeTheme,
       darkTheme: darkCodeTheme,
