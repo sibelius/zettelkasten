@@ -44,8 +44,8 @@ module.exports = {
         {
           href: 'https://github.com/sibelius/zettelkasten',
           position: 'right',
-          className: 'header-github-link',
-          'aria-label': 'GitHub repository',
+          className: 'github-icon-header',
+          html: '<img src="img/github-icon.svg" alt="github-icon" width="20px" />',
         },
       ],
     },
