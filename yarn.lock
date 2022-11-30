@@ -6821,6 +6821,13 @@ opener@^1.5.2:
   resolved "https://registry.yarnpkg.com/opener/-/opener-1.5.2.tgz#5d37e1f35077b9dcac4301372271afdeb2a13598"
   integrity sha512-ur5UIdyw5Y7yEj9wLzhqXiy6GZ3Mwx0yGI+5sMn2r0N0v3cKJvUmFH5yPP+WXh9e0xfyzyJX95D8l088DNFj7A==
 
+opengraph-react@^1.3.12:
+  version "1.3.12"
+  resolved "https://registry.yarnpkg.com/opengraph-react/-/opengraph-react-1.3.12.tgz#a6e666afd5b17cb3a3d019f58d5fd4c1a2d21980"
+  integrity sha512-FOI7GLBr1nT7JkWjiGGnDrtJZs7vx/btHX/V9zywqaTOjjxrP4qOgC2jKm2m8sCTMniWPdTB7QWyymXlbxP9aA==
+  dependencies:
+    react "^16.10.2"
+
 ora@^5.0.0:
   version "5.4.1"
   resolved "https://registry.yarnpkg.com/ora/-/ora-5.4.1.tgz#1b2678426af4ac4a509008e5e4ac9e9959db9e18"
@@ -7783,6 +7790,15 @@ react-youtube@^7.13.1:
     fast-deep-equal "3.1.3"
     prop-types "15.7.2"
     youtube-player "5.5.2"
+
+react@^16.10.2:
+  version "16.14.0"
+  resolved "https://registry.yarnpkg.com/react/-/react-16.14.0.tgz#94d776ddd0aaa37da3eda8fc5b6b18a4c9a3114d"
+  integrity sha512-0X2CImDkJGApiAlcf0ODKIneSwBPhqJawOa5wCtKbu7ZECrmS26NvtSILynQ66cgkT/RJ4LidJOc3bUESwmU8g==
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+    prop-types "^15.6.2"
 
 react@^17.0.1:
   version "17.0.2"
