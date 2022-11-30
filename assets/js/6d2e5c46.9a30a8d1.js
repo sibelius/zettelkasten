@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdev_docs=self.webpackChunkdev_docs||[]).push([[6546],{4884:e=>{e.exports=JSON.parse('{"label":"content","permalink":"/zettelkasten/tags/content","allTagsPath":"/zettelkasten/tags","count":1,"items":[{"id":"youtube","title":"My content on Youtube","description":"---","permalink":"/zettelkasten/youtube"}]}')}}]);
