@@ -9,8 +9,15 @@ const Opengraph = (props) => {
     <BrowserOnly>
       {() => {
         const OpengraphReactComponent = require('opengraph-react').default;
-        
-        return <OpengraphReactComponent appId={opengraphAppID} size='small' {...props} />;
+
+        const { site } = props;
+
+        return (
+          <>
+            <OpengraphReactComponent appId={opengraphAppID} size='small' {...props} />
+            <a href={site}>{site}</a>
+          </>
+        );
       }}
     </BrowserOnly>
   );
