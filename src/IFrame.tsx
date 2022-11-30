@@ -2,7 +2,7 @@ import React from 'react';
 
 const IFrame = (props) => {
   return (
-    <iframe src={props.src}></iframe>
+    <iframe {...props}></iframe>
   );
 };
 
