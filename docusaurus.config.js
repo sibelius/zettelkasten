@@ -42,6 +42,18 @@ module.exports = {
           label: '🐙',
         },
         {
+          href: 'https://www.patreon.com/sibelius',
+          position: 'right',
+          className: 'patreon-logo',
+          html: '<img src="img/patreon-logo.png" alt="github-icon" width="20px" style="margin-top: 7px"/>',
+        },
+        {
+          href: 'https://github.com/sponsors/sibelius',
+          position: 'right',
+          className: 'github-sponsor-logo',
+          html: '<img src="img/gh-sponsor.svg" alt="github-icon" width="25px" style="margin-top: 7px"/>',
+        },
+        {
           href: 'https://github.com/sibelius/zettelkasten',
           position: 'right',
           className: 'github-icon-header',
