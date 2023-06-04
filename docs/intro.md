@@ -1,15 +1,32 @@
 ---
 slug: /
-title: Thoughts and Ideas
+title: Some Sibelius Food for Thought
 sidebar_position: 0
 tags:
-  - writing
+  - sibelius
 ---
 
-This is my new experience on writing my thoughts and ideas.
+I will share some Food for Thought here
 
-I've written many articles, blog posts, content in many platform like Medium, dev.to, custom blog and substack.
+- [Articles](./articles.mdx)
+- [Youtube](./youtube.mdx)
+- [Podcast](./podcast.mdx)
 
-I feel they all lack something. They all sort your article in reverse cronological order.
-The connection among many notes are not easy to find.
-Ideas do not evolve in a cronological order, you need to go back and forth and iterate to refine them.
+## Updates
+
+I will send updates of what I'm working on in a weekly basis
+
+- [Updates](./category/updates)
+
+## Paid Mentorship/Consulting
+
+- [Consulting Startups](./paid-consulting-startups.mdx)
+- [Mentorship Developers](./paid-mentorship-developers.mdx)
+
+## Private Community
+
+- [Private Community](./private-community.mdx)
+
+---
+
+For adhoc discussions with me just ping me on twitter [https://twitter.com/sseraphini](https://twitter.com/sseraphini)
