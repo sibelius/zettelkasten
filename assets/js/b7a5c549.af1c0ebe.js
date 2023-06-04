@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdev_docs=self.webpackChunkdev_docs||[]).push([[2465],{3208:e=>{e.exports=JSON.parse('{"label":"sibelius","permalink":"/zettelkasten/tags/sibelius","allTagsPath":"/zettelkasten/tags","count":1,"items":[{"id":"intro","title":"Some Sibelius Food for Thought","description":"I will share some Food for Thought here","permalink":"/zettelkasten/"}]}')}}]);
