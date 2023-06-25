@@ -11,12 +11,13 @@ I will share some Food for Thought here
 - [Articles](./articles.mdx)
 - [Youtube](./youtube.mdx)
 - [Podcast](./podcast.mdx)
+- [Talks](./talks)
 
 ## Updates
 
 I will send updates of what I'm working on in a weekly basis.
 
-- [Updates](./updates/june-11-2023.md)
+- [Updates](./updates/june-25-2023.md)
 
 ## Paid Mentorship/Consulting
 
