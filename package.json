@@ -40,6 +40,7 @@
     "use-debounce": "^9.0.4"
   },
   "devDependencies": {
+    "gh-pages": "^5.0.0",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.3",
     "prettier": "^2.8.8"
@@ -63,6 +64,7 @@
     "start": "docusaurus start",
     "swizzle": "docusaurus swizzle",
     "write-heading-ids": "docusaurus write-heading-ids",
-    "write-translations": "docusaurus write-translations"
+    "write-translations": "docusaurus write-translations",
+    "publish:docs": "yarn build && gh-pages -d build"
   }
 }
