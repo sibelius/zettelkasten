@@ -18,7 +18,7 @@ export const useUtterances = () => {
 
   const attributes = {
     repo: "sibelius/zettelkasten",
-    'issue-term': "pathname",
+    'issue-term': "url",
     label: "discussion",
     theme: "preferred-color-scheme",
     crossOrigin: "anonymous",
