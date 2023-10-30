@@ -17,7 +17,7 @@ I will share some Food for Thought here
 
 I will send updates of what I'm working on in a weekly basis.
 
-- [Updates](./updates/oct-2023/oct-22-2023)
+- [Updates](./updates/oct-2023/oct-29-2023)
 
 ## Paid Mentorship/Consulting
 
