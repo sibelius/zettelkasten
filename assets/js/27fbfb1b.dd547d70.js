@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdev_docs=self.webpackChunkdev_docs||[]).push([[8602],{4884:e=>{e.exports=JSON.parse('{"label":"private","permalink":"/zettelkasten/tags/private","allTagsPath":"/zettelkasten/tags","count":1,"items":[{"id":"private-community","title":"Private Community","description":"Private Community","permalink":"/zettelkasten/private-community"}]}')}}]);

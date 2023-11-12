@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdev_docs=self.webpackChunkdev_docs||[]).push([[8947],{9945:t=>{t.exports=JSON.parse('{"label":"talks","permalink":"/zettelkasten/tags/talks","allTagsPath":"/zettelkasten/tags","count":1,"items":[{"id":"talks","title":"Talks","description":"This list many talks that I did at conferences and meetups.","permalink":"/zettelkasten/talks"}]}')}}]);
