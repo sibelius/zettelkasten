@@ -1,8 +1,9 @@
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+import {themes} from 'prism-react-renderer';
+const lightCodeTheme = themes.github;
+const darkCodeTheme = themes.dracula;
 
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
-module.exports = {
+export default {
   title: 'Sibelius Zettelkasten',
   tagline: 'Sibelius Zettelkasten - Unfinished thoughts',
   url: 'http://sibelius.github.io',
