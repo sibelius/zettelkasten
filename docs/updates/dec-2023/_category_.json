@@ -1,0 +1,13 @@
+{
+  "label": "updates dec 2023",
+  "collapsible": true,
+  "collapsed": true,
+  "className": "red",
+  "link": {
+    "type": "generated-index",
+    "title": "updates dec 2023 overview"
+  },
+  "customProps": {
+    "description": "updates dec 2023 documentation"
+  }
+}
