@@ -9,8 +9,13 @@ const Embed = (props) => {
     <BrowserOnly>
       {() => {
         const EmbedComponent = require('react-embed').default;
-        
-        return <EmbedComponent isDark={colorMode === 'dark'} {...props} />;
+
+        return (
+          <>
+            <EmbedComponent isDark={colorMode === 'dark'} {...props} />
+            <a href={props.url}>{props.url}</a>
+          </>
+        );
       }}
     </BrowserOnly>
   );
