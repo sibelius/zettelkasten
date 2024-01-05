@@ -21,7 +21,7 @@
     "@docusaurus/preset-classic": "^3.0.0",
     "@mdx-js/react": "3.0.0",
     "@svgr/webpack": "^8.1.0",
-    "clsx": "^2.0.0",
+    "clsx": "^2.1.0",
     "file-loader": "^6.2.0",
     "hygen": "^6.2.11",
     "mdx-embed": "^1.1.2",
