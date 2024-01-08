@@ -17,7 +17,7 @@ I will share some Food for Thought here
 
 I will send updates of what I'm working on in a weekly basis.
 
-- [Updates](updates)
+- [Updates](/category/updates)
 
 ## Paid Mentorship/Consulting
 
