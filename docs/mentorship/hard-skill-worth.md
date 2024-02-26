@@ -37,3 +37,9 @@ Be able to communicate well with everybody, other teams, other developers, non-t
 Be able to use automated tests
 
 Be able to deploy to production without bugs and zero downtime
+
+Be able to explain complex things in a simple way
+
+Be able to control complexity
+
+Be able to reduce scope
