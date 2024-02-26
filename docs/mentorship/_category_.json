@@ -1,0 +1,13 @@
+{
+  "label": "Mentorship",
+  "collapsible": true,
+  "collapsed": true,
+  "className": "red",
+  "link": {
+    "type": "generated-index",
+    "title": "Mentorship overview"
+  },
+  "customProps": {
+    "description": "Mentorship documentation"
+  }
+}
