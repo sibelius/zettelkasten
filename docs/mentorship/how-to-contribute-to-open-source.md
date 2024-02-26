@@ -1,6 +1,6 @@
 ---
-id: how-to-contribute-to-open-source?
-title: how to contribute to open source?
+id: how-to-contribute-to-open-source
+title: how to contribute to open source
 tags:
   - advice
   - mentorship
