@@ -1,6 +1,6 @@
 ---
-id: learning-depth-or-breadth-?
-title: learning depth or breadth ?
+id: learning-depth-or-breadth
+title: learning depth or breadth
 tags:
   - advice
   - mentorship
