@@ -1,5 +1,5 @@
 ---
-id: questions
+id: questions3
 title: Questions
 tags:
   - advice
@@ -12,4 +12,4 @@ tags:
 
 "Me envie uma lista de perguntas que você gostaria que eu respondesse/ajudasse: "
 
--Como me vender melhor para recrutadores?
+-Como me organizar para concluir o meu objetivo futuro que mencionei anteriormente?
