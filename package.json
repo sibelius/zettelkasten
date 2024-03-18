@@ -34,7 +34,7 @@
     "react-dom": "^18.2.0",
     "react-embed": "^3.7.0",
     "rebass": "^4.0.7",
-    "slug": "^8.2.3",
+    "slug": "^9.0.0",
     "styled-components": "^6.1.8",
     "url-loader": "^4.1.1",
     "use-debounce": "^10.0.0"
