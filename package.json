@@ -15,35 +15,35 @@
   },
   "dependencies": {
     "@cmfcmf/docusaurus-search-local": "^1.1.0",
-    "@docusaurus/core": "^3.2.1",
-    "@docusaurus/plugin-google-analytics": "^3.2.1",
-    "@docusaurus/plugin-google-gtag": "^3.2.1",
-    "@docusaurus/preset-classic": "^3.2.1",
+    "@docusaurus/core": "^3.4.0",
+    "@docusaurus/plugin-google-analytics": "^3.4.0",
+    "@docusaurus/plugin-google-gtag": "^3.4.0",
+    "@docusaurus/preset-classic": "^3.4.0",
     "@mdx-js/react": "3.0.1",
     "@svgr/webpack": "^8.1.0",
-    "clsx": "^2.1.0",
+    "clsx": "^2.1.1",
     "file-loader": "^6.2.0",
     "hygen": "^6.2.11",
     "mdx-embed": "^1.1.2",
     "mdx-mermaid": "^2.0.0",
-    "mermaid": "^10.9.0",
+    "mermaid": "^10.9.1",
     "opengraph-react": "^1.3.12",
     "prism-react-renderer": "2.3.1",
     "qrcode.react": "^3.1.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "react-embed": "^3.7.0",
     "rebass": "^4.0.7",
-    "slug": "^9.0.0",
-    "styled-components": "^6.1.8",
+    "slug": "^9.1.0",
+    "styled-components": "^6.1.11",
     "url-loader": "^4.1.1",
-    "use-debounce": "^10.0.0"
+    "use-debounce": "^10.0.1"
   },
   "devDependencies": {
     "gh-pages": "^6.1.1",
     "husky": "^9.0.11",
-    "lint-staged": "^15.2.2",
-    "prettier": "^3.2.5"
+    "lint-staged": "^15.2.5",
+    "prettier": "^3.3.0"
   },
   "lint-staged": {
     "*.{md,mdx}": [
