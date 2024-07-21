@@ -1,0 +1,16 @@
+diff --git a/node_modules/@cmfcmf/docusaurus-search-local/lib/server/parse.js b/node_modules/@cmfcmf/docusaurus-search-local/lib/server/parse.js
+index bf41fa2..fdcf40e 100644
+--- a/node_modules/@cmfcmf/docusaurus-search-local/lib/server/parse.js
++++ b/node_modules/@cmfcmf/docusaurus-search-local/lib/server/parse.js
+@@ -109,7 +109,10 @@ function html2text(html, type, url = "?") {
+                 // <a class="hash-link" href="#first-header" title="Direct link to heading">#</a>
+                 .not("a[aria-hidden=true], a.hash-link")
+                 .text();
+-            const hash = $(heading).find("a.hash-link").attr("href") || "";
++            // const hash = $(heading).find("a.hash-link").attr("href") || "";
++            const linkHash = $(heading).find("a.hash-link").attr("href") || "";
++            const [, hashPart] = linkHash.split("#");
++            const hash = hashPart ? `#${hashPart}` : "";
+             let $sectionElements;
+             if ($(heading).parents(".markdown").length === 0) {
+                 // $(heading) is the page title
