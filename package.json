@@ -62,7 +62,7 @@
     "docusaurus": "docusaurus",
     "postinstall": "patch-package",
     "prepare": "husky",
-    "publish:docs": "yarn build && gh-pages -d build",
+    "publish:docs": "pnpm build && gh-pages -d build",
     "serve": "docusaurus serve",
     "start": "docusaurus start",
     "swizzle": "docusaurus swizzle",
