@@ -7,5 +7,5 @@ if [ "$branch" = "main" ]; then
   exit 1
 fi
 
-yarn lint-staged --no-stash
+pnpm lint-staged --no-stash
 
