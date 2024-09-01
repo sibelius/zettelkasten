@@ -1,4 +1,4 @@
-import QRCodeReact from 'qrcode.react';
+import { QRCodeSVG } from 'qrcode.react';
 import styled from 'styled-components';
 import { Flex } from 'rebass';
 import React from 'react';
@@ -28,7 +28,7 @@ type Props = {
 export const QRCode = ({ value }: Props) => {
   return (
     <QRCodeWrapper>
-      <QRCodeReact renderAs='svg' value={value} includeMargin />
+      <QRCodeSVG value={value} marginSize={4} />
     </QRCodeWrapper>
   );
 };
