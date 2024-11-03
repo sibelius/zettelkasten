@@ -26,7 +26,7 @@
     "hygen": "^6.2.11",
     "mdx-embed": "^1.1.2",
     "mdx-mermaid": "^2.0.1",
-    "mermaid": "^11.3.0",
+    "mermaid": "^11.4.0",
     "opengraph-react": "^2.3.2",
     "prism-react-renderer": "2.4.0",
     "qrcode.react": "^4.1.0",
