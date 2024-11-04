@@ -4,6 +4,18 @@ const darkCodeTheme = themes.dracula;
 
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 export default {
+  future: {
+    experimental_faster: true,
+    // experimental_faster: {
+    //   swcJsLoader: true,
+    //   swcJsMinimizer: true,
+    //   swcHtmlMinimizer: true,
+    //   lightningCssMinimizer: true,
+    //   rspackBundler: true,
+    //   mdxCrossCompilerCache: true,
+    // },
+    // experimental_faster: false,
+  },
   title: 'Sibelius Zettelkasten',
   tagline: 'Sibelius Zettelkasten - Unfinished thoughts',
   url: 'http://sibelius.github.io',
