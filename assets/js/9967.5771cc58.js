@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdev_docs=self.webpackChunkdev_docs||[]).push([["9967"],{9184:function(e,t,r){r.r(t),r.d(t,{default:function(){return c}});var n=r(7294);let c=function(e){var t=e.url;return(0,e.renderWrap)(n.createElement("embed",{src:t,type:"application/pdf",style:{width:"100%",minHeight:600},className:"react-embed--pdf"}))}}}]);
