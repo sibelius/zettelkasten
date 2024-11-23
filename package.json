@@ -15,11 +15,11 @@
   },
   "dependencies": {
     "@cmfcmf/docusaurus-search-local": "^1.2.0",
-    "@docusaurus/core": "^3.6.1",
-    "@docusaurus/faster": "^3.6.1",
-    "@docusaurus/plugin-google-analytics": "^3.6.1",
-    "@docusaurus/plugin-google-gtag": "^3.6.1",
-    "@docusaurus/preset-classic": "^3.6.1",
+    "@docusaurus/core": "^3.6.3",
+    "@docusaurus/faster": "^3.6.3",
+    "@docusaurus/plugin-google-analytics": "^3.6.3",
+    "@docusaurus/plugin-google-gtag": "^3.6.3",
+    "@docusaurus/preset-classic": "^3.6.3",
     "@mdx-js/react": "3.1.0",
     "@svgr/webpack": "^8.1.0",
     "clsx": "^2.1.1",
@@ -42,7 +42,7 @@
   },
   "devDependencies": {
     "gh-pages": "^6.2.0",
-    "husky": "^9.1.6",
+    "husky": "^9.1.7",
     "lint-staged": "^15.2.10",
     "patch-package": "^8.0.0",
     "prettier": "^3.3.3"
