@@ -36,7 +36,7 @@
     "react-embed": "^3.7.0",
     "rebass": "^4.0.7",
     "slug": "^10.0.0",
-    "styled-components": "^6.1.14",
+    "styled-components": "^6.1.15",
     "url-loader": "^4.1.1",
     "use-debounce": "^10.0.4"
   },
@@ -45,7 +45,7 @@
     "husky": "^9.1.7",
     "lint-staged": "^15.4.3",
     "patch-package": "^8.0.0",
-    "prettier": "^3.4.2"
+    "prettier": "^3.5.0"
   },
   "lint-staged": {
     "*.{md,mdx}": [
