@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdev_docs=self.webpackChunkdev_docs||[]).push([["5931"],{3452:function(e,r,t){t.r(r),t.d(r,{default:function(){return n}});var c=t(7294);let n=function(e){var r=e.id;return(0,e.renderWrap)(c.createElement("iframe",{src:"https://gfycat.com/ifr/".concat(r),width:"100%",height:"500px",frameBorder:"0",scrolling:"no",allowFullScreen:!0}))}}}]);

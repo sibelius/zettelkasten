@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkzettelkasten=self.webpackChunkzettelkasten||[]).push([["5931"],{3452:function(e,t,r){r.r(t),r.d(t,{default:function(){return a}});var n=r(7294);let a=function(e){var t=e.id;return(0,e.renderWrap)(n.createElement("iframe",{src:"https://gfycat.com/ifr/".concat(t),width:"100%",height:"500px",frameBorder:"0",scrolling:"no",allowFullScreen:!0}))}}}]);
