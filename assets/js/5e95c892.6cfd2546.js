@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkzettelkasten=self.webpackChunkzettelkasten||[]).push([["3432"],{1359:function(e,t,n){n.r(t),n.d(t,{default:function(){return k}});var r=n(5893);n(7294);var s=n(7026),u=n(4713),a=n(4681),c=n(8790),l=n(9714);function k(e){return(0,r.jsx)(u.FG,{className:(0,s.Z)(a.k.wrapper.docsPages),children:(0,r.jsx)(l.Z,{children:(0,c.H)(e.route.routes)})})}}}]);
