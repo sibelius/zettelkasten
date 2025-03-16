@@ -27,7 +27,7 @@
     "hygen": "^6.2.11",
     "mdx-embed": "^1.1.2",
     "mdx-mermaid": "^2.0.3",
-    "mermaid": "^11.4.1",
+    "mermaid": "^11.5.0",
     "opengraph-react": "^2.4.2",
     "prism-react-renderer": "2.4.1",
     "qrcode.react": "^4.2.0",
@@ -43,7 +43,7 @@
   "devDependencies": {
     "gh-pages": "^6.3.0",
     "husky": "^9.1.7",
-    "lint-staged": "^15.4.3",
+    "lint-staged": "^15.5.0",
     "patch-package": "^8.0.0",
     "prettier": "^3.5.3"
   },
