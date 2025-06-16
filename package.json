@@ -36,14 +36,14 @@
     "react-embed": "^3.7.0",
     "rebass": "^4.0.7",
     "slug": "^11.0.0",
-    "styled-components": "^6.1.18",
+    "styled-components": "^6.1.19",
     "url-loader": "^4.1.1",
     "use-debounce": "^10.0.5"
   },
   "devDependencies": {
     "gh-pages": "^6.3.0",
     "husky": "^9.1.7",
-    "lint-staged": "^16.1.0",
+    "lint-staged": "^16.1.2",
     "patch-package": "^8.0.0",
     "prettier": "^3.5.3"
   },
