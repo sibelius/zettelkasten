@@ -1,13 +1,13 @@
 {
-  "label": "updates july 2025",
+  "label": "updates aug 2025",
   "collapsible": true,
   "collapsed": true,
   "className": "red",
   "link": {
     "type": "generated-index",
-    "title": "updates july 2025 overview"
+    "title": "updates aug 2025 overview"
   },
   "customProps": {
-    "description": "updates july 2025 documentation"
+    "description": "updates aug 2025 documentation"
   }
 }
