@@ -5,8 +5,9 @@ const darkCodeTheme = themes.dracula;
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 export default {
   future: {
-    experimental_faster: true,
-    // experimental_faster: {
+    v4: true,
+    faster: true,
+    // faster: {
     //   swcJsLoader: true,
     //   swcJsMinimizer: true,
     //   swcHtmlMinimizer: true,
@@ -14,18 +15,22 @@ export default {
     //   rspackBundler: true,
     //   mdxCrossCompilerCache: true,
     // },
-    // experimental_faster: false,
+    // faster: false,
   },
   title: 'Sibelius Zettelkasten',
   tagline: 'Sibelius Zettelkasten - Unfinished thoughts',
   url: 'http://sibelius.github.io',
   baseUrl: '/zettelkasten',
   onBrokenLinks: 'log',
-  onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
   organizationName: 'sibelius', // Usually your GitHub org/user name.
   projectName: 'zettelkasten', // Usually your repo name.
   trailingSlash: false,
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
+  },
   plugins: [
     [require.resolve('@cmfcmf/docusaurus-search-local'), {
       indexBlog: false,
@@ -107,10 +112,6 @@ export default {
         blog: false,
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
-        },
-        gtag: {
-          trackingID: 'G-3SK393X2BR',
-          anonymizeIP: true,
         },
       },
     ],
