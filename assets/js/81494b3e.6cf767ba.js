@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkzettelkasten=self.webpackChunkzettelkasten||[]).push([["7578"],{99104(e){e.exports=JSON.parse('{"tag":{"label":"bio","permalink":"/zettelkasten/tags/bio","allTagsPath":"/zettelkasten/tags","count":1,"items":[{"id":"bio","title":"Bio","description":"Bio","permalink":"/zettelkasten/bio"}],"unlisted":false}}')}}]);
