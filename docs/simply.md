@@ -1,5 +1,5 @@
 ---
-id: simplfy
+id: simply
 title: Simply
 tags:
   - simply

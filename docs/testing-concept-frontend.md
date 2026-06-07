@@ -1,5 +1,5 @@
 ---
-id: testing-concept-fronted
+id: testing-concept-frontend
 title: Testing Concept Frontend
 tags:
   - testing
@@ -25,10 +25,10 @@ code:
 
 ```jsx
 const emailInput = getByTestId(emailTestId);
-fireEvent.onChange(emailInput, { target: { value: 'email@email.com.br' }})
+fireEvent.onChange(emailInput, { target: { value: 'email@email.com.br' } });
 
 const passwordInput = getByTestId(passwordTestId);
-fireEvent.onChange(passwordInput, { target: { value: 'pwd' }})
+fireEvent.onChange(passwordInput, { target: { value: 'pwd' } });
 
 const submitButton = getByText('Login').closest('button');
 fireEvent.click(submitButton);
