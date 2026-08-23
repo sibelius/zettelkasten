@@ -1,4 +1,4 @@
-const slug = require('slug');
+const slug = require('slug').default;
 
 module.exports = {
   helpers: {
