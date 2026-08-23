@@ -1,0 +1,576 @@
+/* ── Slip-box landing page ─────────────────────────────────────────────────
+   Palette: a wooden card index lit from above. Brass (#E6C879) is the same
+   value the constellation canvas draws its nodes with, so the type and the
+   graph share one ink.                                                      */
+
+.page {
+  --void: #08090d;
+  --drawer: #101217;
+  --drawer-hi: #171a21;
+  --brass: #e6c879;
+  --brass-dim: #8a7742;
+  --paper: #ede4d0;
+  --patina: #79b7a6;
+  --mute: #8b8e98;
+  --hair: rgba(230, 200, 121, 0.14);
+  --hair-hi: rgba(230, 200, 121, 0.42);
+
+  --display: 'Fraunces', 'Iowan Old Style', Georgia, serif;
+  --body: 'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --util: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
+
+  background: var(--void);
+  color: #d8dae0;
+  font-family: var(--body);
+  overflow-x: clip;
+}
+
+.wrap {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Utility label: mono, wide, small. Used for every eyebrow and count. */
+.util {
+  font-family: var(--util);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--brass-dim);
+}
+
+/* ── Hero ──────────────────────────────────────────────────────────────── */
+
+.hero {
+  position: relative;
+  display: grid;
+  align-items: center;
+  min-height: min(86vh, 780px);
+  padding: 88px 0 72px;
+  isolation: isolate;
+}
+
+.heroField {
+  position: absolute;
+  inset: -1px;
+  z-index: -2;
+  overflow: hidden;
+  pointer-events: none;
+  background:
+    radial-gradient(120% 80% at 50% 0%, #12162a 0%, transparent 60%),
+    var(--void);
+}
+
+.heroField > * {
+  width: 100%;
+  height: 100%;
+}
+
+/* Keeps the headline legible where the node field is densest. */
+.heroVeil {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      100deg,
+      rgba(8, 9, 13, 0.95) 0%,
+      rgba(8, 9, 13, 0.88) 36%,
+      rgba(8, 9, 13, 0.3) 62%,
+      transparent 80%
+    ),
+    linear-gradient(to bottom, transparent 62%, var(--void) 100%);
+}
+
+.heroInner {
+  max-width: 780px;
+}
+
+.eyebrow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  align-items: center;
+  margin-bottom: 26px;
+}
+
+.eyebrowDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--brass);
+  box-shadow: 0 0 12px var(--brass);
+}
+
+.title {
+  margin: 0;
+  font-family: var(--display);
+  font-optical-sizing: none;
+  font-variation-settings: 'SOFT' 40, 'WONK' 1, 'opsz' 120;
+  font-weight: 400;
+  font-size: clamp(2.7rem, 8.4vw, 5.6rem);
+  line-height: 0.94;
+  letter-spacing: -0.02em;
+  color: var(--paper);
+}
+
+.titleAccent {
+  display: block;
+  color: var(--brass);
+  font-style: italic;
+  font-variation-settings: 'SOFT' 90, 'WONK' 1, 'opsz' 120;
+}
+
+.lede {
+  margin: 28px 0 0;
+  max-width: 54ch;
+  font-size: clamp(1rem, 1.5vw, 1.16rem);
+  line-height: 1.65;
+  color: #b6b9c2;
+}
+
+.lede a {
+  color: var(--patina);
+  text-decoration-color: rgba(121, 183, 166, 0.4);
+  text-underline-offset: 3px;
+}
+
+.lede a:hover {
+  color: var(--paper);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 36px;
+}
+
+.btn {
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+  padding: 13px 22px;
+  border-radius: 2px;
+  border: 1px solid var(--hair-hi);
+  font-family: var(--util);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+}
+
+.btnPrimary {
+  background: var(--brass);
+  border-color: var(--brass);
+  color: #0a0b0f;
+}
+
+.btnPrimary:hover {
+  background: var(--paper);
+  border-color: var(--paper);
+  color: #0a0b0f;
+  text-decoration: none;
+}
+
+.btnGhost {
+  background: rgba(16, 18, 23, 0.6);
+  color: var(--paper);
+  backdrop-filter: blur(6px);
+}
+
+.btnGhost:hover {
+  background: var(--drawer-hi);
+  border-color: var(--brass);
+  color: var(--brass);
+  text-decoration: none;
+}
+
+.btnDice {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+/* ── Ledger: real counts, read from the docs plugin ─────────────────────── */
+
+.ledger {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  border-top: 1px solid var(--hair);
+  border-bottom: 1px solid var(--hair);
+}
+
+.ledgerCell {
+  padding: 26px 24px;
+  border-right: 1px solid var(--hair);
+}
+
+.ledgerCell:last-child {
+  border-right: 0;
+}
+
+.ledgerNum {
+  font-family: var(--display);
+  font-variation-settings: 'SOFT' 20, 'WONK' 0, 'opsz' 60;
+  font-size: 2.1rem;
+  line-height: 1;
+  color: var(--paper);
+}
+
+.ledgerLabel {
+  margin-top: 8px;
+  font-family: var(--util);
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+
+/* ── Sections ──────────────────────────────────────────────────────────── */
+
+.section {
+  padding: 64px 0;
+}
+
+.sectionHead {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 36px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--hair);
+}
+
+.sectionTitle {
+  margin: 0;
+  font-family: var(--display);
+  font-variation-settings: 'SOFT' 40, 'WONK' 1, 'opsz' 90;
+  font-weight: 400;
+  font-size: clamp(1.7rem, 3.4vw, 2.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+  color: var(--paper);
+}
+
+.sectionNote {
+  max-width: 34ch;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--mute);
+}
+
+/* ── Drawers ───────────────────────────────────────────────────────────── */
+
+.drawers {
+  display: grid;
+  gap: 1px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  background: var(--hair);
+  border: 1px solid var(--hair);
+}
+
+.drawer {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 30px 28px 26px;
+  background: var(--drawer);
+  transition: background 0.2s ease;
+}
+
+.drawer:hover {
+  background: var(--drawer-hi);
+}
+
+.drawerTop {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.drawerLabel {
+  font-family: var(--display);
+  font-variation-settings: 'SOFT' 30, 'WONK' 1, 'opsz' 40;
+  font-size: 1.4rem;
+  line-height: 1.1;
+  color: var(--paper);
+  text-decoration: none;
+}
+
+.drawerLabel:hover {
+  color: var(--brass);
+  text-decoration: none;
+}
+
+.drawerCount {
+  flex: none;
+  font-family: var(--util);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  color: var(--brass-dim);
+  white-space: nowrap;
+}
+
+.drawerBlurb {
+  margin: 0;
+  font-size: 0.93rem;
+  line-height: 1.6;
+  color: var(--mute);
+}
+
+.picks {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 6px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pick {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  padding: 7px 0;
+  border-top: 1px solid rgba(230, 200, 121, 0.08);
+  font-size: 0.9rem;
+  color: #c3c6ce;
+  text-decoration: none;
+}
+
+.pick:hover {
+  color: var(--brass);
+  text-decoration: none;
+}
+
+.pickArrow {
+  flex: none;
+  font-family: var(--util);
+  font-size: 0.7rem;
+  color: var(--brass-dim);
+}
+
+/* ── Channels ──────────────────────────────────────────────────────────── */
+
+.channels {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fill, minmax(232px, 1fr));
+}
+
+.channel {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  padding: 16px 18px;
+  border: 1px solid var(--hair);
+  border-radius: 3px;
+  background: var(--drawer);
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 0.18s ease, transform 0.18s ease, background 0.18s ease;
+}
+
+.channel:hover {
+  border-color: color-mix(in srgb, var(--hue, var(--brass)) 55%, transparent);
+  background: var(--drawer-hi);
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+.channelIcon {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 3px;
+  background: color-mix(in srgb, var(--hue, var(--brass)) 12%, transparent);
+  color: var(--hue, var(--brass));
+}
+
+.channelText {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.channelName {
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: var(--paper);
+}
+
+.channelHandle {
+  font-family: var(--util);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  color: var(--mute);
+  overflow-wrap: anywhere;
+}
+
+/* ── Offers ────────────────────────────────────────────────────────────── */
+
+.offers {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.offer {
+  display: flex;
+  flex-direction: column;
+  padding: 28px 26px;
+  border: 1px solid var(--hair);
+  border-radius: 3px;
+  background: linear-gradient(180deg, var(--drawer) 0%, #0c0e13 100%);
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 0.18s ease;
+}
+
+.offer:hover {
+  border-color: var(--hair-hi);
+  text-decoration: none;
+}
+
+.offerFor {
+  font-family: var(--util);
+  font-size: 0.64rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--patina);
+}
+
+.offerTitle {
+  margin: 12px 0 0;
+  font-family: var(--display);
+  font-variation-settings: 'SOFT' 30, 'WONK' 1, 'opsz' 50;
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 1.15;
+  color: var(--paper);
+}
+
+.offerPrice {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+  margin: 18px 0 20px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--hair);
+}
+
+.offerPriceNum {
+  font-family: var(--display);
+  font-variation-settings: 'SOFT' 10, 'WONK' 0, 'opsz' 60;
+  font-size: 1.9rem;
+  line-height: 1;
+  color: var(--brass);
+}
+
+.offerCadence {
+  font-family: var(--util);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  color: var(--mute);
+}
+
+.offerList {
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.offerItem {
+  display: flex;
+  gap: 10px;
+  padding: 7px 0;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: #bcbfc8;
+}
+
+.offerBullet {
+  flex: none;
+  color: var(--brass-dim);
+}
+
+.offerCta {
+  margin-top: 22px;
+  font-family: var(--util);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--brass);
+}
+
+/* ── Closing ───────────────────────────────────────────────────────────── */
+
+.closing {
+  padding: 96px 0 110px;
+  border-top: 1px solid var(--hair);
+  text-align: center;
+}
+
+.closingQuote {
+  max-width: 24ch;
+  margin: 0 auto;
+  font-family: var(--display);
+  font-variation-settings: 'SOFT' 60, 'WONK' 1, 'opsz' 120;
+  font-weight: 400;
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--paper);
+}
+
+.closingNote {
+  margin: 24px auto 0;
+  max-width: 46ch;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--mute);
+}
+
+.closingNote a {
+  color: var(--patina);
+}
+
+@media (max-width: 860px) {
+  /* No room for a side-lit scrim on a narrow screen: dim the whole field. */
+  .heroVeil {
+    background:
+      linear-gradient(to bottom, rgba(8, 9, 13, 0.9) 0%, rgba(8, 9, 13, 0.82) 70%, var(--void) 100%);
+  }
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 60px 0;
+  }
+
+  .ledgerCell {
+    padding: 20px 18px;
+  }
+
+  .drawer {
+    padding: 24px 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .channel:hover {
+    transform: none;
+  }
+}

@@ -1,5 +1,5 @@
 ---
-slug: /
+slug: /food-for-thought
 title: Some Sibelius Food for Thought
 sidebar_position: 0
 tags:
