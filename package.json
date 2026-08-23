@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@cmfcmf/docusaurus-search-local": "^2.0.1",
+    "@designcodeio/threeui": "^0.3.0",
     "@docusaurus/core": "^3.10.2",
     "@docusaurus/faster": "^3.10.2",
     "@docusaurus/preset-classic": "^3.10.2",
@@ -36,6 +37,7 @@
     "rebass": "^4.0.7",
     "slug": "^12.0.1",
     "styled-components": "^6.5.3",
+    "three": "^0.185.1",
     "url-loader": "^4.1.1",
     "use-debounce": "^10.1.1"
   },

@@ -11,6 +11,9 @@ importers:
       '@cmfcmf/docusaurus-search-local':
         specifier: ^2.0.1
         version: 2.0.1(@docusaurus/core@3.10.2(@docusaurus/faster@3.10.2(@docusaurus/types@3.10.2(@swc/core@1.16.1)(postcss@8.5.26)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(postcss@8.5.26))(@mdx-js/react@3.1.1(@types/react@19.2.18)(react@19.2.8))(@rspack/core@1.7.12)(@swc/core@1.16.1)(postcss@8.5.26)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(search-insights@2.17.2)
+      '@designcodeio/threeui':
+        specifier: ^0.3.0
+        version: 0.3.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(three@0.185.1)
       '@docusaurus/core':
         specifier: ^3.10.2
         version: 3.10.2(@docusaurus/faster@3.10.2(@docusaurus/types@3.10.2(@swc/core@1.16.1)(postcss@8.5.26)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(postcss@8.5.26))(@mdx-js/react@3.1.1(@types/react@19.2.18)(react@19.2.8))(@rspack/core@1.7.12)(@swc/core@1.16.1)(postcss@8.5.26)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
@@ -74,6 +77,9 @@ importers:
       styled-components:
         specifier: ^6.5.3
         version: 6.5.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      three:
+        specifier: ^0.185.1
+        version: 0.185.1
       url-loader:
         specifier: ^4.1.1
         version: 4.1.1(file-loader@6.2.0(webpack@5.109.2(@swc/core@1.16.1)(postcss@8.5.26)))(webpack@5.109.2(@swc/core@1.16.1)(postcss@8.5.26))
@@ -1145,6 +1151,13 @@ packages:
     engines: {node: '>=18'}
     peerDependencies:
       postcss: ^8.4
+
+  '@designcodeio/threeui@0.3.0':
+    resolution: {integrity: sha512-i9H4Hxf5iGaPYFzAL1vvHc3NFWbutL3pXoj+IyI3DzMsaIkzhNaMeFX/sYdYiNDkGrBCc7Q0N4exr+7Uxm/SSQ==}
+    peerDependencies:
+      react: '>=18 <20'
+      react-dom: '>=18 <20'
+      three: '>=0.149 <1'
 
   '@discoveryjs/json-ext@0.5.7':
     resolution: {integrity: sha512-dBVuXR082gk3jsFp7Rd/JI4kytwGHecnCoTtXFb7DB6CNHp4rg5k1bhg0nWdLGLnOV71lmDzGQaLMy8iPLY0pw==}
@@ -6687,6 +6700,15 @@ packages:
     peerDependencies:
       tslib: ^2
 
+  three@0.128.0:
+    resolution: {integrity: sha512-i0ap/E+OaSfzw7bD1TtYnPo3VEplkl70WX5fZqZnfZsE3k3aSFudqrrC9ldFZfYFkn1zwDmBcdGfiIm/hnbyZA==}
+
+  three@0.165.0:
+    resolution: {integrity: sha512-cc96IlVYGydeceu0e5xq70H8/yoVT/tXBxV/W8A/U6uOq7DXc4/s1Mkmnu6SqoYGhSRWWYFOhVwvq6V0VtbplA==}
+
+  three@0.185.1:
+    resolution: {integrity: sha512-5aojFCXKwnjBRZvUnt3WFfEcvUJgkN5LlijRFN95hMy8WVkG4I0QNcJE+OuWvuJ0bOdStrbfXn0pkd6/QyiAlg==}
+
   throttle-debounce@3.0.1:
     resolution: {integrity: sha512-dTEWWNu6JmeVXY0ZYoPuH5cRIwc0MeGbJwah9KUNYSJwommQpCzTySTpEe8Gs1J23aeWEuAobe4Ag7EHVt/LOg==}
     engines: {node: '>=10'}
@@ -8503,6 +8525,14 @@ snapshots:
   '@csstools/utilities@2.0.0(postcss@8.5.26)':
     dependencies:
       postcss: 8.5.26
+
+  '@designcodeio/threeui@0.3.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(three@0.185.1)':
+    dependencies:
+      react: 19.2.8
+      react-dom: 19.2.8(react@19.2.8)
+      three: 0.185.1
+      three128: three@0.128.0
+      three165: three@0.165.0
 
   '@discoveryjs/json-ext@0.5.7': {}
 
@@ -16149,6 +16179,12 @@ snapshots:
   thingies@2.6.1(tslib@2.8.1):
     dependencies:
       tslib: 2.8.1
+
+  three@0.128.0: {}
+
+  three@0.165.0: {}
+
+  three@0.185.1: {}
 
   throttle-debounce@3.0.1: {}
 

@@ -32,3 +32,60 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   display: flex;
   align-items: center;
 }
+
+/* ── Home page chrome ──────────────────────────────────────────────────────
+   The landing page is committed to dark in both color modes, so the navbar
+   and footer follow it there instead of flipping to light behind a black
+   hero. Scoped to the home wrapper only; every doc page keeps Infima's own
+   light/dark chrome.                                                        */
+
+html:has(.slipbox-home) {
+  --slipbox-void: #08090d;
+  --slipbox-paper: #ede4d0;
+  --slipbox-brass: #e6c879;
+  --slipbox-mute: #8b8e98;
+  --slipbox-hair: rgba(230, 200, 121, 0.14);
+}
+
+html:has(.slipbox-home) .navbar {
+  background: var(--slipbox-void);
+  box-shadow: inset 0 -1px 0 var(--slipbox-hair);
+}
+
+html:has(.slipbox-home) .navbar__title,
+html:has(.slipbox-home) .navbar__link,
+html:has(.slipbox-home) .navbar__toggle,
+html:has(.slipbox-home) .navbar .clean-btn {
+  color: var(--slipbox-paper);
+}
+
+html:has(.slipbox-home) .navbar__link:hover {
+  color: var(--slipbox-brass);
+}
+
+html:has(.slipbox-home) .aa-DetachedSearchButton {
+  border-color: var(--slipbox-hair);
+  background: rgba(23, 26, 33, 0.8);
+  color: var(--slipbox-mute);
+}
+
+html:has(.slipbox-home) .footer {
+  border-top: 1px solid var(--slipbox-hair);
+  background: var(--slipbox-void);
+  --ifm-footer-background-color: var(--slipbox-void);
+  --ifm-footer-color: var(--slipbox-mute);
+  --ifm-footer-link-color: var(--slipbox-mute);
+}
+
+/* The GitHub mark ships as black artwork; flip it so it reads on the dark bar. */
+html:has(.slipbox-home) .github-icon-header img {
+  filter: invert(1);
+}
+
+/* On narrow screens the site title and the search field fight for the same
+   row. Keep the logo, drop the wordmark. */
+@media (max-width: 480px) {
+  .navbar__title {
+    display: none;
+  }
+}
