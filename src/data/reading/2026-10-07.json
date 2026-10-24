@@ -1,0 +1,12 @@
+[
+  {
+    "url": "https://github.com/data-privacy-stack/presidio",
+    "note": "",
+    "kind": "repo",
+    "host": "github.com",
+    "title": "data-privacy-stack/presidio",
+    "description": "An open-source framework for detecting, redacting, masking, and anonymizing sensitive data (PII) across text, images, and structured data. Supports NLP, pattern matching, and customizable pipelines.",
+    "site": "GitHub",
+    "image": "https://opengraph.githubassets.com/5efdc632e8b5b31b81e28924d2a4e706d1995a3dc2de7fdb3c161a131d95121d/data-privacy-stack/presidio"
+  }
+]

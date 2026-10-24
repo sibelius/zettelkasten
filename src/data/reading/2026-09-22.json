@@ -1,0 +1,22 @@
+[
+  {
+    "url": "https://github.com/h4vismat/openigor",
+    "note": "",
+    "kind": "repo",
+    "host": "github.com",
+    "title": "h4vismat/openigor",
+    "description": "Contribute to h4vismat/openigor development by creating an account on GitHub.",
+    "site": "GitHub",
+    "image": "https://opengraph.githubassets.com/cf7029d93b3241c36e428e3bb73044d0157c1453ef3396cd3e1203d3610ad2c4/h4vismat/openigor"
+  },
+  {
+    "url": "https://www.pdfcn.dev/",
+    "note": "",
+    "kind": "tool",
+    "host": "pdfcn.dev",
+    "title": "pdfcn",
+    "description": "A collection of beautifully designed, accessible, and customizable PDF components. Built on Takumi and Forme. Works with shadcn/ui.",
+    "site": "pdfcn",
+    "image": "https://www.pdfcn.dev/og.png"
+  }
+]

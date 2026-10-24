@@ -1,0 +1,52 @@
+[
+  {
+    "url": "https://github.com/onnx/onnx",
+    "note": "",
+    "kind": "repo",
+    "host": "github.com",
+    "title": "onnx/onnx",
+    "description": "Open standard for machine learning interoperability",
+    "site": "GitHub",
+    "image": "https://opengraph.githubassets.com/bb40d2a57b399f7a3804d4db25108682f6d9250643f633d352b518111c14a93d/onnx/onnx"
+  },
+  {
+    "url": "https://kserve.github.io/website/",
+    "note": "",
+    "kind": "article",
+    "host": "kserve.github.io",
+    "title": "KServe",
+    "description": "KServe - A Kubernetes-native platform for serving machine learning models with standardized protocols for both predictive and generative AI. Scale to zero, GPU acceleration, and multi-framework support.",
+    "site": null,
+    "image": "https://kserve.github.io/website/img/kserve-logo-small.png"
+  },
+  {
+    "url": "https://data-intensive-visualized.vercel.app/",
+    "note": "",
+    "kind": "tool",
+    "host": "data-intensive-visualized.vercel.app",
+    "title": "Data-Intensive, visualized",
+    "description": "Interactive simulations of Martin Kleppmann's Designing Data-Intensive Applications: LSM-trees and B-trees, replication lag, quorums, partitioning, isolation anomalies, clocks, consensus, MapReduce and stream processing.",
+    "site": "Data-Intensive, visualized",
+    "image": "https://data-intensive-visualized.vercel.app/opengraph-image?5890c3b7e87ec121"
+  },
+  {
+    "url": "https://principles-of-product-development.vercel.app/",
+    "note": "",
+    "kind": "tool",
+    "host": "principles-of-product-development.vercel.app",
+    "title": "Product Development Flow, visualized",
+    "description": "Interactive simulations of the ideas in Don Reinertsen's The Principles of Product Development Flow: cost of delay, queues, variability, batch size, WIP, cadence, feedback and decentralized control.",
+    "site": "Flow, visualized",
+    "image": "https://principles-of-product-development.vercel.app/opengraph-image?61ba72029fc49be1"
+  },
+  {
+    "url": "https://x.com/karpathy/status/2105819303471976479",
+    "note": "",
+    "kind": "post",
+    "host": "x.com",
+    "title": "We'll be spending a lot more time trying to understand the outputs of language models. A few thoughts, tips & tricks:  Writing. Something I've had success with: Ask your LLM to explain something in ASD-STE100, it's a controlled language specification originally developed for… pic.twitter.com/uMFWTcBCsl",
+    "description": null,
+    "site": "Andrej Karpathy (@karpathy)",
+    "image": null
+  }
+]

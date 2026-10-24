@@ -1,0 +1,12 @@
+[
+  {
+    "url": "https://softwaremill.com/managing-kafka-with-ai-and-mcp/",
+    "note": "",
+    "kind": "article",
+    "host": "softwaremill.com",
+    "title": "Managing Kafka with AI and MCP: A Hands-On mcp-confluent Guide",
+    "description": "Discover how to integrate Kafka, AI, and the Model Context Protocol (MCP). Learn how to set up mcpconfluent with Claude Code, manage clusters, and overcome CLI hurdles.",
+    "site": "SoftwareMill",
+    "image": "https://softwaremill.com/user/pages/blog/managing-kafka-with-ai-and-mcp/qoke7cpddtyrasi.jpg?g-3c1194ed"
+  }
+]

@@ -1,0 +1,22 @@
+[
+  {
+    "url": "https://www.centralcomputer.com/nvidia-dgx-spark-grace-blackwell-architecture-20-core-arm-10-cortex-x925-10-cortex-a725-128gb-lpddr5x-1-000-ai-tops-dgx-os.html",
+    "note": "",
+    "kind": "article",
+    "host": "centralcomputer.com",
+    "title": "Nvidia dgx spark grace blackwell architecture 20 core arm 10 cortex x925 10 cortex a725 128gb lpddr5x 1 000 ai tops dgx os",
+    "description": null,
+    "site": null,
+    "image": null
+  },
+  {
+    "url": "https://www.anthropic.com/engineering/building-effective-agents",
+    "note": "",
+    "kind": "article",
+    "host": "anthropic.com",
+    "title": "Building effective AI agents",
+    "description": "Practical guidance from Anthropic on building reliable AI agents, from simple composable patterns to fully autonomous systems.",
+    "site": null,
+    "image": "https://www-cdn.anthropic.com/images/4zrzovbb/website/d356638d9823fd692c42b2477fcac214ed3b236f-1200x630.jpg"
+  }
+]

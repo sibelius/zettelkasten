@@ -1,0 +1,32 @@
+[
+  {
+    "url": "https://www.anthropic.com/research/glm-5-3-and-the-spread-of-advanced-cyber-capabilities",
+    "note": "",
+    "kind": "article",
+    "host": "anthropic.com",
+    "title": "GLM-5.3 and the spread of advanced cyber capabilities",
+    "description": "GLM-5.3 can autonomously build end-to-end cyber exploits, but unlike other frontier models, it was released without meaningful safeguards to limit misuse.",
+    "site": null,
+    "image": "https://www-cdn.anthropic.com/images/4zrzovbb/website/e085bdfb9c7f08b59b49faf2cda32d4faf152b66-1200x630.jpg"
+  },
+  {
+    "url": "https://x.com/shadcnlabs/status/2104840500847263794",
+    "note": "",
+    "kind": "post",
+    "host": "x.com",
+    "title": "Introducing pdfcn  Build beautiful PDFs like you build your UI.  Powered by Takumi + Forme. Pick from 10+ themes, 40+ components & blocks, then customize everything.  One command to get started. shadcn/ui compatible.  100% Free. Open source. pic.twitter.com/15qZPBhbps",
+    "description": null,
+    "site": "Shadcn Labs (@shadcnlabs)",
+    "image": null
+  },
+  {
+    "url": "https://x.com/morett_the_best/status/2104890565783376040",
+    "note": "",
+    "kind": "post",
+    "host": "x.com",
+    "title": "Na Monest a gente processa mais de 100 milhões de jobs por dia, e isso é difícil p kct.  Nossa stack é simprona: NestJS + BullMQ.  E o problema de um sistema 99% backend é monitorar tudo isso, 100 milhões de jobs por dia sendo processados em mais de 25 contêineres Node.  É óbvio,…",
+    "description": null,
+    "site": "madmorett, CTO at Monest (@Morett_the_best)",
+    "image": null
+  }
+]

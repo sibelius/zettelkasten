@@ -1,0 +1,42 @@
+[
+  {
+    "url": "https://x.com/thorstenball/status/2111115720637722945",
+    "note": "",
+    "kind": "post",
+    "host": "x.com",
+    "title": "Details:  - We push to main - Buildkite runs tests and builds images - GitHub Actions then runs infrastructure security checks and kicks off deployments - Failed check blocks deployment, pings commit author in Slack - CI keeps running on later pushes while we fix it - Later fixes… https://t.co/xTlzAVyVQp",
+    "description": null,
+    "site": "Thorsten Ball (@thorstenball)",
+    "image": null
+  },
+  {
+    "url": "https://x.com/bcherny/status/2111158659971699136",
+    "note": "",
+    "kind": "post",
+    "host": "x.com",
+    "title": "Don't sleep on Claude Slides. This is how I make slide decks now -- no more googling \"iphone frame svg\" like the old days  Try it: https://t.co/cAWdwarzgp pic.twitter.com/POdqFL9oIP",
+    "description": null,
+    "site": "Boris Cherny (@bcherny)",
+    "image": null
+  },
+  {
+    "url": "https://x.com/alidalton/status/2111132067660800263",
+    "note": "",
+    "kind": "post",
+    "host": "x.com",
+    "title": "Docs app for an analytics Startup  Light mode 💡 pic.twitter.com/OoFjItPpiH",
+    "description": null,
+    "site": "Ali Dalton (@alidalton)",
+    "image": null
+  },
+  {
+    "url": "https://x.com/thorstenball/status/2111130129355481240",
+    "note": "",
+    "kind": "post",
+    "host": "x.com",
+    "title": "Why are you still using pull requests?  Is it for code review?  If so, do you really think your or your colleagues catch bugs and mistakes that an Opus 5.5 or Fable or Astra won't find? You can literally spawn all three of them and have them check four times each.  (Also, don't…",
+    "description": null,
+    "site": "Thorsten Ball (@thorstenball)",
+    "image": null
+  }
+]

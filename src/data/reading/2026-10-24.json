@@ -1,0 +1,22 @@
+[
+  {
+    "url": "https://cve.now/",
+    "note": "",
+    "kind": "tool",
+    "host": "cve.now",
+    "title": "cve.now: a free CVE feed for agents",
+    "description": "A free CVE feed for agents.",
+    "site": "cve.now",
+    "image": "https://cve.now/og-share-v4.jpg"
+  },
+  {
+    "url": "https://sophiebits.com/2020/01/01/fast-maintainable-db-patterns",
+    "note": "",
+    "kind": "article",
+    "host": "sophiebits.com",
+    "title": "Fast and maintainable patterns for fetching from a database",
+    "description": null,
+    "site": null,
+    "image": null
+  }
+]

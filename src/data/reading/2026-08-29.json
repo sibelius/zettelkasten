@@ -1,0 +1,12 @@
+[
+  {
+    "url": "https://pnpm.io/git-worktrees",
+    "note": "",
+    "kind": "article",
+    "host": "pnpm.io",
+    "title": "pnpm + Git Worktrees for Multi-Agent Development | pnpm",
+    "description": "When multiple AI agents need to work on the same monorepo simultaneously, they each need an isolated working copy with fully functional node_modules. Git worktrees combined with pnpm's global virtual store make this practical: each worktree gets its own checkout and its own node_modules, but...",
+    "site": "pnpm",
+    "image": "https://pnpm.io/img/ogimage.png"
+  }
+]

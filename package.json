@@ -38,7 +38,7 @@
     "preview": "astro preview",
     "check": "astro check",
     "sync": "node scripts/sync-content.mjs",
-    "sync:reading": "node scripts/sync-reading.mjs",
+    "reading": "node scripts/sync-reading.mjs",
     "prepare": "husky",
     "publish:docs": "pnpm build && gh-pages -d dist"
   }

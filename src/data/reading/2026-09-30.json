@@ -1,0 +1,32 @@
+[
+  {
+    "url": "https://gtor-visualized.vercel.app/",
+    "note": "",
+    "kind": "tool",
+    "host": "gtor-visualized.vercel.app",
+    "title": "GTOR, visualized",
+    "description": "Interactive visualizations of Kris Kowal's A General Theory of Reactivity: iterators, promises, tasks, streams, signals and behaviors, running live.",
+    "site": "GTOR, visualized",
+    "image": "https://gtor-visualized.vercel.app/opengraph-image?960999fbf96ac353"
+  },
+  {
+    "url": "https://fate.technology/",
+    "note": "",
+    "kind": "tool",
+    "host": "fate.technology",
+    "title": "fate",
+    "description": "A modern data client for the web.",
+    "site": null,
+    "image": "https://fate.technology/og-image.png"
+  },
+  {
+    "url": "https://github.com/shap/shap",
+    "note": "",
+    "kind": "repo",
+    "host": "github.com",
+    "title": "shap/shap",
+    "description": "A game theoretic approach to explain the output of any machine learning model.",
+    "site": "GitHub",
+    "image": "https://opengraph.githubassets.com/79845df733acb812f8fd16d181385b11bde1de8b7838f67ed1d0be04c5a02512/shap/shap"
+  }
+]

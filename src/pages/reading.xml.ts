@@ -1,8 +1,8 @@
 import type {APIRoute} from 'astro';
 
-import reading from '../data/reading.json';
 import {person} from '../data/site';
 import {withBase} from '../lib/docs';
+import {reading} from '../lib/reading';
 
 const escape = (text: string) => text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 

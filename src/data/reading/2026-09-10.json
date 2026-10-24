@@ -1,0 +1,32 @@
+[
+  {
+    "url": "https://www.coursera.org/specializations/machine-learning-introduction",
+    "note": "",
+    "kind": "article",
+    "host": "coursera.org",
+    "title": "Machine Learning",
+    "description": "Offered by Stanford Online and DeepLearning.AI. #BreakIntoAI with Machine Learning Specialization. Master fundamental AI concepts and ... Enroll for free.",
+    "site": "Coursera",
+    "image": "https://s3.amazonaws.com/coursera_assets/meta_images/generated/XDP/XDP~SPECIALIZATION!~machine-learning-introduction/XDP~SPECIALIZATION!~machine-learning-introduction.jpeg"
+  },
+  {
+    "url": "https://tautology.town/2026/06/01/card-networks.html",
+    "note": "",
+    "kind": "article",
+    "host": "tautology.town",
+    "title": "What do Visa and Mastercard do? An intro to card networks @ tautology.town",
+    "description": "tautology.town is a blog that contains tautologies.",
+    "site": null,
+    "image": null
+  },
+  {
+    "url": "https://www.youtube.com/watch?v=lnz2gRPDzrA",
+    "note": "",
+    "kind": "video",
+    "host": "youtube.com",
+    "title": "What does Visa do? The answer might surprise you",
+    "description": "Visa is one of the most trusted and recognized brands in the world yet the nature of our business is still a mystery to some. Are we a credit card company? T...",
+    "site": "YouTube",
+    "image": "https://i.ytimg.com/vi/lnz2gRPDzrA/maxresdefault.jpg"
+  }
+]

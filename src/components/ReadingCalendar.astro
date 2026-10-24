@@ -1,0 +1,148 @@
+---
+import {dayUrl, monthLabel, readingDays} from '../lib/reading';
+
+type Props = {
+  /** Months to draw, as YYYY-MM. */
+  months: string[];
+  /** The day being read, highlighted. */
+  selected?: string;
+};
+
+const {months, selected} = Astro.props;
+
+const counts = new Map(readingDays.map((day) => [day.date, day.items.length]));
+const most = Math.max(1, ...counts.values());
+
+/** Four shades, so a busy day stands out from a one-link day. */
+const level = (count: number) => Math.min(4, Math.ceil((count / most) * 4));
+
+const weekdays = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
+
+function cells(month: string) {
+  const [year, index] = month.split('-').map(Number);
+  const first = new Date(Date.UTC(year, index - 1, 1)).getUTCDay();
+  const length = new Date(Date.UTC(year, index, 0)).getUTCDate();
+
+  return [
+    ...Array.from({length: first}, () => null),
+    ...Array.from({length}, (_, i) => {
+      const date = `${month}-${String(i + 1).padStart(2, '0')}`;
+
+      return {date, day: i + 1, count: counts.get(date) ?? 0};
+    }),
+  ];
+}
+---
+
+<div class="calendar">
+  {
+    months.map((month) => (
+      <section class="calendar-month" aria-label={monthLabel(month)}>
+        <h3 class="calendar-title">{monthLabel(month)}</h3>
+        <div class="calendar-grid" role="list">
+          {weekdays.map((weekday) => (
+            <span class="calendar-weekday" aria-hidden="true">
+              {weekday}
+            </span>
+          ))}
+          {cells(month).map((cell) =>
+            !cell ? (
+              <span aria-hidden="true" />
+            ) : cell.count ? (
+              <a
+                role="listitem"
+                class="calendar-day"
+                data-level={level(cell.count)}
+                aria-current={cell.date === selected ? 'date' : undefined}
+                href={dayUrl(cell.date)}
+                title={`${cell.count} ${cell.count === 1 ? 'link' : 'links'}`}
+                aria-label={`${cell.date}: ${cell.count} ${cell.count === 1 ? 'link' : 'links'}`}
+              >
+                {cell.day}
+              </a>
+            ) : (
+              <span role="listitem" class="calendar-day calendar-empty">
+                {cell.day}
+              </span>
+            ),
+          )}
+        </div>
+      </section>
+    ))
+  }
+</div>
+
+<style>
+  .calendar {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 28px 32px;
+  }
+
+  .calendar-title {
+    margin: 0 0 10px;
+    font-family: var(--sans);
+    font-size: 15px;
+    font-weight: 700;
+  }
+
+  .calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 4px;
+  }
+
+  .calendar-weekday {
+    font-family: var(--sans);
+    font-size: 12px;
+    text-align: center;
+    color: var(--pencil);
+  }
+
+  .calendar-day {
+    display: grid;
+    place-items: center;
+    aspect-ratio: 1;
+    min-height: 28px;
+    border-radius: 4px;
+    font-family: var(--sans);
+    font-size: 13px;
+    font-variant-numeric: tabular-nums;
+    text-decoration: none;
+  }
+
+  .calendar-empty {
+    color: var(--edge);
+  }
+
+  a.calendar-day {
+    font-weight: 700;
+    color: var(--ink);
+    background: color-mix(in srgb, var(--blue) 18%, var(--card));
+  }
+
+  a.calendar-day[data-level='2'] {
+    background: color-mix(in srgb, var(--blue) 38%, var(--card));
+  }
+
+  a.calendar-day[data-level='3'] {
+    color: var(--on-ink);
+    background: color-mix(in srgb, var(--blue) 70%, var(--card));
+  }
+
+  a.calendar-day[data-level='4'] {
+    color: var(--on-ink);
+    background: var(--blue);
+  }
+
+  a.calendar-day:hover,
+  a.calendar-day:focus-visible {
+    outline: 2px solid var(--blue-deep);
+    outline-offset: 1px;
+  }
+
+  a.calendar-day[aria-current='date'] {
+    outline: 2.5px solid var(--red);
+    outline-offset: 1px;
+  }
+</style>

@@ -1,0 +1,42 @@
+[
+  {
+    "url": "https://github.com/heliocosta-dev/revenue-centric-design",
+    "note": "",
+    "kind": "repo",
+    "host": "github.com",
+    "title": "heliocosta-dev/revenue-centric-design",
+    "description": "Product-design, conversion & behavioral-science principles for SaaS",
+    "site": "GitHub",
+    "image": "https://opengraph.githubassets.com/131a7b24da6124266a05d0a7511d76248e88c3a1e0b5fe7ca3bb8ef2712412bb/heliocosta-dev/revenue-centric-design"
+  },
+  {
+    "url": "https://pele.run/",
+    "note": "",
+    "kind": "tool",
+    "host": "pele.run",
+    "title": "Pele · Mermaid diagrams as themeable SVG",
+    "description": "Pele is a lightweight open source library that renders Mermaid diagrams to SVG, themed with CSS variables.",
+    "site": null,
+    "image": "https://pele.run/social.png"
+  },
+  {
+    "url": "https://cloud.google.com/blog/products/devops-sre/sre-book-second-edition",
+    "note": "",
+    "kind": "article",
+    "host": "cloud.google.com",
+    "title": "SRE book second edition | Google Cloud Blog",
+    "description": "The second edition of the Site Reliability Engineering book reflects the shifts in infrastructure management from AI, microservices, serverless, etc.",
+    "site": "Google Cloud Blog",
+    "image": "https://storage.googleapis.com/gweb-cloudblog-publish/images/12_-_DevOps__SRE_qBRZDbA.max-2600x2600.jpg"
+  },
+  {
+    "url": "https://www.anthropic.com/research/ecdsa-curve-origins",
+    "note": "",
+    "kind": "article",
+    "host": "anthropic.com",
+    "title": "Claude reveals ECDSA curve origins",
+    "description": "The decades-old mystery of the origins of one of the most popular cryptographic standards has been explained.",
+    "site": null,
+    "image": "https://www-cdn.anthropic.com/images/4zrzovbb/website/d0c862c5cabd703c0fcbaad939385133f02b694c-1200x630.jpg"
+  }
+]

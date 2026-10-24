@@ -1,0 +1,52 @@
+[
+  {
+    "url": "https://support.claude.com/en/articles/14604842-real-time-cyber-safeguards-on-claude-opus-and-sonnet",
+    "note": "",
+    "kind": "article",
+    "host": "support.claude.com",
+    "title": "Cyber Verification Program | Claude Help Center",
+    "description": null,
+    "site": null,
+    "image": "https://downloads.intercomcdn.com/i/o/lupk8zyo/792494/717b10d3ebd874823db64841659b/76f3062d78ebbb04863fb1de3ef9cca0.png"
+  },
+  {
+    "url": "https://build-vs-buy-vs-llm.vercel.app/",
+    "note": "",
+    "kind": "tool",
+    "host": "build-vs-buy-vs-llm.vercel.app",
+    "title": "Build vs Buy vs LLM, visualized",
+    "description": "Interactive visualizations of the build vs buy vs LLM decision: pros, cons, cost curves, and how AI shifts the weights.",
+    "site": null,
+    "image": null
+  },
+  {
+    "url": "https://marimo.io/",
+    "note": "",
+    "kind": "tool",
+    "host": "marimo.io",
+    "title": "marimo | a next-generation Python notebook",
+    "description": "Explore data and build apps seamlessly with marimo, a next-generation Python notebook.",
+    "site": null,
+    "image": "https://marimo.io/og.png"
+  },
+  {
+    "url": "https://github.com/heygen-com/hyperframes",
+    "note": "",
+    "kind": "repo",
+    "host": "github.com",
+    "title": "heygen-com/hyperframes",
+    "description": "Write HTML. Render video. Built for agents.",
+    "site": "GitHub",
+    "image": "https://opengraph.githubassets.com/245c204a00d7303af9f2426328686cb945233872e3218bfb9fef7dc663e98133/heygen-com/hyperframes"
+  },
+  {
+    "url": "https://github.com/NousResearch/hermes-agent/pull/125515",
+    "note": "",
+    "kind": "repo",
+    "host": "github.com",
+    "title": "fix(sessions): rank list pages on ids before projecting, seed chains only from parents by sibelius · Pull Request #125515 · NousResearch/hermes-agent",
+    "description": "The agent that grows with you. Contribute to NousResearch/hermes-agent development by creating an account on GitHub.",
+    "site": "GitHub",
+    "image": "https://opengraph.githubassets.com/262ffe4ca2bfbf4f617651a76edb235bb965d0ad95738db5a46537637db8a7f5/NousResearch/hermes-agent/pull/125515"
+  }
+]

@@ -1,0 +1,62 @@
+[
+  {
+    "url": "https://x.com/shadcnlabs/status/2105527948610834605",
+    "note": "",
+    "kind": "post",
+    "host": "x.com",
+    "title": "Introducing ogimagecn  Build OG images like you build your UI.  Powered by Satori. Pick from 20+ ready-to-use image components you can copy, tweak, and make your own.  One command to get started. shadcn/ui compatible.    100% Free. Open source. pic.twitter.com/HYTht7RVLe",
+    "description": null,
+    "site": "Shadcn Labs (@shadcnlabs)",
+    "image": null
+  },
+  {
+    "url": "https://geo.new/",
+    "note": "",
+    "kind": "tool",
+    "host": "geo.new",
+    "title": "GEO.new — Free GEO Audit for AI Search",
+    "description": "An AI-native GEO audit for AI search. See what ChatGPT, Perplexity and AI Overviews read on your page, and exactly what to fix first. Free, no signup.",
+    "site": "GEO.new",
+    "image": "https://geo.new/og.png?p=%2F&d=2026-10-24"
+  },
+  {
+    "url": "https://agent.shop/en",
+    "note": "",
+    "kind": "article",
+    "host": "agent.shop",
+    "title": "AgentShop — AI agents for enterprise commerce",
+    "description": "AI agents that sell, support and re-engage on WhatsApp, Instagram and your website, integrated with your e-commerce, ERP, logistics and payments, with enterprise-grade governance.",
+    "site": "AgentShop",
+    "image": "https://agentshop.com.br/images/ad.jpg"
+  },
+  {
+    "url": "https://docs.stripe.com/agentic-commerce/acp",
+    "note": "",
+    "kind": "article",
+    "host": "docs.stripe.com",
+    "title": "Agentic Commerce Protocol",
+    "description": "Use the Agentic Commerce Protocol to enable AI agents to complete purchases on behalf of buyers.",
+    "site": null,
+    "image": "https://d37ugbyn3rpeym.cloudfront.net/docs/og-image/agentic-commerce.protocols.acp.ogimage.png"
+  },
+  {
+    "url": "https://docs.stripe.com/agentic-commerce/protocol",
+    "note": "",
+    "kind": "article",
+    "host": "docs.stripe.com",
+    "title": "Universal Commerce Protocol",
+    "description": "Universal Commerce Protocol (UCP) enables agentic commerce across platforms.",
+    "site": null,
+    "image": "https://d37ugbyn3rpeym.cloudfront.net/docs/og-image/agentic-commerce.protocols.ucp.ogimage.png"
+  },
+  {
+    "url": "https://claude.dev/",
+    "note": "",
+    "kind": "tool",
+    "host": "claude.dev",
+    "title": "claude.dev Blog / technical writing for people building with Claude",
+    "description": "Articles, videos, and build logs from Anthropic’s developers on building with Claude and Claude Code, including tips, tricks, and points of view.",
+    "site": "claude.dev Blog",
+    "image": "https://claude.dev/opengraph-image.png"
+  }
+]

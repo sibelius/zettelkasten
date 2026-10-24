@@ -1,0 +1,32 @@
+[
+  {
+    "url": "https://akitaonrails.com/2026/08/07/por-que-uma-eleicao-digital-perfeita-ainda-nao-seria-viavel/",
+    "note": "",
+    "kind": "article",
+    "host": "akitaonrails.com",
+    "title": "Por que uma eleição digital perfeita ainda não seria viável?",
+    "description": null,
+    "site": "AkitaOnRails.com",
+    "image": "https://www.akitaonrails.com/og-default.png"
+  },
+  {
+    "url": "https://github.com/rustfs/rustfs/releases",
+    "note": "",
+    "kind": "repo",
+    "host": "github.com",
+    "title": "Releases · rustfs/rustfs",
+    "description": "RustFS is an open-source, S3-compatible high-performance object storage system supporting migration and coexistence with other S3-compatible platforms such as MinIO and Ceph. - rustfs/rustfs",
+    "site": "GitHub",
+    "image": "https://repository-images.githubusercontent.com/722597620/0fa936a2-8164-4f53-867f-def4beb64b21"
+  },
+  {
+    "url": "https://rustfs.com/blog/announcing-rustfs-1-0-0-ga/",
+    "note": "",
+    "kind": "article",
+    "host": "rustfs.com",
+    "title": "Announcing RustFS 1.0.0 GA: Production-Ready, Open Source, S3-Compatible Object Storage",
+    "description": "RustFS 1.0.0 GA is here: our open source, S3-compatible object storage is now production-ready. Explore the journey, core features, and Docker quick start.",
+    "site": null,
+    "image": "https://rustfs.com/images/blog/announcing-rustfs-1-0-0-ga/cover.png"
+  }
+]
