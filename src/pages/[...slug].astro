@@ -31,7 +31,7 @@ const connections = [
 const editUrl = `https://github.com/sibelius/zettelkasten/edit/main/${doc.file}`;
 ---
 
-<Base title={doc.title} description={doc.excerpt}>
+<Base title={doc.title} description={doc.excerpt} article={{tags: doc.tags, updated: doc.updated}}>
   <article class="note">
     <header class="row note-head">
       <div class="margin note-section">
