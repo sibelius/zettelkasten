@@ -1,0 +1,149 @@
+---
+type Props = {
+  /** Stable id for the thread, so a note keeps its comments whatever URL it was opened from. */
+  term: string;
+};
+
+const {term} = Astro.props;
+
+// giscus: https://giscus.app. Threads live in GitHub Discussions on this repo.
+const giscus = {
+  repo: 'sibelius/zettelkasten',
+  repoId: 'R_kgDOIepGGw',
+  category: 'Announcements',
+  categoryId: 'DIC_kwDOIepGG84DJiMx',
+};
+---
+
+<section class="row comments" id="comments" aria-labelledby="comments-title">
+  <div class="margin comments-note">
+    <p>Sign in with GitHub to reply.</p>
+    <p>Select any passage to quote it.</p>
+  </div>
+  <div class="body">
+    <h2 id="comments-title" class="comments-title">Comments</h2>
+    <div
+      class="giscus"
+      data-giscus
+      data-repo={giscus.repo}
+      data-repo-id={giscus.repoId}
+      data-category={giscus.category}
+      data-category-id={giscus.categoryId}
+      data-term={term}
+    >
+    </div>
+    <noscript>
+      <p>Comments load from <a href={`https://github.com/${giscus.repo}/discussions`}>GitHub Discussions</a>.</p>
+    </noscript>
+  </div>
+</section>
+
+<div class="quote-pop" data-quote-pop hidden>
+  <button type="button" class="quote-button" data-quote-button>Comment on this</button>
+</div>
+<p class="quote-toast" data-quote-toast role="status" aria-live="polite"></p>
+
+<script>
+  import {initComments} from '../scripts/comments';
+
+  initComments();
+</script>
+
+<style is:global>
+  .comments {
+    padding-top: 96px;
+  }
+
+  .comments-note {
+    padding-top: 14px;
+  }
+
+  .comments-note p {
+    margin: 0 0 6px;
+  }
+
+  .comments-title {
+    margin: 0 0 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--ink);
+    font-family: var(--sans);
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+  }
+
+  .giscus {
+    min-height: 220px;
+  }
+
+  .quote-pop {
+    position: absolute;
+    z-index: 20;
+    transform: translate(-50%, calc(-100% - 10px));
+    animation: quote-in 140ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  @keyframes quote-in {
+    from {
+      opacity: 0;
+      transform: translate(-50%, calc(-100% - 4px));
+    }
+  }
+
+  .quote-button {
+    min-height: 40px;
+    padding: 0 14px;
+    border: 0;
+    border-radius: 6px;
+    background: var(--ink);
+    color: var(--on-ink);
+    font-family: var(--sans);
+    font-size: 15px;
+    font-weight: 700;
+    white-space: nowrap;
+    cursor: pointer;
+    box-shadow: 0 10px 24px -12px rgb(8 12 20 / 0.6);
+  }
+
+  .quote-button::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    width: 10px;
+    height: 10px;
+    background: var(--ink);
+    transform: translateX(-50%) rotate(45deg);
+  }
+
+  .quote-toast {
+    position: fixed;
+    left: 50%;
+    bottom: 24px;
+    z-index: 30;
+    max-width: calc(100vw - 32px);
+    margin: 0;
+    padding: 12px 18px;
+    border-radius: 8px;
+    background: var(--ink);
+    color: var(--on-ink);
+    font-family: var(--sans);
+    font-size: 15px;
+    font-weight: 600;
+    transform: translate(-50%, 20px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 180ms ease, transform 180ms ease;
+  }
+
+  .quote-toast.is-visible {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+
+  @media (max-width: 760px) {
+    .comments {
+      padding-top: 64px;
+    }
+  }
+</style>
