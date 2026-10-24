@@ -20,7 +20,7 @@ import {askIndexUrl} from '../lib/knowledge';
 </section>
 
 <script>
-  import {buildIndex, discussionUrl, search} from '../../mcp/retrieve.mjs';
+  import {buildIndex, discussionUrl, requestUrl, search} from '../../mcp/retrieve.mjs';
 
   type Result = {title: string; heading: string | null; url: string; kind: string; snippet: string; date: string | null};
 
@@ -74,7 +74,10 @@ import {askIndexUrl} from '../lib/knowledge';
         answer.innerHTML = `
           <p class="ask-ai-lead">I have not written about this yet</p>
           <p>Send it to me and I answer it in public, right here on this page</p>
-          ${send(question, [], 'Send the question to me', true)}
+          <p class="ask-ai-send ask-ai-buttons">
+            <a class="button button-primary" href="${escape(discussionUrl(question, []))}" target="_blank" rel="noopener">Send the question to me</a>
+            <a class="button button-ghost" href="${escape(requestUrl(question, 'Ask Sibelius on /ask'))}" target="_blank" rel="noopener">Ask me to write about it</a>
+          </p>
           ${found.results.length ? `<p>The closest I have:</p><ol class="ask-ai-results" role="list">${found.results.map(item).join('')}</ol>` : ''}`;
       }
     }
@@ -189,6 +192,12 @@ import {askIndexUrl} from '../lib/knowledge';
 
   .ask-ai-answer :global(.ask-ai-send) {
     margin: 4px 0 6px;
+  }
+
+  .ask-ai-answer :global(.ask-ai-buttons) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
   }
 
   .ask-ai-how {

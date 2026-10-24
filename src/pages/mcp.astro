@@ -1,0 +1,449 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import {withBase} from '../lib/docs';
+
+const SITE = 'https://sibelius.github.io/zettelkasten';
+const FILE = `${SITE}/sibelius-mcp.mjs`;
+
+/** Replaced in every snippet by the home folder typed on the page; MCP config files do not expand ~. */
+const HOME = '{{HOME}}';
+const SERVER = `${HOME}/.sibelius-mcp.mjs`;
+
+const json = (value: unknown) => JSON.stringify(value, null, 2);
+const stdio = {command: 'node', args: [SERVER]};
+
+type Step = {text: string; code?: string};
+type Client = {id: string; label: string; steps: Step[]};
+
+const clients: Client[] = [
+  {
+    id: 'claude-code',
+    label: 'Claude Code',
+    steps: [
+      {text: 'Add it for every project:', code: `claude mcp add --scope user sibelius -- node ${SERVER}`},
+      {text: 'Start a new session and run /mcp: sibelius shows as connected.'},
+    ],
+  },
+  {
+    id: 'claude-desktop',
+    label: 'Claude Desktop',
+    steps: [
+      {
+        text: 'Open Settings › Developer › Edit Config. That opens claude_desktop_config.json (~/Library/Application Support/Claude/ on macOS, %APPDATA%\\Claude\\ on Windows). Add:',
+        code: json({mcpServers: {sibelius: stdio}}),
+      },
+      {text: 'Quit Claude Desktop completely and open it again. The tools show under the + button in a new chat.'},
+    ],
+  },
+  {
+    id: 'codex',
+    label: 'Codex',
+    steps: [
+      {text: 'Add it from the terminal:', code: `codex mcp add sibelius -- node ${SERVER}`},
+      {text: 'Or add it to ~/.codex/config.toml, which the Codex CLI and the IDE extension share:', code: `[mcp_servers.sibelius]\ncommand = "node"\nargs = ["${SERVER}"]`},
+      {text: 'Run /mcp in Codex to check it is there.'},
+    ],
+  },
+  {
+    id: 'cursor',
+    label: 'Cursor',
+    steps: [
+      {text: 'Add it to ~/.cursor/mcp.json for every project, or .cursor/mcp.json for one:', code: json({mcpServers: {sibelius: stdio}})},
+      {text: 'Check it under Cursor Settings › MCP, then ask in Agent mode.'},
+    ],
+  },
+  {
+    id: 'vscode',
+    label: 'VS Code',
+    steps: [
+      {text: 'Add it from the terminal:', code: `code --add-mcp '${JSON.stringify({name: 'sibelius', ...stdio})}'`},
+      {text: 'Or add it to .vscode/mcp.json in a project:', code: json({servers: {sibelius: {type: 'stdio', ...stdio}}})},
+      {text: 'Use it from Copilot Chat in Agent mode.'},
+    ],
+  },
+  {
+    id: 'gemini',
+    label: 'Gemini CLI',
+    steps: [
+      {text: 'Add it from the terminal:', code: `gemini mcp add --scope user sibelius node ${SERVER}`},
+      {text: 'Or add it to ~/.gemini/settings.json:', code: json({mcpServers: {sibelius: stdio}})},
+      {text: 'Run /mcp in Gemini CLI to check it is there.'},
+    ],
+  },
+  {
+    id: 'windsurf',
+    label: 'Windsurf',
+    steps: [
+      {text: 'Add it to ~/.codeium/windsurf/mcp_config.json:', code: json({mcpServers: {sibelius: stdio}})},
+      {text: 'Refresh the MCP list in Cascade.'},
+    ],
+  },
+  {
+    id: 'other',
+    label: 'Others',
+    steps: [
+      {
+        text: 'Any MCP client that runs local (stdio) servers works: Zed, Cline, Continue, Goose, LM Studio, Raycast and more. Most take this JSON in their MCP settings:',
+        code: json({mcpServers: {sibelius: stdio}}),
+      },
+      {text: 'If yours asks for fields instead, the command is node and the only argument is the file path.'},
+    ],
+  },
+];
+
+const tools = [
+  {name: 'ask_sibelius', what: 'Answers a question from what I wrote, with links. If I have not written about it, it says so and gives two links: one to ask me the question, one to ask me to write about it.'},
+  {name: 'search_notes', what: 'Keyword search over notes, public answers, posts and reading, or only one of them.'},
+  {name: 'get_note', what: 'The full text of one note.'},
+  {name: 'list_notes', what: 'Notes with a tag or in a section, like Mentorship.'},
+  {name: 'recent_reading', what: 'What I have been reading and sharing, newest first or on one day.'},
+];
+
+const prompts = [
+  'Ask Sibelius how to become a senior engineer',
+  'Como faço pra conseguir meu primeiro emprego como Dev? Use o MCP do Sibelius',
+  'What has Sibelius been reading this week?',
+  'List the notes Sibelius wrote about mentorship',
+];
+---
+
+<Base title="Ask me from your AI" description="Set up Ask Sibelius as an MCP server in Claude Code, Claude Desktop, Codex, Cursor, VS Code, Gemini CLI, Windsurf and other AI tools.">
+  <PageHead
+    title="Ask me from your AI"
+    note="MCP server"
+    lede="Use my notes from Claude, Codex, Cursor or any AI tool that speaks MCP. Your assistant answers from what I wrote, with links, and sends me what I have not written about yet."
+  >
+    <p class="mcp-facts muted">One file. Read-only. No dependencies, no account and no API key. It only needs Node.js 18 or newer.</p>
+  </PageHead>
+
+  <div class="mcp" data-mcp>
+    <section class="row mcp-section" aria-labelledby="download-title">
+      <div class="margin mcp-step">Step 1</div>
+      <div class="body">
+        <h2 id="download-title" class="sub-title">Download the server</h2>
+        <div class="prose">
+          <p>macOS and Linux:</p>
+          <pre><code>{`curl -fsSL ${FILE} -o ~/.sibelius-mcp.mjs`}</code></pre>
+          <p>Windows (PowerShell):</p>
+          <pre><code>{`Invoke-WebRequest ${FILE} -OutFile $HOME\\.sibelius-mcp.mjs`}</code></pre>
+          <p>
+            It reads my notes from this site each time it starts, so you get new notes without downloading it again. Run the same command to update the server
+            itself. You can <a href={withBase('/sibelius-mcp.mjs')}>read the code</a> first.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="row mcp-section" aria-labelledby="home-title">
+      <div class="margin mcp-step">Step 2</div>
+      <div class="body">
+        <h2 id="home-title" class="sub-title">Your home folder</h2>
+        <p class="mcp-hint">MCP config files need the full path to the file. Type your home folder and every command below uses it.</p>
+        <label class="mcp-field">
+          <span>Home folder</span>
+          <input type="text" value="/Users/you" spellcheck="false" autocomplete="off" data-home />
+        </label>
+        <p class="mcp-hint muted">
+          Find it with <code>echo $HOME</code> on macOS and Linux, or <code>echo $HOME</code> in PowerShell. On Windows, write it with forward slashes:
+          C:/Users/you.
+        </p>
+      </div>
+    </section>
+
+    <section class="row mcp-section" aria-labelledby="client-title">
+      <div class="margin mcp-step">Step 3</div>
+      <div class="body">
+        <h2 id="client-title" class="sub-title">Add it to your AI</h2>
+        <div class="tabs mcp-tabs" role="group" aria-label="AI tool" data-tabs hidden>
+          {
+            clients.map((client, index) => (
+              <button type="button" class="tab" data-tab={client.id} aria-pressed={index === 0 ? 'true' : 'false'}>
+                {client.label}
+              </button>
+            ))
+          }
+        </div>
+        {
+          clients.map((client) => (
+            <div class="mcp-client" data-panel={client.id}>
+              <h3 class="mcp-client-title">{client.label}</h3>
+              <ol class="mcp-steps">
+                {client.steps.map((step) => (
+                  <li>
+                    <p>{step.text}</p>
+                    {step.code && (
+                      <div class="mcp-code">
+                        {/* On one line: whitespace inside <pre> would show up in the code. */}
+                        <pre><code data-template={step.code}>{step.code.replaceAll(HOME, '/Users/you')}</code></pre>
+                        <button type="button" class="mcp-copy" data-copy>
+                          Copy
+                        </button>
+                      </div>
+                    )}
+                  </li>
+                ))}
+              </ol>
+            </div>
+          ))
+        }
+        <p class="mcp-hint muted">
+          ChatGPT and Claude on the web only connect to MCP servers hosted on a URL, and this one runs on your computer. There, point the model at <a
+            href={withBase('/llms.txt')}>llms.txt</a
+          > or <a href={withBase('/llms-full.txt')}>llms-full.txt</a>, or use <a href={withBase('/ask')}>Ask Sibelius</a> on this site.
+        </p>
+      </div>
+    </section>
+
+    <section class="row mcp-section" aria-labelledby="try-title">
+      <div class="margin mcp-step">Step 4</div>
+      <div class="body">
+        <h2 id="try-title" class="sub-title">Try it</h2>
+        <ul class="mcp-prompts" role="list">
+          {prompts.map((prompt) => <li>“{prompt}”</li>)}
+        </ul>
+        <table class="mcp-tools">
+          <thead>
+            <tr>
+              <th scope="col">Tool</th>
+              <th scope="col">What it does</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              tools.map((tool) => (
+                <tr>
+                  <td>
+                    <code>{tool.name}</code>
+                  </td>
+                  <td>{tool.what}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+        <p class="mcp-hint muted">
+          There is also a prompt, <code>answer_as_sibelius</code>, that answers in my voice. The server only searches what I wrote: it never makes up an answer,
+          and nothing you ask is sent anywhere unless you open the GitHub link it gives you.
+        </p>
+      </div>
+    </section>
+  </div>
+</Base>
+
+<script>
+  const root = document.querySelector<HTMLElement>('[data-mcp]');
+
+  if (root) {
+    const KEY = 'sibelius-mcp-home';
+    const home = root.querySelector<HTMLInputElement>('[data-home]')!;
+    const codes = [...root.querySelectorAll<HTMLElement>('[data-template]')];
+
+    // A home folder typed with backslashes or a trailing slash still makes a valid path.
+    const render = () => {
+      const value = home.value.trim().replace(/\\/g, '/').replace(/\/+$/, '') || '/Users/you';
+
+      for (const code of codes) {
+        code.textContent = code.dataset.template!.replaceAll('{{HOME}}', value);
+      }
+    };
+
+    try {
+      home.value = localStorage.getItem(KEY) ?? (navigator.userAgent.includes('Windows') ? 'C:/Users/you' : navigator.userAgent.includes('Linux') ? '/home/you' : '/Users/you');
+    } catch {}
+
+    render();
+    home.addEventListener('input', () => {
+      render();
+      try {
+        localStorage.setItem(KEY, home.value);
+      } catch {}
+    });
+
+    for (const button of root.querySelectorAll<HTMLButtonElement>('[data-copy]')) {
+      button.addEventListener('click', async () => {
+        const code = button.parentElement!.querySelector('code')!.textContent ?? '';
+
+        try {
+          await navigator.clipboard.writeText(code);
+          button.textContent = 'Copied';
+        } catch {
+          button.textContent = 'Select and copy';
+        }
+
+        setTimeout(() => (button.textContent = 'Copy'), 1600);
+      });
+    }
+
+    // Without JavaScript every client shows; with it, one at a time.
+    const tabs = root.querySelector<HTMLElement>('[data-tabs]')!;
+    const buttons = [...tabs.querySelectorAll<HTMLButtonElement>('[data-tab]')];
+    const panels = [...root.querySelectorAll<HTMLElement>('[data-panel]')];
+
+    const show = (id: string) => {
+      buttons.forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.tab === id)));
+      panels.forEach((panel) => (panel.hidden = panel.dataset.panel !== id));
+    };
+
+    tabs.hidden = false;
+    root.classList.add('mcp-tabbed');
+    buttons.forEach((button) => button.addEventListener('click', () => show(button.dataset.tab!)));
+    show(buttons.find((button) => `#${button.dataset.tab}` === location.hash)?.dataset.tab ?? buttons[0].dataset.tab!);
+  }
+</script>
+
+<style>
+  .mcp-facts {
+    margin: 18px 0 0;
+    font-family: var(--sans);
+    font-size: 15px;
+  }
+
+  .mcp-section {
+    padding-top: 48px;
+  }
+
+  .mcp-step {
+    padding-top: 12px;
+    font-weight: 700;
+  }
+
+  .mcp-hint {
+    margin: 12px 0 0;
+    font-family: var(--sans);
+    font-size: 16px;
+  }
+
+  .mcp-hint code,
+  .mcp-tools code {
+    font-size: 0.9em;
+    padding: 0.1em 0.3em;
+    border-radius: 4px;
+    background: var(--card);
+  }
+
+  .mcp-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    max-width: 420px;
+    margin-top: 16px;
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--pencil);
+  }
+
+  .mcp-field input {
+    min-height: 44px;
+    padding: 0 12px;
+    border: 1.5px solid var(--rule-strong);
+    border-radius: 6px;
+    background: var(--card);
+    color: var(--ink);
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 16px;
+  }
+
+  .mcp-field input:focus {
+    outline: none;
+    border-color: var(--blue);
+  }
+
+  .mcp-tabs {
+    margin: 16px 0 8px;
+  }
+
+  .mcp-client {
+    padding-top: 16px;
+  }
+
+  .mcp-tabbed .mcp-client-title {
+    display: none;
+  }
+
+  .mcp-client-title {
+    margin: 0 0 4px;
+    font-family: var(--sans);
+    font-size: 20px;
+  }
+
+  .mcp-steps {
+    margin: 0;
+    padding-left: 22px;
+  }
+
+  .mcp-steps li {
+    padding: 6px 0;
+  }
+
+  .mcp-steps p {
+    margin: 0 0 8px;
+  }
+
+  .mcp-code {
+    position: relative;
+  }
+
+  .mcp-code pre {
+    margin: 0;
+    padding: 16px 84px 16px 18px;
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    background: var(--card);
+    overflow-x: auto;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .mcp-copy {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    min-height: 32px;
+    padding: 0 12px;
+    border: 1.5px solid var(--rule-strong);
+    border-radius: 6px;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .mcp-copy:hover {
+    border-color: var(--blue);
+  }
+
+  .mcp-prompts {
+    margin: 16px 0 24px;
+    padding: 0;
+    list-style: none;
+  }
+
+  .mcp-prompts li {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--rule);
+    font-style: italic;
+  }
+
+  .mcp-tools {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+  }
+
+  .mcp-tools th {
+    padding: 8px 12px 8px 0;
+    border-bottom: 2px solid var(--ink);
+    font-family: var(--sans);
+    text-align: left;
+  }
+
+  .mcp-tools td {
+    padding: 10px 12px 10px 0;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+</style>

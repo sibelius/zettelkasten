@@ -17,7 +17,6 @@ type Question = {
   answer: {html: string; date: string; by: string} | null;
 };
 
-const SITE = 'https://sibelius.github.io/zettelkasten';
 const ASK_URL = 'https://github.com/sibelius/zettelkasten/discussions/new?category=q-a';
 
 const questions = questionsData as Question[];
@@ -139,10 +138,9 @@ const earlier = mentorship.slice(0, 8);
             The same search runs as an MCP server, so your assistant can answer from my notes and send me what they do not cover. It is one file, read-only, with no
             dependencies and no API key.
           </p>
-          <pre><code>{`curl -fsSL ${SITE}/sibelius-mcp.mjs -o ~/.sibelius-mcp.mjs
-claude mcp add --scope user sibelius -- node ~/.sibelius-mcp.mjs`}</code></pre>
-          <p>In other clients, add it to the MCP config:</p>
-          <pre><code>{`{"mcpServers": {"sibelius": {"command": "node", "args": ["/full/path/to/.sibelius-mcp.mjs"]}}}`}</code></pre>
+          <p class="ask-actions">
+            <a class="button button-primary" href={withBase('/mcp')}>Set it up in Claude, Codex, Cursor and more</a>
+          </p>
           <p>
             Tools: <code>ask_sibelius</code>, <code>search_notes</code>, <code>get_note</code>, <code>list_notes</code> and <code>recent_reading</code>. For models
             that read the web, there is <a href={withBase('/llms.txt')}>llms.txt</a>, <a href={withBase('/llms-full.txt')}>llms-full.txt</a> with every note, and the

@@ -59,7 +59,9 @@ claude mcp add --scope user sibelius -- node "$PWD/mcp/server.mjs"
 SIBELIUS_INDEX=dist/ask-index.json pnpm mcp   # read a local build instead of the live site
 ```
 
-Tools: `ask_sibelius`, `search_notes`, `get_note`, `list_notes`, `recent_reading`. Prompt: `answer_as_sibelius`.
+Tools: `ask_sibelius`, `search_notes`, `get_note`, `list_notes`, `recent_reading`. Prompt: `answer_as_sibelius`. `/mcp` has setup steps for Claude Code, Claude Desktop, Codex, Cursor, VS Code, Gemini CLI, Windsurf and others.
+
+When something is not covered (Ask Sibelius has no answer, search finds nothing, a page is missing, or the MCP has no evidence), people can ask me to write about it: a prefilled discussion in **Ideas** titled `Write about: …`, where others can upvote it.
 
 ## Deploy
 

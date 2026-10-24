@@ -6,7 +6,7 @@
 import {readFile} from 'node:fs/promises';
 import {createInterface} from 'node:readline';
 
-import {absolute, buildIndex, discussionUrl, search, SITE} from './retrieve.mjs';
+import {absolute, buildIndex, discussionUrl, requestUrl, search, SITE} from './retrieve.mjs';
 
 const VERSION = '1.0.0';
 const SOURCE = process.env.SIBELIUS_INDEX ?? `${SITE}/ask-index.json`;
@@ -18,7 +18,7 @@ const VOICE = `Answer as Sibelius would, using only the passages returned.
 - If there are three things, make it a list.
 - Take a position. Say what to do, not what one could consider.
 - Link every claim to the note it came from.
-- If status is insufficient_evidence, say Sibelius has not written about it yet and give discussion_url so he can answer in public. Never fill the gap with your own opinion presented as his.`;
+- If status is insufficient_evidence, say Sibelius has not written about it yet. Give discussion_url to ask him the question, and request_url to ask him to write about it. Never fill the gap with your own opinion presented as his.`;
 
 let cached;
 
@@ -45,7 +45,7 @@ const TOOLS = [
   {
     name: 'ask_sibelius',
     description:
-      "Answer a question from what Sibelius Seraphini wrote (notes, public answers, posts). Returns cited passages, a status, how to phrase the answer in his voice, and a GitHub Discussion link to send the question to him. If status is insufficient_evidence he has not written about it: share discussion_url instead of answering.",
+      "Answer a question from what Sibelius Seraphini wrote (notes, public answers, posts). Returns cited passages, a status, how to phrase the answer in his voice, and a GitHub Discussion link to send the question to him. If status is insufficient_evidence he has not written about it: share discussion_url, and request_url to ask him to write about it, instead of answering.",
     inputSchema: {type: 'object', properties: {question: {type: 'string', description: 'The question, in any language'}}, required: ['question']},
     async run({question}) {
       const {index} = await load();
@@ -56,6 +56,7 @@ const TOOLS = [
         passages: found.results.map(clean),
         related_reading: found.reading.map(clean),
         discussion_url: discussionUrl(question, found.status === 'ready' ? found.results : []),
+        ...(found.status === 'ready' ? {} : {request_url: requestUrl(question, 'an AI assistant using the Sibelius MCP')}),
         how_to_answer: VOICE,
       };
     },
