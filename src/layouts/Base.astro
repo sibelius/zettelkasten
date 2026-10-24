@@ -2,17 +2,22 @@
 import '../styles/global.css';
 
 import Search from '../components/Search.astro';
+import {routeKey} from '../lib/cards';
 import {withBase} from '../lib/docs';
 import {person} from '../data/site';
 
 type Props = {
   title?: string;
   description?: string;
+  /** Notes are articles; they also share their tags and last update. */
+  article?: {tags: string[]; updated: string | null};
 };
 
-const {title, description = person.intro} = Astro.props;
+const {title, description = person.intro, article} = Astro.props;
 const fullTitle = title ? `${title} | ${person.name}` : `${person.name}, ${person.role} at ${person.company.name}`;
-const canonical = new URL(Astro.url.pathname, Astro.site);
+const route = routeKey(Astro.url.pathname, import.meta.env.BASE_URL);
+const canonical = new URL(withBase(route === 'index' ? '/' : `/${route}`), Astro.site);
+const image = new URL(withBase(`/og/${route}.png`), Astro.site);
 
 const nav = [
   {label: 'What I do', url: withBase('/#skills')},
@@ -33,17 +38,33 @@ const nav = [
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-    <meta property="og:title" content={fullTitle} />
+    <meta property="og:site_name" content={person.name} />
+    <meta property="og:title" content={title ?? fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:type" content={article ? 'article' : 'website'} />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content={image} />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={`${title ?? person.name}, on ${person.name}'s site`} />
+    {article?.updated && <meta property="article:modified_time" content={article.updated} />}
+    {article && <meta property="article:author" content={person.name} />}
+    {article?.tags.map((tag) => <meta property="article:tag" content={tag} />)}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content={person.x.handle} />
     <meta name="twitter:creator" content={person.x.handle} />
+    <meta name="twitter:title" content={title ?? fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+    <meta name="author" content={person.name} />
     <meta name="theme-color" content="#edf0f2" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#131920" media="(prefers-color-scheme: dark)" />
-    <link rel="icon" href={withBase('/img/favicon.ico')} sizes="any" />
-    <link rel="apple-touch-icon" href={withBase('/img/apple-touch-icon.png')} />
-    <link rel="manifest" href={withBase('/img/site.webmanifest')} />
+    <link rel="icon" href={withBase('/favicon.ico')} sizes="32x32" />
+    <link rel="icon" href={withBase('/favicon.svg')} type="image/svg+xml" />
+    <link rel="apple-touch-icon" href={withBase('/icons/apple-touch-icon.png')} />
+    <link rel="manifest" href={withBase('/site.webmanifest')} />
     <link rel="sitemap" href={withBase('/sitemap-index.xml')} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
