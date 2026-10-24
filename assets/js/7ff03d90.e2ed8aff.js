@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkzettelkasten=self.webpackChunkzettelkasten||[]).push([["37329"],{96372(e){e.exports=JSON.parse('{"tag":{"label":"people","permalink":"/zettelkasten/tags/people","allTagsPath":"/zettelkasten/tags","count":1,"items":[{"id":"notes/naval","title":"Naval","description":"twitter","permalink":"/zettelkasten/notes/naval"}],"unlisted":false}}')}}]);
