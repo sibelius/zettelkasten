@@ -1,0 +1,32 @@
+[
+  {
+    "url": "https://x.com/MiaAI_lab/status/2101821681404624976",
+    "note": "",
+    "kind": "post",
+    "host": "x.com",
+    "title": "I get a lot of data on what people actually run on their Sparks. Here’s what I have:  Solo DGX Spark - Most run Qwen3.8 Flash Next  2x DGX Sparks - GLM 5.3 Flash or DeepSeek v4.1 Flash  3x DGX Sparks, conf 1: - GLM 5.3 Flash on 2x DGX Sparks - Qwen3.8-Flash on solo DGX Spark -… pic.twitter.com/FOlpiLzkZX",
+    "description": null,
+    "site": "Mia (@MiaAI_lab)",
+    "image": null
+  },
+  {
+    "url": "https://gregorygundersen.com/blog/2026/09/20/hierarchy-of-money/",
+    "note": "",
+    "kind": "article",
+    "host": "gregorygundersen.com",
+    "title": "The Hierarchy of Money",
+    "description": null,
+    "site": null,
+    "image": null
+  },
+  {
+    "url": "https://x.com/dr_cintas/status/2101768566164840752",
+    "note": "",
+    "kind": "post",
+    "host": "x.com",
+    "title": "Google just open-sourced ARTEMIS.  It lets Al agents control a real phone like a human.  You give the agent a task in plain English and it operates the device end to end: sees the screen, finds the elements, taps, swipes, navigates, verifies the outcome, and reports the result.… pic.twitter.com/X4JJQXmhnP",
+    "description": null,
+    "site": "Alvaro Cintas (@dr_cintas)",
+    "image": null
+  }
+]

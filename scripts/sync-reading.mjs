@@ -1,22 +1,47 @@
-// Turns the links I share (src/data/reading-links.json) into the /reading feed (src/data/reading.json).
-// Run with `pnpm sync:reading` and commit the result. Links already in the feed are not fetched again;
-// pass --refresh to fetch every link.
-import {existsSync, readFileSync, writeFileSync} from 'node:fs';
+// The /reading feed: what I read and recommend, one file per day in src/data/reading/YYYY-MM-DD.json.
+//
+//   SLACK_TOKEN=xoxp-… pnpm reading           pull my new links from #articles-dev
+//   SLACK_TOKEN=xoxp-… pnpm reading --all     pull the whole channel history Slack still has
+//   pnpm reading --add <url> ["why read it"] [--date YYYY-MM-DD]
+//   pnpm reading --refresh                    fetch every title and preview image again
+//
+// The token needs the channels:history scope. Commit src/data/reading after running.
+import {mkdirSync, readdirSync, readFileSync, writeFileSync} from 'node:fs';
+import {join} from 'node:path';
 
 import {decode, mapLimited, pageMeta} from './fetch.mjs';
 
-const LINKS = 'src/data/reading-links.json';
-const FEED = 'src/data/reading.json';
+const DIR = 'src/data/reading';
+const SLACK_CHANNEL = 'C06C7GR2S2G'; // #articles-dev
+const SLACK_USER = 'U06C1KY2VNH'; // me
+const TIME_ZONE = 'America/Sao_Paulo';
 
-const refresh = process.argv.includes('--refresh');
-const links = JSON.parse(readFileSync(LINKS, 'utf8'));
-const cached = new Map(!refresh && existsSync(FEED) ? JSON.parse(readFileSync(FEED, 'utf8')).map((item) => [item.url, item]) : []);
+/** Links that only make sense inside Woovi, or are private. */
+const SKIP = /gitea\.kube\.quest|docs\.google\.com|app\.livestorm\.co|woovi\.dev|slack\.com/;
+
+const args = process.argv.slice(2);
+const flag = (name) => args.includes(name);
+const option = (name) => (args.includes(name) ? args[args.indexOf(name) + 1] : undefined);
 
 /** A bot check answered instead of the page, so its title says nothing about the link. */
 const BLOCKED = /checking your browser|just a moment|attention required|access denied/i;
 
-/** One URL per thing: an X post's /video/1 or /photo/1 is the same post. */
-const canonical = (url) => url.replace(/^(https:\/\/(?:x|twitter)\.com\/[^/]+\/status\/\d+)\/(?:video|photo)\/\d+$/, '$1');
+const TRACKING = /^(utm_\w+|s|t|si|rcm|twclid|ref_src|fbclid|gclid)$/;
+
+/** One URL per thing: no tracking params, and an X post's /video/1 or /photo/1 is the same post. */
+function canonical(link) {
+  const url = new URL(link);
+
+  for (const key of [...url.searchParams.keys()]) {
+    if (TRACKING.test(key)) {
+      url.searchParams.delete(key);
+    }
+  }
+
+  return url.toString().replace(/^(https:\/\/(?:x|twitter)\.com\/[^/]+\/status\/\d+)\/(?:video|photo)\/\d+$/, '$1');
+}
+
+const day = (date) => new Intl.DateTimeFormat('en-CA', {timeZone: TIME_ZONE}).format(date);
 
 const host = (url) => new URL(url).hostname.replace(/^www\./, '');
 
@@ -32,6 +57,71 @@ function kind(url) {
 
   return 'article';
 }
+
+// ── Store: one JSON file per day ───────────────────────────────────────
+
+function readDays() {
+  mkdirSync(DIR, {recursive: true});
+
+  return new Map(
+    readdirSync(DIR)
+      .filter((name) => /^\d{4}-\d{2}-\d{2}\.json$/.test(name))
+      .map((name) => [name.slice(0, 10), JSON.parse(readFileSync(join(DIR, name), 'utf8'))]),
+  );
+}
+
+function writeDays(days) {
+  for (const [date, items] of days) {
+    writeFileSync(join(DIR, `${date}.json`), `${JSON.stringify(items, null, 2)}\n`);
+  }
+}
+
+// ── Sources: Slack and the command line ────────────────────────────────
+
+async function slack(method, params) {
+  const response = await fetch(`https://slack.com/api/${method}?${new URLSearchParams(params)}`, {
+    headers: {authorization: `Bearer ${process.env.SLACK_TOKEN}`},
+  });
+  const data = await response.json();
+
+  if (!data.ok) {
+    throw new Error(`Slack ${method}: ${data.error}`);
+  }
+
+  return data;
+}
+
+/** My links in the channel since `oldest` (a date), each on the day I shared it. */
+async function readSlack(oldest) {
+  const links = [];
+  let cursor;
+
+  do {
+    const page = await slack('conversations.history', {
+      channel: SLACK_CHANNEL,
+      limit: '200',
+      ...(oldest ? {oldest: String(new Date(`${oldest}T00:00:00-03:00`).getTime() / 1000)} : {}),
+      ...(cursor ? {cursor} : {}),
+    });
+
+    for (const message of page.messages) {
+      if (message.user !== SLACK_USER) {
+        continue;
+      }
+
+      // Slack writes links as <url> or <url|label>; user and channel mentions start with @ or #.
+      for (const [, url] of (message.text ?? '').matchAll(/<(https?:\/\/[^|>]+)(?:\|[^>]*)?>/g)) {
+        links.push({url: decode(url), date: day(new Date(Number(message.ts) * 1000))});
+      }
+    }
+
+    cursor = page.response_metadata?.next_cursor;
+  } while (cursor);
+
+  return links;
+}
+
+// ── Titles, descriptions and preview images ────────────────────────────
 
 /** X pages need JavaScript, so read the post through its oEmbed instead. */
 async function readPost(url) {
@@ -67,7 +157,7 @@ function fallbackTitle(url) {
 }
 
 /** GitHub titles a repo "GitHub - owner/repo: description"; split that into a title and a description. */
-function tidy(url, meta) {
+function tidy(meta) {
   const repo = meta?.title?.match(/^GitHub - ([^:]+?)(?::\s*(.+))?$/);
 
   if (repo) {
@@ -77,19 +167,11 @@ function tidy(url, meta) {
   return meta?.title && BLOCKED.test(meta.title) ? null : meta;
 }
 
-const feed = await mapLimited(links, 6, async ({url: link, date, note = ''}) => {
-  const url = canonical(link);
-  const old = cached.get(url);
-
-  if (old) {
-    return {...old, date, note};
-  }
-
-  const meta = tidy(url, kind(url) === 'post' ? await readPost(url) : await pageMeta(url));
+async function describe({url, note = ''}) {
+  const meta = tidy(kind(url) === 'post' ? await readPost(url) : await pageMeta(url));
 
   return {
     url,
-    date,
     note,
     kind: kind(url),
     host: host(url),
@@ -98,8 +180,56 @@ const feed = await mapLimited(links, 6, async ({url: link, date, note = ''}) => 
     site: meta?.site ?? null,
     image: meta?.image ?? null,
   };
-});
+}
 
-feed.sort((a, b) => b.date.localeCompare(a.date));
-writeFileSync(FEED, `${JSON.stringify(feed, null, 2)}\n`);
-console.log(`reading: ${feed.length} links, ${feed.filter((item) => !cached.has(item.url)).length} fetched, ${feed.filter((item) => item.image).length} with images`);
+// ── Run ────────────────────────────────────────────────────────────────
+
+const days = readDays();
+const known = new Set([...days.values()].flat().map((item) => item.url));
+const incoming = [];
+const added = option('--add');
+
+if (added) {
+  // The note is the first plain argument after the URL.
+  const note = args.slice(args.indexOf('--add') + 2).find((arg) => !arg.startsWith('--') && arg !== option('--date')) ?? '';
+  incoming.push({url: added, date: option('--date') ?? day(new Date()), note});
+}
+
+if (process.env.SLACK_TOKEN) {
+  // Start from the last day already stored, so a run only reads what is new.
+  const last = flag('--all') ? undefined : [...days.keys()].sort().pop();
+  const fromSlack = await readSlack(last);
+  console.log(`slack: ${fromSlack.length} links since ${last ?? 'the start'}`);
+  incoming.push(...fromSlack);
+} else if (!added && !flag('--refresh')) {
+  console.log('Set SLACK_TOKEN to pull from #articles-dev, or pass --add <url>.');
+}
+
+// Oldest first, so a link shared twice stays on the day I first shared it.
+const fresh = [];
+
+for (const link of incoming.sort((a, b) => a.date.localeCompare(b.date))) {
+  const url = canonical(link.url);
+
+  if (SKIP.test(url) || known.has(url)) {
+    continue;
+  }
+
+  known.add(url);
+  fresh.push({...link, url});
+}
+
+const described = await mapLimited(fresh, 6, async ({date, ...link}) => ({date, item: await describe(link)}));
+
+for (const {date, item} of described) {
+  days.set(date, [...(days.get(date) ?? []), item]);
+}
+
+if (flag('--refresh')) {
+  for (const [date, items] of days) {
+    days.set(date, await mapLimited(items, 6, async (item) => ({...(await describe(item)), note: item.note})));
+  }
+}
+
+writeDays(days);
+console.log(`reading: ${fresh.length} new, ${known.size} links over ${days.size} days`);

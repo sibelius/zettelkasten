@@ -1,0 +1,42 @@
+[
+  {
+    "url": "https://x.com/reeshasx/status/2090198916763431256",
+    "note": "",
+    "kind": "post",
+    "host": "x.com",
+    "title": "dica pra pentest, bugbounty e hacking em geral  testem: x-foward-for x-foward-host x-real-ip fowarded x-forwarded-host x-forwarded-proto  e alguns outros headers q não vou lembrar de cabeça   alem de bypass em rate limit você consegue acesso a infra interna por proxy trust issue… https://t.co/4Qv4P8U6H5",
+    "description": null,
+    "site": "Reesha (@Reeshasx)",
+    "image": null
+  },
+  {
+    "url": "https://x.com/emilkowalski/status/2090031918523842766",
+    "note": "",
+    "kind": "post",
+    "host": "x.com",
+    "title": "New skill: /animate-expo  All the animation knowledge, but for your native apps.  React Native and Expo: gestures, sheets, haptics, screen transitions, and more.  Made in collaboration with the @expo team.https://t.co/zEnLEjkvIp",
+    "description": null,
+    "site": "Emil Kowalski (@emilkowalski)",
+    "image": null
+  },
+  {
+    "url": "https://x.com/ajaypatel_aj/status/2089729317890843000",
+    "note": "",
+    "kind": "post",
+    "host": "x.com",
+    "title": "📦 𝗖𝗮𝗿𝗴𝗼𝗿𝗶𝘅 - Logistics App Template on @ShadcnStudio!  Cargorix is a logistics and operations dashboard built for shipping, warehouse management, and supply chain platforms.  Track shipments, deliveries, inventory, and logistics operations from a modern, scalable… pic.twitter.com/NigcTgG4to",
+    "description": null,
+    "site": "Ajay Patel (@ajaypatel_aj)",
+    "image": null
+  },
+  {
+    "url": "https://openlogi.org/en",
+    "note": "",
+    "kind": "article",
+    "host": "openlogi.org",
+    "title": "OpenLogi",
+    "description": "A native, local-first alternative to Logitech Options+, written in Rust. Remap buttons, drive DPI and SmartShift over HID++ — no account, no telemetry.",
+    "site": "OpenLogi",
+    "image": "https://openlogi.org/social-preview.png"
+  }
+]

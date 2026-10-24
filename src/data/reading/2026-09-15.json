@@ -1,0 +1,42 @@
+[
+  {
+    "url": "https://expo.dev/blog/build-ios-apps-on-windows-with-cloud-simulators",
+    "note": "",
+    "kind": "article",
+    "host": "expo.dev",
+    "title": "You don't need a Mac to develop iOS apps — Expo blog",
+    "description": "Meet EAS Simulator, Expo's new service that gives every developer and every coding agent an iPhone in the cloud.",
+    "site": "Expo Blog",
+    "image": "https://cdn.sanity.io/images/9r24npb8/production/3cac54f661c659105f8148eeb8cf3173d9ad3ac9-1800x1012.png?w=1200&h=630&fit=crop&fm=webp&q=80&auto=format"
+  },
+  {
+    "url": "https://finsidersbrasil.com.br/noticias-sobre-fintechs/fraudes/bancos-usam-dados-de-telecomunicacoes-para-barrar-golpes-no-pix/",
+    "note": "",
+    "kind": "article",
+    "host": "finsidersbrasil.com.br",
+    "title": "Bancos combatem fraudes com dados de telecomunicações e IA",
+    "description": "Para combater a crescente sofisticação dos golpes, bancos brasileiros como Itaú e Bradesco estão utilizando dados de telecomunicações para identificar fraudes em transações Pix e proteger seus clientes.",
+    "site": "Finsiders Brasil",
+    "image": "https://uploads.finsidersbrasil.com.br/2026/09/DESTAQUE-dados-telecom-e-lgpd.jpg"
+  },
+  {
+    "url": "https://infohub.delltechnologies.com/en-us/p/dell-pro-max-gb10-multi-node-llm-deployment/",
+    "note": "",
+    "kind": "article",
+    "host": "infohub.delltechnologies.com",
+    "title": "Dell pro max gb10 multi node llm deployment",
+    "description": null,
+    "site": null,
+    "image": null
+  },
+  {
+    "url": "https://medium.com/mercadolibre-tech/internal-traffic-what-a-crazy-airport-3c9281831df9",
+    "note": "",
+    "kind": "article",
+    "host": "medium.com",
+    "title": "Internal traffic what a crazy airport",
+    "description": null,
+    "site": null,
+    "image": null
+  }
+]

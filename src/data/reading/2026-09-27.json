@@ -1,0 +1,22 @@
+[
+  {
+    "url": "https://github.com/agent-labs-dev/bughunters",
+    "note": "",
+    "kind": "repo",
+    "host": "github.com",
+    "title": "agent-labs-dev/bugpatrol",
+    "description": "Automated app testing from the future",
+    "site": "GitHub",
+    "image": "https://opengraph.githubassets.com/3c1342d2dd818cdcfcb3e86f6d7f88f7f2322c5ef7cf52d84caa0816adbfd014/agent-labs-dev/bugpatrol"
+  },
+  {
+    "url": "https://github.com/kunchenguid/backpass",
+    "note": "",
+    "kind": "repo",
+    "host": "github.com",
+    "title": "kunchenguid/backpass",
+    "description": "You don't write AGENTS.md. You train it with gradient descent.",
+    "site": "GitHub",
+    "image": "https://opengraph.githubassets.com/96003b29b5aefdc52172e1cbe6f5a1d5bc1bb7fbce446f32065f45c6703a30a7/kunchenguid/backpass"
+  }
+]

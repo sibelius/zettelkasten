@@ -1,0 +1,22 @@
+[
+  {
+    "url": "https://lethain.com/small-changes/",
+    "note": "",
+    "kind": "article",
+    "host": "lethain.com",
+    "title": "Speeding up code review with `small-change`",
+    "description": null,
+    "site": null,
+    "image": "https://lethain.com/static/author.png"
+  },
+  {
+    "url": "https://cloudnative-pg.io/",
+    "note": "",
+    "kind": "tool",
+    "host": "cloudnative-pg.io",
+    "title": "CloudNativePG - PostgreSQL Operator for Kubernetes",
+    "description": "CloudNativePG - PostgreSQL Operator for Kubernetes",
+    "site": "CloudNativePG - PostgreSQL Operator for Kubernetes",
+    "image": "https://cloudnative-pg.io/images/hero_image.png"
+  }
+]

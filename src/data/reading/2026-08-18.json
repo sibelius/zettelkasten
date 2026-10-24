@@ -1,0 +1,52 @@
+[
+  {
+    "url": "https://tart.run/",
+    "note": "",
+    "kind": "tool",
+    "host": "tart.run",
+    "title": "Toolset to build, run and manage macOS and Linux VMs",
+    "description": "Native performance. Remote storage for Virtual Machines. Many integrations including GitHub, GitLab and more.",
+    "site": null,
+    "image": "https://tart.run/assets/images/social/index.png"
+  },
+  {
+    "url": "https://planetscale.com/blog/what-is-a-data-topology",
+    "note": "",
+    "kind": "article",
+    "host": "planetscale.com",
+    "title": "What is a data topology? — PlanetScale",
+    "description": "A data topology describes the sharding scheme a Neki router uses to map logical PostgreSQL tables to physical shards and route queries.",
+    "site": null,
+    "image": "https://planetscale.com/assets/what-is-a-data-topology-social-BXDG-SSk.png"
+  },
+  {
+    "url": "https://x.com/jhleath/status/2089401964568469558",
+    "note": "",
+    "kind": "post",
+    "host": "x.com",
+    "title": "Post by @jhleath",
+    "description": null,
+    "site": "Hunter Leath (@jhleath)",
+    "image": null
+  },
+  {
+    "url": "https://x.com/a16z/status/2089444662788665436",
+    "note": "",
+    "kind": "post",
+    "host": "x.com",
+    "title": ".@cdixon on \"Climbing the wrong hill\": pic.twitter.com/sYYjcC1XmR",
+    "description": null,
+    "site": "a16z (@a16z)",
+    "image": null
+  },
+  {
+    "url": "https://hetuva.com/",
+    "note": "",
+    "kind": "tool",
+    "host": "hetuva.com",
+    "title": "Hetuva — Evite MEDs na sua operação crypto",
+    "description": "Prevenção de fraude antes da contestação existir: scoring em tempo real e inteligência de rede para operações Pix-nativas.",
+    "site": null,
+    "image": "https://hetuva.com/og.png"
+  }
+]

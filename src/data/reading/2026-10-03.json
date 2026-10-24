@@ -1,0 +1,22 @@
+[
+  {
+    "url": "https://github.com/graphene-data/graphene",
+    "note": "",
+    "kind": "repo",
+    "host": "github.com",
+    "title": "graphene-data/graphene",
+    "description": "Turn your coding agent into a world-class data analyst",
+    "site": "GitHub",
+    "image": "https://opengraph.githubassets.com/330b9cf8deed6876fe63fddddfa64355b4ba019870c8cec4db7274a3b9e2b2c2/graphene-data/graphene"
+  },
+  {
+    "url": "https://github.com/CopilotKit/OpenDots",
+    "note": "",
+    "kind": "repo",
+    "host": "github.com",
+    "title": "CopilotKit/OpenDots",
+    "description": "Your always-on AI coworkers that move between text, calls, and Slack.",
+    "site": "GitHub",
+    "image": "https://opengraph.githubassets.com/9301e4f890858bc3c6346ddf988f0a8a8ce7bbb0e205c36636e38c1f37264af3/CopilotKit/OpenDots"
+  }
+]

@@ -1,0 +1,22 @@
+[
+  {
+    "url": "https://www.lab37.us/",
+    "note": "",
+    "kind": "tool",
+    "host": "lab37.us",
+    "title": "Lab37",
+    "description": "Lab37 is pioneering the future of food production. We're not just building robots; we're crafting culinary ecosystems that empower restaurants, delight customers, and make great food more accessible than ever.",
+    "site": null,
+    "image": "https://framerusercontent.com/assets/zZG7WgGkp22JxBsbgEuZUZIDY.png"
+  },
+  {
+    "url": "https://www.rapid7.com/products/velociraptor/",
+    "note": "",
+    "kind": "article",
+    "host": "rapid7.com",
+    "title": "Rapid7 Velociraptor DFIR Technology",
+    "description": "Velociraptor is a unique, advanced open-source endpoint monitoring, digital forensic and cyber response platform. Learn more.",
+    "site": "Rapid7",
+    "image": "https://www.rapid7.com/rapid7-social-card.jpg"
+  }
+]

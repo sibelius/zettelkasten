@@ -29,14 +29,18 @@ Then commit `src/data/writing.json` and `src/data/repos.json`.
 
 ## Reading feed
 
-`/reading` lists what I am reading and recommend, with an RSS feed at `/reading.xml`.
-Add a link to `src/data/reading-links.json` (`url`, `date`, and an optional `note` with why it is worth reading), then:
+`/reading` lists what I am reading and recommend, with a calendar, a page per day (`/reading/2026-10-24`) and an RSS feed at `/reading.xml`.
+Links are stored one file per day in `src/data/reading/YYYY-MM-DD.json`.
 
 ```bash
-pnpm sync:reading
+# Pull my new links from Slack #articles-dev (token needs channels:history)
+SLACK_TOKEN=xoxp-... pnpm reading
+
+# Add one by hand, with an optional note on why it is worth reading
+pnpm reading --add https://example.com/post "Why it is worth reading" --date 2026-10-24
 ```
 
-That fetches each new link's title, description and preview image into `src/data/reading.json`. Commit both files.
+Each new link gets its title, description and preview image. Commit `src/data/reading`.
 
 ## Deploy
 

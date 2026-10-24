@@ -1,0 +1,32 @@
+[
+  {
+    "url": "https://danluu.com/sounds-easy/",
+    "note": "",
+    "kind": "article",
+    "host": "danluu.com",
+    "title": "I could do that in a weekend!",
+    "description": null,
+    "site": null,
+    "image": null
+  },
+  {
+    "url": "https://danluu.com/perf-opt/",
+    "note": "",
+    "kind": "article",
+    "host": "danluu.com",
+    "title": "There's no reason for software to be slow anymore",
+    "description": null,
+    "site": null,
+    "image": null
+  },
+  {
+    "url": "https://nolanlawson.com/2026/08/16/you-can-just-choose-how-many-bugs-you-want-now/",
+    "note": "",
+    "kind": "article",
+    "host": "nolanlawson.com",
+    "title": "You can just choose how many bugs you want now",
+    "description": "There’s a bizarre aspect of AI coding that I’ve been trying to put my finger on, and I think it’s this: you can basically just decide how many bugs you want…",
+    "site": "Read the Tea Leaves",
+    "image": "https://nolanlawson.com/_astro/profile_17.lgRyMxhl_Z12XHH.jpeg"
+  }
+]

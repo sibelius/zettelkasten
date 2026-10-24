@@ -1,0 +1,12 @@
+[
+  {
+    "url": "https://claude.com/blog/run-claude-code-sessions-on-your-own-compute",
+    "note": "",
+    "kind": "article",
+    "host": "claude.com",
+    "title": "Self-hosted environments for Claude Code",
+    "description": "Self-hosted environments are in public beta. Run Claude Code sessions on your own infrastructure, inside your network and next to your internal services.",
+    "site": "Claude",
+    "image": "https://claude.com/resources/articles/run-claude-code-sessions-on-your-own-compute/opengraph-image/og"
+  }
+]

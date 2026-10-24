@@ -1,0 +1,60 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import ReadingCalendar from '../../components/ReadingCalendar.astro';
+import ReadingItem from '../../components/ReadingItem.astro';
+import {withBase} from '../../lib/docs';
+import {dayLabel, dayUrl, readingDays} from '../../lib/reading';
+
+export function getStaticPaths() {
+  return readingDays.map((day, index) => ({
+    params: {date: day.date},
+    // readingDays is newest first, so the next day is the one before it in the list.
+    props: {newer: readingDays[index - 1]?.date, older: readingDays[index + 1]?.date},
+  }));
+}
+
+type Props = {newer?: string; older?: string};
+
+const {date} = Astro.params as {date: string};
+const {newer, older} = Astro.props;
+const items = readingDays.find((day) => day.date === date)!.items.map((item) => ({...item, date}));
+const label = dayLabel(date);
+---
+
+<Base title={`Reading on ${label}`} description={`${items.length} ${items.length === 1 ? 'link' : 'links'} I was reading on ${label}.`}>
+  <PageHead title={label} note={`${items.length} ${items.length === 1 ? 'link' : 'links'}`} lede="What I was reading and sharing that day.">
+    <nav class="links reading-day-nav" aria-label="Other days">
+      {older && <a href={dayUrl(older)}>← {older}</a>}
+      <a href={withBase('/reading')}>All reading</a>
+      {newer && <a href={dayUrl(newer)}>{newer} →</a>}
+    </nav>
+  </PageHead>
+
+  <div class="row">
+    <div class="margin reading-day-calendar">
+      <ReadingCalendar months={[date.slice(0, 7)]} selected={date} />
+    </div>
+    <div class="body">
+      <ol class="reading-list" role="list">
+        {items.map((item) => <ReadingItem item={item} showDate={false} />)}
+      </ol>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .reading-day-nav {
+    margin-top: 18px;
+  }
+
+  .reading-day-calendar {
+    padding-top: 20px;
+  }
+
+  .reading-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+</style>

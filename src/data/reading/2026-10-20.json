@@ -1,0 +1,12 @@
+[
+  {
+    "url": "https://emudhra.we-have-a-problem.com/",
+    "note": "",
+    "kind": "tool",
+    "host": "emudhra.we-have-a-problem.com",
+    "title": "eMudhra Intermediate CA Compromise",
+    "description": "The private keys of eight eMudhra intermediate CA certificates, trusted by major root programs, have been compromised. Check whether your client is affected and how to protect it.",
+    "site": "we-have-a-problem.com",
+    "image": null
+  }
+]

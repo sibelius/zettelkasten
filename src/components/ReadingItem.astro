@@ -1,0 +1,119 @@
+---
+import {formatDate} from '../lib/docs';
+import {clip, dayUrl, kindLabel, type ReadingEntry} from '../lib/reading';
+
+type Props = {item: ReadingEntry; showDate?: boolean};
+
+const {item, showDate = true} = Astro.props;
+---
+
+<li class="reading-item" data-item data-kind={item.kind} data-search={`${item.title} ${item.site ?? ''} ${item.host} ${item.note} ${item.description ?? ''}`.toLowerCase()}>
+  <div>
+    <p class="reading-meta">
+      <span class="reading-kind">{kindLabel[item.kind]}</span>
+      <span>{item.site ?? item.host}</span>
+      {
+        showDate && (
+          <a class="plain" href={dayUrl(item.date)}>
+            <time datetime={item.date}>{formatDate(item.date)}</time>
+          </a>
+        )
+      }
+    </p>
+    <h3 class="reading-title">
+      <a class="plain" href={item.url} rel="noopener">
+        {clip(item.title, 160)}
+      </a>
+    </h3>
+    {item.description && item.kind !== 'post' && <p class="reading-description">{clip(item.description, 200)}</p>}
+    {item.note && <p class="reading-note">{item.note}</p>}
+  </div>
+  {
+    item.image && (
+      <a class="reading-thumb" href={item.url} rel="noopener" tabindex="-1" aria-hidden="true">
+        <img src={item.image} alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.parentElement.remove()" />
+      </a>
+    )
+  }
+</li>
+
+<style>
+  .reading-item {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 160px;
+    gap: 24px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .reading-item:not(:has(.reading-thumb)) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .reading-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 12px;
+    margin: 0 0 6px;
+    font-family: var(--sans);
+    font-size: 14px;
+    color: var(--pencil);
+  }
+
+  .reading-kind {
+    font-weight: 700;
+    color: var(--blue);
+  }
+
+  .reading-title {
+    margin: 0;
+    font-family: var(--sans);
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.3;
+    overflow-wrap: anywhere;
+  }
+
+  .reading-description {
+    margin: 6px 0 0;
+    font-size: 17px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+  }
+
+  .reading-note {
+    margin: 10px 0 0;
+    padding-left: 12px;
+    border-left: 3px solid var(--blue);
+    font-style: italic;
+    color: var(--ink);
+  }
+
+  .reading-thumb {
+    display: block;
+    align-self: start;
+    aspect-ratio: 1.91 / 1;
+    overflow: hidden;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    background: var(--card);
+  }
+
+  .reading-thumb img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @media (max-width: 560px) {
+    .reading-item {
+      grid-template-columns: minmax(0, 1fr) 96px;
+      gap: 16px;
+    }
+
+    .reading-title {
+      font-size: 18px;
+    }
+  }
+</style>

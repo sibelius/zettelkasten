@@ -1,0 +1,32 @@
+[
+  {
+    "url": "https://datatracker.ietf.org/doc/draft-goto-otp-token/",
+    "note": "",
+    "kind": "paper",
+    "host": "datatracker.ietf.org",
+    "title": "The `OTP-Token` Email Header Field",
+    "description": "This document defines the OTP-Token email header field, which can be used to deliver One-Time Passcodes (OTP) in a machine-readable and origin-bound manner alongside the human-readable message carrying that content today. Recipient Message User Agents (rMUA) can collaborate with other entities in the ecosystem to assist in the delivery of these codes to the context which wishes to verify their successful delivery.",
+    "site": "IETF Datatracker",
+    "image": null
+  },
+  {
+    "url": "https://www.allthingsdistributed.com/2026/08/on-building-scalable-control-planes.html",
+    "note": "",
+    "kind": "article",
+    "host": "allthingsdistributed.com",
+    "title": "On building scalable control planes",
+    "description": "Zak van der Merwe has spent his entire career at AWS building control planes. First for EC2 and now for DSQL. On the surface, the control plane looks quite boring: it records what should exist and reconciles that with what actually does. Nobody leaves school dreaming of building one, but Zak will be the first to tell you that if you like solving hard problems in distributed systems, there are few better places to be. It’s where many of those hard problems converge, and where the decisions you make determine whether a service survives its own growth.",
+    "site": "All Things Distributed",
+    "image": "https://www.allthingsdistributed.com/images/on-building-control-planes-that-scale-header.jpg"
+  },
+  {
+    "url": "https://developers.openai.com/plugins/build/mcp-events",
+    "note": "",
+    "kind": "article",
+    "host": "developers.openai.com",
+    "title": "MCP Events – Plugins | OpenAI Developers",
+    "description": "Implement event subscriptions and webhook delivery for your MCP server.",
+    "site": "OpenAI Developers",
+    "image": "https://developers.openai.com/og/plugins/build/mcp-events.png"
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "url": "https://accesssecurity.com.br/compliance/pci-dss-o-que-e/",
+    "note": "",
+    "kind": "article",
+    "host": "accesssecurity.com.br",
+    "title": "PCI DSS v4.0.1: Guia Completo de Conformidade no Brasil [2026]",
+    "description": "Guia definitivo da PCI DSS v4.0.1 escrito por QSA autorizada: 12 requisitos, níveis, AOC, ROC, custos e prazos no Brasil.",
+    "site": "Access Security",
+    "image": "https://accesssecurity.com.br/img/blog/pci-dss-og.png"
+  },
+  {
+    "url": "https://www.tinybird.co/blog/what-i-learned-operating-clickhouse",
+    "note": "",
+    "kind": "article",
+    "host": "tinybird.co",
+    "title": "I've operated petabyte-scale ClickHouse® clusters for 5 years | Tinybird",
+    "description": "What I learned operating ClickHouse at scale: the wins, the failures, and the lessons that only come from production experience.",
+    "site": null,
+    "image": "https://tinybird.co/api/blog/images/posts/2025-03-31-what-i-learned-operating-clickhouse/feature-image.png"
+  },
+  {
+    "url": "https://cdn.nubank.com.br/mobile/taskforce/nubank-mobile-architecture-task-force-mission-report.pdf",
+    "note": "",
+    "kind": "paper",
+    "host": "cdn.nubank.com.br",
+    "title": "Nubank mobile architecture task force mission report",
+    "description": null,
+    "site": null,
+    "image": null
+  }
+]

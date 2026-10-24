@@ -1,0 +1,12 @@
+[
+  {
+    "url": "https://www.sonarsource.com/products/sonarqube/mcp-server/",
+    "note": "",
+    "kind": "article",
+    "host": "sonarsource.com",
+    "title": "SonarQube MCP Server | Code Context For AI Agents",
+    "description": "Connect Claude Code, Cursor, and Copilot to real codebase context over MCP, so AI agents fix issues automatically before every pull request. Connect now.",
+    "site": null,
+    "image": "https://assets-eu-01.kc-usercontent.com/ef593040-b591-0198-9506-ed88b30bc023/8e69d91e-9d71-453d-a4c7-d25797ae7e1a/sonar-open-graph%402x.png"
+  }
+]

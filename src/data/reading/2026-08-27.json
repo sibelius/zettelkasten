@@ -1,0 +1,22 @@
+[
+  {
+    "url": "https://antiwork.com/",
+    "note": "",
+    "kind": "tool",
+    "host": "antiwork.com",
+    "title": "Antiwork — We automated ourselves out of the work.",
+    "description": "Since 2023, Gumroad has run its operations through a single AI agent. This is how.",
+    "site": null,
+    "image": null
+  },
+  {
+    "url": "https://www.youtube.com/live/A-KCdj88cf4",
+    "note": "",
+    "kind": "video",
+    "host": "youtube.com",
+    "title": "SEMCOMP SSA 26: Dia 3 - Palestras online",
+    "description": "Semana de Computação de Salvador 2026 - Dia 3Realização: InfoJr UFBA - Empresa Júnior de Informática da UFBA10:00 - Mesa de debate: Trajetórias Internacionai...",
+    "site": "YouTube",
+    "image": "https://i.ytimg.com/vi/A-KCdj88cf4/maxresdefault.jpg"
+  }
+]

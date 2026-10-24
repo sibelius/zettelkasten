@@ -1,0 +1,12 @@
+[
+  {
+    "url": "https://pnpm.io/blog/whats-different-in-pnpm-12",
+    "note": "",
+    "kind": "article",
+    "host": "pnpm.io",
+    "title": "What's different in pnpm 12 | pnpm",
+    "description": "pnpm 12 is a rewrite of pnpm in Rust, and it is stable. Upgrading should not feel like a migration. Apart from the differences below, it keeps the commands, flags, settings, and lockfile format of pnpm 11, and the documentation applies to both versions.",
+    "site": "pnpm",
+    "image": "https://pnpm.io/img/ogimage.png"
+  }
+]

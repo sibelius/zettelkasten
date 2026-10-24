@@ -1,0 +1,62 @@
+[
+  {
+    "url": "https://blog.detail.dev/posts/towards-self-driving-codebases/",
+    "note": "",
+    "kind": "article",
+    "host": "blog.detail.dev",
+    "title": "Towards Self-Driving Codebases | Detail",
+    "description": "We're post-tokenmaxxing. What are we pre-? How do we get there?",
+    "site": "Detail",
+    "image": "https://blog.detail.dev/viz/hype-cycle.png"
+  },
+  {
+    "url": "https://blog.lerian.studio/da-autorizacao-a-liquidacao-o-papel-do-ledger-nas-transacoes-de-cartao/",
+    "note": "",
+    "kind": "article",
+    "host": "blog.lerian.studio",
+    "title": "Da autorização à liquidação: o papel do ledger em cartões",
+    "description": "Como o ledger organiza limite, cobrança e obrigações entre instituições em cada etapa de uma compra no cartão, da autorização até a liquidação.",
+    "site": "Lerian Blog",
+    "image": "https://storage.ghost.io/c/43/c9/43c91103-1595-4af6-8970-e82fba2b1f00/content/images/size/w1200/2026/09/ChatGPT-Image-17-de-set.-de-2026--17_01_12.png"
+  },
+  {
+    "url": "https://typesafe.ai/blog/introducing-system-one-models-and-jev",
+    "note": "",
+    "kind": "article",
+    "host": "typesafe.ai",
+    "title": "Introducing System One Models & Jev - TypeSafe AI Blog",
+    "description": "TypeSafe AI is an AI lab building machine-native intelligence infrastructure for automation, designed to make decisions within software. Try our first System One Model, Jev, in early access.",
+    "site": null,
+    "image": "https://framerusercontent.com/images/pvRPymJ0yRv5SHXNA3yDzieCZJk.webp?width=1230&height=1008"
+  },
+  {
+    "url": "https://github.com/jumpserver/jumpserver/releases/tag/v5.0.0",
+    "note": "",
+    "kind": "repo",
+    "host": "github.com",
+    "title": "Release v5.0.0 · jumpserver/jumpserver",
+    "description": "JumpServer is an Open-source Privileged Access Management (PAM) platform with AI-powered capabilities, providing DevOps and IT teams a unified workspace to securely access SSH, RDP, Kubernetes, databases, websites, RemoteApp, VirtualApp, and more. - Release v5.0.0 · jumpserver/jumpserver",
+    "site": "GitHub",
+    "image": "https://opengraph.githubassets.com/f304d05a229eb38d6ce04d44490a4639c871ee2302bb81410981bd137ba6df32/jumpserver/jumpserver/releases/tag/v5.0.0"
+  },
+  {
+    "url": "https://github.com/cloudflare/security-audit-skill",
+    "note": "",
+    "kind": "repo",
+    "host": "github.com",
+    "title": "cloudflare/security-audit-skill",
+    "description": "A coding-agent skill for multi-phase security audits with independently verified, machine-readable findings",
+    "site": "GitHub",
+    "image": "https://opengraph.githubassets.com/ce45c7e00c3a3fa18d3181bcfdf9042a1377d61e97b9cada41079d813264f6ea/cloudflare/security-audit-skill"
+  },
+  {
+    "url": "https://a6mzero.com/posts/this-pcb-is-brought-to-you-by-fable-5/",
+    "note": "",
+    "kind": "article",
+    "host": "a6mzero.com",
+    "title": "This PCB is brought to you by Fable 5 — A6M-Zero",
+    "description": "An experiment to design a cute PCB (without touching any tools) in plain English",
+    "site": null,
+    "image": "https://a6mzero.com/static/images/a6m-zero-plate-2.jpg"
+  }
+]

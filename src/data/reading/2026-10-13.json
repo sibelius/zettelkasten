@@ -1,0 +1,32 @@
+[
+  {
+    "url": "https://github.com/xtool-org/xtool",
+    "note": "",
+    "kind": "repo",
+    "host": "github.com",
+    "title": "xtool-org/xtool",
+    "description": "Cross-platform Xcode replacement. Build and deploy iOS apps with SwiftPM on Linux, Windows, macOS.",
+    "site": "GitHub",
+    "image": "https://opengraph.githubassets.com/9bbfe2b41861e5f57573a0f0fd659d460eabf1bdb70f149916c82803608a0030/xtool-org/xtool"
+  },
+  {
+    "url": "https://github.com/OpenHands/OpenHands",
+    "note": "",
+    "kind": "repo",
+    "host": "github.com",
+    "title": "OpenHands/OpenHands",
+    "description": "🙌 OpenHands: AI-Driven Development",
+    "site": "GitHub",
+    "image": "https://opengraph.githubassets.com/6af8f6c3259208bb72947f5dbb4e5b27efb8039fe98530fce08e230ce65232cd/OpenHands/OpenHands"
+  },
+  {
+    "url": "https://www.akitaonrails.com/2026/10/12/usuarios-linux-sempre-escolham-btrfs-nao-ext4/",
+    "note": "",
+    "kind": "article",
+    "host": "akitaonrails.com",
+    "title": "Usuários Linux: sempre escolham BTRFS, não EXT4",
+    "description": null,
+    "site": "AkitaOnRails.com",
+    "image": "https://www.akitaonrails.com/2026/10/12/usuarios-linux-sempre-escolham-btrfs-nao-ext4/btrfs-compressao-economia.png"
+  }
+]
