@@ -3,6 +3,8 @@
 import {readdirSync, readFileSync, statSync, writeFileSync} from 'node:fs';
 import {join} from 'node:path';
 
+import {decode, mapLimited, pageMeta} from './fetch.mjs';
+
 const FEEDS = [
   {source: 'Substack', url: 'https://sibelius.substack.com/feed'},
   {source: 'dev.to', url: 'https://dev.to/feed/sibelius'},
@@ -14,16 +16,6 @@ const SPEAKERDECK_USER = 'sibelius';
 
 /** Episodes and videos that are not linked from any note yet. Add URLs here to show them on /media. */
 const EXTRA_MEDIA = [];
-
-const decode = (value = '') =>
-  value
-    .replace(/^<!\[CDATA\[|\]\]>$/g, '')
-    .replace(/&amp;/g, '&')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;|&#x27;/g, "'")
-    .trim();
 
 const field = (item, name) => decode(item.match(new RegExp(`<${name}>([\\s\\S]*?)</${name}>`))?.[1]);
 
@@ -80,37 +72,7 @@ async function readRepos() {
     }));
 }
 
-/** The image a page shows when it is shared: og:image, else twitter:image. */
-async function ogImage(url) {
-  try {
-    const response = await fetch(url, {headers: {'user-agent': 'Mozilla/5.0 (compatible; sibelius-site-sync)'}, redirect: 'follow', signal: AbortSignal.timeout(15000)});
-
-    if (!response.ok) {
-      return null;
-    }
-
-    const html = await response.text();
-    const tag = (name) =>
-      html.match(new RegExp(`<meta[^>]+(?:property|name)=["']${name}["'][^>]+content=["']([^"']+)["']`, 'i'))?.[1] ??
-      html.match(new RegExp(`<meta[^>]+content=["']([^"']+)["'][^>]+(?:property|name)=["']${name}["']`, 'i'))?.[1];
-    const image = tag('og:image') ?? tag('twitter:image');
-
-    return image ? decode(new URL(image, url).toString()) : null;
-  } catch {
-    return null;
-  }
-}
-
-/** Run a few at a time, so no site sees a burst of requests. */
-async function mapLimited(items, limit, fn) {
-  const results = [];
-
-  for (let i = 0; i < items.length; i += limit) {
-    results.push(...(await Promise.all(items.slice(i, i + limit).map(fn))));
-  }
-
-  return results;
-}
+const ogImage = async (url) => (await pageMeta(url))?.image ?? null;
 
 const posts = (await Promise.all(FEEDS.map(readFeed))).flat().sort((a, b) => b.date.localeCompare(a.date));
 const writing = await mapLimited(posts, 6, async ({feedImage, ...post}) => ({...post, image: feedImage ?? (await ogImage(post.url))}));
