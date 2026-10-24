@@ -20,11 +20,11 @@ const canonical = new URL(withBase(route === 'index' ? '/' : `/${route}`), Astro
 const image = new URL(withBase(`/og/${route}.png`), Astro.site);
 
 const nav = [
-  {label: 'What I do', url: withBase('/#skills')},
   {label: 'Writing', url: withBase('/#writing')},
   {label: 'Visualized', url: withBase('/#visualized')},
-  {label: 'Code', url: withBase('/#code')},
-  {label: 'Notes', url: withBase('/category/notes')},
+  {label: 'Stack', url: withBase('/stack')},
+  {label: 'Talks', url: withBase('/media')},
+  {label: 'Library', url: withBase('/library')},
   {label: 'Graph', url: withBase('/graph')},
   {label: 'Work with me', url: withBase('/#work')},
 ];
@@ -183,7 +183,7 @@ const nav = [
     justify-content: space-between;
     align-items: center;
     gap: 16px;
-    min-width: 220px;
+    min-width: 180px;
     min-height: 44px;
     padding: 0 14px;
     font: inherit;

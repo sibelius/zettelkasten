@@ -1,0 +1,191 @@
+---
+import Base from '../layouts/Base.astro';
+import MediaCard from '../components/MediaCard.astro';
+import PageHead from '../components/PageHead.astro';
+import PlayerDialog from '../components/PlayerDialog.astro';
+import {formatDate, getDocs, withBase} from '../lib/docs';
+import media from '../data/media.json';
+
+const docs = await getDocs();
+const byRoute = new Map(docs.map((doc) => [doc.route, doc]));
+
+const appearances = media.videos.filter((video) => video.kind === 'appearance');
+const recommended = media.videos
+  .filter((video) => video.kind === 'recommended')
+  .map((video) => ({...video, from: video.note ? byRoute.get(video.note) : undefined}));
+
+const nocookie = (id: string) => `https://www.youtube-nocookie.com/embed/${id}`;
+
+const sections = [
+  {id: 'slides', label: 'Slides', count: media.decks.length},
+  {id: 'talks', label: 'Talks and interviews', count: appearances.length},
+  {id: 'podcasts', label: 'Podcasts', count: media.episodes.length},
+  {id: 'recommended', label: 'Videos my notes recommend', count: recommended.length},
+];
+---
+
+<Base title="Talks, videos and podcasts" description="Every talk, interview, slide deck and podcast episode I have done, playable right here.">
+  <PageHead
+    title="Talks, videos and podcasts"
+    note={`${media.decks.length + appearances.length + media.episodes.length} things to watch or hear`}
+    lede="Slides from my talks, recordings of talks and interviews, and podcast episodes. Click any of them to play it here."
+  >
+    <nav class="links media-jump" aria-label="Sections">
+      {sections.map((section) => <a href={`#${section.id}`}>{section.label}</a>)}
+    </nav>
+  </PageHead>
+
+  <section id="slides" class="row media-section" aria-labelledby="slides-title">
+    <div class="margin media-note">
+      <p>{media.decks.length} decks</p>
+      <p><a href="https://speakerdeck.com/sibelius">SpeakerDeck</a></p>
+    </div>
+    <div class="body">
+      <h2 id="slides-title" class="sub-title">Slides</h2>
+      <ul class="media-grid" role="list">
+        {
+          media.decks.map((deck) => (
+            <li>
+              <MediaCard kind="slides" group="slides" title={deck.title} meta={formatDate(deck.date)} url={deck.url} thumbnail={deck.thumbnail} player={deck.player} />
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section id="talks" class="row media-section" aria-labelledby="talks-title">
+    <div class="margin media-note"><p>{appearances.length} recordings</p></div>
+    <div class="body">
+      <h2 id="talks-title" class="sub-title">Talks and interviews</h2>
+      <ul class="media-grid" role="list">
+        {
+          appearances.map((video) => (
+            <li>
+              <MediaCard kind="video" group="talks" title={video.title} meta={video.channel} url={video.url} thumbnail={video.thumbnail} player={nocookie(video.id)} />
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section id="podcasts" class="row media-section" aria-labelledby="podcasts-title">
+    <div class="margin media-note"><p>{media.episodes.length} episodes</p></div>
+    <div class="body">
+      <h2 id="podcasts-title" class="sub-title">Podcasts</h2>
+      <ul class="media-grid media-grid-audio" role="list">
+        {
+          media.episodes.map((episode) => (
+            <li>
+              <MediaCard kind="audio" group="podcasts" title={episode.title} meta={episode.source} url={episode.url} thumbnail={episode.thumbnail} player={episode.player} />
+            </li>
+          ))
+        }
+      </ul>
+      <p class="media-more">
+        Been on a show that is missing here? Tell me on <a href="https://twitter.com/sseraphini">X</a> and I will add it.
+      </p>
+    </div>
+  </section>
+
+  <section id="recommended" class="row media-section" aria-labelledby="recommended-title">
+    <div class="margin media-note"><p>Videos other people made that my notes point to</p></div>
+    <div class="body">
+      <h2 id="recommended-title" class="sub-title">Videos my notes recommend</h2>
+      <ul class="recommended" role="list">
+        {
+          recommended.map((video) => (
+            <li class="recommended-item">
+              <MediaCard kind="video" group="recommended" title={video.title} meta={video.channel} url={video.url} thumbnail={video.thumbnail} player={nocookie(video.id)} />
+              {video.from && (
+                <p class="recommended-from">
+                  From <a href={video.from.url}>{video.from.title}</a>
+                </p>
+              )}
+            </li>
+          ))
+        }
+      </ul>
+      <p class="media-more"><a href={withBase('/youtube')}>The YouTube page with notes on each talk</a></p>
+    </div>
+  </section>
+
+  <PlayerDialog />
+</Base>
+
+<style>
+  .media-jump {
+    margin-top: 18px;
+  }
+
+  .media-section {
+    padding-top: 72px;
+  }
+
+  .media-note {
+    padding-top: 14px;
+  }
+
+  .media-note p {
+    margin: 0 0 6px;
+  }
+
+  .media-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 32px 24px;
+    margin: 20px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .media-grid-audio {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .recommended {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 28px 20px;
+    margin: 20px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .recommended-from {
+    margin: 4px 0 0;
+    font-family: var(--sans);
+    font-size: 14px;
+    color: var(--pencil);
+  }
+
+  .media-more {
+    margin: 24px 0 0;
+    font-family: var(--sans);
+    font-size: 15px;
+    color: var(--pencil);
+  }
+
+  @media (max-width: 1000px) {
+    .media-grid,
+    .recommended {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .media-grid-audio {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 560px) {
+    .media-grid,
+    .recommended {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .media-grid-audio {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+</style>

@@ -1,0 +1,654 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import {formatDate, getDocs, tagCounts, tagUrl, type Doc} from '../lib/docs';
+
+const docs = await getDocs();
+
+const backlinkCount = new Map<string, number>();
+
+for (const doc of docs) {
+  for (const target of doc.links) {
+    backlinkCount.set(target, (backlinkCount.get(target) ?? 0) + 1);
+  }
+}
+
+const sectionOrder = ['notes', 'mentorship', 'learning-path', 'essays'];
+const sections = [...new Map(docs.map((doc) => [doc.section.key, doc.section])).values()].sort(
+  (a, b) => (sectionOrder.indexOf(a.key) + 1 || 99) - (sectionOrder.indexOf(b.key) + 1 || 99),
+);
+
+const tags = tagCounts(docs);
+const boardTags = tags.slice(0, 8).map(([tag]) => tag);
+
+const rows = docs.map((doc) => ({
+  doc,
+  connections: doc.links.length + (backlinkCount.get(doc.id) ?? 0),
+  search: `${doc.title} ${doc.tags.join(' ')} ${doc.excerpt}`.toLowerCase(),
+}));
+
+const attrs = (row: (typeof rows)[number]) => ({
+  'data-item': '',
+  'data-search': row.search,
+  'data-section': row.doc.section.key,
+  'data-tags': row.doc.tags.join('|'),
+});
+
+/** The tree groups notes by their most common tag, like folders; other sections stay flat. */
+function tree(section: string): {label: string; docs: Doc[]}[] {
+  const inSection = docs.filter((doc) => doc.section.key === section);
+
+  if (inSection.length < 40) {
+    return [{label: '', docs: inSection}];
+  }
+
+  const local = tagCounts(inSection).filter(([, count]) => count >= 5).map(([tag]) => tag);
+  const groups = new Map<string, Doc[]>();
+
+  for (const doc of inSection) {
+    const group = doc.tags.find((tag) => local.includes(tag)) ?? 'Everything else';
+    groups.set(group, [...(groups.get(group) ?? []), doc]);
+  }
+
+  return [...groups]
+    .sort((a, b) => (a[0] === 'Everything else' ? 1 : b[0] === 'Everything else' ? -1 : b[1].length - a[1].length))
+    .map(([label, items]) => ({label, docs: items}));
+}
+
+const views = [
+  {id: 'table', label: 'Table'},
+  {id: 'list', label: 'List'},
+  {id: 'tree', label: 'Tree'},
+  {id: 'board', label: 'Board'},
+];
+---
+
+<Base title="Library" description="Everything I have written here, as a table, a list, a tree or a board.">
+  <PageHead
+    title="Library"
+    note={`${docs.length} pages`}
+    lede="Everything I have written here, in whatever shape helps: a table to sort, a list to skim, a tree to browse, or a board by topic."
+  />
+
+  <div class="row library" data-library data-view="table">
+    <div class="margin library-margin">
+      <p class="library-count" aria-live="polite"><span data-count>{docs.length}</span> shown</p>
+    </div>
+    <div class="body">
+      <div class="library-controls">
+        <div class="tabs library-tabs" role="group" aria-label="View">
+          {
+            views.map((view) => (
+              <button type="button" class="tab" data-view-button={view.id} aria-pressed={view.id === 'table' ? 'true' : 'false'}>
+                {view.label}
+              </button>
+            ))
+          }
+        </div>
+        <div class="library-filters">
+          <label class="library-field">
+            <span>Search</span>
+            <input type="search" data-filter-text placeholder="Filter by title, tag or text" autocomplete="off" />
+          </label>
+          <label class="library-field">
+            <span>Section</span>
+            <select data-filter-section>
+              <option value="">All sections</option>
+              {sections.map((section) => <option value={section.key}>{section.label}</option>)}
+            </select>
+          </label>
+          <label class="library-field">
+            <span>Tag</span>
+            <select data-filter-tag>
+              <option value="">All tags</option>
+              {tags.map(([tag, count]) => <option value={tag}>{`${tag} (${count})`}</option>)}
+            </select>
+          </label>
+        </div>
+      </div>
+
+      <p class="library-empty" data-empty hidden>Nothing matches. Clear the search or pick another tag.</p>
+
+      <!-- Table -->
+      <div class="library-view table-wrap" data-view-panel="table">
+        <table class="library-table">
+          <thead>
+            <tr>
+              <th scope="col" aria-sort="ascending"><button type="button" data-sort="title">Title</button></th>
+              <th scope="col"><button type="button" data-sort="section">Section</button></th>
+              <th scope="col">Tags</th>
+              <th scope="col" class="num"><button type="button" data-sort="connections">Links</button></th>
+              <th scope="col" class="num"><button type="button" data-sort="updated">Updated</button></th>
+            </tr>
+          </thead>
+          <tbody data-sort-body>
+            {
+              rows.map((row) => (
+                <tr {...attrs(row)} data-title={row.doc.title.toLowerCase()} data-section-label={row.doc.section.label} data-connections={row.connections} data-updated={row.doc.updated ?? ''}>
+                  <td>
+                    <a class="plain table-title" href={row.doc.url}>
+                      {row.doc.title}
+                    </a>
+                  </td>
+                  <td class="muted">{row.doc.section.label}</td>
+                  <td class="table-tags">
+                    {row.doc.tags.slice(0, 3).map((tag) => (
+                      <a href={tagUrl(tag)}>{tag}</a>
+                    ))}
+                  </td>
+                  <td class="num">{row.connections || ''}</td>
+                  <td class="num muted">{formatDate(row.doc.updated)}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+
+      <!-- List -->
+      <ul class="library-view library-list" data-view-panel="list" role="list" hidden>
+        {
+          rows.map((row) => (
+            <li {...attrs(row)}>
+              <a class="plain list-title" href={row.doc.url}>
+                {row.doc.title}
+              </a>
+              <span class="list-meta">
+                {row.doc.section.label}
+                {row.doc.tags.length > 0 && `, ${row.doc.tags.slice(0, 3).join(', ')}`}
+              </span>
+              {row.doc.excerpt && <p class="list-excerpt">{row.doc.excerpt}</p>}
+            </li>
+          ))
+        }
+      </ul>
+
+      <!-- Tree -->
+      <div class="library-view library-tree" data-view-panel="tree" hidden>
+        <div class="tree" role="tree" aria-label="Pages by section">
+          {
+            sections.map((section) => (
+              <details class="tree-section" open={section.key === 'notes'} data-tree-group>
+                <summary>
+                  <span>{section.label}</span>
+                  <span class="tree-count" data-tree-count>
+                    {docs.filter((doc) => doc.section.key === section.key).length}
+                  </span>
+                </summary>
+                {tree(section.key).map((group) =>
+                  group.label ? (
+                    <details class="tree-group" data-tree-group>
+                      <summary>
+                        <span>{group.label}</span>
+                        <span class="tree-count" data-tree-count>
+                          {group.docs.length}
+                        </span>
+                      </summary>
+                      <ul role="group">
+                        {group.docs.map((doc) => (
+                          <li role="treeitem" {...attrs(rows.find((row) => row.doc === doc)!)}>
+                            <a class="tree-leaf" href={doc.url} data-preview={doc.id}>
+                              {doc.title}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </details>
+                  ) : (
+                    <ul role="group">
+                      {group.docs.map((doc) => (
+                        <li role="treeitem" {...attrs(rows.find((row) => row.doc === doc)!)}>
+                          <a class="tree-leaf" href={doc.url} data-preview={doc.id}>
+                            {doc.title}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  ),
+                )}
+              </details>
+            ))
+          }
+        </div>
+        <aside class="tree-preview" aria-live="polite" data-tree-preview>
+          <p class="muted">Hover or focus a page to preview it here.</p>
+        </aside>
+        <script
+          is:inline
+          type="application/json"
+          data-preview-data
+          set:html={JSON.stringify(
+            Object.fromEntries(docs.map((doc) => [doc.id, {title: doc.title, url: doc.url, section: doc.section.label, tags: doc.tags, excerpt: doc.excerpt}])),
+          ).replace(/</g, '\\u003c')}
+        />
+      </div>
+
+      <!-- Board -->
+      <div class="library-view board" data-view-panel="board" hidden>
+        {
+          boardTags.map((tag) => {
+            const inColumn = rows.filter((row) => row.doc.tags.includes(tag));
+
+            return (
+              <section class="board-column" aria-label={tag} data-tree-group>
+                <h3 class="board-head">
+                  <a class="plain" href={tagUrl(tag)}>
+                    {tag}
+                  </a>
+                  <span class="tree-count" data-tree-count>
+                    {inColumn.length}
+                  </span>
+                </h3>
+                <ul class="board-cards" role="list">
+                  {inColumn.map((row) => (
+                    <li class="board-card" {...attrs(row)}>
+                      <a class="plain board-title" href={row.doc.url}>
+                        {row.doc.title}
+                      </a>
+                      {row.doc.excerpt && <p class="board-excerpt">{row.doc.excerpt}</p>}
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            );
+          })
+        }
+      </div>
+    </div>
+  </div>
+</Base>
+
+<script>
+  import {initLibrary} from '../scripts/library';
+
+  initLibrary();
+</script>
+
+<style>
+  .library-margin {
+    padding-top: 12px;
+  }
+
+  .library-count {
+    margin: 0;
+  }
+
+  .library-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .library-filters {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .library-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--pencil);
+  }
+
+  .library-field input,
+  .library-field select {
+    min-height: 44px;
+    padding: 0 12px;
+    border: 1.5px solid var(--rule-strong);
+    border-radius: 6px;
+    background: var(--card);
+    color: var(--ink);
+    font: inherit;
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  .library-field input:focus,
+  .library-field select:focus {
+    outline: none;
+    border-color: var(--blue);
+  }
+
+  .library-empty {
+    font-family: var(--sans);
+    color: var(--pencil);
+  }
+
+  [data-item][hidden],
+  [data-tree-group][hidden] {
+    display: none !important;
+  }
+
+  /* Table */
+  .table-wrap {
+    overflow-x: auto;
+  }
+
+  .library-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--sans);
+    font-size: 15px;
+  }
+
+  .library-table th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background: var(--paper);
+    border-bottom: 2px solid var(--ink);
+    text-align: left;
+    white-space: nowrap;
+    font-weight: 700;
+    padding: 10px 12px 10px 0;
+  }
+
+  .library-table th button {
+    padding: 4px 0;
+    border: 0;
+    background: none;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+  }
+
+  .library-table th[aria-sort] button::after {
+    content: ' ↑';
+    color: var(--blue);
+  }
+
+  .library-table th[aria-sort='descending'] button::after {
+    content: ' ↓';
+  }
+
+  .library-table td {
+    padding: 10px 12px 10px 0;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+
+  .library-table .num {
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  .table-title {
+    font-weight: 700;
+    font-size: 16px;
+  }
+
+  .table-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px 10px;
+  }
+
+  .library-table tbody tr {
+    transition: background-color 120ms ease;
+  }
+
+  .library-table tbody tr:hover {
+    background: var(--card);
+  }
+
+  /* List */
+  .library-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .library-list li {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .list-title {
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 21px;
+  }
+
+  .list-meta {
+    display: block;
+    margin-top: 2px;
+    font-family: var(--sans);
+    font-size: 14px;
+    color: var(--pencil);
+  }
+
+  .list-excerpt {
+    margin: 6px 0 0;
+    color: var(--ink-soft);
+    max-width: 38em;
+  }
+
+  /* Tree */
+  .library-tree {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 4fr);
+    gap: 32px;
+    align-items: start;
+  }
+
+  .tree {
+    font-family: var(--sans);
+    font-size: 16px;
+    border-top: 2px solid var(--ink);
+  }
+
+  .tree summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    min-height: 44px;
+    padding: 0 8px;
+    border-bottom: 1px solid var(--rule);
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .tree summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .tree summary::before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    margin-right: 2px;
+    border-right: 2px solid var(--pencil);
+    border-bottom: 2px solid var(--pencil);
+    transform: rotate(-45deg);
+    transition: transform 160ms ease;
+    flex: none;
+  }
+
+  .tree details[open] > summary::before {
+    transform: rotate(45deg);
+  }
+
+  .tree summary span:first-of-type {
+    flex: 1;
+  }
+
+  .tree-section > summary {
+    font-weight: 800;
+  }
+
+  .tree-group > summary {
+    padding-left: 28px;
+    font-weight: 600;
+  }
+
+  .tree ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .tree-leaf {
+    display: block;
+    padding: 9px 8px 9px 30px;
+    border-bottom: 1px solid var(--rule);
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .tree-group .tree-leaf {
+    padding-left: 52px;
+  }
+
+  .tree-leaf:hover,
+  .tree-leaf:focus-visible,
+  .tree-leaf[aria-current='true'] {
+    background: var(--card);
+    color: var(--blue);
+  }
+
+  .tree-count {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--pencil);
+  }
+
+  .tree-preview {
+    position: sticky;
+    top: 24px;
+    padding: 20px 22px;
+    border: 1.5px solid var(--rule-strong);
+    border-radius: 8px;
+    background: var(--card);
+  }
+
+  .tree-preview :global(h3) {
+    margin: 0 0 8px;
+    font-family: var(--sans);
+    font-size: 26px;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+
+  .tree-preview :global(.preview-meta) {
+    margin: 0 0 12px;
+    font-family: var(--sans);
+    font-size: 14px;
+    color: var(--pencil);
+  }
+
+  .tree-preview :global(.preview-text) {
+    margin: 0 0 18px;
+    color: var(--ink-soft);
+  }
+
+  .tree-preview :global(.preview-in) {
+    animation: preview-in 180ms ease;
+  }
+
+  @keyframes preview-in {
+    from {
+      opacity: 0;
+      transform: translateY(4px);
+    }
+  }
+
+  /* Board */
+  .board {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(260px, 1fr);
+    gap: 16px;
+    overflow-x: auto;
+    padding-bottom: 12px;
+    scroll-snap-type: x proximity;
+  }
+
+  .board-column {
+    scroll-snap-align: start;
+    max-height: 760px;
+    overflow-y: auto;
+    padding: 0 12px 12px;
+    border: 1.5px solid var(--rule-strong);
+    border-radius: 8px;
+    background: var(--card);
+  }
+
+  .board-head {
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 -12px 8px;
+    padding: 14px 12px 10px;
+    background: var(--card);
+    border-bottom: 2px solid var(--ink);
+    font-family: var(--sans);
+    font-size: 17px;
+  }
+
+  .board-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .board-card {
+    padding: 12px;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    background: var(--paper);
+    transition: border-color 120ms ease, transform 120ms ease;
+  }
+
+  .board-card:hover {
+    border-color: var(--ink);
+    transform: translateY(-1px);
+  }
+
+  .board-title {
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.3;
+  }
+
+  .board-excerpt {
+    margin: 4px 0 0;
+    font-size: 15px;
+    line-height: 1.45;
+    color: var(--ink-soft);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  @media (max-width: 900px) {
+    .library-filters {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    }
+
+    .library-filters .library-field:first-child {
+      grid-column: 1 / -1;
+    }
+
+    .library-tree {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .tree-preview {
+      display: none;
+    }
+  }
+</style>

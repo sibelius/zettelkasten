@@ -20,6 +20,9 @@ export async function socialCards(): Promise<Map<string, Card>> {
   cards.set('index', {variant: 'home', kicker: `${person.role}, ${person.company.name}`, title: person.name, description: person.intro});
   cards.set('graph', {kicker: 'Notes', title: 'Every note, every link', description: 'A map of my notes, the tags they carry and the links between them. Search it, drag it, click any dot.'});
   cards.set('tags', {kicker: 'Notes', title: 'Tags', description: 'Every tag in my notes, with how many notes carry it.'});
+  cards.set('media', {kicker: 'Talks', title: 'Talks, videos and podcasts', description: 'Slides, recordings of talks and interviews, and podcast episodes, playable on the site.'});
+  cards.set('library', {kicker: 'Notes', title: 'Library', description: 'Everything I have written, as a table, a list, a tree or a board.'});
+  cards.set('stack', {kicker: 'Open source', title: 'Stack', description: 'The open source Woovi and I build on, and the services we run ourselves, with the posts where we wrote about each one.'});
   cards.set('404', {kicker: 'Not found', title: 'This note is not in the box', description: 'It may have been renamed or removed.'});
 
   const sections = new Map<string, {label: string; count: number}>();

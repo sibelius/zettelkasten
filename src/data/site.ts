@@ -79,6 +79,7 @@ export const visualized = repos
     description: visualizedCopy[repo.name].description ?? repo.description,
     url: repo.homepage || repo.url,
     host: (repo.homepage || repo.url).replace(/^https?:\/\//, '').replace(/\/$/, ''),
+    image: repo.image,
   }))
   // A study companion without a one-line description is not ready to be shown yet.
   .filter((item) => item.description);

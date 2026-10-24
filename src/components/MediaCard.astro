@@ -1,0 +1,118 @@
+---
+type Props = {
+  title: string;
+  meta?: string;
+  url: string;
+  thumbnail?: string | null;
+  /** An embeddable player; when present the card opens it in place instead of leaving the site. */
+  player?: string | null;
+  kind: 'slides' | 'video' | 'audio';
+  group: string;
+};
+
+const {title, meta, url, thumbnail, player, kind, group} = Astro.props;
+const action = kind === 'slides' ? 'View slides' : kind === 'audio' ? 'Listen' : 'Watch';
+---
+
+<a class={`media-card media-${kind}`} href={url} data-player={player ?? undefined} data-kind={kind} data-group={group} data-title={title}>
+  <span class="media-thumb">
+    {thumbnail ? <img src={thumbnail} alt="" loading="lazy" decoding="async" width="480" height="270" onerror="this.parentElement.classList.add('is-broken');this.remove()" /> : <span class="media-thumb-empty">{title}</span>}
+    {player && <span class="media-play">{action}</span>}
+  </span>
+  <span class="media-title">{title}</span>
+  {meta && <span class="media-meta">{meta}</span>}
+</a>
+
+<style>
+  .media-card {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .media-thumb {
+    position: relative;
+    display: block;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border: 1.5px solid var(--rule-strong);
+    border-radius: 8px;
+    background: var(--card);
+  }
+
+  .media-audio .media-thumb {
+    aspect-ratio: 1;
+  }
+
+  .media-thumb img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 300ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .media-card:hover .media-thumb img {
+    transform: scale(1.03);
+  }
+
+  .media-thumb-empty {
+    display: grid;
+    place-items: center;
+    height: 100%;
+    padding: 16px;
+    font-family: var(--sans);
+    font-weight: 800;
+    font-size: 18px;
+    text-align: center;
+    color: var(--pencil);
+  }
+
+  .media-play {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    background: var(--ink);
+    color: var(--on-ink);
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 700;
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity 160ms ease, transform 160ms ease;
+  }
+
+  .media-card:hover .media-play,
+  .media-card:focus-visible .media-play {
+    opacity: 1;
+    transform: none;
+  }
+
+  .media-title {
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 1.3;
+  }
+
+  .media-card:hover .media-title {
+    color: var(--blue);
+  }
+
+  .media-meta {
+    font-family: var(--sans);
+    font-size: 14px;
+    color: var(--pencil);
+  }
+
+  @media (hover: none) {
+    .media-play {
+      opacity: 1;
+      transform: none;
+    }
+  }
+</style>
