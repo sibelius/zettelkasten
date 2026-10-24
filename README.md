@@ -42,6 +42,25 @@ pnpm reading --add https://example.com/post "Why it is worth reading" --date 202
 
 Each new link gets its title, description and preview image. Commit `src/data/reading`.
 
+## Ask Sibelius AI, MCP and llms.txt
+
+Everything stays static. At build time the site publishes:
+
+- `/ask-index.json`: every note (split at its headings), answered question, post and reading link, as passages.
+- `/llms.txt` and `/llms-full.txt`: a map of the site and the full text of every note, for language models.
+- `/sibelius-mcp.mjs`: the MCP server as one file, built from `mcp/server.mjs` and `mcp/retrieve.mjs`.
+
+`/ask` searches the index in the browser with `mcp/retrieve.mjs` (BM25, no LLM, nothing made up) and answers with links, in the voice from [sseraphini-tweets/VOICE.md](https://github.com/sibelius/sseraphini-tweets/blob/main/VOICE.md). When the notes do not cover a question, it says so. Every question can be sent as a prefilled GitHub Discussion in Q&A, and answered discussions show up on `/ask` on the next deploy.
+
+Run the MCP server from this clone:
+
+```bash
+claude mcp add --scope user sibelius -- node "$PWD/mcp/server.mjs"
+SIBELIUS_INDEX=dist/ask-index.json pnpm mcp   # read a local build instead of the live site
+```
+
+Tools: `ask_sibelius`, `search_notes`, `get_note`, `list_notes`, `recent_reading`. Prompt: `answer_as_sibelius`.
+
 ## Deploy
 
 Pushing to `main` builds the site and publishes `dist/` to GitHub Pages.

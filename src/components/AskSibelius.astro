@@ -1,0 +1,205 @@
+---
+import {askIndexUrl} from '../lib/knowledge';
+---
+
+<section class="row ask-ai" aria-labelledby="ask-ai-title" data-ask-ai data-index={askIndexUrl}>
+  <div class="margin ask-ai-margin">
+    <p>Answers come only from what I wrote, with links</p>
+    <p>Nothing is made up</p>
+  </div>
+  <div class="body">
+    <h2 id="ask-ai-title" class="sub-title">Ask Sibelius AI</h2>
+    <form class="ask-ai-form" data-ask-form>
+      <label class="visually-hidden" for="ask-ai-input">Your question</label>
+      <input id="ask-ai-input" name="q" type="search" placeholder="How do I get my first job as a Dev?" autocomplete="off" required data-ask-input />
+      <button class="button button-primary" type="submit">Ask</button>
+    </form>
+    <div class="ask-ai-answer" aria-live="polite" data-ask-answer hidden></div>
+    <p class="ask-ai-how muted">Every question you send becomes a public GitHub Discussion, so I can answer it and the next person finds it here.</p>
+  </div>
+</section>
+
+<script>
+  import {buildIndex, discussionUrl, search} from '../../mcp/retrieve.mjs';
+
+  type Result = {title: string; heading: string | null; url: string; kind: string; snippet: string; date: string | null};
+
+  const root = document.querySelector<HTMLElement>('[data-ask-ai]');
+
+  if (root) {
+    const form = root.querySelector<HTMLFormElement>('[data-ask-form]')!;
+    const input = root.querySelector<HTMLInputElement>('[data-ask-input]')!;
+    const answer = root.querySelector<HTMLElement>('[data-ask-answer]')!;
+    let index: ReturnType<typeof buildIndex> | undefined;
+
+    const kindLabel: Record<string, string> = {note: 'Note', answer: 'Answer', writing: 'Post', reading: 'Reading'};
+
+    const escape = (text: string) => text.replace(/[&<>"]/g, (char) => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'})[char]!);
+
+    const item = (result: Result) => `
+      <li class="ask-ai-result">
+        <p class="ask-ai-meta">${kindLabel[result.kind] ?? ''}${result.heading ? ` · ${escape(result.heading)}` : ''}</p>
+        <a class="ask-ai-link" href="${escape(result.url)}">${escape(result.title)}</a>
+        ${result.kind === 'writing' ? '' : `<p class="ask-ai-snippet">${escape(result.snippet)}</p>`}
+      </li>`;
+
+    const send = (question: string, results: Result[], label: string, primary: boolean) =>
+      `<p class="ask-ai-send"><a class="button ${primary ? 'button-primary' : 'button-ghost'}" href="${escape(discussionUrl(question, results))}" target="_blank" rel="noopener">${label}</a></p>`;
+
+    async function ask(question: string) {
+      answer.hidden = false;
+      answer.innerHTML = '<p class="ask-ai-lead">Looking through my notes…</p>';
+
+      try {
+        index ??= buildIndex((await (await fetch(root!.dataset.index!)).json()).passages);
+      } catch {
+        answer.innerHTML = `<p class="ask-ai-lead">Could not load my notes right now</p>${send(question, [], 'Send it to me on GitHub', true)}`;
+        return;
+      }
+
+      const found = search(index, question);
+
+      // Short lines, a list, a position, no fluff: how I write (see sseraphini-tweets/VOICE.md).
+      if (found.status === 'needs_clarification') {
+        answer.innerHTML = '<p class="ask-ai-lead">Ask with a few more words</p><p>What do you want to learn, build or decide?</p>';
+      } else if (found.status === 'ready') {
+        answer.innerHTML = `
+          <p class="ask-ai-lead">I wrote about this</p>
+          <p>Start here:</p>
+          <ol class="ask-ai-results" role="list">${found.results.map(item).join('')}</ol>
+          ${found.reading.length ? `<p>Links I shared on it:</p><ol class="ask-ai-results" role="list">${found.reading.map(item).join('')}</ol>` : ''}
+          <p>Not what you needed? What else?</p>
+          ${send(question, found.results, 'Send the question to me', false)}`;
+      } else {
+        answer.innerHTML = `
+          <p class="ask-ai-lead">I have not written about this yet</p>
+          <p>Send it to me and I answer it in public, right here on this page</p>
+          ${send(question, [], 'Send the question to me', true)}
+          ${found.results.length ? `<p>The closest I have:</p><ol class="ask-ai-results" role="list">${found.results.map(item).join('')}</ol>` : ''}`;
+      }
+    }
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const question = input.value.trim();
+
+      if (question) {
+        // Keep the question in the URL, so an answer can be shared.
+        history.replaceState(null, '', `?q=${encodeURIComponent(question)}#ask-ai-title`);
+        ask(question);
+      }
+    });
+
+    const initial = new URLSearchParams(location.search).get('q');
+
+    if (initial) {
+      input.value = initial;
+      ask(initial);
+    }
+  }
+</script>
+
+<style>
+  .ask-ai {
+    padding-top: 40px;
+  }
+
+  .ask-ai-margin {
+    padding-top: 12px;
+  }
+
+  .ask-ai-margin p {
+    margin: 0 0 6px;
+  }
+
+  .ask-ai-form {
+    display: flex;
+    gap: 10px;
+    margin-top: 16px;
+  }
+
+  .ask-ai-form input {
+    flex: 1;
+    min-width: 0;
+    min-height: 48px;
+    padding: 0 14px;
+    border: 1.5px solid var(--rule-strong);
+    border-radius: 6px;
+    background: var(--card);
+    color: var(--ink);
+    font: inherit;
+    font-size: 17px;
+  }
+
+  .ask-ai-form input:focus {
+    outline: none;
+    border-color: var(--blue);
+  }
+
+  .ask-ai-answer {
+    margin-top: 20px;
+    padding: 20px 22px;
+    border: 1.5px solid var(--rule-strong);
+    border-left: 4px solid var(--blue);
+    border-radius: 6px;
+    background: var(--card);
+  }
+
+  .ask-ai-answer :global(p) {
+    margin: 0 0 10px;
+  }
+
+  .ask-ai-answer :global(.ask-ai-lead) {
+    font-family: var(--sans);
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  .ask-ai-answer :global(.ask-ai-results) {
+    margin: 0 0 16px;
+    padding: 0;
+    list-style: none;
+  }
+
+  .ask-ai-answer :global(.ask-ai-result) {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .ask-ai-answer :global(.ask-ai-meta) {
+    margin: 0 0 2px;
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--blue);
+  }
+
+  .ask-ai-answer :global(.ask-ai-link) {
+    font-family: var(--sans);
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .ask-ai-answer :global(.ask-ai-snippet) {
+    margin: 4px 0 0;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+  }
+
+  .ask-ai-answer :global(.ask-ai-send) {
+    margin: 4px 0 6px;
+  }
+
+  .ask-ai-how {
+    margin: 12px 0 0;
+    font-family: var(--sans);
+    font-size: 15px;
+  }
+
+  @media (max-width: 560px) {
+    .ask-ai-form {
+      flex-direction: column;
+    }
+  }
+</style>

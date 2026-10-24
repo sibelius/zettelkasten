@@ -40,6 +40,7 @@
     "sync": "node scripts/sync-content.mjs",
     "reading": "node scripts/sync-reading.mjs",
     "prepare": "husky",
-    "publish:docs": "pnpm build && gh-pages -d dist"
+    "publish:docs": "pnpm build && gh-pages -d dist",
+    "mcp": "node mcp/server.mjs"
   }
 }
