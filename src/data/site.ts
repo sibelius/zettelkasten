@@ -106,24 +106,53 @@ export const vibes = vibeNames
   .filter((repo): repo is Repo => !!repo)
   .map((repo) => ({name: repo.name, url: repo.homepage || repo.url}));
 
-export const offers = [
+export type Offer = {
+  id: string;
+  price: string;
+  cadence: string;
+  title: string;
+  description: string;
+  /** Shows on my Pix statement, so I know what each payment is for. */
+  txid: string;
+  details?: string;
+};
+
+export const offers: Offer[] = [
   {
+    id: 'mentorship',
     price: 'US$ 120',
+    cadence: 'a month',
     title: 'Mentorship for developers',
     description: 'One call a month and async chat every day, to land the first job, reach the next level or start leading a team.',
-    url: withBase('/paid-mentorship-developers'),
+    txid: 'MENTORSHIP',
+    details: withBase('/paid-mentorship-developers'),
   },
   {
+    id: 'startups',
     price: 'US$ 120',
+    cadence: 'a month',
     title: 'Consulting for startups',
     description: 'Set up how the team works, cut the scope down to a real MVP and read your cohorts.',
-    url: withBase('/paid-consulting-startups'),
+    txid: 'STARTUPS',
+    details: withBase('/paid-consulting-startups'),
   },
   {
+    id: 'fintechs',
+    price: 'On request',
+    cadence: 'talk to me first',
+    title: 'Consulting for fintechs',
+    // TODO(sibelius): set the price and confirm the scope.
+    description: 'Payments on Pix, ledgers and reconciliation, and running the infrastructure yourself, from someone building it every day at Woovi.',
+    txid: 'FINTECH',
+  },
+  {
+    id: 'community',
     price: 'US$ 10',
+    cadence: 'a month',
     title: 'Private community',
     description: 'A Discord of people building products, startups and software, where you bring your work and get it read.',
-    url: withBase('/private-community'),
+    txid: 'COMMUNITY',
+    details: withBase('/private-community'),
   },
 ];
 

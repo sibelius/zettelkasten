@@ -1,7 +1,7 @@
 <script>
   import {initInteractive} from '../scripts/interactive';
 
-  initInteractive();
+  document.querySelectorAll<HTMLElement>('.prose').forEach((root) => initInteractive(root));
 </script>
 
 <style is:global>
@@ -112,23 +112,6 @@
       opacity: 0;
       transform: translateY(-4px);
     }
-  }
-
-  .deck-progress {
-    height: 6px;
-    margin-bottom: 18px;
-    overflow: hidden;
-    border-radius: 3px;
-    background: var(--rule);
-    flex: 1 1 100%;
-  }
-
-  .deck-progress span {
-    display: block;
-    height: 100%;
-    width: 0;
-    background: var(--blue);
-    transition: width 300ms cubic-bezier(0.2, 0.8, 0.2, 1);
   }
 
   .checklist-bar .deck-progress {

@@ -1,0 +1,109 @@
+---
+import Base from '../layouts/Base.astro';
+import Interactive from '../components/Interactive.astro';
+import NoteList from '../components/NoteList.astro';
+import PageHead from '../components/PageHead.astro';
+import {getDocs} from '../lib/docs';
+import {parseQuestions} from '../lib/structured';
+
+const docs = await getDocs();
+
+// A question set is a note made of "question? answer" lines; the hiring ones say so in their id.
+const sets = docs
+  .filter((doc) => /hiring-questions/.test(doc.id))
+  .map((doc) => ({doc, questions: parseQuestions(doc), label: doc.title.replace(/\s*hiring questions\s*/i, '').trim() || doc.title}))
+  .filter((set) => set.questions.length >= 4);
+
+const reading = docs.filter(
+  (doc) =>
+    !/hiring-questions/.test(doc.id) && (/hiring|interview/i.test(doc.title) || doc.tags.some((tag) => /^(hiring|interview|interviews)$/i.test(tag))),
+);
+
+const total = sets.reduce((sum, set) => sum + set.questions.length, 0);
+---
+
+<Base title="Hiring questions" description={`${total} questions I ask when hiring developers, with the answers I look for. Read them or practise them as flashcards.`}>
+  <PageHead
+    title="Hiring questions"
+    note={`${total} questions`}
+    lede="The questions I ask when hiring developers, with the answers I look for. Read them before an interview, or switch to Practice and go through them like flashcards."
+  >
+    <nav class="links hiring-jump" aria-label="Question sets">
+      {sets.map((set) => <a href={`#${set.doc.id.split('/').pop()}`}>{set.label} ({set.questions.length})</a>)}
+    </nav>
+  </PageHead>
+
+  {
+    sets.map((set) => (
+      <section id={set.doc.id.split('/').pop()} class="row hiring-set" aria-labelledby={`${set.doc.id.split('/').pop()}-title`}>
+        <div class="margin hiring-note">
+          <p>{set.questions.length} questions</p>
+          <p>
+            <a href={set.doc.url}>From the note</a>
+          </p>
+        </div>
+        <div class="body">
+          <h2 id={`${set.doc.id.split('/').pop()}-title`} class="sub-title hiring-title">
+            {set.label}
+          </h2>
+          <div class="prose hiring-prose">
+            <ul>
+              {set.questions.map((item) => (
+                <li>
+                  {item.question} {item.answer}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+    ))
+  }
+
+  {
+    reading.length > 0 && (
+      <section class="hiring-reading" aria-labelledby="hiring-reading-title">
+        <div class="row">
+          <div class="margin hiring-note">From both sides of the table</div>
+          <div class="body">
+            <h2 id="hiring-reading-title" class="sub-title hiring-title">
+              Notes on hiring and interviews
+            </h2>
+          </div>
+        </div>
+        <NoteList docs={reading} />
+      </section>
+    )
+  }
+
+  <Interactive />
+</Base>
+
+<style>
+  .hiring-jump {
+    margin-top: 18px;
+  }
+
+  .hiring-set,
+  .hiring-reading {
+    padding-top: 56px;
+  }
+
+  .hiring-note {
+    padding-top: 10px;
+  }
+
+  .hiring-note p {
+    margin: 0 0 6px;
+  }
+
+  .hiring-title {
+    margin-bottom: 18px;
+    font-size: 22px;
+    text-transform: none;
+  }
+
+  .hiring-prose {
+    max-width: none;
+  }
+</style>

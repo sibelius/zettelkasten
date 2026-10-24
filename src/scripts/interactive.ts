@@ -295,6 +295,7 @@ function initChecklist(list: HTMLUListElement, index: number) {
     bar.querySelector<HTMLElement>('.deck-progress span')!.style.width = `${(done / boxes.length) * 100}%`;
     bar.querySelector('.checklist-status')!.textContent = done === boxes.length ? `All ${boxes.length} done` : `${done} of ${boxes.length} done`;
     boxes.forEach((box) => box.closest('li')!.classList.toggle('is-done', box.checked));
+  document.dispatchEvent(new Event('checklist:change'));
   };
 
   boxes.forEach((box, i) => {
@@ -325,14 +326,27 @@ function initChecklist(list: HTMLUListElement, index: number) {
   paint();
 }
 
+// Counted across the whole page, so a page with several decks keeps each one's progress apart.
+let deckCount = 0;
+let checklistCount = 0;
+
 export function initInteractive(root: HTMLElement | null = document.querySelector('.prose')) {
   if (!root) {
     return;
   }
 
-  root.querySelectorAll<HTMLUListElement>('ul.contains-task-list').forEach((list, i) => initChecklist(list, i));
+  // The roadmaps page shows each learning path's progress, so keep a per-page total.
+  const writeProgress = () => {
+    const boxes = [...root.querySelectorAll<HTMLInputElement>('.checklist input[type="checkbox"]')];
 
-  let decks = 0;
+    if (boxes.length > 0) {
+      storage.set(progressKey(location.pathname), {done: boxes.filter((box) => box.checked).length, total: boxes.length});
+    }
+  };
+
+  document.addEventListener('checklist:change', writeProgress);
+  root.querySelectorAll<HTMLUListElement>('ul.contains-task-list').forEach((list) => initChecklist(list, checklistCount++));
+  writeProgress();
 
   root.querySelectorAll<HTMLUListElement>('ul:not(.contains-task-list)').forEach((list) => {
     const items = [...list.children].filter((child): child is HTMLLIElement => child instanceof HTMLLIElement);
@@ -346,7 +360,19 @@ export function initInteractive(root: HTMLElement | null = document.querySelecto
 
     // Only when the list really is questions and answers, not a list that happens to contain one.
     if (hits === items.length) {
-      initDeck(list, cards as Card[], decks++);
+      initDeck(list, cards as Card[], deckCount++);
     }
   });
+
+  // Links like /mentorship/backend-hiring-questions#practice open straight into practice mode.
+  if (location.hash === '#practice') {
+    root.querySelector<HTMLButtonElement>('[data-deck-mode="practice"]')?.click();
+    root.querySelector('.deck')?.scrollIntoView({block: 'start'});
+  }
+}
+
+export const progressKey = (pathname: string) => `progress:${pathname.replace(/\.html$/, '').replace(/\/$/, '')}`;
+
+export function readProgress(pathname: string): {done: number; total: number} | null {
+  return storage.get<{done: number; total: number} | null>(progressKey(pathname), null);
 }

@@ -1,0 +1,209 @@
+---
+import QR from 'qrcode';
+
+import {PIX, pixPayload} from '../lib/pix';
+
+type Props = {
+  compact?: boolean;
+  /** Shows on my statement, so I can tell what a payment was for. */
+  txid?: string;
+  /** Amounts to pick from, in reais. None: the payer types the amount in their bank app. */
+  presets?: number[];
+};
+
+const {compact = false, txid = PIX.txid, presets = [5, 10, 25, 50, 100]} = Astro.props;
+const DEFAULT = presets.includes(10) ? 10 : presets[0];
+
+// The first QR is drawn at build time, so it shows even before any script runs.
+const payload = pixPayload({...PIX, txid, amount: DEFAULT});
+const svg = await QR.toString(payload, {type: 'svg', margin: 1, color: {dark: '#18202b', light: '#ffffff'}});
+---
+
+<div class:list={['donate', {'donate-compact': compact}]} data-donate data-key={PIX.key} data-name={PIX.name} data-city={PIX.city} data-txid={txid}>
+  {presets.length > 0 && (
+  <div class="donate-amounts" role="group" aria-label="Amount">
+    {
+      presets.map((value) => (
+        <button type="button" class="donate-amount" data-amount={value} aria-pressed={value === DEFAULT ? 'true' : 'false'}>
+          R$ {value}
+        </button>
+      ))
+    }
+    <label class="donate-custom">
+      <span>R$</span>
+      <input type="text" inputmode="decimal" placeholder="other" aria-label="Other amount in reais" data-donate-custom />
+    </label>
+  </div>
+  )}
+
+  <div class="donate-body">
+    <figure class="donate-qr" aria-label="Pix QR code">
+      <Fragment set:html={svg} />
+    </figure>
+    <div class="donate-text">
+      <p class="donate-value" aria-live="polite" data-donate-value>
+        {DEFAULT ? <Fragment>Amount: <strong>R$ {DEFAULT.toFixed(2).replace('.', ',')}</strong></Fragment> : 'Type the amount in your bank app.'}
+      </p>
+      <p class="muted">Point your bank app's camera at the code, or copy it and paste it into Pix.</p>
+      <code class="donate-code" data-donate-code>{payload}</code>
+      <button type="button" class="button button-primary" data-donate-copy>Copy Pix code</button>
+      <slot />
+    </div>
+  </div>
+</div>
+
+<script>
+  import QR from 'qrcode';
+
+  import {pixPayload} from '../lib/pix';
+
+  document.querySelectorAll<HTMLElement>('[data-donate]').forEach((root) => {
+    const {key, name, city, txid} = root.dataset as Record<string, string>;
+    const qr = root.querySelector<HTMLElement>('.donate-qr')!;
+    const code = root.querySelector<HTMLElement>('[data-donate-code]')!;
+    const value = root.querySelector<HTMLElement>('[data-donate-value]')!;
+    const custom = root.querySelector<HTMLInputElement>('[data-donate-custom]');
+    const copy = root.querySelector<HTMLButtonElement>('[data-donate-copy]')!;
+    let payload = code.textContent ?? '';
+
+    const render = async (amount: number | null) => {
+      payload = pixPayload({key, name, city, txid, amount: amount ?? undefined});
+      code.textContent = payload;
+      value.innerHTML = amount
+        ? `Amount: <strong>R$ ${amount.toFixed(2).replace('.', ',')}</strong>`
+        : 'No amount: you choose it in your bank app.';
+      qr.innerHTML = await QR.toString(payload, {type: 'svg', margin: 1, color: {dark: '#18202b', light: '#ffffff'}});
+    };
+
+    root.querySelectorAll<HTMLButtonElement>('[data-amount]').forEach((button) => {
+      button.addEventListener('click', () => {
+        if (custom) {
+          custom.value = '';
+        }
+
+        root.querySelectorAll('[data-amount]').forEach((other) => other.setAttribute('aria-pressed', String(other === button)));
+        render(Number(button.dataset.amount));
+      });
+    });
+
+    custom?.addEventListener('input', () => {
+      const amount = Number(custom.value.replace(',', '.'));
+      root.querySelectorAll('[data-amount]').forEach((other) => other.setAttribute('aria-pressed', 'false'));
+      render(amount > 0 ? Math.round(amount * 100) / 100 : null);
+    });
+
+    copy.addEventListener('click', async () => {
+      await navigator.clipboard.writeText(payload);
+      copy.textContent = 'Copied. Paste it in your bank app';
+      setTimeout(() => (copy.textContent = 'Copy Pix code'), 2200);
+    });
+  });
+</script>
+
+<style>
+  .donate {
+    font-family: var(--sans);
+  }
+
+  .donate-amounts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .donate-amount,
+  .donate-custom {
+    min-height: 44px;
+    padding: 0 16px;
+    border: 1.5px solid var(--rule-strong);
+    border-radius: 6px;
+    background: var(--card);
+    color: var(--ink);
+    font: inherit;
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .donate-amount {
+    cursor: pointer;
+  }
+
+  .donate-amount:hover {
+    border-color: var(--ink);
+  }
+
+  .donate-amount[aria-pressed='true'] {
+    border-color: var(--ink);
+    background: var(--ink);
+    color: var(--on-ink);
+  }
+
+  .donate-custom {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .donate-custom input {
+    width: 80px;
+    border: 0;
+    background: transparent;
+    color: var(--ink);
+    font: inherit;
+    outline: none;
+  }
+
+  .donate-custom:focus-within {
+    border-color: var(--blue);
+  }
+
+  .donate-body {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-top: 20px;
+    align-items: flex-start;
+  }
+
+  .donate-qr {
+    flex: none;
+    width: 224px;
+    margin: 0;
+    padding: 8px;
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    background: #fff;
+  }
+
+  .donate-qr :global(svg) {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .donate-text {
+    flex: 1 1 280px;
+    min-width: 0;
+  }
+
+  .donate-text p {
+    margin: 0 0 8px;
+    font-size: 16px;
+  }
+
+  .donate-code {
+    display: block;
+    margin: 4px 0 14px;
+    padding: 10px 12px;
+    border-radius: 6px;
+    background: var(--card);
+    border: 1px solid var(--rule);
+    font-size: 12px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+  }
+
+  .donate-compact .donate-qr {
+    width: 168px;
+  }
+</style>

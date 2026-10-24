@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import Donate from '../components/Donate.astro';
 import Graph from '../components/Graph.astro';
 import MediaCard from '../components/MediaCard.astro';
 import NoteList from '../components/NoteList.astro';
@@ -73,6 +74,29 @@ const hostedTools = tools.filter((tool) => tool.hosted);
                 <a href={proof.url}>{proof.label}</a>
               ))}
             </p>
+          </div>
+        </div>
+      ))
+    }
+  </section>
+
+  <section id="learn" class="section" aria-labelledby="learn-title">
+    <div class="row">
+      <div class="margin section-note">For developers who want to grow</div>
+      <div class="body"><h2 id="learn-title" class="section-title">Learn with me</h2></div>
+    </div>
+    {
+      [
+        {label: 'Roadmaps', url: withBase('/roadmaps'), text: 'Step-by-step routes through React, backend, DevOps, Docker and more. Tick the steps as you go.'},
+        {label: 'Hiring questions', url: withBase('/hiring'), text: 'The questions I ask when hiring, with the answers I look for. Practise them like flashcards.'},
+        {label: 'Ask me', url: withBase('/ask'), text: 'Ask anything about software, startups or your career. I answer in public, so everyone learns from it.'},
+      ].map((item) => (
+        <div class="row list-row">
+          <div class="margin skill-area">{item.label}</div>
+          <div class="body">
+            <a class="offer-title" href={item.url}>
+              {item.text}
+            </a>
           </div>
         </div>
       ))
@@ -326,10 +350,10 @@ const hostedTools = tools.filter((tool) => tool.hosted);
         <div class="row list-row">
           <div class="margin offer-price">
             <span>{offer.price}</span>
-            <span class="muted">a month</span>
+            <span class="muted">{offer.cadence}</span>
           </div>
           <div class="body">
-            <a class="offer-title" href={offer.url}>
+            <a class="offer-title" href={withBase(`/work#${offer.id}`)}>
               {offer.title}
             </a>
             <p class="offer-text">{offer.description}</p>
@@ -337,6 +361,28 @@ const hostedTools = tools.filter((tool) => tool.hosted);
         </div>
       ))
     }
+    <div class="row">
+      <div class="margin" />
+      <div class="body more">
+        <a class="button button-primary" href={withBase('/work')}>Pay with Pix</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="support" class="section" aria-labelledby="support-title">
+    <div class="row">
+      <div class="margin section-note">
+        <p>Pix, any amount</p>
+        <p><a href="https://github.com/sponsors/sibelius">GitHub Sponsors</a> outside Brazil</p>
+      </div>
+      <div class="body">
+        <h2 id="support-title" class="section-title">Support the writing</h2>
+        <p class="lede">Everything here is free and stays free. If something helped you, a Pix keeps more of it coming.</p>
+        <div class="support-box">
+          <Donate compact />
+        </div>
+      </div>
+    </div>
   </section>
 
   <PlayerDialog />
@@ -592,6 +638,14 @@ const hostedTools = tools.filter((tool) => tool.hosted);
 
   .stack-more {
     margin-top: 18px;
+  }
+
+  .section-note p {
+    margin: 0 0 6px;
+  }
+
+  .support-box {
+    margin-top: 24px;
   }
 
   .media-strip-title {

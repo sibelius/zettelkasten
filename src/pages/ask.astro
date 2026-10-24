@@ -1,0 +1,213 @@
+---
+import Base from '../layouts/Base.astro';
+import NoteList from '../components/NoteList.astro';
+import PageHead from '../components/PageHead.astro';
+import {formatDate, getDocs, withBase} from '../lib/docs';
+import questionsData from '../data/questions.json';
+
+type Question = {
+  title: string;
+  url: string;
+  date: string;
+  asker: string;
+  question: string;
+  votes: number;
+  comments: number;
+  answer: {html: string; date: string; by: string} | null;
+};
+
+const ASK_URL = 'https://github.com/sibelius/zettelkasten/discussions/new?category=q-a';
+
+const questions = questionsData as Question[];
+const answered = questions.filter((question) => question.answer);
+const waiting = questions.filter((question) => !question.answer);
+
+const docs = await getDocs();
+const mentorship = docs.filter((doc) => doc.section.key === 'mentorship');
+const earlier = mentorship.slice(0, 8);
+---
+
+<Base title="Ask me" description="Ask me anything about software, startups, careers or Woovi. I answer in public, so everyone can learn from it.">
+  <PageHead
+    title="Ask me"
+    note={`${answered.length + mentorship.length} questions answered`}
+    lede="Ask me anything about software, startups, your career or how we build Woovi. I answer in public, once, so the next person with the same question finds it here."
+  >
+    <p class="ask-actions">
+      <a class="button button-primary" href={ASK_URL}>Ask a question</a>
+      <a class="button button-ghost" href="#answered">Read the answers</a>
+    </p>
+    <p class="ask-how muted">Questions go to GitHub Discussions, so you need a GitHub account. Vote on questions you also want answered.</p>
+  </PageHead>
+
+  <section id="answered" class="ask-section" aria-labelledby="answered-title">
+    <div class="row">
+      <div class="margin ask-note">Newest first</div>
+      <div class="body"><h2 id="answered-title" class="sub-title">Answered</h2></div>
+    </div>
+    {
+      answered.length === 0 ? (
+        <div class="row list-row">
+          <div class="margin" />
+          <div class="body">
+            <p class="ask-empty">
+              No questions answered here yet. <a href={ASK_URL}>Ask the first one</a>, or read the {mentorship.length} I answered in my
+              mentorship notes below.
+            </p>
+          </div>
+        </div>
+      ) : (
+        answered.map((question) => (
+          <article class="row list-row ask-item">
+            <div class="margin">
+              <p>{formatDate(question.date)}</p>
+              <p>Asked by {question.asker}</p>
+              {question.votes > 0 && <p>{question.votes} {question.votes === 1 ? 'vote' : 'votes'}</p>}
+            </div>
+            <div class="body">
+              <details class="ask-details">
+                <summary>
+                  <h3 class="ask-title">{question.title}</h3>
+                  <span class="ask-toggle">Read the answer</span>
+                </summary>
+                {question.question && <p class="ask-question">{question.question}</p>}
+                <div class="prose ask-answer" set:html={question.answer!.html} />
+                <p class="links">
+                  <a href={question.url}>Discuss on GitHub</a>
+                </p>
+              </details>
+            </div>
+          </article>
+        ))
+      )
+    }
+  </section>
+
+  {
+    waiting.length > 0 && (
+      <section class="ask-section" aria-labelledby="waiting-title">
+        <div class="row">
+          <div class="margin ask-note">Vote for the ones you want answered first</div>
+          <div class="body">
+            <h2 id="waiting-title" class="sub-title">
+              Waiting for an answer
+            </h2>
+          </div>
+        </div>
+        {waiting.map((question) => (
+          <div class="row list-row">
+            <div class="margin">
+              <p>{formatDate(question.date)}</p>
+              <p>{question.votes} votes</p>
+            </div>
+            <div class="body">
+              <a class="ask-title plain" href={question.url}>
+                {question.title}
+              </a>
+            </div>
+          </div>
+        ))}
+      </section>
+    )
+  }
+
+  <section class="ask-section" aria-labelledby="earlier-title">
+    <div class="row">
+      <div class="margin ask-note">Questions developers asked me over the years</div>
+      <div class="body"><h2 id="earlier-title" class="sub-title">Answered in my notes</h2></div>
+    </div>
+    <NoteList docs={earlier} />
+    <div class="row">
+      <div class="margin" />
+      <div class="body ask-more">
+        <a class="button button-ghost" href={withBase('/category/mentorship')}>All {mentorship.length} mentorship answers</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .ask-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 24px 0 10px;
+  }
+
+  .ask-how {
+    margin: 0;
+    font-family: var(--sans);
+    font-size: 15px;
+  }
+
+  .ask-section {
+    padding-top: 56px;
+  }
+
+  .ask-note {
+    padding-top: 10px;
+  }
+
+  .ask-section .margin p {
+    margin: 0 0 4px;
+  }
+
+  .ask-empty {
+    margin: 0;
+    color: var(--ink-soft);
+  }
+
+  .ask-details summary {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .ask-details summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .ask-title {
+    margin: 0;
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 1.3;
+  }
+
+  .ask-toggle {
+    font-family: var(--sans);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--blue);
+  }
+
+  .ask-details[open] .ask-toggle {
+    display: none;
+  }
+
+  .ask-question {
+    margin: 14px 0;
+    padding-left: 16px;
+    border-left: 3px solid var(--rule-strong);
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+
+  .ask-answer {
+    animation: answer-open 200ms ease;
+  }
+
+  @keyframes answer-open {
+    from {
+      opacity: 0;
+      transform: translateY(-4px);
+    }
+  }
+
+  .ask-more {
+    padding-top: 22px;
+  }
+</style>

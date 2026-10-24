@@ -1,0 +1,33 @@
+---
+import Base from '../layouts/Base.astro';
+import Donate from '../components/Donate.astro';
+import PageHead from '../components/PageHead.astro';
+---
+
+<Base title="Support the writing" description="Donate with Pix to keep the notes, talks and visualized books free.">
+  <PageHead
+    title="Support the writing"
+    note="Pix, any amount"
+    lede="Everything here is free and stays free. If a note, a talk or a visualized book helped you, a Pix keeps more of them coming."
+  />
+  <div class="row">
+    <div class="margin support-note">
+      <p>Outside Brazil?</p>
+      <p><a href="https://github.com/sponsors/sibelius">GitHub Sponsors</a></p>
+      <p><a href="https://www.patreon.com/sibelius">Patreon</a></p>
+    </div>
+    <div class="body">
+      <Donate />
+    </div>
+  </div>
+</Base>
+
+<style>
+  .support-note {
+    padding-top: 10px;
+  }
+
+  .support-note p {
+    margin: 0 0 6px;
+  }
+</style>
