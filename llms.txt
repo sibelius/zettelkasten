@@ -6,7 +6,8 @@ These are my public notes (a zettelkasten), my writing elsewhere, and what I am 
 
 - Full text of every note: https://sibelius.github.io/zettelkasten/llms-full.txt
 - Search index of every note, answer, post and reading link, as JSON passages: https://sibelius.github.io/zettelkasten/ask-index.json
-- MCP server with search and ask tools: https://sibelius.github.io/zettelkasten/ask#mcp
+- MCP server with search and ask tools, and how to set it up in Claude, Codex, Cursor and others: https://sibelius.github.io/zettelkasten/mcp
+- Ask me to write about a topic I have not covered: https://github.com/sibelius/zettelkasten/discussions/categories/ideas
 - Questions I answered in public: https://sibelius.github.io/zettelkasten/ask
 
 ## Notes

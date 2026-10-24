@@ -1,0 +1,1 @@
+import{n as e}from"./search.BAaSVV9l.js";e();

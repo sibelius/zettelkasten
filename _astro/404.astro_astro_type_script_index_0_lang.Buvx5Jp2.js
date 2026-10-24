@@ -1,0 +1,1 @@
+import{r as e}from"./retrieve.Co4IUNcQ.js";var t=decodeURIComponent(location.pathname.replace(/^\/zettelkasten/,``).replace(/\.html$/,``).split(`/`).filter(Boolean).pop()??``).replace(/[-_]+/g,` `).trim(),n=document.querySelector(`[data-request]`);n&&t&&(n.href=e(t,`a missing page, ${location.href}`),n.textContent=`Ask me to write about “${t}”`);
