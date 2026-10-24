@@ -1,5 +1,9 @@
+import {currentMode, resolvedTheme} from './theme';
+
 const GISCUS = 'https://giscus.app/client.js';
 const MAX_QUOTE = 600;
+
+const giscusTheme = () => (currentMode() === 'auto' ? 'preferred_color_scheme' : resolvedTheme());
 
 function loadGiscus(container: HTMLElement) {
   const {repo, repoId, category, categoryId, term} = container.dataset;
@@ -17,7 +21,7 @@ function loadGiscus(container: HTMLElement) {
     'data-reactions-enabled': '1',
     'data-emit-metadata': '0',
     'data-input-position': 'top',
-    'data-theme': 'preferred_color_scheme',
+    'data-theme': giscusTheme(),
     'data-lang': 'en',
     'data-loading': 'lazy',
     crossorigin: 'anonymous',
@@ -86,6 +90,12 @@ export function initComments() {
   }
 
   loadGiscus(container);
+
+  window.addEventListener('themechange', () => {
+    document
+      .querySelector<HTMLIFrameElement>('iframe.giscus-frame')
+      ?.contentWindow?.postMessage({giscus: {setConfig: {theme: giscusTheme()}}}, 'https://giscus.app');
+  });
 
   let selected = '';
   let toastTimer = 0;

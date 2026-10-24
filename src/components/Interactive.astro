@@ -1,0 +1,226 @@
+<script>
+  import {initInteractive} from '../scripts/interactive';
+
+  initInteractive();
+</script>
+
+<style is:global>
+  .deck,
+  .checklist-bar {
+    margin: 0 0 1.2em;
+    font-family: var(--sans);
+  }
+
+  .deck-toolbar,
+  .checklist-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 16px;
+    margin-bottom: 14px;
+  }
+
+  .deck-tabs {
+    flex: 1 1 100%;
+  }
+
+  .deck-status,
+  .checklist-status {
+    margin: 0;
+    flex: 1;
+    font-size: 15px;
+    color: var(--pencil);
+  }
+
+  .deck-action {
+    min-height: 40px;
+    padding: 0 12px;
+    border: 1.5px solid var(--rule-strong);
+    border-radius: 6px;
+    background: var(--card);
+    color: var(--ink);
+    font: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .deck-action:hover {
+    border-color: var(--ink);
+  }
+
+  .deck-action[hidden] {
+    display: none;
+  }
+
+  .prose .deck-list {
+    padding: 0;
+    list-style: none;
+  }
+
+  .prose .deck-item {
+    margin: 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .deck-question {
+    display: flex;
+    gap: 12px;
+    width: 100%;
+    padding: 14px 0;
+    border: 0;
+    background: none;
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.35;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .deck-question:hover {
+    color: var(--blue);
+  }
+
+  .deck-check {
+    flex: none;
+    width: 20px;
+    height: 20px;
+    margin-top: 1px;
+    border: 1.5px solid var(--rule-strong);
+    border-radius: 50%;
+    transition: background-color 160ms ease, border-color 160ms ease;
+  }
+
+  .deck-item.is-known .deck-check {
+    border-color: var(--blue);
+    background: var(--blue) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 10.5l3 3 7-7' fill='none' stroke='white' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 16px no-repeat;
+  }
+
+  .deck-answer {
+    padding: 0 0 16px 32px;
+    font-family: var(--serif);
+    font-size: 19px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    animation: answer-in 180ms ease;
+  }
+
+  @keyframes answer-in {
+    from {
+      opacity: 0;
+      transform: translateY(-4px);
+    }
+  }
+
+  .deck-progress {
+    height: 6px;
+    margin-bottom: 18px;
+    overflow: hidden;
+    border-radius: 3px;
+    background: var(--rule);
+    flex: 1 1 100%;
+  }
+
+  .deck-progress span {
+    display: block;
+    height: 100%;
+    width: 0;
+    background: var(--blue);
+    transition: width 300ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .checklist-bar .deck-progress {
+    margin-bottom: 0;
+  }
+
+  .deck-card {
+    padding: 28px 28px 24px;
+    border: 1.5px solid var(--ink);
+    border-radius: 10px;
+    background: var(--card);
+    background-image: repeating-linear-gradient(to bottom, transparent 0, transparent 35px, var(--ruled) 35px, var(--ruled) 36px);
+  }
+
+  .deck-enter {
+    animation: card-in 260ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  @keyframes card-in {
+    from {
+      opacity: 0;
+      transform: translateX(24px);
+    }
+  }
+
+  .deck-progress-text {
+    margin: 0 0 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--pencil);
+  }
+
+  .deck-big {
+    margin: 0 0 20px;
+    font-size: clamp(24px, 3vw, 32px);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+
+  .deck-reveal {
+    margin: 0 0 22px;
+    padding-left: 16px;
+    border-left: 3px solid var(--blue);
+    font-family: var(--serif);
+    font-size: 20px;
+    line-height: 1.55;
+    animation: answer-in 220ms ease;
+  }
+
+  .deck-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .deck-buttons [hidden] {
+    display: none;
+  }
+
+  .deck-buttons kbd {
+    padding: 1px 6px;
+    border-radius: 4px;
+    background: color-mix(in srgb, currentColor 16%, transparent);
+    font-family: inherit;
+    font-size: 12px;
+  }
+
+  .prose .checklist li {
+    transition: color 160ms ease;
+  }
+
+  .prose .checklist li.is-done {
+    color: var(--pencil);
+    text-decoration: line-through;
+    text-decoration-color: var(--rule-strong);
+  }
+
+  .prose .checklist input[type='checkbox'] {
+    width: 18px;
+    height: 18px;
+    vertical-align: -3px;
+    cursor: pointer;
+  }
+
+  @media (max-width: 560px) {
+    .deck-card {
+      padding: 20px 18px;
+    }
+
+    .deck-buttons kbd {
+      display: none;
+    }
+  }
+</style>

@@ -3,6 +3,7 @@ import {render} from 'astro:content';
 
 import Base from '../layouts/Base.astro';
 import Comments from '../components/Comments.astro';
+import Interactive from '../components/Interactive.astro';
 import {mdxComponents} from '../components/mdx';
 import {backlinks, formatDate, getDocs, related, tagUrl, type Doc} from '../lib/docs';
 
@@ -85,6 +86,7 @@ const editUrl = `https://github.com/sibelius/zettelkasten/edit/main/${doc.file}`
     }
   </article>
 
+  <Interactive />
   <Comments term={doc.route} />
 </Base>
 

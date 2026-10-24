@@ -25,8 +25,9 @@
   color-scheme: light;
 }
 
+/* Dark follows the system unless the visitor picked a theme with the switch in the nav. */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme='light']) {
     --paper: #131920;
     --card: #19212a;
     --ink: #e5e9ee;
@@ -43,6 +44,24 @@
 
     color-scheme: dark;
   }
+}
+
+:root[data-theme='dark'] {
+    --paper: #131920;
+  --card: #19212a;
+  --ink: #e5e9ee;
+  --ink-soft: #c2cad4;
+  --pencil: #95a2b1;
+  --blue: #86a6ff;
+  --blue-deep: #b3c7ff;
+  --red: #e0646b;
+  --rule: #2a3441;
+  --rule-strong: #3a4656;
+  --ruled: #1f2b3a;
+  --edge: #4f5d6e;
+  --on-ink: #131920;
+
+  color-scheme: dark;
 }
 
 *,
@@ -374,11 +393,17 @@ svg {
 }
 
 @media (prefers-color-scheme: dark) {
-  .astro-code,
-  .astro-code span {
+  :root:not([data-theme='light']) .astro-code,
+  :root:not([data-theme='light']) .astro-code span {
     color: var(--shiki-dark) !important;
     background-color: var(--card) !important;
   }
+}
+
+:root[data-theme='dark'] .astro-code,
+:root[data-theme='dark'] .astro-code span {
+  color: var(--shiki-dark) !important;
+  background-color: var(--card) !important;
 }
 
 @media (max-width: 760px) {
