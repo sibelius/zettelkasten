@@ -1,0 +1,35 @@
+---
+import Base from '../../layouts/Base.astro';
+import NoteList from '../../components/NoteList.astro';
+import PageHead from '../../components/PageHead.astro';
+import {getDocs, tagCounts, tagSlug, withBase, type Doc} from '../../lib/docs';
+
+export async function getStaticPaths() {
+  const docs = await getDocs();
+
+  return tagCounts(docs).map(([tag]) => ({
+    params: {tag: tagSlug(tag)},
+    props: {tag, docs: docs.filter((doc) => doc.tags.includes(tag))},
+  }));
+}
+
+type Props = {tag: string; docs: Doc[]};
+
+const {tag, docs} = Astro.props;
+---
+
+<Base title={`Notes tagged ${tag}`} description={`${docs.length} notes tagged ${tag}.`}>
+  <PageHead title={tag} note={`${docs.length} ${docs.length === 1 ? 'note' : 'notes'} tagged`}>
+    <p class="links tag-links">
+      <a href={withBase('/tags')}>All tags</a>
+      <a href={withBase(`/graph?focus=${encodeURIComponent(tag)}`)}>See this tag in the graph</a>
+    </p>
+  </PageHead>
+  <NoteList docs={docs} />
+</Base>
+
+<style>
+  .tag-links {
+    margin-top: 16px;
+  }
+</style>

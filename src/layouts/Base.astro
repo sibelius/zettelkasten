@@ -1,0 +1,206 @@
+---
+import '../styles/global.css';
+
+import Search from '../components/Search.astro';
+import {withBase} from '../lib/docs';
+import {person} from '../data/site';
+
+type Props = {
+  title?: string;
+  description?: string;
+};
+
+const {title, description = person.intro} = Astro.props;
+const fullTitle = title ? `${title} | ${person.name}` : `${person.name}, ${person.role} at ${person.company.name}`;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+
+const nav = [
+  {label: 'What I do', url: withBase('/#skills')},
+  {label: 'Writing', url: withBase('/#writing')},
+  {label: 'Visualized', url: withBase('/#visualized')},
+  {label: 'Code', url: withBase('/#code')},
+  {label: 'Notes', url: withBase('/category/notes')},
+  {label: 'Graph', url: withBase('/graph')},
+  {label: 'Work with me', url: withBase('/#work')},
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:creator" content={person.x.handle} />
+    <meta name="theme-color" content="#edf0f2" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#131920" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" href={withBase('/img/favicon.ico')} sizes="any" />
+    <link rel="apple-touch-icon" href={withBase('/img/apple-touch-icon.png')} />
+    <link rel="manifest" href={withBase('/img/site.webmanifest')} />
+    <link rel="sitemap" href={withBase('/sitemap-index.xml')} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Schibsted+Grotesk:wght@400;500;600;700;800&display=swap"
+    />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <div class="page">
+      <nav class="row nav" aria-label="Main">
+        <div class="margin nav-name">
+          <a class="plain" href={withBase('/')}>{person.name}</a>
+        </div>
+        <div class="body nav-body">
+          <ul class="nav-links" role="list">
+            {
+              nav.map((item) => (
+                <li>
+                  <a class="plain" href={item.url}>
+                    {item.label}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+          <button class="search-open" type="button" data-search-open aria-haspopup="dialog">
+            <span>Search notes</span>
+            <kbd>⌘K</kbd>
+          </button>
+        </div>
+      </nav>
+
+      <main id="main">
+        <slot />
+      </main>
+
+      <footer class="row footer">
+        <div class="margin"></div>
+        <div class="body">
+          <p>
+            The notes are open source. <a href="https://github.com/sibelius/zettelkasten">Edit any of them on GitHub</a>,
+            or support the writing on <a href="https://www.patreon.com/sibelius">Patreon</a> or
+            <a href="https://github.com/sponsors/sibelius">GitHub Sponsors</a>.
+          </p>
+          <p>
+            <a href={person.x.url}>X</a>, <a href={person.github.url}>GitHub</a>,
+            <a href="https://sibelius.substack.com/">Substack</a>, <a href="https://dev.to/sibelius">dev.to</a>,
+            <a href="https://sibelius.medium.com/">Medium</a>, <a href="https://speakerdeck.com/sibelius">SpeakerDeck</a>.
+            Copyright {person.name}.
+          </p>
+        </div>
+      </footer>
+    </div>
+
+    <Search />
+  </body>
+</html>
+
+<style>
+  .skip {
+    position: absolute;
+    left: 16px;
+    top: -80px;
+    padding: 10px 14px;
+    background: var(--ink);
+    color: var(--on-ink);
+    font-family: var(--sans);
+    z-index: 10;
+  }
+
+  .skip:focus {
+    top: 16px;
+  }
+
+  .nav {
+    padding: 22px 0;
+    align-items: center;
+  }
+
+  .nav-name {
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+
+  .nav-body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px 24px;
+    font-family: var(--sans);
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 22px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .nav-links a {
+    display: inline-block;
+    padding: 10px 0;
+  }
+
+  .search-open {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    min-width: 220px;
+    min-height: 44px;
+    padding: 0 14px;
+    font: inherit;
+    font-size: 15px;
+    color: var(--pencil);
+    background: var(--card);
+    border: 1.5px solid var(--rule-strong);
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  .search-open:hover {
+    border-color: var(--ink);
+  }
+
+  .search-open kbd {
+    font-family: inherit;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .footer {
+    padding: 112px 0 48px;
+  }
+
+  .footer .body {
+    font-family: var(--sans);
+    font-size: 15px;
+    color: var(--pencil);
+  }
+
+  .footer p {
+    margin: 0 0 6px;
+  }
+
+  @media (max-width: 760px) {
+    .search-open {
+      width: 100%;
+    }
+  }
+</style>

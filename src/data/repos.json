@@ -1,0 +1,1649 @@
+[
+  {
+    "name": "ast-i18n",
+    "description": "Easily migrate your existing React codebase to use i18n",
+    "url": "https://github.com/sibelius/ast-i18n",
+    "homepage": null,
+    "stars": 231,
+    "created": "2019-02-09",
+    "pushed": "2024-06-18"
+  },
+  {
+    "name": "relay-workshop",
+    "description": "Learn Relay",
+    "url": "https://github.com/sibelius/relay-workshop",
+    "homepage": "https://react-europe-relay-workshop.now.sh/",
+    "stars": 182,
+    "created": "2020-04-15",
+    "pushed": "2025-04-23"
+  },
+  {
+    "name": "ccsseraphini",
+    "description": "cc @sseraphini",
+    "url": "https://github.com/sibelius/ccsseraphini",
+    "homepage": "https://ccsseraphini.vercel.app/",
+    "stars": 175,
+    "created": "2022-01-13",
+    "pushed": "2025-03-07"
+  },
+  {
+    "name": "react-server-components-playground",
+    "description": "Webpack version of React Server Components Demo (do not use in production)",
+    "url": "https://github.com/sibelius/react-server-components-playground",
+    "homepage": null,
+    "stars": 144,
+    "created": "2021-01-05",
+    "pushed": "2022-02-24"
+  },
+  {
+    "name": "iap-receipt-validator",
+    "description": "Validate In-App Purchases (IAP) on App Store using fetch and es6/7",
+    "url": "https://github.com/sibelius/iap-receipt-validator",
+    "homepage": null,
+    "stars": 99,
+    "created": "2016-06-20",
+    "pushed": "2023-01-25"
+  },
+  {
+    "name": "jest-everywhere",
+    "description": "Jest Everywhere - testing everything",
+    "url": "https://github.com/sibelius/jest-everywhere",
+    "homepage": "https://jest-everywhere.now.sh/",
+    "stars": 70,
+    "created": "2017-01-08",
+    "pushed": "2017-01-18"
+  },
+  {
+    "name": "recoil-todo",
+    "description": "Recoil Todo App ",
+    "url": "https://github.com/sibelius/recoil-todo",
+    "homepage": null,
+    "stars": 56,
+    "created": "2020-05-17",
+    "pushed": "2023-01-05"
+  },
+  {
+    "name": "zettelkasten",
+    "description": "Thoughts and Ideas",
+    "url": "https://github.com/sibelius/zettelkasten",
+    "homepage": "https://sibelius.github.io/zettelkasten/",
+    "stars": 51,
+    "created": "2022-11-21",
+    "pushed": "2026-10-24"
+  },
+  {
+    "name": "create-react-app-relay-modern",
+    "description": "Create React App + Relay Modern",
+    "url": "https://github.com/sibelius/create-react-app-relay-modern",
+    "homepage": null,
+    "stars": 50,
+    "created": "2019-02-20",
+    "pushed": "2019-02-20"
+  },
+  {
+    "name": "relay-realworld",
+    "description": "Relay Real World example",
+    "url": "https://github.com/sibelius/relay-realworld",
+    "homepage": null,
+    "stars": 50,
+    "created": "2021-06-25",
+    "pushed": "2023-01-27"
+  },
+  {
+    "name": "relay-modern-network-deep-dive",
+    "description": "https://medium.com/@sibelius/relay-modern-network-deep-dive-ec187629dfd3",
+    "url": "https://github.com/sibelius/relay-modern-network-deep-dive",
+    "homepage": null,
+    "stars": 46,
+    "created": "2018-07-22",
+    "pushed": "2018-07-23"
+  },
+  {
+    "name": "graphql2ts",
+    "description": "Transform .graphql to graphql-js typescript",
+    "url": "https://github.com/sibelius/graphql2ts",
+    "homepage": null,
+    "stars": 41,
+    "created": "2019-07-15",
+    "pushed": "2023-01-04"
+  },
+  {
+    "name": "react-native-relay-example",
+    "description": "React Native with Relay Classic example",
+    "url": "https://github.com/sibelius/react-native-relay-example",
+    "homepage": null,
+    "stars": 41,
+    "created": "2016-11-15",
+    "pushed": "2017-10-26"
+  },
+  {
+    "name": "relay-modern-typescript",
+    "description": "Relay Modern Typescript starter with Webpack",
+    "url": "https://github.com/sibelius/relay-modern-typescript",
+    "homepage": null,
+    "stars": 41,
+    "created": "2019-02-21",
+    "pushed": "2021-03-04"
+  },
+  {
+    "name": "recoil-data-fetching",
+    "description": "Using Recoiljs to handle data fetching",
+    "url": "https://github.com/sibelius/recoil-data-fetching",
+    "homepage": null,
+    "stars": 35,
+    "created": "2020-05-23",
+    "pushed": "2023-01-05"
+  },
+  {
+    "name": "tiny-koa-graphql",
+    "description": "a tiny koa GraphQL implementation using Webpack",
+    "url": "https://github.com/sibelius/tiny-koa-graphql",
+    "homepage": null,
+    "stars": 34,
+    "created": "2020-10-16",
+    "pushed": "2023-04-03"
+  },
+  {
+    "name": "ui-boilerplate",
+    "description": "Basic UI boilerplate to practice CSS",
+    "url": "https://github.com/sibelius/ui-boilerplate",
+    "homepage": "https://sibelius.github.io/ui-boilerplate/",
+    "stars": 32,
+    "created": "2020-06-14",
+    "pushed": "2023-01-05"
+  },
+  {
+    "name": "relay-storybook",
+    "description": "Relay Storybook Demo",
+    "url": "https://github.com/sibelius/relay-storybook",
+    "homepage": null,
+    "stars": 31,
+    "created": "2021-02-08",
+    "pushed": "2021-02-09"
+  },
+  {
+    "name": "graphql-mock-api",
+    "description": "A GraphQL mock to any GraphQL schema",
+    "url": "https://github.com/sibelius/graphql-mock-api",
+    "homepage": null,
+    "stars": 30,
+    "created": "2020-05-24",
+    "pushed": "2024-03-14"
+  },
+  {
+    "name": "relay-workshop-old",
+    "description": "Material for my Relay Workshop",
+    "url": "https://github.com/sibelius/relay-workshop-old",
+    "homepage": "https://react-europe-relay-workshop.vercel.app/",
+    "stars": 28,
+    "created": "2021-05-17",
+    "pushed": "2021-07-29"
+  },
+  {
+    "name": "ExNavRelay",
+    "description": "Example of integrating ex-navigation with Relay",
+    "url": "https://github.com/sibelius/ExNavRelay",
+    "homepage": null,
+    "stars": 26,
+    "created": "2016-11-15",
+    "pushed": "2016-11-15"
+  },
+  {
+    "name": "relay-modern-future",
+    "description": "Relay Modern Future: Hooks + Suspense",
+    "url": "https://github.com/sibelius/relay-modern-future",
+    "homepage": "https://sibelius.github.io/relay-modern-future/",
+    "stars": 25,
+    "created": "2019-01-29",
+    "pushed": "2019-02-11"
+  },
+  {
+    "name": "talk-maringa-ast",
+    "description": "Slides of my talk about Practical AST at Front in Maring",
+    "url": "https://github.com/sibelius/talk-maringa-ast",
+    "homepage": "https://sibelius.github.io/talk-maringa-ast/#0",
+    "stars": 24,
+    "created": "2019-07-21",
+    "pushed": "2023-01-04"
+  },
+  {
+    "name": "webpack-react-app",
+    "description": "Webpack React App",
+    "url": "https://github.com/sibelius/webpack-react-app",
+    "homepage": null,
+    "stars": 24,
+    "created": "2020-12-22",
+    "pushed": "2023-04-20"
+  },
+  {
+    "name": "graphql-cep",
+    "description": "Query any CEP using GraphQL - https://graphql-cep-liimjftpnr.now.sh",
+    "url": "https://github.com/sibelius/graphql-cep",
+    "homepage": null,
+    "stars": 22,
+    "created": "2016-10-01",
+    "pushed": "2016-10-02"
+  },
+  {
+    "name": "next-jest-multiproject",
+    "description": "",
+    "url": "https://github.com/sibelius/next-jest-multiproject",
+    "homepage": null,
+    "stars": 22,
+    "created": "2022-05-25",
+    "pushed": "2023-03-07"
+  },
+  {
+    "name": "now",
+    "description": "What I'm working right now",
+    "url": "https://github.com/sibelius/now",
+    "homepage": null,
+    "stars": 22,
+    "created": "2021-06-28",
+    "pushed": "2021-06-28"
+  },
+  {
+    "name": "practical-graphql-relay",
+    "description": "Practical GraphQL for Relay",
+    "url": "https://github.com/sibelius/practical-graphql-relay",
+    "homepage": "https://sibelius.github.io/practical-graphql-relay/",
+    "stars": 22,
+    "created": "2019-09-12",
+    "pushed": "2019-09-18"
+  },
+  {
+    "name": "brasil-gov",
+    "description": "",
+    "url": "https://github.com/sibelius/brasil-gov",
+    "homepage": "https://brasil-gov.vercel.app",
+    "stars": 21,
+    "created": "2026-10-01",
+    "pushed": "2026-10-24"
+  },
+  {
+    "name": "monorepo-101",
+    "description": "Monorepo 101 testing playground",
+    "url": "https://github.com/sibelius/monorepo-101",
+    "homepage": null,
+    "stars": 21,
+    "created": "2019-07-26",
+    "pushed": "2023-01-06"
+  },
+  {
+    "name": "semcomp-graphql",
+    "description": "",
+    "url": "https://github.com/sibelius/semcomp-graphql",
+    "homepage": null,
+    "stars": 21,
+    "created": "2017-08-15",
+    "pushed": "2017-08-15"
+  },
+  {
+    "name": "xp-graphql-relay-concepts",
+    "description": "",
+    "url": "https://github.com/sibelius/xp-graphql-relay-concepts",
+    "homepage": "https://xp-graphql-relay-concepts.now.sh",
+    "stars": 21,
+    "created": "2020-02-18",
+    "pushed": "2020-03-22"
+  },
+  {
+    "name": "gmail-uber-service",
+    "description": "gmail uber as a service",
+    "url": "https://github.com/sibelius/gmail-uber-service",
+    "homepage": null,
+    "stars": 20,
+    "created": "2018-05-14",
+    "pushed": "2020-01-22"
+  },
+  {
+    "name": "relay-concepts",
+    "description": "Relay Concepts",
+    "url": "https://github.com/sibelius/relay-concepts",
+    "homepage": "https://relay-concepts.now.sh",
+    "stars": 20,
+    "created": "2020-05-14",
+    "pushed": "2020-05-14"
+  },
+  {
+    "name": "landing-vpn",
+    "description": "Landing Page to practice CSS",
+    "url": "https://github.com/sibelius/landing-vpn",
+    "homepage": "https://sibelius.github.io/landing-vpn/",
+    "stars": 19,
+    "created": "2020-06-22",
+    "pushed": "2023-07-07"
+  },
+  {
+    "name": "react-colocation",
+    "description": "React Colocation Evolution slides",
+    "url": "https://github.com/sibelius/react-colocation",
+    "homepage": "https://sibelius.github.io/react-colocation/",
+    "stars": 19,
+    "created": "2019-04-25",
+    "pushed": "2019-04-25"
+  },
+  {
+    "name": "react-webpack-ssr-boilerplate",
+    "description": "",
+    "url": "https://github.com/sibelius/react-webpack-ssr-boilerplate",
+    "homepage": null,
+    "stars": 18,
+    "created": "2021-01-06",
+    "pushed": "2021-01-06"
+  },
+  {
+    "name": "reactconf-taming-data-fetching",
+    "description": "Taming Data Fetching: From pure React hooks to Relay Modern and Suspense (ReactConfBR19)",
+    "url": "https://github.com/sibelius/reactconf-taming-data-fetching",
+    "homepage": "https://sibelius.github.io/reactconf-taming-data-fetching/",
+    "stars": 18,
+    "created": "2019-10-06",
+    "pushed": "2019-10-15"
+  },
+  {
+    "name": "relay-examples-hooks-typescript",
+    "description": "Relay examples using hooks and typescript",
+    "url": "https://github.com/sibelius/relay-examples-hooks-typescript",
+    "homepage": null,
+    "stars": 18,
+    "created": "2019-09-29",
+    "pushed": "2023-01-04"
+  },
+  {
+    "name": "yarn-workspaces-slow",
+    "description": "Show how slow yarn is when running against a \"complex\" workspaces",
+    "url": "https://github.com/sibelius/yarn-workspaces-slow",
+    "homepage": null,
+    "stars": 16,
+    "created": "2019-12-10",
+    "pushed": "2024-02-16"
+  },
+  {
+    "name": "arena",
+    "description": "arena UI for bulljs runner",
+    "url": "https://github.com/sibelius/arena",
+    "homepage": null,
+    "stars": 15,
+    "created": "2021-10-12",
+    "pushed": "2021-10-12"
+  },
+  {
+    "name": "graphql-draftjs",
+    "description": "GraphQL Draftjs types",
+    "url": "https://github.com/sibelius/graphql-draftjs",
+    "homepage": null,
+    "stars": 15,
+    "created": "2020-06-19",
+    "pushed": "2020-06-19"
+  },
+  {
+    "name": "relay-integration-test",
+    "description": "https://medium.com/entria/relay-integration-test-with-jest-71236fb36d44#.ghhvvbbvl",
+    "url": "https://github.com/sibelius/relay-integration-test",
+    "homepage": null,
+    "stars": 15,
+    "created": "2016-11-12",
+    "pushed": "2017-02-01"
+  },
+  {
+    "name": "remix-vite-relay-ssr",
+    "description": "remix + vite + relay + ssr",
+    "url": "https://github.com/sibelius/remix-vite-relay-ssr",
+    "homepage": null,
+    "stars": 15,
+    "created": "2024-01-26",
+    "pushed": "2024-01-26"
+  },
+  {
+    "name": "chrome-extension",
+    "description": "",
+    "url": "https://github.com/sibelius/chrome-extension",
+    "homepage": null,
+    "stars": 14,
+    "created": "2022-01-24",
+    "pushed": "2023-05-22"
+  },
+  {
+    "name": "graphql-ws-multiserver",
+    "description": "GraphQL WS with Multi GraphQL servers",
+    "url": "https://github.com/sibelius/graphql-ws-multiserver",
+    "homepage": null,
+    "stars": 14,
+    "created": "2020-10-21",
+    "pushed": "2020-10-22"
+  },
+  {
+    "name": "javascript-playground",
+    "description": "JavaScript Playground similar to runkit but on top of MDX and local first",
+    "url": "https://github.com/sibelius/javascript-playground",
+    "homepage": null,
+    "stars": 14,
+    "created": "2020-07-19",
+    "pushed": "2023-07-07"
+  },
+  {
+    "name": "mongodb-transactions",
+    "description": "Mongodb Transactions using Two Phase commits",
+    "url": "https://github.com/sibelius/mongodb-transactions",
+    "homepage": null,
+    "stars": 14,
+    "created": "2021-04-14",
+    "pushed": "2021-04-14"
+  },
+  {
+    "name": "talk-ranchodev-forms",
+    "description": "Taming Forms",
+    "url": "https://github.com/sibelius/talk-ranchodev-forms",
+    "homepage": "https://sibelius.github.io/talk-ranchodev-forms/#0",
+    "stars": 14,
+    "created": "2019-07-21",
+    "pushed": "2023-01-04"
+  },
+  {
+    "name": "chart-playground",
+    "description": "Play with Charts",
+    "url": "https://github.com/sibelius/chart-playground",
+    "homepage": "https://sibelius.github.io/chart-playground/",
+    "stars": 13,
+    "created": "2020-07-25",
+    "pushed": "2023-07-07"
+  },
+  {
+    "name": "graphql-ws-playground",
+    "description": "koa graphql + graphql-transport-ws",
+    "url": "https://github.com/sibelius/graphql-ws-playground",
+    "homepage": null,
+    "stars": 13,
+    "created": "2020-10-16",
+    "pushed": "2020-10-16"
+  },
+  {
+    "name": "js-playground",
+    "description": "JavaScript Playground similar to runkit but on top of MDX and local first",
+    "url": "https://github.com/sibelius/js-playground",
+    "homepage": null,
+    "stars": 13,
+    "created": "2020-09-17",
+    "pushed": "2020-10-09"
+  },
+  {
+    "name": "formik-examples",
+    "description": "Form examples for Taming Forms without Tears Talk",
+    "url": "https://github.com/sibelius/formik-examples",
+    "homepage": "https://sibelius.github.io/forms-examples/",
+    "stars": 12,
+    "created": "2019-07-22",
+    "pushed": "2019-09-28"
+  },
+  {
+    "name": "intern-to-cto",
+    "description": "Intern to CTO path",
+    "url": "https://github.com/sibelius/intern-to-cto",
+    "homepage": "https://sibelius.github.io/intern-to-cto",
+    "stars": 12,
+    "created": "2023-05-10",
+    "pushed": "2023-06-20"
+  },
+  {
+    "name": "flow-graphql",
+    "description": "How to use Flowtype to type GraphQL",
+    "url": "https://github.com/sibelius/flow-graphql",
+    "homepage": null,
+    "stars": 11,
+    "created": "2017-07-27",
+    "pushed": "2017-07-27"
+  },
+  {
+    "name": "sequence-js",
+    "description": "Sequence JavaScript Implementation",
+    "url": "https://github.com/sibelius/sequence-js",
+    "homepage": null,
+    "stars": 11,
+    "created": "2020-11-17",
+    "pushed": "2022-01-18"
+  },
+  {
+    "name": "fetch-urls-puppeteer",
+    "description": "Fetch urls and follow links using Puppeteer",
+    "url": "https://github.com/sibelius/fetch-urls-puppeteer",
+    "homepage": null,
+    "stars": 10,
+    "created": "2019-06-22",
+    "pushed": "2023-01-04"
+  },
+  {
+    "name": "php-api",
+    "description": "Testing building REST in PHP",
+    "url": "https://github.com/sibelius/php-api",
+    "homepage": null,
+    "stars": 10,
+    "created": "2021-04-05",
+    "pushed": "2021-06-02"
+  },
+  {
+    "name": "sseraphini-twitter",
+    "description": "listen to cc @sseraphini tweets",
+    "url": "https://github.com/sibelius/sseraphini-twitter",
+    "homepage": null,
+    "stars": 10,
+    "created": "2022-03-24",
+    "pushed": "2022-03-24"
+  },
+  {
+    "name": "webpack-debug",
+    "description": "Repo to reproduce memory leak and problems when using webpack, happypack and react-hot-loader",
+    "url": "https://github.com/sibelius/webpack-debug",
+    "homepage": null,
+    "stars": 10,
+    "created": "2018-08-29",
+    "pushed": "2018-08-29"
+  },
+  {
+    "name": "ChromeHistoryBot",
+    "description": "Create a bot from your chrome history",
+    "url": "https://github.com/sibelius/ChromeHistoryBot",
+    "homepage": null,
+    "stars": 9,
+    "created": "2017-06-07",
+    "pushed": "2017-06-07"
+  },
+  {
+    "name": "mobile-blog",
+    "description": "Mobile Blog Design",
+    "url": "https://github.com/sibelius/mobile-blog",
+    "homepage": "http://sibelius.github.io/mobile-blog/",
+    "stars": 9,
+    "created": "2020-06-14",
+    "pushed": "2020-06-23"
+  },
+  {
+    "name": "slack-reminder-grammar",
+    "description": "Simplify Slack /reminder command grammar",
+    "url": "https://github.com/sibelius/slack-reminder-grammar",
+    "homepage": null,
+    "stars": 9,
+    "created": "2020-07-22",
+    "pushed": "2023-01-06"
+  },
+  {
+    "name": "smart-home",
+    "description": "Samira's Yoga website",
+    "url": "https://github.com/sibelius/smart-home",
+    "homepage": "https://sibelius.github.io/smart-home/#/",
+    "stars": 9,
+    "created": "2020-05-28",
+    "pushed": "2023-01-05"
+  },
+  {
+    "name": "superlogica-practical-hooks",
+    "description": "Practical Hooks, Redux Hooks and Fast Refresh",
+    "url": "https://github.com/sibelius/superlogica-practical-hooks",
+    "homepage": "https://sibelius.github.io/superlogica-practical-hooks/#0",
+    "stars": 9,
+    "created": "2019-11-12",
+    "pushed": "2019-11-13"
+  },
+  {
+    "name": "bull-named-example",
+    "description": "Bull named job setup example",
+    "url": "https://github.com/sibelius/bull-named-example",
+    "homepage": null,
+    "stars": 8,
+    "created": "2020-11-18",
+    "pushed": "2020-11-18"
+  },
+  {
+    "name": "cmds",
+    "description": "useful cmds",
+    "url": "https://github.com/sibelius/cmds",
+    "homepage": null,
+    "stars": 8,
+    "created": "2017-05-11",
+    "pushed": "2017-08-28"
+  },
+  {
+    "name": "functional-types-abstractions",
+    "description": "Slides for my talk about Functional Types and Abstractions",
+    "url": "https://github.com/sibelius/functional-types-abstractions",
+    "homepage": "https://sibelius.github.io/functional-types-abstractions/#0",
+    "stars": 8,
+    "created": "2019-01-26",
+    "pushed": "2019-02-13"
+  },
+  {
+    "name": "nextjs-src",
+    "description": "nextjs starter template where code is inside src folder",
+    "url": "https://github.com/sibelius/nextjs-src",
+    "homepage": null,
+    "stars": 8,
+    "created": "2022-09-22",
+    "pushed": "2023-03-06"
+  },
+  {
+    "name": "node-mtls",
+    "description": "",
+    "url": "https://github.com/sibelius/node-mtls",
+    "homepage": null,
+    "stars": 8,
+    "created": "2023-11-24",
+    "pushed": "2025-01-29"
+  },
+  {
+    "name": "react-redux-todo",
+    "description": "simplest react redux todo",
+    "url": "https://github.com/sibelius/react-redux-todo",
+    "homepage": null,
+    "stars": 8,
+    "created": "2020-05-18",
+    "pushed": "2023-01-05"
+  },
+  {
+    "name": "relay-razzle",
+    "description": "Relay + Razzle",
+    "url": "https://github.com/sibelius/relay-razzle",
+    "homepage": null,
+    "stars": 8,
+    "created": "2020-05-15",
+    "pushed": "2020-09-04"
+  },
+  {
+    "name": "bullmq-named-example",
+    "description": "",
+    "url": "https://github.com/sibelius/bullmq-named-example",
+    "homepage": null,
+    "stars": 7,
+    "created": "2020-11-19",
+    "pushed": "2020-11-19"
+  },
+  {
+    "name": "cutcopy",
+    "description": "This repository contains the project of Image Forensics - find copied images",
+    "url": "https://github.com/sibelius/cutcopy",
+    "homepage": null,
+    "stars": 7,
+    "created": "2014-04-29",
+    "pushed": "2014-05-08"
+  },
+  {
+    "name": "koa-facebook-messenger-bot",
+    "description": "A koa server to handle hooks to build a facebook messenger bot",
+    "url": "https://github.com/sibelius/koa-facebook-messenger-bot",
+    "homepage": null,
+    "stars": 7,
+    "created": "2016-04-14",
+    "pushed": "2016-04-15"
+  },
+  {
+    "name": "LALG",
+    "description": "LALG Compiler",
+    "url": "https://github.com/sibelius/LALG",
+    "homepage": null,
+    "stars": 7,
+    "created": "2013-07-26",
+    "pushed": "2013-09-20"
+  },
+  {
+    "name": "modern-node-boilerplate",
+    "description": "base repo to ESM pure using experiment strip types",
+    "url": "https://github.com/sibelius/modern-node-boilerplate",
+    "homepage": null,
+    "stars": 7,
+    "created": "2024-12-19",
+    "pushed": "2025-05-25"
+  },
+  {
+    "name": "circleci-cancel",
+    "description": "Cancel CircleCI pipeline per branch",
+    "url": "https://github.com/sibelius/circleci-cancel",
+    "homepage": null,
+    "stars": 6,
+    "created": "2021-05-05",
+    "pushed": "2021-05-05"
+  },
+  {
+    "name": "victory-native-demo-crna",
+    "description": "Victory Native Demo using Create React Native App",
+    "url": "https://github.com/sibelius/victory-native-demo-crna",
+    "homepage": "https://sketch.expo.io/rkvsY2Yje",
+    "stars": 6,
+    "created": "2017-03-17",
+    "pushed": "2017-03-17"
+  },
+  {
+    "name": "await-node-repl",
+    "description": "Example of how to setup a repl with await syntax support",
+    "url": "https://github.com/sibelius/await-node-repl",
+    "homepage": null,
+    "stars": 5,
+    "created": "2017-01-09",
+    "pushed": "2017-01-09"
+  },
+  {
+    "name": "human-automation-talk",
+    "description": "",
+    "url": "https://github.com/sibelius/human-automation-talk",
+    "homepage": null,
+    "stars": 5,
+    "created": "2022-07-25",
+    "pushed": "2022-07-26"
+  },
+  {
+    "name": "react-hot-loader-codemod",
+    "description": "",
+    "url": "https://github.com/sibelius/react-hot-loader-codemod",
+    "homepage": null,
+    "stars": 5,
+    "created": "2019-02-10",
+    "pushed": "2019-02-10"
+  },
+  {
+    "name": "today-i-read",
+    "description": "Links that I read",
+    "url": "https://github.com/sibelius/today-i-read",
+    "homepage": null,
+    "stars": 5,
+    "created": "2016-11-07",
+    "pushed": "2017-04-25"
+  },
+  {
+    "name": "yarr-relay",
+    "description": "Created with CodeSandbox",
+    "url": "https://github.com/sibelius/yarr-relay",
+    "homepage": "https://codesandbox.io/s/github/sibelius/yarr-relay",
+    "stars": 5,
+    "created": "2022-01-21",
+    "pushed": "2022-01-21"
+  },
+  {
+    "name": "draft-editor-styled-components",
+    "description": "",
+    "url": "https://github.com/sibelius/draft-editor-styled-components",
+    "homepage": null,
+    "stars": 4,
+    "created": "2020-02-20",
+    "pushed": "2023-01-26"
+  },
+  {
+    "name": "flowtype-everywhere",
+    "description": "How to use flowtype everywhere (backend, frontend, mobile)",
+    "url": "https://github.com/sibelius/flowtype-everywhere",
+    "homepage": null,
+    "stars": 4,
+    "created": "2017-07-26",
+    "pushed": "2017-07-26"
+  },
+  {
+    "name": "startup-ops",
+    "description": "Startup Ops - Operations",
+    "url": "https://github.com/sibelius/startup-ops",
+    "homepage": "https://sibelius.github.io/startup-ops/#0",
+    "stars": 4,
+    "created": "2022-11-14",
+    "pushed": "2022-11-21"
+  },
+  {
+    "name": "vite-ssr-relay",
+    "description": "vite + ssr + relay",
+    "url": "https://github.com/sibelius/vite-ssr-relay",
+    "homepage": null,
+    "stars": 4,
+    "created": "2024-01-27",
+    "pushed": "2024-03-10"
+  },
+  {
+    "name": "webpack-ssr-relay",
+    "description": "webpack ssr relay example",
+    "url": "https://github.com/sibelius/webpack-ssr-relay",
+    "homepage": null,
+    "stars": 4,
+    "created": "2024-01-25",
+    "pushed": "2024-01-25"
+  },
+  {
+    "name": "x-green-red",
+    "description": "",
+    "url": "https://github.com/sibelius/x-green-red",
+    "homepage": "https://x-eleicoes.vercel.app",
+    "stars": 4,
+    "created": "2026-10-14",
+    "pushed": "2026-10-16"
+  },
+  {
+    "name": "babel-register-esm",
+    "description": "repo to reproduce a issue with babel-register + esm and module field",
+    "url": "https://github.com/sibelius/babel-register-esm",
+    "homepage": null,
+    "stars": 3,
+    "created": "2019-05-01",
+    "pushed": "2019-05-01"
+  },
+  {
+    "name": "dokku-uwsgi-nginx",
+    "description": "Dokku plugin to generate nginx.conf with uwsgi params",
+    "url": "https://github.com/sibelius/dokku-uwsgi-nginx",
+    "homepage": null,
+    "stars": 3,
+    "created": "2015-04-24",
+    "pushed": "2015-04-24"
+  },
+  {
+    "name": "emotion-multi-modal",
+    "description": "",
+    "url": "https://github.com/sibelius/emotion-multi-modal",
+    "homepage": null,
+    "stars": 3,
+    "created": "2015-10-04",
+    "pushed": "2015-10-04"
+  },
+  {
+    "name": "ex-navigation-drawer-tabs",
+    "description": "Simple setup to use ex-navigation with a drawer and tabs",
+    "url": "https://github.com/sibelius/ex-navigation-drawer-tabs",
+    "homepage": null,
+    "stars": 3,
+    "created": "2016-10-20",
+    "pushed": "2016-10-20"
+  },
+  {
+    "name": "experiment_crf",
+    "description": "Experiments with CRF",
+    "url": "https://github.com/sibelius/experiment_crf",
+    "homepage": null,
+    "stars": 3,
+    "created": "2014-07-30",
+    "pushed": "2014-07-30"
+  },
+  {
+    "name": "mdx1-link-to-mdx2-link",
+    "description": "mdx1 link to mdx2 link transform",
+    "url": "https://github.com/sibelius/mdx1-link-to-mdx2-link",
+    "homepage": null,
+    "stars": 3,
+    "created": "2023-11-13",
+    "pushed": "2023-11-17"
+  },
+  {
+    "name": "monorepo-react",
+    "description": "",
+    "url": "https://github.com/sibelius/monorepo-react",
+    "homepage": null,
+    "stars": 3,
+    "created": "2022-04-03",
+    "pushed": "2022-04-03"
+  },
+  {
+    "name": "nested-rerender",
+    "description": "Repository to show that nested components are re-render everytime",
+    "url": "https://github.com/sibelius/nested-rerender",
+    "homepage": "https://codesandbox.io/s/github/sibelius/nested-rerender",
+    "stars": 3,
+    "created": "2019-07-04",
+    "pushed": "2023-01-04"
+  },
+  {
+    "name": "pesqueiroterapia",
+    "description": "",
+    "url": "https://github.com/sibelius/pesqueiroterapia",
+    "homepage": null,
+    "stars": 3,
+    "created": "2015-02-04",
+    "pushed": "2015-05-13"
+  },
+  {
+    "name": "react-widget-testing",
+    "description": "how to properly test a react widget using testing library",
+    "url": "https://github.com/sibelius/react-widget-testing",
+    "homepage": null,
+    "stars": 3,
+    "created": "2020-10-27",
+    "pushed": "2020-10-27"
+  },
+  {
+    "name": "retry-fn",
+    "description": "Trying to test retry function using jest fake timers",
+    "url": "https://github.com/sibelius/retry-fn",
+    "homepage": null,
+    "stars": 3,
+    "created": "2021-05-03",
+    "pushed": "2021-05-03"
+  },
+  {
+    "name": "RNStorybook",
+    "description": "",
+    "url": "https://github.com/sibelius/RNStorybook",
+    "homepage": null,
+    "stars": 3,
+    "created": "2017-05-15",
+    "pushed": "2017-05-15"
+  },
+  {
+    "name": "woovi-summit",
+    "description": "",
+    "url": "https://github.com/sibelius/woovi-summit",
+    "homepage": "https://woovi-summit.vercel.app/",
+    "stars": 3,
+    "created": "2022-09-22",
+    "pushed": "2023-03-06"
+  },
+  {
+    "name": "es",
+    "description": "mi apodo en la web",
+    "url": "https://github.com/sibelius/es",
+    "homepage": "https://sibelius.github.io/es/",
+    "stars": 2,
+    "created": "2020-07-09",
+    "pushed": "2020-07-10"
+  },
+  {
+    "name": "feature_selection_clustering",
+    "description": "This repository contains code for the project that compares feature selection methods for unsupervised learning",
+    "url": "https://github.com/sibelius/feature_selection_clustering",
+    "homepage": null,
+    "stars": 2,
+    "created": "2014-10-15",
+    "pushed": "2015-01-14"
+  },
+  {
+    "name": "jest-snapshot-utils",
+    "description": "Simple utility to make snapshot testing quicker, including 3rd party mocks",
+    "url": "https://github.com/sibelius/jest-snapshot-utils",
+    "homepage": null,
+    "stars": 2,
+    "created": "2016-08-31",
+    "pushed": "2016-08-26"
+  },
+  {
+    "name": "koa-env-ava",
+    "description": "reproduce a bug while trying to use dotenv-safe with ava",
+    "url": "https://github.com/sibelius/koa-env-ava",
+    "homepage": null,
+    "stars": 2,
+    "created": "2016-08-21",
+    "pushed": "2016-08-21"
+  },
+  {
+    "name": "ngTagsInputES6",
+    "description": "ngTagsInput refactored to es6",
+    "url": "https://github.com/sibelius/ngTagsInputES6",
+    "homepage": null,
+    "stars": 2,
+    "created": "2016-08-01",
+    "pushed": "2016-08-23"
+  },
+  {
+    "name": "pix-visualized",
+    "description": "Pix, visualized — an interactive, low-level tour of Brazil's instant payment system",
+    "url": "https://github.com/sibelius/pix-visualized",
+    "homepage": null,
+    "stars": 2,
+    "created": "2026-10-07",
+    "pushed": "2026-10-07"
+  },
+  {
+    "name": "python-serial-realtime-plot",
+    "description": "A simple python code that reads data from the serial port and make a real plot of the data",
+    "url": "https://github.com/sibelius/python-serial-realtime-plot",
+    "homepage": null,
+    "stars": 2,
+    "created": "2015-02-01",
+    "pushed": "2015-02-01"
+  },
+  {
+    "name": "react-relay-chat",
+    "description": "A React Chat using Relay",
+    "url": "https://github.com/sibelius/react-relay-chat",
+    "homepage": null,
+    "stars": 2,
+    "created": "2015-12-15",
+    "pushed": "2015-12-16"
+  },
+  {
+    "name": "relay-storybook-demo",
+    "description": "Relay Storybook deploied to gh-pages demo",
+    "url": "https://github.com/sibelius/relay-storybook-demo",
+    "homepage": null,
+    "stars": 2,
+    "created": "2021-02-09",
+    "pushed": "2021-02-09"
+  },
+  {
+    "name": "tekton-cel-playground",
+    "description": "Tekton CEL Playground",
+    "url": "https://github.com/sibelius/tekton-cel-playground",
+    "homepage": "https://tekton-cel-playground.vercel.app/",
+    "stars": 2,
+    "created": "2026-05-01",
+    "pushed": "2026-05-01"
+  },
+  {
+    "name": "Adherence",
+    "description": "A project for Adherence",
+    "url": "https://github.com/sibelius/Adherence",
+    "homepage": null,
+    "stars": 1,
+    "created": "2014-06-13",
+    "pushed": "2014-06-25"
+  },
+  {
+    "name": "Battleship",
+    "description": "",
+    "url": "https://github.com/sibelius/Battleship",
+    "homepage": null,
+    "stars": 1,
+    "created": "2014-12-30",
+    "pushed": "2014-12-30"
+  },
+  {
+    "name": "books-app",
+    "description": "",
+    "url": "https://github.com/sibelius/books-app",
+    "homepage": null,
+    "stars": 1,
+    "created": "2020-10-01",
+    "pushed": "2020-10-01"
+  },
+  {
+    "name": "CauseEffect",
+    "description": "CauseEffect Competitions",
+    "url": "https://github.com/sibelius/CauseEffect",
+    "homepage": "https://www.kaggle.com/c/cause-effect-pairs",
+    "stars": 1,
+    "created": "2013-07-30",
+    "pushed": "2013-07-30"
+  },
+  {
+    "name": "dokku-custom-procfile-plugin",
+    "description": "Dokku Custom Procfile plugin",
+    "url": "https://github.com/sibelius/dokku-custom-procfile-plugin",
+    "homepage": null,
+    "stars": 1,
+    "created": "2015-03-20",
+    "pushed": "2015-03-20"
+  },
+  {
+    "name": "EagleEye",
+    "description": "This is a repository for the Data Mining Project",
+    "url": "https://github.com/sibelius/EagleEye",
+    "homepage": null,
+    "stars": 1,
+    "created": "2014-02-19",
+    "pushed": "2014-05-07"
+  },
+  {
+    "name": "electron-printer",
+    "description": "",
+    "url": "https://github.com/sibelius/electron-printer",
+    "homepage": null,
+    "stars": 1,
+    "created": "2023-08-28",
+    "pushed": "2023-08-28"
+  },
+  {
+    "name": "exec-server",
+    "description": "",
+    "url": "https://github.com/sibelius/exec-server",
+    "homepage": null,
+    "stars": 1,
+    "created": "2024-12-15",
+    "pushed": "2026-02-14"
+  },
+  {
+    "name": "FlexInterface",
+    "description": "",
+    "url": "https://github.com/sibelius/FlexInterface",
+    "homepage": null,
+    "stars": 1,
+    "created": "2015-02-04",
+    "pushed": "2015-02-04"
+  },
+  {
+    "name": "gbooks",
+    "description": "",
+    "url": "https://github.com/sibelius/gbooks",
+    "homepage": null,
+    "stars": 1,
+    "created": "2014-12-23",
+    "pushed": "2014-12-23"
+  },
+  {
+    "name": "graphql-relay-visualize",
+    "description": "",
+    "url": "https://github.com/sibelius/graphql-relay-visualize",
+    "homepage": null,
+    "stars": 1,
+    "created": "2026-09-29",
+    "pushed": "2026-10-02"
+  },
+  {
+    "name": "hello-flask",
+    "description": "",
+    "url": "https://github.com/sibelius/hello-flask",
+    "homepage": null,
+    "stars": 1,
+    "created": "2015-08-18",
+    "pushed": "2015-08-18"
+  },
+  {
+    "name": "jest-search-test",
+    "description": "",
+    "url": "https://github.com/sibelius/jest-search-test",
+    "homepage": null,
+    "stars": 1,
+    "created": "2023-08-05",
+    "pushed": "2023-08-05"
+  },
+  {
+    "name": "js",
+    "description": "",
+    "url": "https://github.com/sibelius/js",
+    "homepage": "https://sibelius.github.io/js/",
+    "stars": 1,
+    "created": "2018-12-28",
+    "pushed": "2018-12-28"
+  },
+  {
+    "name": "learn-relay",
+    "description": "Learn Relay by solving hands-on exercises directly in your browser",
+    "url": "https://github.com/sibelius/learn-relay",
+    "homepage": null,
+    "stars": 1,
+    "created": "2026-10-01",
+    "pushed": "2026-10-24"
+  },
+  {
+    "name": "lula-bolsonaro",
+    "description": "",
+    "url": "https://github.com/sibelius/lula-bolsonaro",
+    "homepage": "https://lula-bolsonaro.vercel.app/",
+    "stars": 1,
+    "created": "2026-10-03",
+    "pushed": "2026-10-04"
+  },
+  {
+    "name": "mongodb-memory-server-percona",
+    "description": "",
+    "url": "https://github.com/sibelius/mongodb-memory-server-percona",
+    "homepage": null,
+    "stars": 1,
+    "created": "2026-05-02",
+    "pushed": "2026-05-03"
+  },
+  {
+    "name": "proxmox-visualized",
+    "description": "Interactive visualizations of how Proxmox VE works: KVM/LXC, clusters, HA, networking, SDN, ZFS, Ceph, backups",
+    "url": "https://github.com/sibelius/proxmox-visualized",
+    "homepage": "https://proxmox-visualized.vercel.app",
+    "stars": 1,
+    "created": "2026-10-04",
+    "pushed": "2026-10-04"
+  },
+  {
+    "name": "rspack-boilerplate",
+    "description": "rpsack production ready boilerplate",
+    "url": "https://github.com/sibelius/rspack-boilerplate",
+    "homepage": null,
+    "stars": 1,
+    "created": "2024-10-22",
+    "pushed": "2024-12-01"
+  },
+  {
+    "name": "rspack-lazy-imports",
+    "description": "",
+    "url": "https://github.com/sibelius/rspack-lazy-imports",
+    "homepage": null,
+    "stars": 1,
+    "created": "2024-12-02",
+    "pushed": "2024-12-02"
+  },
+  {
+    "name": "rspack-react-boilerplate",
+    "description": "rspack react boilerplate",
+    "url": "https://github.com/sibelius/rspack-react-boilerplate",
+    "homepage": null,
+    "stars": 1,
+    "created": "2024-12-01",
+    "pushed": "2024-12-01"
+  },
+  {
+    "name": "s1mb1ose",
+    "description": "",
+    "url": "https://github.com/sibelius/s1mb1ose",
+    "homepage": null,
+    "stars": 1,
+    "created": "2015-03-01",
+    "pushed": "2021-06-01"
+  },
+  {
+    "name": "squid-docker-compose",
+    "description": "simplest squid docker compose",
+    "url": "https://github.com/sibelius/squid-docker-compose",
+    "homepage": null,
+    "stars": 1,
+    "created": "2024-01-23",
+    "pushed": "2024-01-23"
+  },
+  {
+    "name": "talos-visualized",
+    "description": "Interactive visualizations of Talos Linux, Kubernetes CNIs & StorageClasses, and the Proxmox CCM/CSI",
+    "url": "https://github.com/sibelius/talos-visualized",
+    "homepage": "https://talos-visualized.vercel.app",
+    "stars": 1,
+    "created": "2026-10-04",
+    "pushed": "2026-10-04"
+  },
+  {
+    "name": "100-ideas-saas",
+    "description": "",
+    "url": "https://github.com/sibelius/100-ideas-saas",
+    "homepage": null,
+    "stars": 0,
+    "created": "2026-10-01",
+    "pushed": "2026-10-01"
+  },
+  {
+    "name": "100-ideias-pix",
+    "description": "",
+    "url": "https://github.com/sibelius/100-ideias-pix",
+    "homepage": null,
+    "stars": 0,
+    "created": "2026-10-01",
+    "pushed": "2026-10-01"
+  },
+  {
+    "name": "ajudante-de-licao",
+    "description": "",
+    "url": "https://github.com/sibelius/ajudante-de-licao",
+    "homepage": null,
+    "stars": 0,
+    "created": "2026-09-28",
+    "pushed": "2026-10-02"
+  },
+  {
+    "name": "bayesiandataanalysis",
+    "description": "This repository contains the report and the code of the Bayesian Data Analysis Project of 2013",
+    "url": "https://github.com/sibelius/bayesiandataanalysis",
+    "homepage": null,
+    "stars": 0,
+    "created": "2013-11-11",
+    "pushed": "2014-06-11"
+  },
+  {
+    "name": "brain",
+    "description": "I've open sourced my brain",
+    "url": "https://github.com/sibelius/brain",
+    "homepage": null,
+    "stars": 0,
+    "created": "2019-05-07",
+    "pushed": "2019-05-07"
+  },
+  {
+    "name": "build-vs-buy-vs-llm",
+    "description": "",
+    "url": "https://github.com/sibelius/build-vs-buy-vs-llm",
+    "homepage": null,
+    "stars": 0,
+    "created": "2026-09-29",
+    "pushed": "2026-10-24"
+  },
+  {
+    "name": "buildpack-nodejs-bower-gulp",
+    "description": "",
+    "url": "https://github.com/sibelius/buildpack-nodejs-bower-gulp",
+    "homepage": null,
+    "stars": 0,
+    "created": "2015-08-12",
+    "pushed": "2015-08-12"
+  },
+  {
+    "name": "celery-flower-dokku",
+    "description": "",
+    "url": "https://github.com/sibelius/celery-flower-dokku",
+    "homepage": null,
+    "stars": 0,
+    "created": "2015-04-17",
+    "pushed": "2015-04-17"
+  },
+  {
+    "name": "codedon-select-interactive",
+    "description": "",
+    "url": "https://github.com/sibelius/codedon-select-interactive",
+    "homepage": null,
+    "stars": 0,
+    "created": "2026-09-29",
+    "pushed": "2026-10-24"
+  },
+  {
+    "name": "codinGame",
+    "description": "",
+    "url": "https://github.com/sibelius/codinGame",
+    "homepage": null,
+    "stars": 0,
+    "created": "2015-03-11",
+    "pushed": "2015-03-11"
+  },
+  {
+    "name": "comic-builder",
+    "description": "",
+    "url": "https://github.com/sibelius/comic-builder",
+    "homepage": null,
+    "stars": 0,
+    "created": "2026-09-28",
+    "pushed": "2026-10-02"
+  },
+  {
+    "name": "Concurrent-Programming",
+    "description": "Concurrent Programming",
+    "url": "https://github.com/sibelius/Concurrent-Programming",
+    "homepage": null,
+    "stars": 0,
+    "created": "2013-07-26",
+    "pushed": "2013-09-20"
+  },
+  {
+    "name": "d3-learn",
+    "description": "",
+    "url": "https://github.com/sibelius/d3-learn",
+    "homepage": null,
+    "stars": 0,
+    "created": "2026-09-29",
+    "pushed": "2026-10-24"
+  },
+  {
+    "name": "datasciencecoursera",
+    "description": "datasciencecoursera",
+    "url": "https://github.com/sibelius/datasciencecoursera",
+    "homepage": null,
+    "stars": 0,
+    "created": "2014-06-03",
+    "pushed": "2014-06-03"
+  },
+  {
+    "name": "DBSyncAndroid",
+    "description": "Sync part of MongoDB database to SQLite on Android",
+    "url": "https://github.com/sibelius/DBSyncAndroid",
+    "homepage": null,
+    "stars": 0,
+    "created": "2015-11-18",
+    "pushed": "2015-11-18"
+  },
+  {
+    "name": "dokku-grunt-plugin",
+    "description": "",
+    "url": "https://github.com/sibelius/dokku-grunt-plugin",
+    "homepage": null,
+    "stars": 0,
+    "created": "2015-03-18",
+    "pushed": "2015-03-18"
+  },
+  {
+    "name": "dokku-npm-bower-grunt-plugin",
+    "description": "",
+    "url": "https://github.com/sibelius/dokku-npm-bower-grunt-plugin",
+    "homepage": null,
+    "stars": 0,
+    "created": "2015-03-18",
+    "pushed": "2015-03-19"
+  },
+  {
+    "name": "dokku-port80-plugin",
+    "description": "Dokku plugin that redirect one app to port 80",
+    "url": "https://github.com/sibelius/dokku-port80-plugin",
+    "homepage": null,
+    "stars": 0,
+    "created": "2015-03-19",
+    "pushed": "2015-03-20"
+  },
+  {
+    "name": "dotfiles",
+    "description": "",
+    "url": "https://github.com/sibelius/dotfiles",
+    "homepage": null,
+    "stars": 0,
+    "created": "2015-02-04",
+    "pushed": "2015-03-23"
+  },
+  {
+    "name": "election_project",
+    "description": "This project uses some visualization techniques to perform analysis of tweets during the presidential elections of Brazil 2014",
+    "url": "https://github.com/sibelius/election_project",
+    "homepage": null,
+    "stars": 0,
+    "created": "2014-11-05",
+    "pushed": "2014-11-12"
+  },
+  {
+    "name": "escola-dual-3d",
+    "description": "",
+    "url": "https://github.com/sibelius/escola-dual-3d",
+    "homepage": null,
+    "stars": 0,
+    "created": "2026-09-28",
+    "pushed": "2026-10-02"
+  },
+  {
+    "name": "evaluatex-webpack",
+    "description": "Demo to show that evaluatex does not bundle properly in production with webpack",
+    "url": "https://github.com/sibelius/evaluatex-webpack",
+    "homepage": null,
+    "stars": 0,
+    "created": "2021-01-11",
+    "pushed": "2021-01-11"
+  },
+  {
+    "name": "gcodejam",
+    "description": "",
+    "url": "https://github.com/sibelius/gcodejam",
+    "homepage": null,
+    "stars": 0,
+    "created": "2015-03-18",
+    "pushed": "2015-03-18"
+  },
+  {
+    "name": "getting_cleaning_data",
+    "description": "getting cleaning data project",
+    "url": "https://github.com/sibelius/getting_cleaning_data",
+    "homepage": null,
+    "stars": 0,
+    "created": "2014-06-03",
+    "pushed": "2014-06-03"
+  },
+  {
+    "name": "gtor-visualized",
+    "description": "Interactive visualizations of Kris Kowal's A General Theory of Reactivity",
+    "url": "https://github.com/sibelius/gtor-visualized",
+    "homepage": "https://gtor-visualized.vercel.app",
+    "stars": 0,
+    "created": "2026-10-01",
+    "pushed": "2026-10-01"
+  },
+  {
+    "name": "hacker-game",
+    "description": "",
+    "url": "https://github.com/sibelius/hacker-game",
+    "homepage": null,
+    "stars": 0,
+    "created": "2026-09-28",
+    "pushed": "2026-10-02"
+  },
+  {
+    "name": "homem-que-calculava",
+    "description": "O Homem que Calculava (Malba Tahan) — problemas em visualizações interativas",
+    "url": "https://github.com/sibelius/homem-que-calculava",
+    "homepage": null,
+    "stars": 0,
+    "created": "2026-09-26",
+    "pushed": "2026-10-02"
+  },
+  {
+    "name": "hotel",
+    "description": "",
+    "url": "https://github.com/sibelius/hotel",
+    "homepage": null,
+    "stars": 0,
+    "created": "2026-09-28",
+    "pushed": "2026-10-02"
+  },
+  {
+    "name": "jogo-skincare",
+    "description": "",
+    "url": "https://github.com/sibelius/jogo-skincare",
+    "homepage": null,
+    "stars": 0,
+    "created": "2026-09-28",
+    "pushed": "2026-10-02"
+  },
+  {
+    "name": "jogos-tabuleiro",
+    "description": "",
+    "url": "https://github.com/sibelius/jogos-tabuleiro",
+    "homepage": null,
+    "stars": 0,
+    "created": "2026-09-28",
+    "pushed": "2026-10-02"
+  },
+  {
+    "name": "modelo_monografia_icmc_usp",
+    "description": "",
+    "url": "https://github.com/sibelius/modelo_monografia_icmc_usp",
+    "homepage": null,
+    "stars": 0,
+    "created": "2015-02-04",
+    "pushed": "2015-02-04"
+  },
+  {
+    "name": "mybasejump",
+    "description": "",
+    "url": "https://github.com/sibelius/mybasejump",
+    "homepage": null,
+    "stars": 0,
+    "created": "2016-01-02",
+    "pushed": "2016-01-02"
+  },
+  {
+    "name": "NewProject",
+    "description": "test project repository",
+    "url": "https://github.com/sibelius/NewProject",
+    "homepage": null,
+    "stars": 0,
+    "created": "2014-06-02",
+    "pushed": "2014-06-10"
+  },
+  {
+    "name": "NoLight",
+    "description": "NoLight Hackaton",
+    "url": "https://github.com/sibelius/NoLight",
+    "homepage": null,
+    "stars": 0,
+    "created": "2015-02-28",
+    "pushed": "2015-02-28"
+  },
+  {
+    "name": "obmep-visualized",
+    "description": "",
+    "url": "https://github.com/sibelius/obmep-visualized",
+    "homepage": null,
+    "stars": 0,
+    "created": "2026-09-29",
+    "pushed": "2026-10-02"
+  },
+  {
+    "name": "physics-lab",
+    "description": "",
+    "url": "https://github.com/sibelius/physics-lab",
+    "homepage": null,
+    "stars": 0,
+    "created": "2026-09-28",
+    "pushed": "2026-10-02"
+  },
+  {
+    "name": "semcomp-flask",
+    "description": "",
+    "url": "https://github.com/sibelius/semcomp-flask",
+    "homepage": null,
+    "stars": 0,
+    "created": "2015-08-19",
+    "pushed": "2015-08-21"
+  },
+  {
+    "name": "sibelius",
+    "description": "Config files for my GitHub profile.",
+    "url": "https://github.com/sibelius/sibelius",
+    "homepage": "https://github.com/sibelius",
+    "stars": 0,
+    "created": "2023-01-12",
+    "pushed": "2023-01-12"
+  },
+  {
+    "name": "squishy",
+    "description": "",
+    "url": "https://github.com/sibelius/squishy",
+    "homepage": null,
+    "stars": 0,
+    "created": "2026-09-29",
+    "pushed": "2026-10-24"
+  },
+  {
+    "name": "tekton-visualized",
+    "description": "Tekton CI/CD, visualized: interactive simulations of Tasks, Pipelines, Triggers and Chains",
+    "url": "https://github.com/sibelius/tekton-visualized",
+    "homepage": "https://tekton-visualized.vercel.app",
+    "stars": 0,
+    "created": "2026-10-07",
+    "pushed": "2026-10-07"
+  },
+  {
+    "name": "ubiquitous_computing_project",
+    "description": "This project contains the ubiquitous computing project for the Fundamentos em Computação Ubíqua 2014",
+    "url": "https://github.com/sibelius/ubiquitous_computing_project",
+    "homepage": null,
+    "stars": 0,
+    "created": "2014-10-17",
+    "pushed": "2014-10-22"
+  },
+  {
+    "name": "undici-reproduction-host-header-noport",
+    "description": "reproduction for https://github.com/nodejs/undici/issues/4034#issuecomment-4054428656",
+    "url": "https://github.com/sibelius/undici-reproduction-host-header-noport",
+    "homepage": null,
+    "stars": 0,
+    "created": "2026-03-13",
+    "pushed": "2026-03-13"
+  },
+  {
+    "name": "victory-monorepo",
+    "description": "Victory Monorepo proof of concept",
+    "url": "https://github.com/sibelius/victory-monorepo",
+    "homepage": null,
+    "stars": 0,
+    "created": "2017-03-08",
+    "pushed": "2017-03-08"
+  },
+  {
+    "name": "violino",
+    "description": "",
+    "url": "https://github.com/sibelius/violino",
+    "homepage": null,
+    "stars": 0,
+    "created": "2026-09-29",
+    "pushed": "2026-10-02"
+  },
+  {
+    "name": "vrExample",
+    "description": "",
+    "url": "https://github.com/sibelius/vrExample",
+    "homepage": null,
+    "stars": 0,
+    "created": "2017-04-22",
+    "pushed": "2017-04-22"
+  },
+  {
+    "name": "yarn-workspaces-mms",
+    "description": "yarn workspace mongo-memory-server integrity check bug reproduction",
+    "url": "https://github.com/sibelius/yarn-workspaces-mms",
+    "homepage": null,
+    "stars": 0,
+    "created": "2018-11-10",
+    "pushed": "2018-11-10"
+  }
+]

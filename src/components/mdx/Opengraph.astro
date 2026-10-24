@@ -1,0 +1,9 @@
+---
+import Embed from './Embed.astro';
+
+type Props = {site: string};
+
+const {site} = Astro.props;
+---
+
+<Embed url={site} />
