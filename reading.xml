@@ -1,0 +1,771 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Sibelius Seraphini: Reading</title>
+    <link>https://sibelius.github.io/zettelkasten/reading</link>
+    <description>Articles, posts, repos and tools I am reading and recommend.</description>
+    <language>en</language>
+    <item>
+      <title>cve.now: a free CVE feed for agents</title>
+      <link>https://cve.now/</link>
+      <guid isPermaLink="true">https://cve.now/</guid>
+      <pubDate>Sat, 24 Oct 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">cve.now</source>
+      <description>A free CVE feed for agents.</description>
+    </item>
+    <item>
+      <title>Fast and maintainable patterns for fetching from a database</title>
+      <link>https://sophiebits.com/2020/01/01/fast-maintainable-db-patterns</link>
+      <guid isPermaLink="true">https://sophiebits.com/2020/01/01/fast-maintainable-db-patterns</guid>
+      <pubDate>Sat, 24 Oct 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">sophiebits.com</source>
+    </item>
+    <item>
+      <title>jiwoochris/artex-global</title>
+      <link>https://github.com/jiwoochris/artex-global</link>
+      <guid isPermaLink="true">https://github.com/jiwoochris/artex-global</guid>
+      <pubDate>Fri, 23 Oct 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">GitHub</source>
+      <description>ARTEX 한국어판 · AI 자율 침투 테스트 프레임워크(upstream: Autumn-27/ARTEX, AGPL-3.0)</description>
+    </item>
+    <item>
+      <title>Depois de semanas, investindo o custo de uma DGX Spark 😱 tenho um veredito sobre LLM open source: Qwen 3.8 Flash Next + Strata numa RTX 5090 já é &quot;competente o suficiente&quot; (pun intended) pra uso do dia a dia.  A resposta detalhada é BEM maior que que isso então vamos lá. Estou… pic.twitter.com/IUPg2rnHYK</title>
+      <link>https://x.com/akitaonrails/status/2113295175216701529</link>
+      <guid isPermaLink="true">https://x.com/akitaonrails/status/2113295175216701529</guid>
+      <pubDate>Thu, 22 Oct 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">Fabio Makita (@AkitaOnRails)</source>
+    </item>
+    <item>
+      <title>eMudhra Intermediate CA Compromise</title>
+      <link>https://emudhra.we-have-a-problem.com/</link>
+      <guid isPermaLink="true">https://emudhra.we-have-a-problem.com/</guid>
+      <pubDate>Tue, 20 Oct 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">we-have-a-problem.com</source>
+      <description>The private keys of eight eMudhra intermediate CA certificates, trusted by major root programs, have been compromised. Check whether your client is affected and how to protect it.</description>
+    </item>
+    <item>
+      <title>Speeding up code review with `small-change`</title>
+      <link>https://lethain.com/small-changes/</link>
+      <guid isPermaLink="true">https://lethain.com/small-changes/</guid>
+      <pubDate>Mon, 19 Oct 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">lethain.com</source>
+    </item>
+    <item>
+      <title>CloudNativePG - PostgreSQL Operator for Kubernetes</title>
+      <link>https://cloudnative-pg.io/</link>
+      <guid isPermaLink="true">https://cloudnative-pg.io/</guid>
+      <pubDate>Mon, 19 Oct 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">CloudNativePG - PostgreSQL Operator for Kubernetes</source>
+      <description>CloudNativePG - PostgreSQL Operator for Kubernetes</description>
+    </item>
+    <item>
+      <title>Here is the full talk: https://t.co/is8hMHaTlS pic.twitter.com/CybHdJ3D1c</title>
+      <link>https://x.com/milescranmer/status/2111105654211608847</link>
+      <guid isPermaLink="true">https://x.com/milescranmer/status/2111105654211608847</guid>
+      <pubDate>Sun, 18 Oct 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">Miles Cranmer (@MilesCranmer)</source>
+    </item>
+    <item>
+      <title>If you don't run your own LLM proxy, how the fuck do you even know whats going on?</title>
+      <link>https://jrdsgl.com/if-you-dont-run-your-own-llm-proxy-how-the-fuck-do-you-even-know-whats-going-on/</link>
+      <guid isPermaLink="true">https://jrdsgl.com/if-you-dont-run-your-own-llm-proxy-how-the-fuck-do-you-even-know-whats-going-on/</guid>
+      <pubDate>Sun, 18 Oct 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">jrdsgl.com</source>
+    </item>
+    <item>
+      <title>heliocosta-dev/revenue-centric-design</title>
+      <link>https://github.com/heliocosta-dev/revenue-centric-design</link>
+      <guid isPermaLink="true">https://github.com/heliocosta-dev/revenue-centric-design</guid>
+      <pubDate>Sat, 17 Oct 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">GitHub</source>
+      <description>Product-design, conversion &amp; behavioral-science principles for SaaS</description>
+    </item>
+    <item>
+      <title>Pele · Mermaid diagrams as themeable SVG</title>
+      <link>https://pele.run/</link>
+      <guid isPermaLink="true">https://pele.run/</guid>
+      <pubDate>Sat, 17 Oct 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">pele.run</source>
+      <description>Pele is a lightweight open source library that renders Mermaid diagrams to SVG, themed with CSS variables.</description>
+    </item>
+    <item>
+      <title>SRE book second edition | Google Cloud Blog</title>
+      <link>https://cloud.google.com/blog/products/devops-sre/sre-book-second-edition</link>
+      <guid isPermaLink="true">https://cloud.google.com/blog/products/devops-sre/sre-book-second-edition</guid>
+      <pubDate>Sat, 17 Oct 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">Google Cloud Blog</source>
+      <description>The second edition of the Site Reliability Engineering book reflects the shifts in infrastructure management from AI, microservices, serverless, etc.</description>
+    </item>
+    <item>
+      <title>Claude reveals ECDSA curve origins</title>
+      <link>https://www.anthropic.com/research/ecdsa-curve-origins</link>
+      <guid isPermaLink="true">https://www.anthropic.com/research/ecdsa-curve-origins</guid>
+      <pubDate>Sat, 17 Oct 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">anthropic.com</source>
+      <description>The decades-old mystery of the origins of one of the most popular cryptographic standards has been explained.</description>
+    </item>
+    <item>
+      <title>Details:  - We push to main - Buildkite runs tests and builds images - GitHub Actions then runs infrastructure security checks and kicks off deployments - Failed check blocks deployment, pings commit author in Slack - CI keeps running on later pushes while we fix it - Later fixes… https://t.co/xTlzAVyVQp</title>
+      <link>https://x.com/thorstenball/status/2111115720637722945</link>
+      <guid isPermaLink="true">https://x.com/thorstenball/status/2111115720637722945</guid>
+      <pubDate>Fri, 16 Oct 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">Thorsten Ball (@thorstenball)</source>
+    </item>
+    <item>
+      <title>Don't sleep on Claude Slides. This is how I make slide decks now -- no more googling &quot;iphone frame svg&quot; like the old days  Try it: https://t.co/cAWdwarzgp pic.twitter.com/POdqFL9oIP</title>
+      <link>https://x.com/bcherny/status/2111158659971699136</link>
+      <guid isPermaLink="true">https://x.com/bcherny/status/2111158659971699136</guid>
+      <pubDate>Fri, 16 Oct 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">Boris Cherny (@bcherny)</source>
+    </item>
+    <item>
+      <title>Docs app for an analytics Startup  Light mode 💡 pic.twitter.com/OoFjItPpiH</title>
+      <link>https://x.com/alidalton/status/2111132067660800263</link>
+      <guid isPermaLink="true">https://x.com/alidalton/status/2111132067660800263</guid>
+      <pubDate>Fri, 16 Oct 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">Ali Dalton (@alidalton)</source>
+    </item>
+    <item>
+      <title>Why are you still using pull requests?  Is it for code review?  If so, do you really think your or your colleagues catch bugs and mistakes that an Opus 5.5 or Fable or Astra won't find? You can literally spawn all three of them and have them check four times each.  (Also, don't…</title>
+      <link>https://x.com/thorstenball/status/2111130129355481240</link>
+      <guid isPermaLink="true">https://x.com/thorstenball/status/2111130129355481240</guid>
+      <pubDate>Fri, 16 Oct 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">Thorsten Ball (@thorstenball)</source>
+    </item>
+    <item>
+      <title>Por que uma eleição digital perfeita ainda não seria viável?</title>
+      <link>https://akitaonrails.com/2026/08/07/por-que-uma-eleicao-digital-perfeita-ainda-nao-seria-viavel/</link>
+      <guid isPermaLink="true">https://akitaonrails.com/2026/08/07/por-que-uma-eleicao-digital-perfeita-ainda-nao-seria-viavel/</guid>
+      <pubDate>Thu, 15 Oct 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">AkitaOnRails.com</source>
+    </item>
+    <item>
+      <title>Releases · rustfs/rustfs</title>
+      <link>https://github.com/rustfs/rustfs/releases</link>
+      <guid isPermaLink="true">https://github.com/rustfs/rustfs/releases</guid>
+      <pubDate>Thu, 15 Oct 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">GitHub</source>
+      <description>RustFS is an open-source, S3-compatible high-performance object storage system supporting migration and coexistence with other S3-compatible platforms such as MinIO and Ceph. - rustfs/rustfs</description>
+    </item>
+    <item>
+      <title>Announcing RustFS 1.0.0 GA: Production-Ready, Open Source, S3-Compatible Object Storage</title>
+      <link>https://rustfs.com/blog/announcing-rustfs-1-0-0-ga/</link>
+      <guid isPermaLink="true">https://rustfs.com/blog/announcing-rustfs-1-0-0-ga/</guid>
+      <pubDate>Thu, 15 Oct 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">rustfs.com</source>
+      <description>RustFS 1.0.0 GA is here: our open source, S3-compatible object storage is now production-ready. Explore the journey, core features, and Docker quick start.</description>
+    </item>
+    <item>
+      <title>My conversation with David Vélez (@velez_david), founder and CEO of Nubank.  The last time we did this was five years ago, and Nubank had 35 million customers. Today it has over 140 million, and it has just announced it's coming to the US.   David now talks about expanding to 100… pic.twitter.com/Yf2GUWc5gf</title>
+      <link>https://x.com/patrick_oshag/status/2109977458304856299</link>
+      <guid isPermaLink="true">https://x.com/patrick_oshag/status/2109977458304856299</guid>
+      <pubDate>Wed, 14 Oct 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">Patrick OShaughnessy (@patrick_oshag)</source>
+    </item>
+    <item>
+      <title>1/9 E se eu falar que eu treinei um LLM do Zero, com dados 100% br, e feito sem gastar 1 real?  Hoje decidi abrir publicamente o código, os dados e os pesos do meu projeto de LLM Legislativo Brasileiro. É um pipeline completo que vai desde a coleta de quase 1 milhão de documentos…</title>
+      <link>https://x.com/baruqrodrigues/status/2110158238549155954</link>
+      <guid isPermaLink="true">https://x.com/baruqrodrigues/status/2110158238549155954</guid>
+      <pubDate>Wed, 14 Oct 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">Baruque (@baruqrodrigues)</source>
+    </item>
+    <item>
+      <title>xtool-org/xtool</title>
+      <link>https://github.com/xtool-org/xtool</link>
+      <guid isPermaLink="true">https://github.com/xtool-org/xtool</guid>
+      <pubDate>Tue, 13 Oct 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">GitHub</source>
+      <description>Cross-platform Xcode replacement. Build and deploy iOS apps with SwiftPM on Linux, Windows, macOS.</description>
+    </item>
+    <item>
+      <title>OpenHands/OpenHands</title>
+      <link>https://github.com/OpenHands/OpenHands</link>
+      <guid isPermaLink="true">https://github.com/OpenHands/OpenHands</guid>
+      <pubDate>Tue, 13 Oct 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">GitHub</source>
+      <description>🙌 OpenHands: AI-Driven Development</description>
+    </item>
+    <item>
+      <title>Usuários Linux: sempre escolham BTRFS, não EXT4</title>
+      <link>https://www.akitaonrails.com/2026/10/12/usuarios-linux-sempre-escolham-btrfs-nao-ext4/</link>
+      <guid isPermaLink="true">https://www.akitaonrails.com/2026/10/12/usuarios-linux-sempre-escolham-btrfs-nao-ext4/</guid>
+      <pubDate>Tue, 13 Oct 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">AkitaOnRails.com</source>
+    </item>
+    <item>
+      <title>The `OTP-Token` Email Header Field</title>
+      <link>https://datatracker.ietf.org/doc/draft-goto-otp-token/</link>
+      <guid isPermaLink="true">https://datatracker.ietf.org/doc/draft-goto-otp-token/</guid>
+      <pubDate>Sat, 10 Oct 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">IETF Datatracker</source>
+      <description>This document defines the OTP-Token email header field, which can be used to deliver One-Time Passcodes (OTP) in a machine-readable and origin-bound manner alongside the human-readable message carrying that content today. Recipient Message User Agents (rMUA) can collaborate with other entities in the ecosystem to assist in the delivery of these codes to the context which wishes to verify their successful delivery.</description>
+    </item>
+    <item>
+      <title>On building scalable control planes</title>
+      <link>https://www.allthingsdistributed.com/2026/08/on-building-scalable-control-planes.html</link>
+      <guid isPermaLink="true">https://www.allthingsdistributed.com/2026/08/on-building-scalable-control-planes.html</guid>
+      <pubDate>Sat, 10 Oct 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">All Things Distributed</source>
+      <description>Zak van der Merwe has spent his entire career at AWS building control planes. First for EC2 and now for DSQL. On the surface, the control plane looks quite boring: it records what should exist and reconciles that with what actually does. Nobody leaves school dreaming of building one, but Zak will be the first to tell you that if you like solving hard problems in distributed systems, there are few better places to be. It’s where many of those hard problems converge, and where the decisions you make determine whether a service survives its own growth.</description>
+    </item>
+    <item>
+      <title>MCP Events – Plugins | OpenAI Developers</title>
+      <link>https://developers.openai.com/plugins/build/mcp-events</link>
+      <guid isPermaLink="true">https://developers.openai.com/plugins/build/mcp-events</guid>
+      <pubDate>Sat, 10 Oct 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">OpenAI Developers</source>
+      <description>Implement event subscriptions and webhook delivery for your MCP server.</description>
+    </item>
+    <item>
+      <title>shergin/baton</title>
+      <link>https://github.com/shergin/baton</link>
+      <guid isPermaLink="true">https://github.com/shergin/baton</guid>
+      <pubDate>Fri, 09 Oct 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">GitHub</source>
+      <description>🥖 Relay for SwiftUI and Compose</description>
+    </item>
+    <item>
+      <title>API Documentation | ONLYOFFICE</title>
+      <link>https://api.onlyoffice.com/</link>
+      <guid isPermaLink="true">https://api.onlyoffice.com/</guid>
+      <pubDate>Thu, 08 Oct 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">api.onlyoffice.com</source>
+    </item>
+    <item>
+      <title>data-privacy-stack/presidio</title>
+      <link>https://github.com/data-privacy-stack/presidio</link>
+      <guid isPermaLink="true">https://github.com/data-privacy-stack/presidio</guid>
+      <pubDate>Wed, 07 Oct 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">GitHub</source>
+      <description>An open-source framework for detecting, redacting, masking, and anonymizing sensitive data (PII) across text, images, and structured data. Supports NLP, pattern matching, and customizable pipelines.</description>
+    </item>
+    <item>
+      <title>width=device-width, initial-scale=1&quot; name=&quot;viewport&quot;/&gt;&lt;meta data-rh=&quot;true&quot; content=&quot;Uber has embraced MCP to supercharge AI-powered developer workflows with quality context. Learn how Uber scaled from a community-driven solution to hundreds of MCP servers.&quot; name=&quot;description&quot;/&gt;&lt;meta data-rh=</title>
+      <link>https://www.uber.com/us/en/blog/designing-mcp-gateway/</link>
+      <guid isPermaLink="true">https://www.uber.com/us/en/blog/designing-mcp-gateway/</guid>
+      <pubDate>Tue, 06 Oct 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">width=device-width, initial-scale=1&quot; name=&quot;viewport&quot;/&gt;&lt;meta data-rh=&quot;true&quot; content=&quot;Uber has embraced MCP to supercharge AI-powered developer workflows with quality context. Learn how Uber scaled from a community-driven solution to hundreds of MCP servers.&quot; name=&quot;description&quot;/&gt;&lt;meta data-rh=&quot;true&quot; content=&quot;Designing MCP Gateway Uber's MCP Management Platform&quot; property=&quot;og:title&quot;/&gt;&lt;meta data-rh=&quot;true&quot; content=&quot;Uber has embraced MCP to supercharge AI-powered developer workflows with quality context. Learn how Uber scaled from a community-driven solution to hundreds of MCP servers.&quot; property=&quot;og:description&quot;/&gt;&lt;meta data-rh=&quot;true&quot; content=&quot;website&quot; property=&quot;og:type&quot;/&gt;&lt;meta data-rh=&quot;true&quot; content=&quot;https://www.uber.com/us/en/blog/designing-mcp-gateway/&quot; property=&quot;og:url&quot;/&gt;&lt;meta data-rh=&quot;true&quot; content=&quot;https://tb-static.uber.com/prod/udam-assets/c724325d-7cdb-41d2-b9f3-235f11728b1e.jpeg&quot; property=&quot;og:image&quot;/&gt;&lt;meta data-rh=</source>
+      <description>width=device-width, initial-scale=1&quot; name=&quot;viewport&quot;/&gt;&lt;meta data-rh=&quot;true&quot; content=&quot;Uber has embraced MCP to supercharge AI-powered developer workflows with quality context. Learn how Uber scaled from a community-driven solution to hundreds of MCP servers.&quot; name=&quot;description&quot;/&gt;&lt;meta data-rh=&quot;true&quot; content=&quot;Designing MCP Gateway Uber's MCP Management Platform&quot; property=&quot;og:title&quot;/&gt;&lt;meta data-rh=</description>
+    </item>
+    <item>
+      <title>eu declaro aberta as eleições da bolha dev 🚨  quem é seu candidato, quem vai vencer essa?https://t.co/Qh4ru4Jma0 pic.twitter.com/C6LxwK2hx5</title>
+      <link>https://x.com/gabrielbuzziv/status/2107184113463554437</link>
+      <guid isPermaLink="true">https://x.com/gabrielbuzziv/status/2107184113463554437</guid>
+      <pubDate>Mon, 05 Oct 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">Gabriel Buzzi (@gabrielbuzziv)</source>
+    </item>
+    <item>
+      <title>Mike Krieger, fundador do Instagram e hoje na Anthropic Labs, sobre como usar melhor o Claude Code. pic.twitter.com/Mxr6He5wk9</title>
+      <link>https://x.com/abreunotes/status/2105752785274978745</link>
+      <guid isPermaLink="true">https://x.com/abreunotes/status/2105752785274978745</guid>
+      <pubDate>Sun, 04 Oct 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">Lucas Abreu (@abreunotes)</source>
+    </item>
+    <item>
+      <title>graphene-data/graphene</title>
+      <link>https://github.com/graphene-data/graphene</link>
+      <guid isPermaLink="true">https://github.com/graphene-data/graphene</guid>
+      <pubDate>Sat, 03 Oct 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">GitHub</source>
+      <description>Turn your coding agent into a world-class data analyst</description>
+    </item>
+    <item>
+      <title>CopilotKit/OpenDots</title>
+      <link>https://github.com/CopilotKit/OpenDots</link>
+      <guid isPermaLink="true">https://github.com/CopilotKit/OpenDots</guid>
+      <pubDate>Sat, 03 Oct 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">GitHub</source>
+      <description>Your always-on AI coworkers that move between text, calls, and Slack.</description>
+    </item>
+    <item>
+      <title>onnx/onnx</title>
+      <link>https://github.com/onnx/onnx</link>
+      <guid isPermaLink="true">https://github.com/onnx/onnx</guid>
+      <pubDate>Fri, 02 Oct 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">GitHub</source>
+      <description>Open standard for machine learning interoperability</description>
+    </item>
+    <item>
+      <title>KServe</title>
+      <link>https://kserve.github.io/website/</link>
+      <guid isPermaLink="true">https://kserve.github.io/website/</guid>
+      <pubDate>Fri, 02 Oct 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">kserve.github.io</source>
+      <description>KServe - A Kubernetes-native platform for serving machine learning models with standardized protocols for both predictive and generative AI. Scale to zero, GPU acceleration, and multi-framework support.</description>
+    </item>
+    <item>
+      <title>Data-Intensive, visualized</title>
+      <link>https://data-intensive-visualized.vercel.app/</link>
+      <guid isPermaLink="true">https://data-intensive-visualized.vercel.app/</guid>
+      <pubDate>Fri, 02 Oct 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">Data-Intensive, visualized</source>
+      <description>Interactive simulations of Martin Kleppmann's Designing Data-Intensive Applications: LSM-trees and B-trees, replication lag, quorums, partitioning, isolation anomalies, clocks, consensus, MapReduce and stream processing.</description>
+    </item>
+    <item>
+      <title>Product Development Flow, visualized</title>
+      <link>https://principles-of-product-development.vercel.app/</link>
+      <guid isPermaLink="true">https://principles-of-product-development.vercel.app/</guid>
+      <pubDate>Fri, 02 Oct 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">Flow, visualized</source>
+      <description>Interactive simulations of the ideas in Don Reinertsen's The Principles of Product Development Flow: cost of delay, queues, variability, batch size, WIP, cadence, feedback and decentralized control.</description>
+    </item>
+    <item>
+      <title>We'll be spending a lot more time trying to understand the outputs of language models. A few thoughts, tips &amp; tricks:  Writing. Something I've had success with: Ask your LLM to explain something in ASD-STE100, it's a controlled language specification originally developed for… pic.twitter.com/uMFWTcBCsl</title>
+      <link>https://x.com/karpathy/status/2105819303471976479</link>
+      <guid isPermaLink="true">https://x.com/karpathy/status/2105819303471976479</guid>
+      <pubDate>Fri, 02 Oct 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">Andrej Karpathy (@karpathy)</source>
+    </item>
+    <item>
+      <title>Introducing ogimagecn  Build OG images like you build your UI.  Powered by Satori. Pick from 20+ ready-to-use image components you can copy, tweak, and make your own.  One command to get started. shadcn/ui compatible.    100% Free. Open source. pic.twitter.com/HYTht7RVLe</title>
+      <link>https://x.com/shadcnlabs/status/2105527948610834605</link>
+      <guid isPermaLink="true">https://x.com/shadcnlabs/status/2105527948610834605</guid>
+      <pubDate>Thu, 01 Oct 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">Shadcn Labs (@shadcnlabs)</source>
+    </item>
+    <item>
+      <title>GEO.new — Free GEO Audit for AI Search</title>
+      <link>https://geo.new/</link>
+      <guid isPermaLink="true">https://geo.new/</guid>
+      <pubDate>Thu, 01 Oct 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">GEO.new</source>
+      <description>An AI-native GEO audit for AI search. See what ChatGPT, Perplexity and AI Overviews read on your page, and exactly what to fix first. Free, no signup.</description>
+    </item>
+    <item>
+      <title>AgentShop — AI agents for enterprise commerce</title>
+      <link>https://agent.shop/en</link>
+      <guid isPermaLink="true">https://agent.shop/en</guid>
+      <pubDate>Thu, 01 Oct 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">AgentShop</source>
+      <description>AI agents that sell, support and re-engage on WhatsApp, Instagram and your website, integrated with your e-commerce, ERP, logistics and payments, with enterprise-grade governance.</description>
+    </item>
+    <item>
+      <title>Agentic Commerce Protocol</title>
+      <link>https://docs.stripe.com/agentic-commerce/acp</link>
+      <guid isPermaLink="true">https://docs.stripe.com/agentic-commerce/acp</guid>
+      <pubDate>Thu, 01 Oct 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">docs.stripe.com</source>
+      <description>Use the Agentic Commerce Protocol to enable AI agents to complete purchases on behalf of buyers.</description>
+    </item>
+    <item>
+      <title>Universal Commerce Protocol</title>
+      <link>https://docs.stripe.com/agentic-commerce/protocol</link>
+      <guid isPermaLink="true">https://docs.stripe.com/agentic-commerce/protocol</guid>
+      <pubDate>Thu, 01 Oct 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">docs.stripe.com</source>
+      <description>Universal Commerce Protocol (UCP) enables agentic commerce across platforms.</description>
+    </item>
+    <item>
+      <title>claude.dev Blog / technical writing for people building with Claude</title>
+      <link>https://claude.dev/</link>
+      <guid isPermaLink="true">https://claude.dev/</guid>
+      <pubDate>Thu, 01 Oct 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">claude.dev Blog</source>
+      <description>Articles, videos, and build logs from Anthropic’s developers on building with Claude and Claude Code, including tips, tricks, and points of view.</description>
+    </item>
+    <item>
+      <title>GTOR, visualized</title>
+      <link>https://gtor-visualized.vercel.app/</link>
+      <guid isPermaLink="true">https://gtor-visualized.vercel.app/</guid>
+      <pubDate>Wed, 30 Sep 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">GTOR, visualized</source>
+      <description>Interactive visualizations of Kris Kowal's A General Theory of Reactivity: iterators, promises, tasks, streams, signals and behaviors, running live.</description>
+    </item>
+    <item>
+      <title>fate</title>
+      <link>https://fate.technology/</link>
+      <guid isPermaLink="true">https://fate.technology/</guid>
+      <pubDate>Wed, 30 Sep 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">fate.technology</source>
+      <description>A modern data client for the web.</description>
+    </item>
+    <item>
+      <title>shap/shap</title>
+      <link>https://github.com/shap/shap</link>
+      <guid isPermaLink="true">https://github.com/shap/shap</guid>
+      <pubDate>Wed, 30 Sep 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">GitHub</source>
+      <description>A game theoretic approach to explain the output of any machine learning model.</description>
+    </item>
+    <item>
+      <title>GLM-5.3 and the spread of advanced cyber capabilities</title>
+      <link>https://www.anthropic.com/research/glm-5-3-and-the-spread-of-advanced-cyber-capabilities</link>
+      <guid isPermaLink="true">https://www.anthropic.com/research/glm-5-3-and-the-spread-of-advanced-cyber-capabilities</guid>
+      <pubDate>Tue, 29 Sep 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">anthropic.com</source>
+      <description>GLM-5.3 can autonomously build end-to-end cyber exploits, but unlike other frontier models, it was released without meaningful safeguards to limit misuse.</description>
+    </item>
+    <item>
+      <title>Introducing pdfcn  Build beautiful PDFs like you build your UI.  Powered by Takumi + Forme. Pick from 10+ themes, 40+ components &amp; blocks, then customize everything.  One command to get started. shadcn/ui compatible.  100% Free. Open source. pic.twitter.com/15qZPBhbps</title>
+      <link>https://x.com/shadcnlabs/status/2104840500847263794</link>
+      <guid isPermaLink="true">https://x.com/shadcnlabs/status/2104840500847263794</guid>
+      <pubDate>Tue, 29 Sep 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">Shadcn Labs (@shadcnlabs)</source>
+    </item>
+    <item>
+      <title>Na Monest a gente processa mais de 100 milhões de jobs por dia, e isso é difícil p kct.  Nossa stack é simprona: NestJS + BullMQ.  E o problema de um sistema 99% backend é monitorar tudo isso, 100 milhões de jobs por dia sendo processados em mais de 25 contêineres Node.  É óbvio,…</title>
+      <link>https://x.com/morett_the_best/status/2104890565783376040</link>
+      <guid isPermaLink="true">https://x.com/morett_the_best/status/2104890565783376040</guid>
+      <pubDate>Tue, 29 Sep 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">madmorett, CTO at Monest (@Morett_the_best)</source>
+    </item>
+    <item>
+      <title>Cyber Verification Program | Claude Help Center</title>
+      <link>https://support.claude.com/en/articles/14604842-real-time-cyber-safeguards-on-claude-opus-and-sonnet</link>
+      <guid isPermaLink="true">https://support.claude.com/en/articles/14604842-real-time-cyber-safeguards-on-claude-opus-and-sonnet</guid>
+      <pubDate>Mon, 28 Sep 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">support.claude.com</source>
+    </item>
+    <item>
+      <title>Build vs Buy vs LLM, visualized</title>
+      <link>https://build-vs-buy-vs-llm.vercel.app/</link>
+      <guid isPermaLink="true">https://build-vs-buy-vs-llm.vercel.app/</guid>
+      <pubDate>Mon, 28 Sep 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">build-vs-buy-vs-llm.vercel.app</source>
+      <description>Interactive visualizations of the build vs buy vs LLM decision: pros, cons, cost curves, and how AI shifts the weights.</description>
+    </item>
+    <item>
+      <title>marimo | a next-generation Python notebook</title>
+      <link>https://marimo.io/</link>
+      <guid isPermaLink="true">https://marimo.io/</guid>
+      <pubDate>Mon, 28 Sep 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">marimo.io</source>
+      <description>Explore data and build apps seamlessly with marimo, a next-generation Python notebook.</description>
+    </item>
+    <item>
+      <title>heygen-com/hyperframes</title>
+      <link>https://github.com/heygen-com/hyperframes</link>
+      <guid isPermaLink="true">https://github.com/heygen-com/hyperframes</guid>
+      <pubDate>Mon, 28 Sep 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">GitHub</source>
+      <description>Write HTML. Render video. Built for agents.</description>
+    </item>
+    <item>
+      <title>fix(sessions): rank list pages on ids before projecting, seed chains only from parents by sibelius · Pull Request #125515 · NousResearch/hermes-agent</title>
+      <link>https://github.com/NousResearch/hermes-agent/pull/125515</link>
+      <guid isPermaLink="true">https://github.com/NousResearch/hermes-agent/pull/125515</guid>
+      <pubDate>Mon, 28 Sep 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">GitHub</source>
+      <description>The agent that grows with you. Contribute to NousResearch/hermes-agent development by creating an account on GitHub.</description>
+    </item>
+    <item>
+      <title>agent-labs-dev/bugpatrol</title>
+      <link>https://github.com/agent-labs-dev/bughunters</link>
+      <guid isPermaLink="true">https://github.com/agent-labs-dev/bughunters</guid>
+      <pubDate>Sun, 27 Sep 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">GitHub</source>
+      <description>Automated app testing from the future</description>
+    </item>
+    <item>
+      <title>kunchenguid/backpass</title>
+      <link>https://github.com/kunchenguid/backpass</link>
+      <guid isPermaLink="true">https://github.com/kunchenguid/backpass</guid>
+      <pubDate>Sun, 27 Sep 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">GitHub</source>
+      <description>You don't write AGENTS.md. You train it with gradient descent.</description>
+    </item>
+    <item>
+      <title>one Opus 5.5 prompt, and now I run around a virtual office managing agents to work on github issues and merge conflicts pic.twitter.com/7j6Qs1G8eL</title>
+      <link>https://x.com/webdevcody/status/2103653857377292720</link>
+      <guid isPermaLink="true">https://x.com/webdevcody/status/2103653857377292720</guid>
+      <pubDate>Sat, 26 Sep 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">WebDevCody (@webdevcody)</source>
+    </item>
+    <item>
+      <title>BREAKING: a16z Launches The Horowitz Andreessen Academy with $42M in Funding  Yes, a school.  The Academy is an unaccredited, residential alternative to a 4-year degree in San Francisco, led by Founder &amp; CEO Gagan Biyani (@gaganbiyani) (Udemy, Maven).   Marc Andreessen (@pmarca)… pic.twitter.com/j3krsjxyUN</title>
+      <link>https://x.com/MollySOShea/status/2102397511562297584</link>
+      <guid isPermaLink="true">https://x.com/MollySOShea/status/2102397511562297584</guid>
+      <pubDate>Thu, 24 Sep 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">Molly O’Shea (@MollySOShea)</source>
+    </item>
+    <item>
+      <title>A nossa IA hoje resolve 66% dos atendimentos a clientes com 90% de avaliações positivas.  Nos dia atuais, o suporte de IA ser ruim é skill issue. Segue um artigo contando a nossa história e aprendizados: https://t.co/0FlmJvlwTK</title>
+      <link>https://x.com/joaoavf/status/2097042370185544182</link>
+      <guid isPermaLink="true">https://x.com/joaoavf/status/2097042370185544182</guid>
+      <pubDate>Wed, 23 Sep 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">João Ferreira (@joaoavf)</source>
+    </item>
+    <item>
+      <title>GitHub wasn’t built for hardware.  So we built Circuit World.  An AI-native EDA + MCAD platform for designing, iterating, collaborating, versioning, and manufacturing hardware in one browser.  You don’t have to start every design from scratch.  Start with one of 8,800+ existing… pic.twitter.com/UG9ZzX5dAQ</title>
+      <link>https://x.com/heypcbai/status/2102597124760449345</link>
+      <guid isPermaLink="true">https://x.com/heypcbai/status/2102597124760449345</guid>
+      <pubDate>Wed, 23 Sep 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">HeyPCB (@heypcbai)</source>
+    </item>
+    <item>
+      <title>h4vismat/openigor</title>
+      <link>https://github.com/h4vismat/openigor</link>
+      <guid isPermaLink="true">https://github.com/h4vismat/openigor</guid>
+      <pubDate>Tue, 22 Sep 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">GitHub</source>
+      <description>Contribute to h4vismat/openigor development by creating an account on GitHub.</description>
+    </item>
+    <item>
+      <title>pdfcn</title>
+      <link>https://www.pdfcn.dev/</link>
+      <guid isPermaLink="true">https://www.pdfcn.dev/</guid>
+      <pubDate>Tue, 22 Sep 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">pdfcn</source>
+      <description>A collection of beautifully designed, accessible, and customizable PDF components. Built on Takumi and Forme. Works with shadcn/ui.</description>
+    </item>
+    <item>
+      <title>I get a lot of data on what people actually run on their Sparks. Here’s what I have:  Solo DGX Spark - Most run Qwen3.8 Flash Next  2x DGX Sparks - GLM 5.3 Flash or DeepSeek v4.1 Flash  3x DGX Sparks, conf 1: - GLM 5.3 Flash on 2x DGX Sparks - Qwen3.8-Flash on solo DGX Spark -… pic.twitter.com/FOlpiLzkZX</title>
+      <link>https://x.com/MiaAI_lab/status/2101821681404624976</link>
+      <guid isPermaLink="true">https://x.com/MiaAI_lab/status/2101821681404624976</guid>
+      <pubDate>Mon, 21 Sep 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">Mia (@MiaAI_lab)</source>
+    </item>
+    <item>
+      <title>The Hierarchy of Money</title>
+      <link>https://gregorygundersen.com/blog/2026/09/20/hierarchy-of-money/</link>
+      <guid isPermaLink="true">https://gregorygundersen.com/blog/2026/09/20/hierarchy-of-money/</guid>
+      <pubDate>Mon, 21 Sep 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">gregorygundersen.com</source>
+    </item>
+    <item>
+      <title>Google just open-sourced ARTEMIS.  It lets Al agents control a real phone like a human.  You give the agent a task in plain English and it operates the device end to end: sees the screen, finds the elements, taps, swipes, navigates, verifies the outcome, and reports the result.… pic.twitter.com/X4JJQXmhnP</title>
+      <link>https://x.com/dr_cintas/status/2101768566164840752</link>
+      <guid isPermaLink="true">https://x.com/dr_cintas/status/2101768566164840752</guid>
+      <pubDate>Mon, 21 Sep 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">Alvaro Cintas (@dr_cintas)</source>
+    </item>
+    <item>
+      <title>I've seen people describe Jev as an &quot;AI if statement&quot;. But what if it actually WAS an if statement?  Introducing Probably: a programming language powered by Jev: https://t.co/Sg8lTR4Zx3  Jev baked into the language. “feels” asks a question. “match” routes between descriptions.… pic.twitter.com/xSxQIgFz8X</title>
+      <link>https://x.com/southpolesteve/status/2100767781868150938</link>
+      <guid isPermaLink="true">https://x.com/southpolesteve/status/2100767781868150938</guid>
+      <pubDate>Fri, 18 Sep 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">Steve Faulkner (@southpolesteve)</source>
+    </item>
+    <item>
+      <title>Towards Self-Driving Codebases | Detail</title>
+      <link>https://blog.detail.dev/posts/towards-self-driving-codebases/</link>
+      <guid isPermaLink="true">https://blog.detail.dev/posts/towards-self-driving-codebases/</guid>
+      <pubDate>Thu, 17 Sep 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">Detail</source>
+      <description>We're post-tokenmaxxing. What are we pre-? How do we get there?</description>
+    </item>
+    <item>
+      <title>Da autorização à liquidação: o papel do ledger em cartões</title>
+      <link>https://blog.lerian.studio/da-autorizacao-a-liquidacao-o-papel-do-ledger-nas-transacoes-de-cartao/</link>
+      <guid isPermaLink="true">https://blog.lerian.studio/da-autorizacao-a-liquidacao-o-papel-do-ledger-nas-transacoes-de-cartao/</guid>
+      <pubDate>Thu, 17 Sep 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">Lerian Blog</source>
+      <description>Como o ledger organiza limite, cobrança e obrigações entre instituições em cada etapa de uma compra no cartão, da autorização até a liquidação.</description>
+    </item>
+    <item>
+      <title>Introducing System One Models &amp; Jev - TypeSafe AI Blog</title>
+      <link>https://typesafe.ai/blog/introducing-system-one-models-and-jev</link>
+      <guid isPermaLink="true">https://typesafe.ai/blog/introducing-system-one-models-and-jev</guid>
+      <pubDate>Thu, 17 Sep 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">typesafe.ai</source>
+      <description>TypeSafe AI is an AI lab building machine-native intelligence infrastructure for automation, designed to make decisions within software. Try our first System One Model, Jev, in early access.</description>
+    </item>
+    <item>
+      <title>Release v5.0.0 · jumpserver/jumpserver</title>
+      <link>https://github.com/jumpserver/jumpserver/releases/tag/v5.0.0</link>
+      <guid isPermaLink="true">https://github.com/jumpserver/jumpserver/releases/tag/v5.0.0</guid>
+      <pubDate>Thu, 17 Sep 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">GitHub</source>
+      <description>JumpServer is an Open-source Privileged Access Management (PAM) platform with AI-powered capabilities, providing DevOps and IT teams a unified workspace to securely access SSH, RDP, Kubernetes, databases, websites, RemoteApp, VirtualApp, and more. - Release v5.0.0 · jumpserver/jumpserver</description>
+    </item>
+    <item>
+      <title>cloudflare/security-audit-skill</title>
+      <link>https://github.com/cloudflare/security-audit-skill</link>
+      <guid isPermaLink="true">https://github.com/cloudflare/security-audit-skill</guid>
+      <pubDate>Thu, 17 Sep 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">GitHub</source>
+      <description>A coding-agent skill for multi-phase security audits with independently verified, machine-readable findings</description>
+    </item>
+    <item>
+      <title>This PCB is brought to you by Fable 5 — A6M-Zero</title>
+      <link>https://a6mzero.com/posts/this-pcb-is-brought-to-you-by-fable-5/</link>
+      <guid isPermaLink="true">https://a6mzero.com/posts/this-pcb-is-brought-to-you-by-fable-5/</guid>
+      <pubDate>Thu, 17 Sep 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">a6mzero.com</source>
+      <description>An experiment to design a cute PCB (without touching any tools) in plain English</description>
+    </item>
+    <item>
+      <title>Doing everyone else's job</title>
+      <link>https://yosefk.com/blog/doing-everyone-elses-job.html</link>
+      <guid isPermaLink="true">https://yosefk.com/blog/doing-everyone-elses-job.html</guid>
+      <pubDate>Wed, 16 Sep 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">yosefk.com</source>
+    </item>
+    <item>
+      <title>Too many AI personal assistants, too little time to assess all of them. Nice work here: https://t.co/xy1Fmyunq4 pic.twitter.com/FDSKiBlDPc</title>
+      <link>https://x.com/ai/status/2099542994005418466</link>
+      <guid isPermaLink="true">https://x.com/ai/status/2099542994005418466</guid>
+      <pubDate>Wed, 16 Sep 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">anand iyer (@ai)</source>
+    </item>
+    <item>
+      <title>You don't need a Mac to develop iOS apps — Expo blog</title>
+      <link>https://expo.dev/blog/build-ios-apps-on-windows-with-cloud-simulators</link>
+      <guid isPermaLink="true">https://expo.dev/blog/build-ios-apps-on-windows-with-cloud-simulators</guid>
+      <pubDate>Tue, 15 Sep 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">Expo Blog</source>
+      <description>Meet EAS Simulator, Expo's new service that gives every developer and every coding agent an iPhone in the cloud.</description>
+    </item>
+    <item>
+      <title>Bancos combatem fraudes com dados de telecomunicações e IA</title>
+      <link>https://finsidersbrasil.com.br/noticias-sobre-fintechs/fraudes/bancos-usam-dados-de-telecomunicacoes-para-barrar-golpes-no-pix/</link>
+      <guid isPermaLink="true">https://finsidersbrasil.com.br/noticias-sobre-fintechs/fraudes/bancos-usam-dados-de-telecomunicacoes-para-barrar-golpes-no-pix/</guid>
+      <pubDate>Tue, 15 Sep 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">Finsiders Brasil</source>
+      <description>Para combater a crescente sofisticação dos golpes, bancos brasileiros como Itaú e Bradesco estão utilizando dados de telecomunicações para identificar fraudes em transações Pix e proteger seus clientes.</description>
+    </item>
+    <item>
+      <title>Dell pro max gb10 multi node llm deployment</title>
+      <link>https://infohub.delltechnologies.com/en-us/p/dell-pro-max-gb10-multi-node-llm-deployment/</link>
+      <guid isPermaLink="true">https://infohub.delltechnologies.com/en-us/p/dell-pro-max-gb10-multi-node-llm-deployment/</guid>
+      <pubDate>Tue, 15 Sep 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">infohub.delltechnologies.com</source>
+    </item>
+    <item>
+      <title>Internal traffic what a crazy airport</title>
+      <link>https://medium.com/mercadolibre-tech/internal-traffic-what-a-crazy-airport-3c9281831df9</link>
+      <guid isPermaLink="true">https://medium.com/mercadolibre-tech/internal-traffic-what-a-crazy-airport-3c9281831df9</guid>
+      <pubDate>Tue, 15 Sep 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">medium.com</source>
+    </item>
+    <item>
+      <title>What's different in pnpm 12 | pnpm</title>
+      <link>https://pnpm.io/blog/whats-different-in-pnpm-12</link>
+      <guid isPermaLink="true">https://pnpm.io/blog/whats-different-in-pnpm-12</guid>
+      <pubDate>Mon, 14 Sep 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">pnpm</source>
+      <description>pnpm 12 is a rewrite of pnpm in Rust, and it is stable. Upgrading should not feel like a migration. Apart from the differences below, it keeps the commands, flags, settings, and lockfile format of pnpm 11, and the documentation applies to both versions.</description>
+    </item>
+    <item>
+      <title>PCI DSS v4.0.1: Guia Completo de Conformidade no Brasil [2026]</title>
+      <link>https://accesssecurity.com.br/compliance/pci-dss-o-que-e/</link>
+      <guid isPermaLink="true">https://accesssecurity.com.br/compliance/pci-dss-o-que-e/</guid>
+      <pubDate>Fri, 11 Sep 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">Access Security</source>
+      <description>Guia definitivo da PCI DSS v4.0.1 escrito por QSA autorizada: 12 requisitos, níveis, AOC, ROC, custos e prazos no Brasil.</description>
+    </item>
+    <item>
+      <title>I've operated petabyte-scale ClickHouse® clusters for 5 years | Tinybird</title>
+      <link>https://www.tinybird.co/blog/what-i-learned-operating-clickhouse</link>
+      <guid isPermaLink="true">https://www.tinybird.co/blog/what-i-learned-operating-clickhouse</guid>
+      <pubDate>Fri, 11 Sep 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">tinybird.co</source>
+      <description>What I learned operating ClickHouse at scale: the wins, the failures, and the lessons that only come from production experience.</description>
+    </item>
+    <item>
+      <title>Nubank mobile architecture task force mission report</title>
+      <link>https://cdn.nubank.com.br/mobile/taskforce/nubank-mobile-architecture-task-force-mission-report.pdf</link>
+      <guid isPermaLink="true">https://cdn.nubank.com.br/mobile/taskforce/nubank-mobile-architecture-task-force-mission-report.pdf</guid>
+      <pubDate>Fri, 11 Sep 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">cdn.nubank.com.br</source>
+    </item>
+    <item>
+      <title>Machine Learning</title>
+      <link>https://www.coursera.org/specializations/machine-learning-introduction</link>
+      <guid isPermaLink="true">https://www.coursera.org/specializations/machine-learning-introduction</guid>
+      <pubDate>Thu, 10 Sep 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">Coursera</source>
+      <description>Offered by Stanford Online and DeepLearning.AI. #BreakIntoAI with Machine Learning Specialization. Master fundamental AI concepts and ... Enroll for free.</description>
+    </item>
+    <item>
+      <title>What do Visa and Mastercard do? An intro to card networks @ tautology.town</title>
+      <link>https://tautology.town/2026/06/01/card-networks.html</link>
+      <guid isPermaLink="true">https://tautology.town/2026/06/01/card-networks.html</guid>
+      <pubDate>Thu, 10 Sep 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">tautology.town</source>
+      <description>tautology.town is a blog that contains tautologies.</description>
+    </item>
+    <item>
+      <title>What does Visa do? The answer might surprise you</title>
+      <link>https://www.youtube.com/watch?v=lnz2gRPDzrA</link>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=lnz2gRPDzrA</guid>
+      <pubDate>Thu, 10 Sep 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">YouTube</source>
+      <description>Visa is one of the most trusted and recognized brands in the world yet the nature of our business is still a mystery to some. Are we a credit card company? T...</description>
+    </item>
+    <item>
+      <title>React 19.3 – React</title>
+      <link>https://react.dev/blog/2026/09/09/react-19-3</link>
+      <guid isPermaLink="true">https://react.dev/blog/2026/09/09/react-19-3</guid>
+      <pubDate>Wed, 09 Sep 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">react.dev</source>
+      <description>The library for web and native user interfaces</description>
+    </item>
+    <item>
+      <title>AI coding agents in your browser | tmux.online</title>
+      <link>https://tmux.online/</link>
+      <guid isPermaLink="true">https://tmux.online/</guid>
+      <pubDate>Thu, 03 Sep 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">tmux.online</source>
+      <description>Monitor and control Claude Code, Codex, Gemini CLI, Aider, Copilot CLI and any tmux session from any browser. Terminal data stays on your machine</description>
+    </item>
+    <item>
+      <title>pnpm + Git Worktrees for Multi-Agent Development | pnpm</title>
+      <link>https://pnpm.io/git-worktrees</link>
+      <guid isPermaLink="true">https://pnpm.io/git-worktrees</guid>
+      <pubDate>Sat, 29 Aug 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">pnpm</source>
+      <description>When multiple AI agents need to work on the same monorepo simultaneously, they each need an isolated working copy with fully functional node_modules. Git worktrees combined with pnpm's global virtual store make this practical: each worktree gets its own checkout and its own node_modules, but...</description>
+    </item>
+    <item>
+      <title>SonarQube MCP Server | Code Context For AI Agents</title>
+      <link>https://www.sonarsource.com/products/sonarqube/mcp-server/</link>
+      <guid isPermaLink="true">https://www.sonarsource.com/products/sonarqube/mcp-server/</guid>
+      <pubDate>Fri, 28 Aug 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">sonarsource.com</source>
+      <description>Connect Claude Code, Cursor, and Copilot to real codebase context over MCP, so AI agents fix issues automatically before every pull request. Connect now.</description>
+    </item>
+    <item>
+      <title>Antiwork — We automated ourselves out of the work.</title>
+      <link>https://antiwork.com/</link>
+      <guid isPermaLink="true">https://antiwork.com/</guid>
+      <pubDate>Thu, 27 Aug 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">antiwork.com</source>
+      <description>Since 2023, Gumroad has run its operations through a single AI agent. This is how.</description>
+    </item>
+    <item>
+      <title>SEMCOMP SSA 26: Dia 3 - Palestras online</title>
+      <link>https://www.youtube.com/live/A-KCdj88cf4</link>
+      <guid isPermaLink="true">https://www.youtube.com/live/A-KCdj88cf4</guid>
+      <pubDate>Thu, 27 Aug 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">YouTube</source>
+      <description>Semana de Computação de Salvador 2026 - Dia 3Realização: InfoJr UFBA - Empresa Júnior de Informática da UFBA10:00 - Mesa de debate: Trajetórias Internacionai...</description>
+    </item>
+    <item>
+      <title>I could do that in a weekend!</title>
+      <link>https://danluu.com/sounds-easy/</link>
+      <guid isPermaLink="true">https://danluu.com/sounds-easy/</guid>
+      <pubDate>Sat, 22 Aug 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">danluu.com</source>
+    </item>
+    <item>
+      <title>There's no reason for software to be slow anymore</title>
+      <link>https://danluu.com/perf-opt/</link>
+      <guid isPermaLink="true">https://danluu.com/perf-opt/</guid>
+      <pubDate>Sat, 22 Aug 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">danluu.com</source>
+    </item>
+    <item>
+      <title>You can just choose how many bugs you want now</title>
+      <link>https://nolanlawson.com/2026/08/16/you-can-just-choose-how-many-bugs-you-want-now/</link>
+      <guid isPermaLink="true">https://nolanlawson.com/2026/08/16/you-can-just-choose-how-many-bugs-you-want-now/</guid>
+      <pubDate>Sat, 22 Aug 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">Read the Tea Leaves</source>
+      <description>There’s a bizarre aspect of AI coding that I’ve been trying to put my finger on, and I think it’s this: you can basically just decide how many bugs you want…</description>
+    </item>
+    <item>
+      <title>GREG: resolução geográfica com IA local e RAG para KYC global | Iago Ferreira posted on the topic | LinkedIn</title>
+      <link>https://www.linkedin.com/posts/iagxferreira_eu-criei-o-greg-h%C3%A1-um-tempo-eu-venho-enfrentando-share-7496227875482656768-ChZC/</link>
+      <guid isPermaLink="true">https://www.linkedin.com/posts/iagxferreira_eu-criei-o-greg-h%C3%A1-um-tempo-eu-venho-enfrentando-share-7496227875482656768-ChZC/</guid>
+      <pubDate>Thu, 20 Aug 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">LinkedIn</source>
+    </item>
+    <item>
+      <title>dica pra pentest, bugbounty e hacking em geral  testem: x-foward-for x-foward-host x-real-ip fowarded x-forwarded-host x-forwarded-proto  e alguns outros headers q não vou lembrar de cabeça   alem de bypass em rate limit você consegue acesso a infra interna por proxy trust issue… https://t.co/4Qv4P8U6H5</title>
+      <link>https://x.com/reeshasx/status/2090198916763431256</link>
+      <guid isPermaLink="true">https://x.com/reeshasx/status/2090198916763431256</guid>
+      <pubDate>Wed, 19 Aug 2026 12:00:00 GMT</pubDate>
+      <source url="https://sibelius.github.io/zettelkasten/reading">Reesha (@Reeshasx)</source>
+    </item>
+  </channel>
+</rss>
