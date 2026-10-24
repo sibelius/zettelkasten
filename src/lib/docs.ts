@@ -56,6 +56,7 @@ export function toText(body = ''): string {
   return body
     .replace(/^import .*$/gm, '')
     .replace(/```[\s\S]*?```/g, ' ')
+    .replace(/^\s*([-*_])(\s*\1){2,}\s*$/gm, ' ')
     .replace(/<[^>]+>/g, ' ')
     .replace(/!\[[^\]]*\]\([^)]*\)/g, ' ')
     .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1')
@@ -63,8 +64,10 @@ export function toText(body = ''): string {
     .replace(/(^|\s)#[\w-]+/g, ' ')
     .replace(/^\s*[-*+]\s+\[[ x]\]\s*/gim, '')
     .replace(/[*_`>#|\\]/g, ' ')
-    .replace(/\s+/g, ' ')
-    .trim();
+    .split(/\s+/)
+    // Leftover punctuation from rules, list markers and embeds is not text.
+    .filter((word) => /[\p{L}\p{N}]/u.test(word))
+    .join(' ');
 }
 
 function excerptOf(text: string, length = 180): string {
