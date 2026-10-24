@@ -1,0 +1,171 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import {withBase} from '../lib/docs';
+import tools from '../data/tools.json';
+
+const categories = [...new Set(tools.map((tool) => tool.category))];
+const filters = [
+  {id: 'all', label: 'Everything'},
+  {id: 'hosted', label: 'Self-hosted'},
+  {id: 'woovi', label: 'At Woovi'},
+  {id: 'me', label: 'In my own work'},
+];
+---
+
+<Base title="Stack" description="The open source tools Woovi and I build on, and the self-hosted services we run, each with the posts where we wrote about it.">
+  <PageHead
+    title="Stack"
+    note={`${tools.length} open source tools`}
+    lede="The open source Woovi and I build on, and the services we run on our own machines. Every tool links to where we wrote about it, so you can see how we use it."
+  />
+
+  <div class="row" data-stack data-filter="all">
+    <div class="margin stack-margin">
+      <p>Self-hosted means we run the service ourselves rather than buying it.</p>
+    </div>
+    <div class="body">
+      <div class="tabs" role="group" aria-label="Show">
+        {
+          filters.map((filter) => (
+            <button type="button" class="tab" data-stack-filter={filter.id} aria-pressed={filter.id === 'all' ? 'true' : 'false'}>
+              {filter.label}
+            </button>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+
+  {
+    categories.map((category) => (
+      <section class="stack-category" aria-label={category} data-stack-group>
+        <div class="row">
+          <div class="margin stack-category-label">{category}</div>
+          <div class="body" />
+        </div>
+        {tools
+          .filter((tool) => tool.category === category)
+          .map((tool) => (
+            <div
+              class="row list-row stack-tool"
+              data-stack-item
+              data-hosted={String(tool.hosted)}
+              data-woovi={String(tool.woovi.length > 0)}
+              data-me={String(tool.me.length + tool.notes.length > 0)}
+            >
+              <div class="margin stack-badges">
+                {tool.hosted && <span class="badge badge-hosted">Self-hosted</span>}
+                {tool.woovi.length > 0 && <span class="badge">Woovi</span>}
+                {tool.me.length + tool.notes.length > 0 && <span class="badge">Me</span>}
+              </div>
+              <div class="body">
+                <a class="stack-name" href={tool.url}>
+                  {tool.name}
+                </a>
+                <ul class="stack-sources" role="list">
+                  {tool.woovi.map((source) => (
+                    <li>
+                      <a href={source.url}>{source.title}</a> <span class="muted">on Woovi's blog</span>
+                    </li>
+                  ))}
+                  {tool.me.map((source) => (
+                    <li>
+                      <a href={source.url}>{source.title}</a>
+                    </li>
+                  ))}
+                  {tool.notes.map((source) => (
+                    <li>
+                      <a href={withBase(`/${source.route}`)}>{source.title}</a> <span class="muted">in my notes</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          ))}
+      </section>
+    ))
+  }
+</Base>
+
+<script>
+  const root = document.querySelector<HTMLElement>('[data-stack]');
+
+  root?.addEventListener('click', (event) => {
+    const button = (event.target as Element).closest<HTMLElement>('[data-stack-filter]');
+
+    if (!button) {
+      return;
+    }
+
+    const filter = button.dataset.stackFilter!;
+    root.querySelectorAll('[data-stack-filter]').forEach((other) => other.setAttribute('aria-pressed', String(other === button)));
+
+    document.querySelectorAll<HTMLElement>('[data-stack-item]').forEach((item) => {
+      item.hidden = filter !== 'all' && item.dataset[filter] !== 'true';
+    });
+
+    document.querySelectorAll<HTMLElement>('[data-stack-group]').forEach((group) => {
+      group.hidden = group.querySelectorAll('[data-stack-item]:not([hidden])').length === 0;
+    });
+  });
+</script>
+
+<style>
+  .stack-margin {
+    padding-top: 6px;
+  }
+
+  .stack-margin p {
+    margin: 0;
+  }
+
+  .stack-category {
+    padding-top: 48px;
+  }
+
+  .stack-category[hidden],
+  .stack-tool[hidden] {
+    display: none;
+  }
+
+  .stack-category-label {
+    padding-bottom: 8px;
+    font-weight: 800;
+    font-size: 17px;
+    color: var(--ink);
+  }
+
+  .stack-badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-content: flex-start;
+    gap: 6px;
+  }
+
+  .stack-name {
+    font-family: var(--sans);
+    font-weight: 800;
+    font-size: 22px;
+  }
+
+  .stack-sources {
+    margin: 6px 0 0;
+    padding: 0;
+    list-style: none;
+    font-size: 17px;
+    line-height: 1.5;
+  }
+
+  .stack-sources .muted {
+    font-family: var(--sans);
+    font-size: 14px;
+  }
+
+  @media (max-width: 760px) {
+    .stack-badges {
+      justify-content: flex-start;
+    }
+  }
+</style>

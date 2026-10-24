@@ -1,0 +1,987 @@
+[
+  {
+    "name": "Proxmox VE",
+    "url": "https://www.proxmox.com/en/proxmox-virtual-environment",
+    "category": "Infrastructure",
+    "hosted": true,
+    "woovi": [
+      {
+        "title": "Copy and Paste on Proxmox VM",
+        "url": "https://dev.to/woovi/copy-and-paste-on-proxmox-vm-15il"
+      },
+      {
+        "title": "Using Terraform to create LXC in Proxmox",
+        "url": "https://dev.to/woovi/using-terraform-to-create-lxc-in-proxmox-496h"
+      }
+    ],
+    "me": [
+      {
+        "title": "Copy and Paste on Proxmox VM",
+        "url": "https://dev.to/woovi/copy-and-paste-on-proxmox-vm-15il"
+      },
+      {
+        "title": "Using Terraform to create LXC in Proxmox",
+        "url": "https://dev.to/woovi/using-terraform-to-create-lxc-in-proxmox-496h"
+      },
+      {
+        "title": "proxmox-visualized",
+        "url": "https://github.com/sibelius/proxmox-visualized"
+      },
+      {
+        "title": "talos-visualized",
+        "url": "https://github.com/sibelius/talos-visualized"
+      }
+    ],
+    "notes": []
+  },
+  {
+    "name": "Talos Linux",
+    "url": "https://www.talos.dev",
+    "category": "Infrastructure",
+    "hosted": true,
+    "woovi": [],
+    "me": [
+      {
+        "title": "talos-visualized",
+        "url": "https://github.com/sibelius/talos-visualized"
+      }
+    ],
+    "notes": []
+  },
+  {
+    "name": "Kubernetes",
+    "url": "https://kubernetes.io",
+    "category": "Infrastructure",
+    "hosted": true,
+    "woovi": [
+      {
+        "title": "How to self-host any open source service?",
+        "url": "https://dev.to/woovi/how-to-self-host-any-open-source-service-1p8d"
+      },
+      {
+        "title": "Bootstrapping ArgoCD with Helm and Helmfile",
+        "url": "https://dev.to/woovi/bootstrapping-argocd-with-helm-and-helmfile-2fhe"
+      },
+      {
+        "title": "Overcoming IP Restrictions: Leveraging Squid Proxy on Kubernetes for API Consumption",
+        "url": "https://dev.to/woovi/overcoming-ip-restrictions-leveraging-squid-proxy-on-kubernetes-for-api-consumption-20fd"
+      },
+      {
+        "title": "How Woovi is building a self hosted cloud native CI/CD platform with Tekton and Argocd",
+        "url": "https://dev.to/woovi/how-woovi-is-building-a-self-hosted-cloud-native-cicd-platform-with-tekton-and-argocd-22cd"
+      }
+    ],
+    "me": [
+      {
+        "title": "How to self-host any open source service?",
+        "url": "https://dev.to/woovi/how-to-self-host-any-open-source-service-1p8d"
+      },
+      {
+        "title": "Bootstrapping ArgoCD with Helm and Helmfile",
+        "url": "https://dev.to/woovi/bootstrapping-argocd-with-helm-and-helmfile-2fhe"
+      },
+      {
+        "title": "Overcoming IP Restrictions: Leveraging Squid Proxy on Kubernetes for API Consumption",
+        "url": "https://dev.to/woovi/overcoming-ip-restrictions-leveraging-squid-proxy-on-kubernetes-for-api-consumption-20fd"
+      },
+      {
+        "title": "talos-visualized",
+        "url": "https://github.com/sibelius/talos-visualized"
+      }
+    ],
+    "notes": []
+  },
+  {
+    "name": "Ceph",
+    "url": "https://ceph.io",
+    "category": "Infrastructure",
+    "hosted": true,
+    "woovi": [],
+    "me": [
+      {
+        "title": "proxmox-visualized",
+        "url": "https://github.com/sibelius/proxmox-visualized"
+      }
+    ],
+    "notes": []
+  },
+  {
+    "name": "ZFS",
+    "url": "https://openzfs.org",
+    "category": "Infrastructure",
+    "hosted": true,
+    "woovi": [],
+    "me": [
+      {
+        "title": "proxmox-visualized",
+        "url": "https://github.com/sibelius/proxmox-visualized"
+      }
+    ],
+    "notes": []
+  },
+  {
+    "name": "Docker",
+    "url": "https://www.docker.com",
+    "category": "Infrastructure",
+    "hosted": false,
+    "woovi": [
+      {
+        "title": "Resilient Node.js servers without using docker",
+        "url": "https://dev.to/woovi/resilient-nodejs-servers-without-using-docker-43kb"
+      },
+      {
+        "title": "How to self-host any open source service?",
+        "url": "https://dev.to/woovi/how-to-self-host-any-open-source-service-1p8d"
+      },
+      {
+        "title": "How to setup local development with ELK observability tools using docker-compose",
+        "url": "https://dev.to/woovi/how-to-setup-local-development-with-elk-observability-tools-using-docker-compose-4hj5"
+      },
+      {
+        "title": "Using Webpack to slim your Docker image",
+        "url": "https://dev.to/woovi/using-webpack-to-slim-your-docker-image-1b1n"
+      }
+    ],
+    "me": [
+      {
+        "title": "How to self-host any open source service?",
+        "url": "https://dev.to/woovi/how-to-self-host-any-open-source-service-1p8d"
+      },
+      {
+        "title": "Using Webpack to slim your Docker image",
+        "url": "https://dev.to/woovi/using-webpack-to-slim-your-docker-image-1b1n"
+      },
+      {
+        "title": "Best way to run Migrations in Production",
+        "url": "https://dev.to/woovi/best-way-to-run-migrations-in-production-ehg"
+      },
+      {
+        "title": "Best DX for MongoDB Replica set",
+        "url": "https://dev.to/woovi/best-dx-for-mongodb-replica-set-43lc"
+      }
+    ],
+    "notes": [
+      {
+        "title": "Learning Path Docker",
+        "route": "learning-path/learning-path-docker"
+      }
+    ]
+  },
+  {
+    "name": "Terraform",
+    "url": "https://www.terraform.io",
+    "category": "Infrastructure",
+    "hosted": false,
+    "woovi": [
+      {
+        "title": "Saving Terraform State in S3",
+        "url": "https://dev.to/woovi/saving-terraform-state-in-s3-4ja7"
+      },
+      {
+        "title": "Creating a S3 bucket using Terraform",
+        "url": "https://dev.to/woovi/creating-a-s3-bucket-using-terraform-4kgb"
+      },
+      {
+        "title": "Using Terraform to create LXC in Proxmox",
+        "url": "https://dev.to/woovi/using-terraform-to-create-lxc-in-proxmox-496h"
+      }
+    ],
+    "me": [
+      {
+        "title": "Saving Terraform State in S3",
+        "url": "https://dev.to/woovi/saving-terraform-state-in-s3-4ja7"
+      },
+      {
+        "title": "Creating a S3 bucket using Terraform",
+        "url": "https://dev.to/woovi/creating-a-s3-bucket-using-terraform-4kgb"
+      },
+      {
+        "title": "Using Terraform to create LXC in Proxmox",
+        "url": "https://dev.to/woovi/using-terraform-to-create-lxc-in-proxmox-496h"
+      }
+    ],
+    "notes": []
+  },
+  {
+    "name": "Helm",
+    "url": "https://helm.sh",
+    "category": "Delivery",
+    "hosted": false,
+    "woovi": [
+      {
+        "title": "Bootstrapping ArgoCD with Helm and Helmfile",
+        "url": "https://dev.to/woovi/bootstrapping-argocd-with-helm-and-helmfile-2fhe"
+      }
+    ],
+    "me": [
+      {
+        "title": "Bootstrapping ArgoCD with Helm and Helmfile",
+        "url": "https://dev.to/woovi/bootstrapping-argocd-with-helm-and-helmfile-2fhe"
+      }
+    ],
+    "notes": []
+  },
+  {
+    "name": "Argo CD",
+    "url": "https://argo-cd.readthedocs.io",
+    "category": "Delivery",
+    "hosted": true,
+    "woovi": [
+      {
+        "title": "Bootstrapping ArgoCD with Helm and Helmfile",
+        "url": "https://dev.to/woovi/bootstrapping-argocd-with-helm-and-helmfile-2fhe"
+      },
+      {
+        "title": "How Woovi is building a self hosted cloud native CI/CD platform with Tekton and Argocd",
+        "url": "https://dev.to/woovi/how-woovi-is-building-a-self-hosted-cloud-native-cicd-platform-with-tekton-and-argocd-22cd"
+      }
+    ],
+    "me": [
+      {
+        "title": "Bootstrapping ArgoCD with Helm and Helmfile",
+        "url": "https://dev.to/woovi/bootstrapping-argocd-with-helm-and-helmfile-2fhe"
+      }
+    ],
+    "notes": []
+  },
+  {
+    "name": "Tekton",
+    "url": "https://tekton.dev",
+    "category": "Delivery",
+    "hosted": true,
+    "woovi": [
+      {
+        "title": "Management Resources on Tekton",
+        "url": "https://dev.to/woovi/management-resources-on-tekton-18df"
+      },
+      {
+        "title": "How to automate tests with Tekton",
+        "url": "https://dev.to/woovi/how-to-automate-tests-with-tekton-3caj"
+      },
+      {
+        "title": "How Woovi is building a self hosted cloud native CI/CD platform with Tekton and Argocd",
+        "url": "https://dev.to/woovi/how-woovi-is-building-a-self-hosted-cloud-native-cicd-platform-with-tekton-and-argocd-22cd"
+      }
+    ],
+    "me": [
+      {
+        "title": "Management Resources on Tekton",
+        "url": "https://dev.to/woovi/management-resources-on-tekton-18df"
+      },
+      {
+        "title": "tekton-cel-playground",
+        "url": "https://github.com/sibelius/tekton-cel-playground"
+      },
+      {
+        "title": "tekton-visualized",
+        "url": "https://github.com/sibelius/tekton-visualized"
+      }
+    ],
+    "notes": []
+  },
+  {
+    "name": "Grafana",
+    "url": "https://grafana.com/oss/grafana",
+    "category": "Observability",
+    "hosted": true,
+    "woovi": [
+      {
+        "title": "Creating a Certificate X.509 expiration Dashboard using Grafana",
+        "url": "https://dev.to/woovi/creating-a-certificate-x509-expiration-dashboard-using-grafana-211k"
+      },
+      {
+        "title": "Prometheus + Redis: Simple Guide to Monitor Redis Instances",
+        "url": "https://dev.to/woovi/prometheus-redis-simple-guide-to-monitor-redis-instances-n1f"
+      }
+    ],
+    "me": [
+      {
+        "title": "Creating a Certificate X.509 expiration Dashboard using Grafana",
+        "url": "https://dev.to/woovi/creating-a-certificate-x509-expiration-dashboard-using-grafana-211k"
+      }
+    ],
+    "notes": []
+  },
+  {
+    "name": "Prometheus",
+    "url": "https://prometheus.io",
+    "category": "Observability",
+    "hosted": true,
+    "woovi": [
+      {
+        "title": "Prometheus + Redis: Simple Guide to Monitor Redis Instances",
+        "url": "https://dev.to/woovi/prometheus-redis-simple-guide-to-monitor-redis-instances-n1f"
+      }
+    ],
+    "me": [],
+    "notes": []
+  },
+  {
+    "name": "Elasticsearch",
+    "url": "https://www.elastic.co/elasticsearch",
+    "category": "Data",
+    "hosted": true,
+    "woovi": [
+      {
+        "title": "Full-text search using MongoDB and Elastic Search",
+        "url": "https://dev.to/woovi/full-text-search-using-mongodb-and-elastic-search-42jp"
+      },
+      {
+        "title": "How to auto-instrument your applications",
+        "url": "https://dev.to/woovi/how-to-auto-instrument-your-applications-455c"
+      },
+      {
+        "title": "Observability with Elasticsearch Kibana and APM",
+        "url": "https://dev.to/woovi/observability-with-elasticsearch-kibana-and-apm-3dhb"
+      }
+    ],
+    "me": [
+      {
+        "title": "Full-text search using MongoDB and Elastic Search",
+        "url": "https://dev.to/woovi/full-text-search-using-mongodb-and-elastic-search-42jp"
+      },
+      {
+        "title": "How to auto-instrument your applications",
+        "url": "https://dev.to/woovi/how-to-auto-instrument-your-applications-455c"
+      }
+    ],
+    "notes": []
+  },
+  {
+    "name": "MongoDB",
+    "url": "https://www.mongodb.com",
+    "category": "Data",
+    "hosted": true,
+    "woovi": [
+      {
+        "title": "Robust MongoDB Change Stream implementation",
+        "url": "https://dev.to/woovi/robust-mongodb-change-stream-implementation-4mc0"
+      },
+      {
+        "title": "Why does Woovi use MongoDB?",
+        "url": "https://dev.to/woovi/why-does-woovi-use-mongodb-m04"
+      },
+      {
+        "title": "MongoDB database cloud migration",
+        "url": "https://dev.to/woovi/mongodb-database-cloud-migration-14ea"
+      },
+      {
+        "title": "Full-text search using MongoDB and Elastic Search",
+        "url": "https://dev.to/woovi/full-text-search-using-mongodb-and-elastic-search-42jp"
+      }
+    ],
+    "me": [
+      {
+        "title": "Robust MongoDB Change Stream implementation",
+        "url": "https://dev.to/woovi/robust-mongodb-change-stream-implementation-4mc0"
+      },
+      {
+        "title": "Why does Woovi use MongoDB?",
+        "url": "https://dev.to/woovi/why-does-woovi-use-mongodb-m04"
+      },
+      {
+        "title": "MongoDB database cloud migration",
+        "url": "https://dev.to/woovi/mongodb-database-cloud-migration-14ea"
+      },
+      {
+        "title": "Full-text search using MongoDB and Elastic Search",
+        "url": "https://dev.to/woovi/full-text-search-using-mongodb-and-elastic-search-42jp"
+      }
+    ],
+    "notes": [
+      {
+        "title": "Mongodb",
+        "route": "notes/mongodb"
+      }
+    ]
+  },
+  {
+    "name": "Redis",
+    "url": "https://redis.io",
+    "category": "Data",
+    "hosted": true,
+    "woovi": [
+      {
+        "title": "Prometheus + Redis: Simple Guide to Monitor Redis Instances",
+        "url": "https://dev.to/woovi/prometheus-redis-simple-guide-to-monitor-redis-instances-n1f"
+      },
+      {
+        "title": "Sharing a Redis using a Prefix",
+        "url": "https://dev.to/woovi/sharing-a-redis-using-a-prefix-43e2"
+      },
+      {
+        "title": "Robust MongoDB Change Stream implementation",
+        "url": "https://dev.to/woovi/robust-mongodb-change-stream-implementation-4mc0"
+      },
+      {
+        "title": "Simple Pub/Sub with Redis",
+        "url": "https://dev.to/woovi/simple-pubsub-with-redis-43nn"
+      }
+    ],
+    "me": [
+      {
+        "title": "Sharing a Redis using a Prefix",
+        "url": "https://dev.to/woovi/sharing-a-redis-using-a-prefix-43e2"
+      },
+      {
+        "title": "Robust MongoDB Change Stream implementation",
+        "url": "https://dev.to/woovi/robust-mongodb-change-stream-implementation-4mc0"
+      },
+      {
+        "title": "Simple Pub/Sub with Redis",
+        "url": "https://dev.to/woovi/simple-pubsub-with-redis-43nn"
+      },
+      {
+        "title": "Simple Cache with Redis",
+        "url": "https://dev.to/woovi/simple-cache-with-redis-5g3a"
+      }
+    ],
+    "notes": []
+  },
+  {
+    "name": "BullMQ",
+    "url": "https://bullmq.io",
+    "category": "Data",
+    "hosted": false,
+    "woovi": [
+      {
+        "title": "Sharing a Redis using a Prefix",
+        "url": "https://dev.to/woovi/sharing-a-redis-using-a-prefix-43e2"
+      },
+      {
+        "title": "The simplest Message Queue using Redis",
+        "url": "https://dev.to/woovi/the-simplest-message-queue-using-redis-56j9"
+      },
+      {
+        "title": "How to effectively use retry policies with BullJs/BullMQ",
+        "url": "https://dev.to/woovi/how-to-effectively-use-retry-policies-with-bulljsbullmq-45h9"
+      }
+    ],
+    "me": [
+      {
+        "title": "Sharing a Redis using a Prefix",
+        "url": "https://dev.to/woovi/sharing-a-redis-using-a-prefix-43e2"
+      },
+      {
+        "title": "The simplest Message Queue using Redis",
+        "url": "https://dev.to/woovi/the-simplest-message-queue-using-redis-56j9"
+      },
+      {
+        "title": "bull-named-example",
+        "url": "https://github.com/sibelius/bull-named-example"
+      },
+      {
+        "title": "bullmq-named-example",
+        "url": "https://github.com/sibelius/bullmq-named-example"
+      }
+    ],
+    "notes": []
+  },
+  {
+    "name": "Node.js",
+    "url": "https://nodejs.org",
+    "category": "Backend",
+    "hosted": false,
+    "woovi": [
+      {
+        "title": "Resilient Node.js servers without using docker",
+        "url": "https://dev.to/woovi/resilient-nodejs-servers-without-using-docker-43kb"
+      },
+      {
+        "title": "A Modern Node.js + TypeScript Setup for 2025 🚀",
+        "url": "https://dev.to/woovi/a-modern-nodejs-typescript-setup-for-2025-nlk"
+      },
+      {
+        "title": "Simple GraphQL Node Interface implementation",
+        "url": "https://dev.to/woovi/simple-node-interface-implementation-2od7"
+      },
+      {
+        "title": "Typesafe HTTP Request in Node",
+        "url": "https://dev.to/woovi/typesafe-http-request-in-node-3ld9"
+      }
+    ],
+    "me": [
+      {
+        "title": "A Modern Node.js + TypeScript Setup for 2025 🚀",
+        "url": "https://dev.to/woovi/a-modern-nodejs-typescript-setup-for-2025-nlk"
+      },
+      {
+        "title": "Simple GraphQL Node Interface implementation",
+        "url": "https://dev.to/woovi/simple-node-interface-implementation-2od7"
+      },
+      {
+        "title": "Typesafe HTTP Request in Node",
+        "url": "https://dev.to/woovi/typesafe-http-request-in-node-3ld9"
+      },
+      {
+        "title": "Node mTLS from scratch",
+        "url": "https://dev.to/woovi/node-mtls-from-scratch-3p4e"
+      }
+    ],
+    "notes": [
+      {
+        "title": "Abstract Node",
+        "route": "notes/abstract-node"
+      },
+      {
+        "title": "Memory Leak",
+        "route": "notes/memory-leak"
+      },
+      {
+        "title": "Node Modules",
+        "route": "notes/node-modules"
+      },
+      {
+        "title": "Package Size",
+        "route": "notes/package-size"
+      }
+    ]
+  },
+  {
+    "name": "TypeScript",
+    "url": "https://www.typescriptlang.org",
+    "category": "Backend",
+    "hosted": false,
+    "woovi": [
+      {
+        "title": "A Modern Node.js + TypeScript Setup for 2025 🚀",
+        "url": "https://dev.to/woovi/a-modern-nodejs-typescript-setup-for-2025-nlk"
+      },
+      {
+        "title": "Simple GraphQL Node Interface implementation",
+        "url": "https://dev.to/woovi/simple-node-interface-implementation-2od7"
+      },
+      {
+        "title": "How to convert a TypeScript built-in enum to a GraphQL enum",
+        "url": "https://dev.to/woovi/how-to-convert-a-typescript-built-in-enum-to-a-graphql-enum-2neh"
+      },
+      {
+        "title": "Testing Mutations with Relay in Frontend",
+        "url": "https://dev.to/woovi/testing-mutations-with-relay-in-frontend-1lae"
+      }
+    ],
+    "me": [
+      {
+        "title": "A Modern Node.js + TypeScript Setup for 2025 🚀",
+        "url": "https://dev.to/woovi/a-modern-nodejs-typescript-setup-for-2025-nlk"
+      },
+      {
+        "title": "Relay Modern: Migration to Typescript",
+        "url": "https://sibelius.medium.com/relay-modern-migration-to-typescript-c26ab0ee749c"
+      },
+      {
+        "title": "Incremental Migration to TypeScript on a Flowtype codebase",
+        "url": "https://medium.com/entria/incremental-migration-to-typescript-on-a-flowtype-codebase-515f6490d92d"
+      },
+      {
+        "title": "Simple GraphQL Node Interface implementation",
+        "url": "https://dev.to/woovi/simple-node-interface-implementation-2od7"
+      }
+    ],
+    "notes": [
+      {
+        "title": "Root Cause Analysis",
+        "route": "notes/root-cause-analysis"
+      }
+    ]
+  },
+  {
+    "name": "Koa",
+    "url": "https://koajs.com",
+    "category": "Backend",
+    "hosted": false,
+    "woovi": [
+      {
+        "title": "Building a Modular Decoupled Backend using a Monorepo",
+        "url": "https://dev.to/woovi/building-a-modular-decoupled-backend-using-a-monorepo-2fik"
+      },
+      {
+        "title": "Running many WebSocket servers",
+        "url": "https://dev.to/woovi/running-many-websocket-servers-56h"
+      },
+      {
+        "title": "Woo.vi - Building Woovi Shortener Microservice",
+        "url": "https://dev.to/woovi/woovi-building-woovi-shortener-microservice-8fi"
+      }
+    ],
+    "me": [
+      {
+        "title": "Building a Modular Decoupled Backend using a Monorepo",
+        "url": "https://dev.to/woovi/building-a-modular-decoupled-backend-using-a-monorepo-2fik"
+      },
+      {
+        "title": "Running many WebSocket servers",
+        "url": "https://dev.to/woovi/running-many-websocket-servers-56h"
+      },
+      {
+        "title": "Woo.vi - Building Woovi Shortener Microservice",
+        "url": "https://dev.to/woovi/woovi-building-woovi-shortener-microservice-8fi"
+      },
+      {
+        "title": "tiny-koa-graphql",
+        "url": "https://github.com/sibelius/tiny-koa-graphql"
+      }
+    ],
+    "notes": []
+  },
+  {
+    "name": "GraphQL",
+    "url": "https://graphql.org",
+    "category": "Backend",
+    "hosted": false,
+    "woovi": [
+      {
+        "title": "Simple GraphQL Node Interface implementation",
+        "url": "https://dev.to/woovi/simple-node-interface-implementation-2od7"
+      },
+      {
+        "title": "Embedding Metabase using GraphQL",
+        "url": "https://dev.to/woovi/embedding-metabase-using-graphql-4199"
+      },
+      {
+        "title": "How to convert a TypeScript built-in enum to a GraphQL enum",
+        "url": "https://dev.to/woovi/how-to-convert-a-typescript-built-in-enum-to-a-graphql-enum-2neh"
+      },
+      {
+        "title": "How To Handle Data With GraphQL Relay Client Schema Extensions",
+        "url": "https://dev.to/woovi/how-to-handle-data-with-graphql-relay-client-schema-extensions-4o3"
+      }
+    ],
+    "me": [
+      {
+        "title": "Simple GraphQL Node Interface implementation",
+        "url": "https://dev.to/woovi/simple-node-interface-implementation-2od7"
+      },
+      {
+        "title": "Embedding Metabase using GraphQL",
+        "url": "https://dev.to/woovi/embedding-metabase-using-graphql-4199"
+      },
+      {
+        "title": "How to create a read-only GraphQL server",
+        "url": "https://dev.to/woovi/how-to-create-a-read-only-graphql-server-12ck"
+      },
+      {
+        "title": "graphql2ts",
+        "url": "https://github.com/sibelius/graphql2ts"
+      }
+    ],
+    "notes": [
+      {
+        "title": "A mock GraphQL service",
+        "route": "notes/a-mock-graphql-service"
+      },
+      {
+        "title": "Page based pagination with Connections",
+        "route": "notes/page-based-pagination-with-connections"
+      },
+      {
+        "title": "Relay",
+        "route": "notes/relay"
+      },
+      {
+        "title": "What people get wrong about Relay",
+        "route": "notes/what-people-get-wrong-about-relay"
+      }
+    ]
+  },
+  {
+    "name": "Relay",
+    "url": "https://relay.dev",
+    "category": "Frontend",
+    "hosted": false,
+    "woovi": [
+      {
+        "title": "Simple GraphQL Node Interface implementation",
+        "url": "https://dev.to/woovi/simple-node-interface-implementation-2od7"
+      },
+      {
+        "title": "Embedding Metabase using GraphQL",
+        "url": "https://dev.to/woovi/embedding-metabase-using-graphql-4199"
+      },
+      {
+        "title": "How To Handle Data With GraphQL Relay Client Schema Extensions",
+        "url": "https://dev.to/woovi/how-to-handle-data-with-graphql-relay-client-schema-extensions-4o3"
+      },
+      {
+        "title": "Automating Relay Connection Testing for a Seamless User Experience",
+        "url": "https://dev.to/woovi/automating-relay-connection-testing-for-a-seamless-user-experience-2bpo"
+      }
+    ],
+    "me": [
+      {
+        "title": "Adding Server Side Rendering to a Relay Production App",
+        "url": "https://sibelius.medium.com/adding-server-side-rendering-to-a-relay-production-app-8df64495aebf"
+      },
+      {
+        "title": "Relay Modern: Migration to Typescript",
+        "url": "https://sibelius.medium.com/relay-modern-migration-to-typescript-c26ab0ee749c"
+      },
+      {
+        "title": "Relay Modern: the Relay Store",
+        "url": "https://sibelius.medium.com/relay-modern-the-relay-store-8984cd148798"
+      },
+      {
+        "title": "Relay Modern — What is a Fragment?",
+        "url": "https://sibelius.medium.com/relay-modern-what-is-a-fragment-c70f164c2469"
+      }
+    ],
+    "notes": [
+      {
+        "title": "Global State",
+        "route": "notes/global-state"
+      },
+      {
+        "title": "Page based pagination with Connections",
+        "route": "notes/page-based-pagination-with-connections"
+      },
+      {
+        "title": "Relay",
+        "route": "notes/relay"
+      },
+      {
+        "title": "What people get wrong about Relay",
+        "route": "notes/what-people-get-wrong-about-relay"
+      }
+    ]
+  },
+  {
+    "name": "React",
+    "url": "https://react.dev",
+    "category": "Frontend",
+    "hosted": false,
+    "woovi": [
+      {
+        "title": "How MDX can accelerates document creation in websites",
+        "url": "https://dev.to/woovi/how-mdx-can-accelerates-document-creation-in-websites-2lm3"
+      },
+      {
+        "title": "How to generate dynamic OG (OpenGraph) images with Satori and React",
+        "url": "https://dev.to/woovi/how-to-generate-dynamic-og-opengraph-images-with-satori-and-react-1bhb"
+      },
+      {
+        "title": "How To Write Material UI Components Like Radix UI And Why Component Composition Matters?",
+        "url": "https://dev.to/woovi/how-to-write-material-ui-components-like-radix-ui-and-why-component-composition-matters-4epn"
+      },
+      {
+        "title": "How To Handle Data With GraphQL Relay Client Schema Extensions",
+        "url": "https://dev.to/woovi/how-to-handle-data-with-graphql-relay-client-schema-extensions-4o3"
+      }
+    ],
+    "me": [
+      {
+        "title": "How we save 1M hours of development using React Navigation",
+        "url": "https://sibelius.medium.com/how-we-save-1m-hours-of-development-using-react-navigation-3681f2f907c9"
+      },
+      {
+        "title": "Integration Tests with Relay",
+        "url": "https://dev.to/woovi/integration-tests-with-relay-22jn"
+      },
+      {
+        "title": "What to test in the frontend?",
+        "url": "https://dev.to/woovi/what-to-test-in-the-frontend-50a"
+      },
+      {
+        "title": "ast-i18n",
+        "url": "https://github.com/sibelius/ast-i18n"
+      }
+    ],
+    "notes": [
+      {
+        "title": "Learning Path React",
+        "route": "learning-path/learning-path-react"
+      },
+      {
+        "title": "A Failed Talk",
+        "route": "notes/a-failed-talk"
+      },
+      {
+        "title": "Community",
+        "route": "notes/community"
+      },
+      {
+        "title": "Editor - React Conf",
+        "route": "notes/editor-react-conf"
+      }
+    ]
+  },
+  {
+    "name": "React Native",
+    "url": "https://reactnative.dev",
+    "category": "Frontend",
+    "hosted": false,
+    "woovi": [
+      {
+        "title": "What to test in the frontend?",
+        "url": "https://dev.to/woovi/what-to-test-in-the-frontend-50a"
+      }
+    ],
+    "me": [
+      {
+        "title": "What to test in the frontend?",
+        "url": "https://dev.to/woovi/what-to-test-in-the-frontend-50a"
+      },
+      {
+        "title": "react-native-relay-example",
+        "url": "https://github.com/sibelius/react-native-relay-example"
+      },
+      {
+        "title": "victory-native-demo-crna",
+        "url": "https://github.com/sibelius/victory-native-demo-crna"
+      }
+    ],
+    "notes": []
+  },
+  {
+    "name": "Next.js",
+    "url": "https://nextjs.org",
+    "category": "Frontend",
+    "hosted": false,
+    "woovi": [
+      {
+        "title": "How did we test hundreds of landing pages",
+        "url": "https://dev.to/woovi/how-did-we-test-hundreds-of-landing-pages-3nj9"
+      },
+      {
+        "title": "Multi-language Landing page with Next.js",
+        "url": "https://dev.to/woovi/multi-language-landing-page-with-nextjs-50e1"
+      },
+      {
+        "title": "Checking if we migrated all the pages",
+        "url": "https://dev.to/woovi/checking-if-we-migrated-all-the-pages-542e"
+      }
+    ],
+    "me": [
+      {
+        "title": "Multi-language Landing page with Next.js",
+        "url": "https://dev.to/woovi/multi-language-landing-page-with-nextjs-50e1"
+      },
+      {
+        "title": "Checking if we migrated all the pages",
+        "url": "https://dev.to/woovi/checking-if-we-migrated-all-the-pages-542e"
+      },
+      {
+        "title": "nextjs-src",
+        "url": "https://github.com/sibelius/nextjs-src"
+      }
+    ],
+    "notes": []
+  },
+  {
+    "name": "Webpack",
+    "url": "https://webpack.js.org",
+    "category": "Frontend",
+    "hosted": false,
+    "woovi": [
+      {
+        "title": "Bundling many frontends with a single rspack config",
+        "url": "https://dev.to/woovi/bundling-many-frontends-with-a-single-rspack-config-5394"
+      },
+      {
+        "title": "Web Dev Efficiency: Achieving Faster Builds and Lower Memory Load with Webpack",
+        "url": "https://dev.to/woovi/web-dev-efficiency-achieving-faster-builds-and-lower-memory-load-with-webpack-4cm8"
+      },
+      {
+        "title": "Using Webpack to slim your Docker image",
+        "url": "https://dev.to/woovi/using-webpack-to-slim-your-docker-image-1b1n"
+      },
+      {
+        "title": "How to make Webpack Faster in a Monorepo?",
+        "url": "https://dev.to/woovi/how-to-make-webpack-faster-in-a-monorepo-2f87"
+      }
+    ],
+    "me": [
+      {
+        "title": "Bundling many frontends with a single rspack config",
+        "url": "https://dev.to/woovi/bundling-many-frontends-with-a-single-rspack-config-5394"
+      },
+      {
+        "title": "Web Dev Efficiency: Achieving Faster Builds and Lower Memory Load with Webpack",
+        "url": "https://dev.to/woovi/web-dev-efficiency-achieving-faster-builds-and-lower-memory-load-with-webpack-4cm8"
+      },
+      {
+        "title": "Using Webpack to slim your Docker image",
+        "url": "https://dev.to/woovi/using-webpack-to-slim-your-docker-image-1b1n"
+      },
+      {
+        "title": "How to make Webpack Faster in a Monorepo?",
+        "url": "https://dev.to/woovi/how-to-make-webpack-faster-in-a-monorepo-2f87"
+      }
+    ],
+    "notes": []
+  },
+  {
+    "name": "Jest",
+    "url": "https://jestjs.io",
+    "category": "Testing",
+    "hosted": false,
+    "woovi": [
+      {
+        "title": "Electron Testing Best Practices: Testing Main and Renderer Code with Jest",
+        "url": "https://dev.to/woovi/electron-testing-best-practices-testing-main-and-renderer-code-with-jest-4b5m"
+      },
+      {
+        "title": "Effortless Project Discovery: Automating Jest Multi-Project Runs in Monorepos",
+        "url": "https://dev.to/woovi/effortless-project-discovery-automating-jest-multi-project-runs-in-monorepos-5egc"
+      },
+      {
+        "title": "Avoiding UI Regressions With Jest",
+        "url": "https://dev.to/woovi/avoiding-ui-regressions-with-jest-49f3"
+      },
+      {
+        "title": "How to know if your test is flaky?",
+        "url": "https://dev.to/woovi/how-to-know-if-your-test-is-flaky-4n8o"
+      }
+    ],
+    "me": [
+      {
+        "title": "Electron Testing Best Practices: Testing Main and Renderer Code with Jest",
+        "url": "https://dev.to/woovi/electron-testing-best-practices-testing-main-and-renderer-code-with-jest-4b5m"
+      },
+      {
+        "title": "Effortless Project Discovery: Automating Jest Multi-Project Runs in Monorepos",
+        "url": "https://dev.to/woovi/effortless-project-discovery-automating-jest-multi-project-runs-in-monorepos-5egc"
+      },
+      {
+        "title": "jest-everywhere",
+        "url": "https://github.com/sibelius/jest-everywhere"
+      },
+      {
+        "title": "next-jest-multiproject",
+        "url": "https://github.com/sibelius/next-jest-multiproject"
+      }
+    ],
+    "notes": []
+  },
+  {
+    "name": "Git",
+    "url": "https://git-scm.com",
+    "category": "Tools",
+    "hosted": false,
+    "woovi": [
+      {
+        "title": "Streamlining Your Git Commit Workflow: Commands and Handy Aliases ☕",
+        "url": "https://dev.to/woovi/streamlining-your-git-commit-workflow-commands-and-handy-aliases-1jc8"
+      },
+      {
+        "title": "1-Commit Per Pull Request Workflow",
+        "url": "https://dev.to/woovi/1-commit-per-pull-request-workflow-49f7"
+      },
+      {
+        "title": "Woovi Git Best Practices",
+        "url": "https://dev.to/woovi/woovi-git-best-practices-1i0e"
+      }
+    ],
+    "me": [
+      {
+        "title": "1-Commit Per Pull Request Workflow",
+        "url": "https://dev.to/woovi/1-commit-per-pull-request-workflow-49f7"
+      }
+    ],
+    "notes": [
+      {
+        "title": "Git branching",
+        "route": "notes/git-branching"
+      }
+    ]
+  }
+]

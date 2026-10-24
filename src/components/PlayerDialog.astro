@@ -1,0 +1,201 @@
+<dialog class="player" data-player-dialog aria-labelledby="player-title">
+  <div class="player-head">
+    <h2 id="player-title" class="player-title"></h2>
+    <div class="player-actions">
+      <button type="button" class="player-button" data-player-step="-1" aria-label="Previous">Previous</button>
+      <button type="button" class="player-button" data-player-step="1" aria-label="Next">Next</button>
+      <a class="player-button" data-player-source target="_blank" rel="noopener">Open original</a>
+      <button type="button" class="player-button" data-player-close>Close</button>
+    </div>
+  </div>
+  <div class="player-frame" data-player-frame></div>
+</dialog>
+
+<script>
+  const dialog = document.querySelector<HTMLDialogElement>('[data-player-dialog]');
+
+  if (dialog) {
+    const frame = dialog.querySelector<HTMLElement>('[data-player-frame]')!;
+    const title = dialog.querySelector<HTMLElement>('.player-title')!;
+    const source = dialog.querySelector<HTMLAnchorElement>('[data-player-source]')!;
+    let current: HTMLAnchorElement | null = null;
+
+    const siblings = () =>
+      current ? [...document.querySelectorAll<HTMLAnchorElement>(`[data-player][data-group="${current.dataset.group}"]`)] : [];
+
+    const open = (card: HTMLAnchorElement) => {
+      current = card;
+
+      const kind = card.dataset.kind!;
+      const src = new URL(card.dataset.player!);
+
+      if (kind === 'video') {
+        src.searchParams.set('autoplay', '1');
+      }
+
+      // A new iframe per item, removed on close, so nothing keeps playing in the background.
+      frame.innerHTML = '';
+      frame.dataset.kind = kind;
+
+      const iframe = document.createElement('iframe');
+      iframe.src = src.toString();
+      iframe.title = card.dataset.title ?? '';
+      iframe.allow = 'autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture';
+      iframe.allowFullscreen = true;
+      frame.append(iframe);
+
+      title.textContent = card.dataset.title ?? '';
+      source.href = card.href;
+
+      const list = siblings();
+      dialog.querySelectorAll<HTMLButtonElement>('[data-player-step]').forEach((button) => (button.hidden = list.length < 2));
+
+      if (!dialog.open) {
+        dialog.showModal();
+      }
+    };
+
+    const step = (delta: number) => {
+      const list = siblings();
+      const index = list.indexOf(current!);
+
+      if (list.length > 1) {
+        open(list[(index + delta + list.length) % list.length]);
+      }
+    };
+
+    document.addEventListener('click', (event) => {
+      const card = (event.target as Element).closest<HTMLAnchorElement>('a[data-player]');
+      const mouse = event as MouseEvent;
+
+      if (!card || mouse.metaKey || mouse.ctrlKey || mouse.shiftKey || mouse.button !== 0) {
+        return;
+      }
+
+      event.preventDefault();
+      open(card);
+    });
+
+    dialog.addEventListener('click', (event) => {
+      const target = event.target as Element;
+
+      if (target === dialog || target.closest('[data-player-close]')) {
+        dialog.close();
+      }
+
+      const stepper = target.closest<HTMLElement>('[data-player-step]');
+
+      if (stepper) {
+        step(Number(stepper.dataset.playerStep));
+      }
+    });
+
+    dialog.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowRight') {
+        step(1);
+      } else if (event.key === 'ArrowLeft') {
+        step(-1);
+      }
+    });
+
+    dialog.addEventListener('close', () => {
+      frame.innerHTML = '';
+      current?.focus();
+    });
+  }
+</script>
+
+<style is:global>
+  .player {
+    width: min(1080px, calc(100vw - 32px));
+    max-height: calc(100vh - 32px);
+    padding: 0;
+    border: 1.5px solid var(--ink);
+    border-radius: 12px;
+    background: var(--paper);
+    color: var(--ink);
+    box-shadow: 0 30px 80px -30px rgb(8 12 20 / 0.6);
+    overflow: hidden;
+  }
+
+  .player[open] {
+    animation: player-in 220ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  @keyframes player-in {
+    from {
+      opacity: 0;
+      transform: scale(0.97);
+    }
+  }
+
+  .player::backdrop {
+    background: rgb(12 16 24 / 0.6);
+    backdrop-filter: blur(3px);
+  }
+
+  .player-head {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px 20px;
+    padding: 14px 16px 14px 20px;
+    border-bottom: 2px solid var(--ink);
+  }
+
+  .player-title {
+    margin: 0;
+    font-family: var(--sans);
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 1.3;
+    flex: 1 1 300px;
+  }
+
+  .player-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .player-button {
+    display: inline-flex;
+    align-items: center;
+    min-height: 40px;
+    padding: 0 12px;
+    border: 1.5px solid var(--rule-strong);
+    border-radius: 6px;
+    background: var(--card);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .player-button:hover {
+    border-color: var(--ink);
+    color: var(--ink);
+  }
+
+  .player-button[hidden] {
+    display: none;
+  }
+
+  .player-frame iframe {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    max-height: calc(100vh - 140px);
+    border: 0;
+    background: #000;
+  }
+
+  .player-frame[data-kind='audio'] iframe {
+    aspect-ratio: auto;
+    height: 352px;
+    background: var(--card);
+  }
+</style>

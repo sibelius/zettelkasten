@@ -3,252 +3,294 @@
     "source": "dev.to",
     "title": "Creating a Certificate X.509 expiration Dashboard using Grafana",
     "url": "https://dev.to/woovi/creating-a-certificate-x509-expiration-dashboard-using-grafana-211k",
-    "date": "2026-01-05"
+    "date": "2026-01-05",
+    "image": "https://media2.dev.to/dynamic/image/width=1000,height=500,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fyeu6r0tj8ql2elimufqz.png"
   },
   {
     "source": "Substack",
     "title": "Software Development Retrospective",
     "url": "https://sibelius.substack.com/p/software-development-retrospective",
-    "date": "2025-12-30"
+    "date": "2025-12-30",
+    "image": "https://substackcdn.com/image/fetch/$s_!D__s!,w_256,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fcc3edec7-8b57-4955-9f0e-0f3f18fbd489_512x512.png"
   },
   {
     "source": "dev.to",
     "title": "Saving Terraform State in S3",
     "url": "https://dev.to/woovi/saving-terraform-state-in-s3-4ja7",
-    "date": "2025-12-04"
+    "date": "2025-12-04",
+    "image": "https://media2.dev.to/dynamic/image/width=1000,height=500,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F0zjl52o85cl5ivorspr5.png"
   },
   {
     "source": "dev.to",
     "title": "Creating a S3 bucket using Terraform",
     "url": "https://dev.to/woovi/creating-a-s3-bucket-using-terraform-4kgb",
-    "date": "2025-12-03"
+    "date": "2025-12-03",
+    "image": "https://media2.dev.to/dynamic/image/width=1000,height=500,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fj9gkrfcfplpjevaczwdr.png"
   },
   {
     "source": "dev.to",
     "title": "Copy and Paste on Proxmox VM",
     "url": "https://dev.to/woovi/copy-and-paste-on-proxmox-vm-15il",
-    "date": "2025-12-02"
+    "date": "2025-12-02",
+    "image": "https://media2.dev.to/dynamic/image/width=1000,height=500,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Frncah6jqm7ku0jwkba62.jpg"
   },
   {
     "source": "dev.to",
     "title": "Using Terraform to create LXC in Proxmox",
     "url": "https://dev.to/woovi/using-terraform-to-create-lxc-in-proxmox-496h",
-    "date": "2025-12-01"
+    "date": "2025-12-01",
+    "image": "https://media2.dev.to/dynamic/image/width=1000,height=500,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fwcwn7dqeteq2oqbjqlnr.jpg"
   },
   {
     "source": "dev.to",
     "title": "A Modern Node.js + TypeScript Setup for 2025 🚀",
     "url": "https://dev.to/woovi/a-modern-nodejs-typescript-setup-for-2025-nlk",
-    "date": "2025-01-29"
+    "date": "2025-01-29",
+    "image": "https://media2.dev.to/dynamic/image/width=1000,height=500,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fwh4d21nady5rf0u6ty7g.png"
   },
   {
     "source": "dev.to",
     "title": "\"ngrok\" from scratch",
     "url": "https://dev.to/woovi/ngrok-from-scratch-be3",
-    "date": "2025-01-28"
+    "date": "2025-01-28",
+    "image": "https://media2.dev.to/dynamic/image/width=1000,height=500,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fv9upyjcpyoz0niouo8o7.png"
   },
   {
     "source": "dev.to",
     "title": "How to self-host any open source service?",
     "url": "https://dev.to/woovi/how-to-self-host-any-open-source-service-1p8d",
-    "date": "2025-01-27"
+    "date": "2025-01-27",
+    "image": "https://media2.dev.to/dynamic/image/width=1000,height=500,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fs30qfey0kdm6z1162jwj.jpg"
   },
   {
     "source": "dev.to",
     "title": "Bootstrapping ArgoCD with Helm and Helmfile",
     "url": "https://dev.to/woovi/bootstrapping-argocd-with-helm-and-helmfile-2fhe",
-    "date": "2025-01-24"
+    "date": "2025-01-24",
+    "image": "https://media2.dev.to/dynamic/image/width=1000,height=500,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F8vqktcxyjeyd1hoghvfu.png"
   },
   {
     "source": "dev.to",
     "title": "Sharing a Redis using a Prefix",
     "url": "https://dev.to/woovi/sharing-a-redis-using-a-prefix-43e2",
-    "date": "2025-01-23"
+    "date": "2025-01-23",
+    "image": "https://media2.dev.to/dynamic/image/width=1000,height=500,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F8fe2pc7opygceocwusl1.jpg"
   },
   {
     "source": "dev.to",
     "title": "Enhancing DX by Using Staging Services in Development",
     "url": "https://dev.to/woovi/enhancing-dx-by-using-staging-services-in-development-3f0d",
-    "date": "2025-01-22"
+    "date": "2025-01-22",
+    "image": "https://media2.dev.to/dynamic/image/width=1000,height=500,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Ftntauj2xch57v0zkglkv.jpg"
   },
   {
     "source": "dev.to",
     "title": "Optimizing SSH Connections",
     "url": "https://dev.to/woovi/optimizing-ssh-connections-1oa4",
-    "date": "2025-01-21"
+    "date": "2025-01-21",
+    "image": "https://media2.dev.to/dynamic/image/width=1000,height=500,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fr7bbkvx7v217n25wq3od.jpg"
   },
   {
     "source": "Substack",
     "title": "Use Information Asymmetry to create a defensible Startup moat",
     "url": "https://sibelius.substack.com/p/use-information-asymmetry-to-create",
-    "date": "2024-01-22"
+    "date": "2024-01-22",
+    "image": "https://substack-post-media.s3.amazonaws.com/public/images/07dd81a9-bcf9-4251-a703-bb83fd9187c8_1000x667.jpeg"
   },
   {
     "source": "Substack",
     "title": "The best business models align all stakeholders needs",
     "url": "https://sibelius.substack.com/p/the-best-business-models-align-all",
-    "date": "2024-01-19"
+    "date": "2024-01-19",
+    "image": "https://substack-post-media.s3.amazonaws.com/public/images/2485ee2f-bdd1-4323-802f-b11c39a4d212_1000x601.jpeg"
   },
   {
     "source": "Substack",
     "title": "From passive to an active Person",
     "url": "https://sibelius.substack.com/p/from-passive-to-an-active-person",
-    "date": "2024-01-18"
+    "date": "2024-01-18",
+    "image": "https://substack-post-media.s3.amazonaws.com/public/images/e4d85161-2643-44bd-b788-444dec6490d5_1000x660.jpeg"
   },
   {
     "source": "Substack",
     "title": "Common mistakes of developers as first time startup founders",
     "url": "https://sibelius.substack.com/p/common-mistakes-of-developers-as",
-    "date": "2024-01-17"
+    "date": "2024-01-17",
+    "image": "https://substack-post-media.s3.amazonaws.com/public/images/a7e61548-ff3c-44ea-ac3a-4a4bb4789892_1348x1182.png"
   },
   {
     "source": "Substack",
     "title": "God is omniscient, omnipresent and omnipotent",
     "url": "https://sibelius.substack.com/p/god-is-omniscient-omnipresent-and",
-    "date": "2024-01-12"
+    "date": "2024-01-12",
+    "image": "https://substack-post-media.s3.amazonaws.com/public/images/b3474ea1-8491-4f60-93b2-d60a290a2962_1000x667.jpeg"
   },
   {
     "source": "Substack",
     "title": "What is expected from a Tech Lead?",
     "url": "https://sibelius.substack.com/p/what-is-expected-from-a-tech-lead",
-    "date": "2024-01-11"
+    "date": "2024-01-11",
+    "image": "https://substack-post-media.s3.amazonaws.com/public/images/7135c821-2d51-41e5-b96e-1e7b9db12044_2400x2000.jpeg"
   },
   {
     "source": "Substack",
     "title": "You are never going to get it right at first",
     "url": "https://sibelius.substack.com/p/you-never-going-to-get-it-right-at",
-    "date": "2024-01-10"
+    "date": "2024-01-10",
+    "image": "https://substack-post-media.s3.amazonaws.com/public/images/a1984184-668e-42dd-8a6b-7115247fa7fe_1000x667.jpeg"
   },
   {
     "source": "Substack",
     "title": "How to hire and train Juniors",
     "url": "https://sibelius.substack.com/p/how-to-hire-and-train-juniors",
-    "date": "2024-01-09"
+    "date": "2024-01-09",
+    "image": "https://substack-post-media.s3.amazonaws.com/public/images/da4ac1fa-b5d5-4158-9045-5b401e81c07b_1000x571.jpeg"
   },
   {
     "source": "Substack",
     "title": "What is expected from a CTO of a Startup?",
     "url": "https://sibelius.substack.com/p/what-is-expected-from-a-cto-of-a",
-    "date": "2024-01-08"
+    "date": "2024-01-08",
+    "image": "https://substack-post-media.s3.amazonaws.com/public/images/4a7ff0ff-c567-4d5f-867b-a251472d4df0_1000x560.jpeg"
   },
   {
     "source": "Substack",
     "title": "How to build a \"simple\" Product?",
     "url": "https://sibelius.substack.com/p/how-to-build-a-simple-product",
-    "date": "2024-01-05"
+    "date": "2024-01-05",
+    "image": "https://substack-post-media.s3.amazonaws.com/public/images/c2672649-5c6f-4cf2-ae18-09d7ec8d90ee_1000x667.jpeg"
   },
   {
     "source": "Substack",
     "title": "A practical guide of using a Landing Page to validate your idea",
     "url": "https://sibelius.substack.com/p/a-practical-guide-of-using-a-landing",
-    "date": "2024-01-04"
+    "date": "2024-01-04",
+    "image": "https://substack-post-media.s3.amazonaws.com/public/images/fe80b48c-685f-42c5-a2bd-50ea1cbb658d_1000x490.png"
   },
   {
     "source": "Substack",
     "title": "How to become a Senior engineer faster?",
     "url": "https://sibelius.substack.com/p/how-to-become-a-senior-engineer-faster",
-    "date": "2024-01-03"
+    "date": "2024-01-03",
+    "image": "https://substackcdn.com/image/fetch/$s_!cBlU!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb91c7c4e-4e39-43dc-80b5-9030f2c3db13_1858x1130.png"
   },
   {
     "source": "Substack",
     "title": "Why should you prefer text/image over video/audio for learning?",
     "url": "https://sibelius.substack.com/p/why-should-you-prefer-textimage-over",
-    "date": "2024-01-02"
+    "date": "2024-01-02",
+    "image": "https://substack-post-media.s3.amazonaws.com/public/images/adbacd3d-4ae4-4c17-a1d2-f06bbd33dcb9_1000x667.jpeg"
   },
   {
     "source": "Substack",
     "title": "The evolution of meta game for developers",
     "url": "https://sibelius.substack.com/p/the-evolution-of-meta-game-for-developers",
-    "date": "2023-03-01"
+    "date": "2023-03-01",
+    "image": "https://images.unsplash.com/photo-1588412079929-790b9f593d8e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzMDAzMzh8MHwxfHNlYXJjaHw3fHxjaGVzc3xlbnwwfHx8fDE2Nzc2MDQxOTc&ixlib=rb-4.0.3&q=80&w=1080"
   },
   {
     "source": "Substack",
     "title": "Receiving more Feedback",
     "url": "https://sibelius.substack.com/p/receiving-more-feedback",
-    "date": "2022-10-17"
+    "date": "2022-10-17",
+    "image": "https://images.unsplash.com/photo-1545987796-200677ee1011?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzMDAzMzh8MHwxfHNlYXJjaHwyfHxjb25uZWN0aW9uc3xlbnwwfHx8fDE2NjU5NTYyNDM&ixlib=rb-1.2.1&q=80&w=1080"
   },
   {
     "source": "Substack",
     "title": "We don't have Seniors anymore",
     "url": "https://sibelius.substack.com/p/we-dont-have-seniors-anymore",
-    "date": "2022-10-13"
+    "date": "2022-10-13",
+    "image": "https://images.unsplash.com/photo-1513159446162-54eb8bdaa79b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzMDAzMzh8MHwxfHNlYXJjaHw3fHxzZW5pb3J8ZW58MHx8fHwxNjY1NTgxNTY5&ixlib=rb-1.2.1&q=80&w=1080"
   },
   {
     "source": "Substack",
     "title": "You can do anything",
     "url": "https://sibelius.substack.com/p/you-can-do-anything",
-    "date": "2022-05-31"
+    "date": "2022-05-31",
+    "image": "https://substackcdn.com/image/fetch/$s_!ERVw!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F73aba978-38cb-4ce9-839d-7df4ae38616d_4764x3176.jpeg"
   },
   {
     "source": "Substack",
     "title": "What developers merge when nobody's looking?",
     "url": "https://sibelius.substack.com/p/what-developers-merge-when-nobodys",
-    "date": "2022-02-02"
+    "date": "2022-02-02",
+    "image": "https://substackcdn.com/image/fetch/$s_!DUC0!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fce39b648-22a1-42ae-8e11-6060681e4709_922x306.jpeg"
   },
   {
     "source": "Substack",
     "title": "How to find the best solution?",
     "url": "https://sibelius.substack.com/p/how-to-find-the-best-solution",
-    "date": "2022-01-10"
+    "date": "2022-01-10",
+    "image": "https://substackcdn.com/image/fetch/$s_!dVSh!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fd03445ea-e81c-413c-8b98-5422d40af47e_3968x2976.jpeg"
   },
   {
     "source": "Medium",
     "title": "Reduce testing and building time in Monorepos",
     "url": "https://sibelius.medium.com/reduce-testing-and-building-time-in-monorepos-5843b63972b",
-    "date": "2020-10-15"
+    "date": "2020-10-15",
+    "image": "https://cdn-images-1.medium.com/max/693/1*JasBzdXtPeH9Yz6t1POLkQ.png"
   },
   {
     "source": "Medium",
     "title": "Parsing Slack /remind command",
     "url": "https://sibelius.medium.com/parsing-slack-remind-command-fc3f5e4026e",
-    "date": "2020-07-22"
+    "date": "2020-07-22",
+    "image": "https://cdn-images-1.medium.com/max/1024/0*l3amR2Brnwx-d2k3"
   },
   {
     "source": "Medium",
     "title": "Adding Server Side Rendering to a Relay Production App",
     "url": "https://sibelius.medium.com/adding-server-side-rendering-to-a-relay-production-app-8df64495aebf",
-    "date": "2020-02-27"
+    "date": "2020-02-27",
+    "image": "https://cdn-images-1.medium.com/max/1024/0*sA1q04U7aEyKpc02"
   },
   {
     "source": "Medium",
     "title": "How we save 1M hours of development using React Navigation",
     "url": "https://sibelius.medium.com/how-we-save-1m-hours-of-development-using-react-navigation-3681f2f907c9",
-    "date": "2019-02-21"
+    "date": "2019-02-21",
+    "image": "https://cdn-images-1.medium.com/max/1024/0*xuJCCRqXychnGy00"
   },
   {
     "source": "Medium",
     "title": "Relay Modern: Migration to Typescript",
     "url": "https://sibelius.medium.com/relay-modern-migration-to-typescript-c26ab0ee749c",
-    "date": "2018-12-28"
+    "date": "2018-12-28",
+    "image": "https://cdn-images-1.medium.com/max/768/1*5gPYav_wNDjWJLwyvkkyVA.png"
   },
   {
     "source": "Medium",
     "title": "Relay Modern: the Relay Store",
     "url": "https://sibelius.medium.com/relay-modern-the-relay-store-8984cd148798",
-    "date": "2018-12-28"
+    "date": "2018-12-28",
+    "image": "https://cdn-images-1.medium.com/max/1024/1*4832-9Ia2Iaw4mSzzTc5jQ.png"
   },
   {
     "source": "Medium",
     "title": "Relay Modern — What is a Fragment?",
     "url": "https://sibelius.medium.com/relay-modern-what-is-a-fragment-c70f164c2469",
-    "date": "2018-12-19"
+    "date": "2018-12-19",
+    "image": "https://cdn-images-1.medium.com/max/1024/0*iioXDyXDajQar1bl"
   },
   {
     "source": "Medium",
     "title": "Why your company should have an Open Source Playground",
     "url": "https://sibelius.medium.com/why-your-company-should-have-an-open-source-playground-4bb93068ce95",
-    "date": "2018-12-15"
+    "date": "2018-12-15",
+    "image": "https://cdn-images-1.medium.com/max/1024/0*H76xRd7BL6EhPY7_"
   },
   {
     "source": "Medium",
     "title": "Incremental Migration to TypeScript on a Flowtype codebase",
     "url": "https://medium.com/entria/incremental-migration-to-typescript-on-a-flowtype-codebase-515f6490d92d",
-    "date": "2018-09-04"
+    "date": "2018-09-04",
+    "image": "https://cdn-images-1.medium.com/proxy/1*VAP896WLOAJNH8uspXsbTA.png"
   },
   {
     "source": "Medium",
     "title": "Relay Modern Network Deep Dive",
     "url": "https://medium.com/entria/relay-modern-network-deep-dive-ec187629dfd3",
-    "date": "2018-07-22"
+    "date": "2018-07-22",
+    "image": "https://cdn-images-1.medium.com/max/1024/0*CrfCih9bJTl2yroT"
   }
 ]
