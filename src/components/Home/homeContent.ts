@@ -24,15 +24,15 @@ export type Drawer = {
 /** The six drawers of the slip-box. Counts come from the docs plugin at build time. */
 export const drawers: Drawer[] = [
   {
-    match: 'updates/',
-    label: 'Weekly updates',
+    match: 'notes/',
+    label: 'Notes',
     blurb:
-      'What I shipped, read and got wrong, written every week since 2023. The closest thing here to a diary.',
-    to: '/category/updates',
+      'Atomic notes, one idea each, linked to each other. The slip-box proper.',
+    to: '/category/notes',
     picks: [
-      ['September 2025', '/category/updates-sep-2025'],
-      ['August 2025', '/category/updates-aug-2025'],
-      ['The whole run, by year', '/category/updates'],
+      ['Build less', '/notes/build-less'],
+      ['Being wrong', '/notes/being-wrong'],
+      ['Complexity', '/notes/complexity'],
     ],
   },
   {

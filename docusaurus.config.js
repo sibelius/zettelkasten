@@ -45,6 +45,7 @@ export default {
       logo: {
         alt: 'Sibelius Zettelkasten',
         src: 'img/favicon.ico',
+        href: '/food-for-thought',
       },
       items: [
         {
