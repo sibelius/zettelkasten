@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import PageHead from '../components/PageHead.astro';
 import {withBase} from '../lib/docs';
+import {REQUEST_URL} from '../../mcp/retrieve.mjs';
 ---
 
 <Base title="Page not found">
@@ -10,8 +11,25 @@ import {withBase} from '../lib/docs';
       <button class="button button-primary" type="button" data-search-open>Search notes</button>
       <a class="button button-ghost" href={withBase('/category/notes')}>Browse all notes</a>
     </p>
+    <p class="request">
+      Looking for something I have not written yet? <a href={REQUEST_URL} data-request>Ask me to write about it</a>, and vote on what others asked for.
+    </p>
   </PageHead>
 </Base>
+
+<script>
+  import {requestUrl} from '../../mcp/retrieve.mjs';
+
+  // The missing path is the best guess at the topic: /notes/event-sourcing asks for "event sourcing".
+  const slug = decodeURIComponent(location.pathname.replace(/^\/zettelkasten/, '').replace(/\.html$/, '').split('/').filter(Boolean).pop() ?? '');
+  const topic = slug.replace(/[-_]+/g, ' ').trim();
+  const link = document.querySelector<HTMLAnchorElement>('[data-request]');
+
+  if (link && topic) {
+    link.href = requestUrl(topic, `a missing page, ${location.href}`);
+    link.textContent = `Ask me to write about “${topic}”`;
+  }
+</script>
 
 <style>
   .actions {
@@ -19,5 +37,12 @@ import {withBase} from '../lib/docs';
     flex-wrap: wrap;
     gap: 12px;
     margin-top: 28px;
+  }
+
+  .request {
+    margin: 18px 0 0;
+    font-family: var(--sans);
+    font-size: 16px;
+    color: var(--ink-soft);
   }
 </style>

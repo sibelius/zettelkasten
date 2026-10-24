@@ -1,3 +1,5 @@
+import {requestUrl} from '../../mcp/retrieve.mjs';
+
 export type SearchDoc = {
   title: string;
   url: string;
@@ -137,7 +139,10 @@ export function initSearch() {
     if (!query) {
       status.textContent = `${docs.length} notes. Type to search titles, tags and text.`;
     } else {
-      status.textContent = hits.length === 0 ? `Nothing matches “${query}”. Try a shorter word.` : `${hits.length} results`;
+      status.innerHTML =
+        hits.length === 0
+          ? `Nothing matches “${escape(query)}”. Try a shorter word, or <a href="${escape(requestUrl(query, 'the site search'))}" target="_blank" rel="noopener">ask me to write about it</a>.`
+          : `${hits.length} results`;
     }
   };
 

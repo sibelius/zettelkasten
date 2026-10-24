@@ -28,7 +28,8 @@ These are my public notes (a zettelkasten), my writing elsewhere, and what I am 
 
 - Full text of every note: ${SITE}/llms-full.txt
 - Search index of every note, answer, post and reading link, as JSON passages: ${SITE}/ask-index.json
-- MCP server with search and ask tools: ${SITE}/ask#mcp
+- MCP server with search and ask tools, and how to set it up in Claude, Codex, Cursor and others: ${SITE}/mcp
+- Ask me to write about a topic I have not covered: https://github.com/sibelius/zettelkasten/discussions/categories/ideas
 - Questions I answered in public: ${SITE}/ask
 
 ${[...sections]

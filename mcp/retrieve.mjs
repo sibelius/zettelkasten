@@ -3,6 +3,7 @@
 
 export const SITE = 'https://sibelius.github.io/zettelkasten';
 export const ASK_URL = 'https://github.com/sibelius/zettelkasten/discussions/new?category=q-a';
+export const REQUEST_URL = 'https://github.com/sibelius/zettelkasten/discussions/new?category=ideas';
 
 /** Words that say nothing about the topic, in English and Portuguese. */
 const STOPWORDS = new Set(
@@ -185,4 +186,12 @@ export function discussionUrl(question, results = []) {
   const body = `${question.trim()}\n\n---\n\n${found}\n\n_Sent from Ask Sibelius on ${SITE}/ask_`;
 
   return `${ASK_URL}&title=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}`;
+}
+
+/** A new GitHub Discussion in Ideas asking me to write about a topic, so people can upvote what they want next. */
+export function requestUrl(topic, from = '') {
+  const clean = topic.trim().replace(/\s+/g, ' ').slice(0, 100);
+  const body = `I would like to read Sibelius's take on: **${clean}**\n\nWhat I want to learn or decide:\n\n${from ? `\n---\n\n_Requested from ${from}_` : ''}`;
+
+  return `${REQUEST_URL}&title=${encodeURIComponent(`Write about: ${clean}`)}&body=${encodeURIComponent(body)}`;
 }
