@@ -1,0 +1,119 @@
+---
+import Base from '../layouts/Base.astro';
+import Donate from '../components/Donate.astro';
+import PageHead from '../components/PageHead.astro';
+import {offers, person} from '../data/site';
+---
+
+<Base title="Work with me" description="Mentorship for developers, consulting for startups and fintechs, and a private community. Pay with Pix and send me the receipt on X.">
+  <PageHead
+    title="Work with me"
+    note={`${offers.length} ways`}
+    lede="The notes are free. If you want the conversation instead, pick one below, pay with Pix and send me the receipt on X. I reply within a day."
+  >
+    <ol class="work-steps">
+      <li>Pick what you need below.</li>
+      <li>Pay with Pix. Prices are in dollars, so type the amount in reais at today's rate in your bank app.</li>
+      <li>
+        Send the receipt to <a href={person.x.url}>{person.x.handle}</a> in a direct message, with a line about what you want to work on.
+      </li>
+    </ol>
+  </PageHead>
+
+  {
+    offers.map((offer) => (
+      <section id={offer.id} class="row work-offer" aria-labelledby={`${offer.id}-title`}>
+        <div class="margin work-price">
+          <span class="work-amount">{offer.price}</span>
+          <span>{offer.cadence}</span>
+        </div>
+        <div class="body">
+          <h2 id={`${offer.id}-title`} class="work-title">
+            {offer.title}
+          </h2>
+          <p class="work-text">{offer.description}</p>
+          {offer.details && (
+            <p class="links work-details">
+              <a href={offer.details}>What is included</a>
+            </p>
+          )}
+          <div class="work-pay">
+            <Donate compact txid={offer.txid} presets={[]}>
+              <a class="button button-ghost work-receipt" href={person.x.url} target="_blank" rel="noopener">
+                Send me the receipt on X
+              </a>
+              <p class="muted work-receipt-note">Open my profile, tap Message and attach the receipt.</p>
+            </Donate>
+          </div>
+        </div>
+      </section>
+    ))
+  }
+</Base>
+
+<style>
+  .work-steps {
+    margin: 22px 0 0;
+    padding-left: 1.2em;
+    max-width: 36em;
+  }
+
+  .work-steps li {
+    margin: 6px 0;
+  }
+
+  .work-offer {
+    padding-top: 64px;
+  }
+
+  .work-price {
+    padding-top: 8px;
+  }
+
+  .work-price span {
+    display: block;
+  }
+
+  .work-amount {
+    font-weight: 800;
+    font-size: 24px;
+    color: var(--ink);
+  }
+
+  .work-title {
+    margin: 0 0 8px;
+    font-family: var(--sans);
+    font-weight: 800;
+    font-size: 32px;
+    letter-spacing: -0.02em;
+  }
+
+  .work-text {
+    margin: 0 0 8px;
+    max-width: 36em;
+    color: var(--ink-soft);
+  }
+
+  .work-pay {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1.5px solid var(--rule-strong);
+    border-radius: 10px;
+    background: var(--card);
+  }
+
+  .work-receipt {
+    margin-left: 8px;
+  }
+
+  .work-receipt-note {
+    margin-top: 10px !important;
+    font-size: 14px !important;
+  }
+
+  @media (max-width: 560px) {
+    .work-receipt {
+      margin: 10px 0 0;
+    }
+  }
+</style>

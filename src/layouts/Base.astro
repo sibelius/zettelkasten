@@ -21,12 +21,13 @@ const image = new URL(withBase(`/og/${route}.png`), Astro.site);
 
 const nav = [
   {label: 'Writing', url: withBase('/#writing')},
-  {label: 'Visualized', url: withBase('/#visualized')},
-  {label: 'Stack', url: withBase('/stack')},
   {label: 'Talks', url: withBase('/media')},
   {label: 'Library', url: withBase('/library')},
-  {label: 'Graph', url: withBase('/graph')},
-  {label: 'Work with me', url: withBase('/#work')},
+  {label: 'Roadmaps', url: withBase('/roadmaps')},
+  {label: 'Hiring', url: withBase('/hiring')},
+  {label: 'Ask me', url: withBase('/ask')},
+  {label: 'Stack', url: withBase('/stack')},
+  {label: 'Work with me', url: withBase('/work')},
 ];
 ---
 
@@ -126,7 +127,7 @@ const nav = [
         <div class="body">
           <p>
             The notes are open source. <a href="https://github.com/sibelius/zettelkasten">Edit any of them on GitHub</a>,
-            or support the writing on <a href="https://www.patreon.com/sibelius">Patreon</a> or{' '}
+            or support the writing with <a href={withBase('/support')}>Pix</a>, <a href="https://www.patreon.com/sibelius">Patreon</a> or{' '}
             <a href="https://github.com/sponsors/sibelius">GitHub Sponsors</a>.
           </p>
           <p>

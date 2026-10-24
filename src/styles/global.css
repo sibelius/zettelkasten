@@ -487,3 +487,21 @@ svg {
   border-color: var(--blue);
   color: var(--blue);
 }
+
+/* Progress along a deck, a checklist or a roadmap. */
+.deck-progress {
+  height: 6px;
+  margin-bottom: 18px;
+  overflow: hidden;
+  border-radius: 3px;
+  background: var(--rule);
+  flex: 1 1 100%;
+}
+
+.deck-progress span {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: var(--blue);
+  transition: width 300ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}

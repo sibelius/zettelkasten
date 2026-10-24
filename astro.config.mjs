@@ -10,7 +10,7 @@ export const BASE = '/zettelkasten';
 export default defineConfig({
   site: 'https://sibelius.github.io',
   base: BASE,
-  trailingSlash: 'never',
+  trailingSlash: 'ignore',
   build: {format: 'file'},
   markdown: {
     processor: unified({remarkPlugins: [[remarkDocLinks, {base: BASE}], remarkDropTitle]}),

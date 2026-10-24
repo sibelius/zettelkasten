@@ -1,0 +1,184 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import {getDocs} from '../lib/docs';
+import {parseSteps} from '../lib/structured';
+
+const docs = await getDocs();
+const PREVIEW = 6;
+
+const roadmaps = docs
+  .filter((doc) => doc.section.key === 'learning-path')
+  .map((doc) => ({doc, steps: parseSteps(doc), name: doc.title.replace(/^learning path\s*/i, '').trim() || doc.title}))
+  .filter((roadmap) => roadmap.steps.length > 0)
+  .sort((a, b) => b.steps.length - a.steps.length);
+---
+
+<Base title="Roadmaps" description="Step-by-step routes through a stack: React, backend, DevOps, Docker, AWS Lambda, Java and web3. Tick steps as you go.">
+  <PageHead
+    title="Roadmaps"
+    note={`${roadmaps.length} roadmaps`}
+    lede="Ordered routes through a stack, for when “just read the docs” is not an answer. Open one and tick the steps as you go; your progress shows up here."
+  />
+
+  <ul class="roadmaps" role="list">
+    {
+      roadmaps.map(({doc, steps, name}) => (
+        <li class="row roadmap" data-roadmap={doc.url}>
+          <div class="margin roadmap-meta">
+            <p class="roadmap-count">{steps.length} steps</p>
+            <div class="deck-progress roadmap-progress" role="progressbar" aria-label={`${name} progress`} aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+              <span />
+            </div>
+            <p class="roadmap-status" data-roadmap-status>
+              Not started
+            </p>
+          </div>
+          <div class="body">
+            <h2 class="roadmap-title">
+              <a class="plain" href={doc.url}>
+                {name}
+              </a>
+            </h2>
+            <ol class="route">
+              {steps.slice(0, PREVIEW).map((step) => (
+                <li class="route-step">
+                  <span class="route-text">{step.text}</span>
+                  {step.children.length > 0 && <span class="route-more">{step.children.length} more inside</span>}
+                </li>
+              ))}
+            </ol>
+            <p class="links roadmap-links">
+              <a href={doc.url}>{steps.length > PREVIEW ? `Open all ${steps.length} steps` : 'Open the roadmap'}</a>
+            </p>
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+</Base>
+
+<script>
+  import {readProgress} from '../scripts/interactive';
+
+  document.querySelectorAll<HTMLElement>('[data-roadmap]').forEach((roadmap) => {
+    const progress = readProgress(new URL(roadmap.dataset.roadmap!, location.href).pathname);
+
+    if (!progress || progress.done === 0) {
+      return;
+    }
+
+    const percent = Math.round((progress.done / progress.total) * 100);
+    const bar = roadmap.querySelector<HTMLElement>('.roadmap-progress')!;
+
+    bar.setAttribute('aria-valuenow', String(percent));
+    bar.querySelector('span')!.style.width = `${percent}%`;
+    roadmap.querySelector('[data-roadmap-status]')!.textContent =
+      progress.done === progress.total ? 'Done' : `${progress.done} of ${progress.total} ticked`;
+  });
+</script>
+
+<style>
+  .roadmaps {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .roadmap {
+    padding-top: 56px;
+  }
+
+  .roadmap-meta {
+    padding-top: 8px;
+  }
+
+  .roadmap-meta p {
+    margin: 0 0 8px;
+  }
+
+  .roadmap-count {
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .roadmap-progress {
+    width: 120px;
+    margin: 0 0 8px auto;
+  }
+
+  .roadmap-title {
+    margin: 0 0 18px;
+    font-family: var(--sans);
+    font-weight: 800;
+    font-size: 30px;
+    letter-spacing: -0.02em;
+  }
+
+  /* A route: numbered stops on one line, because the order is the point. */
+  .route {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: step;
+  }
+
+  .route::before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 16px;
+    bottom: 16px;
+    width: 2px;
+    background: var(--rule-strong);
+  }
+
+  .route-step {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 8px 0 14px 48px;
+    counter-increment: step;
+  }
+
+  .route-step::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: 4px;
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    border: 2px solid var(--ink);
+    border-radius: 50%;
+    background: var(--paper);
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 800;
+  }
+
+  .route-text {
+    font-size: 19px;
+    line-height: 1.45;
+    max-width: 38em;
+  }
+
+  .route-more {
+    font-family: var(--sans);
+    font-size: 14px;
+    color: var(--pencil);
+  }
+
+  .roadmap-links {
+    margin: 6px 0 0 48px;
+  }
+
+  @media (max-width: 760px) {
+    .roadmap-progress {
+      margin-left: 0;
+    }
+  }
+</style>
