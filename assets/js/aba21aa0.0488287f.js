@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkzettelkasten=self.webpackChunkzettelkasten||[]).push([["93747"],{27093(e){e.exports=JSON.parse('{"name":"docusaurus-plugin-content-docs","id":"default"}')}}]);

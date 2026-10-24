@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkzettelkasten=self.webpackChunkzettelkasten||[]).push([["8872"],{34(e){e.exports=JSON.parse('{"tag":{"label":"web","permalink":"/zettelkasten/tags/web","allTagsPath":"/zettelkasten/tags","count":1,"items":[{"id":"notes/links","title":"Links","description":"&lt;a/>","permalink":"/zettelkasten/notes/links"}],"unlisted":false}}')}}]);

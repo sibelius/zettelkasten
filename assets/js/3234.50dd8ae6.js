@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkzettelkasten=self.webpackChunkzettelkasten||[]).push([["3234"],{83657(e,t,a){a.r(t),a.d(t,{default:()=>l});var r=a(71763);let l=function(e){var t=e.url;return(0,e.renderWrap)(r.createElement("embed",{src:t,type:"application/pdf",style:{width:"100%",minHeight:600},className:"react-embed--pdf"}))}}}]);
