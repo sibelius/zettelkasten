@@ -1,0 +1,304 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import {formatDate, withBase} from '../lib/docs';
+import reading from '../data/reading.json';
+
+type Item = (typeof reading)[number];
+
+const kinds = [
+  {id: 'article', label: 'Articles'},
+  {id: 'post', label: 'Posts'},
+  {id: 'repo', label: 'Repos'},
+  {id: 'tool', label: 'Tools'},
+  {id: 'video', label: 'Videos'},
+  {id: 'paper', label: 'Papers'},
+].filter((kind) => reading.some((item) => item.kind === kind.id));
+
+const kindLabel = Object.fromEntries(kinds.map((kind) => [kind.id, kind.label.replace(/s$/, '')]));
+
+const months = new Map<string, Item[]>();
+
+for (const item of reading) {
+  const month = item.date.slice(0, 7);
+  months.set(month, [...(months.get(month) ?? []), item]);
+}
+
+const monthLabel = (month: string) => new Date(`${month}-15T12:00:00Z`).toLocaleDateString('en-US', {year: 'numeric', month: 'long', timeZone: 'UTC'});
+
+/** Long post texts and descriptions read better cut at a word. */
+const clip = (text: string | null, length: number) => (text && text.length > length ? `${text.slice(0, length).replace(/\s+\S*$/, '')}…` : text);
+---
+
+<Base title="Reading" description="Articles, posts, repos and tools I am reading and recommend, newest first.">
+  <PageHead
+    title="Reading"
+    note={`${reading.length} links`}
+    lede="What I am reading and what I would hand to you: articles, posts, repos and tools, newest first. Each one is something I shared with my team because it was worth the time."
+  >
+    <nav class="links" aria-label="Follow">
+      <a href={withBase('/reading.xml')}>RSS feed</a>
+    </nav>
+  </PageHead>
+
+  <div class="row reading" data-reading>
+    <div class="margin reading-margin">
+      <p class="reading-count" aria-live="polite"><span data-count>{reading.length}</span> shown</p>
+    </div>
+    <div class="body">
+      <div class="reading-controls">
+        <div class="tabs" role="group" aria-label="Kind">
+          <button type="button" class="tab" data-kind-button="" aria-pressed="true">All</button>
+          {
+            kinds.map((kind) => (
+              <button type="button" class="tab" data-kind-button={kind.id} aria-pressed="false">
+                {kind.label}
+              </button>
+            ))
+          }
+        </div>
+        <label class="reading-field">
+          <span>Search</span>
+          <input type="search" data-filter-text placeholder="Filter by title, site or note" autocomplete="off" />
+        </label>
+      </div>
+
+      <p class="reading-empty" data-empty hidden>Nothing matches. Clear the search or pick another kind.</p>
+
+      {
+        [...months].map(([month, items]) => (
+          <section class="reading-month" data-month>
+            <h2 class="reading-month-title">{monthLabel(month)}</h2>
+            <ol class="reading-list" role="list">
+              {items.map((item) => (
+                <li
+                  class="reading-item"
+                  data-item
+                  data-kind={item.kind}
+                  data-search={`${item.title} ${item.site ?? ''} ${item.host} ${item.note} ${item.description ?? ''}`.toLowerCase()}
+                >
+                  <div class="reading-text">
+                    <p class="reading-meta">
+                      <span class="reading-kind">{kindLabel[item.kind]}</span>
+                      <span>{item.site ?? item.host}</span>
+                      <time datetime={item.date}>{formatDate(item.date)}</time>
+                    </p>
+                    <h3 class="reading-title">
+                      <a class="plain" href={item.url} rel="noopener">
+                        {clip(item.title, 160)}
+                      </a>
+                    </h3>
+                    {item.description && item.kind !== 'post' && <p class="reading-description">{clip(item.description, 200)}</p>}
+                    {item.note && <p class="reading-note">{item.note}</p>}
+                  </div>
+                  {item.image && (
+                    <a class="reading-thumb" href={item.url} rel="noopener" tabindex="-1" aria-hidden="true">
+                      <img src={item.image} alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.parentElement.remove()" />
+                    </a>
+                  )}
+                </li>
+              ))}
+            </ol>
+          </section>
+        ))
+      }
+    </div>
+  </div>
+</Base>
+
+<script>
+  const root = document.querySelector<HTMLElement>('[data-reading]');
+
+  if (root) {
+    const items = [...root.querySelectorAll<HTMLElement>('[data-item]')];
+    const months = [...root.querySelectorAll<HTMLElement>('[data-month]')];
+    const buttons = [...root.querySelectorAll<HTMLButtonElement>('[data-kind-button]')];
+    const text = root.querySelector<HTMLInputElement>('[data-filter-text]')!;
+    const count = root.querySelector<HTMLElement>('[data-count]')!;
+    const empty = root.querySelector<HTMLElement>('[data-empty]')!;
+    let kind = '';
+
+    const apply = () => {
+      const query = text.value.trim().toLowerCase();
+      let shown = 0;
+
+      for (const item of items) {
+        const visible = (!kind || item.dataset.kind === kind) && (!query || item.dataset.search!.includes(query));
+        item.hidden = !visible;
+        shown += visible ? 1 : 0;
+      }
+
+      for (const month of months) {
+        month.hidden = !month.querySelector('[data-item]:not([hidden])');
+      }
+
+      count.textContent = String(shown);
+      empty.hidden = shown > 0;
+    };
+
+    for (const button of buttons) {
+      button.addEventListener('click', () => {
+        kind = button.dataset.kindButton ?? '';
+        buttons.forEach((other) => other.setAttribute('aria-pressed', String(other === button)));
+        apply();
+      });
+    }
+
+    text.addEventListener('input', apply);
+  }
+</script>
+
+<style>
+  .reading-margin {
+    padding-top: 12px;
+  }
+
+  .reading-count {
+    margin: 0;
+  }
+
+  .reading-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 8px;
+  }
+
+  .reading-field {
+    display: flex;
+    flex: 1 1 260px;
+    max-width: 420px;
+    flex-direction: column;
+    gap: 4px;
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--pencil);
+  }
+
+  .reading-field input {
+    min-height: 44px;
+    padding: 0 12px;
+    border: 1.5px solid var(--rule-strong);
+    border-radius: 6px;
+    background: var(--card);
+    color: var(--ink);
+    font: inherit;
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  .reading-field input:focus {
+    outline: none;
+    border-color: var(--blue);
+  }
+
+  .reading-empty {
+    margin: 32px 0 0;
+    font-family: var(--sans);
+    color: var(--pencil);
+  }
+
+  .reading-month {
+    padding-top: 40px;
+  }
+
+  .reading-month-title {
+    margin: 0;
+    padding-bottom: 8px;
+    border-bottom: 1.5px solid var(--rule-strong);
+    font-family: var(--sans);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--pencil);
+  }
+
+  .reading-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .reading-item {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 160px;
+    gap: 24px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .reading-item:not(:has(.reading-thumb)) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .reading-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 12px;
+    margin: 0 0 6px;
+    font-family: var(--sans);
+    font-size: 14px;
+    color: var(--pencil);
+  }
+
+  .reading-kind {
+    font-weight: 700;
+    color: var(--blue);
+  }
+
+  .reading-title {
+    margin: 0;
+    font-family: var(--sans);
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.3;
+    overflow-wrap: anywhere;
+  }
+
+  .reading-description {
+    margin: 6px 0 0;
+    font-size: 17px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+  }
+
+  .reading-note {
+    margin: 10px 0 0;
+    padding-left: 12px;
+    border-left: 3px solid var(--blue);
+    font-style: italic;
+    color: var(--ink);
+  }
+
+  .reading-thumb {
+    display: block;
+    align-self: start;
+    aspect-ratio: 1.91 / 1;
+    overflow: hidden;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    background: var(--card);
+  }
+
+  .reading-thumb img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @media (max-width: 560px) {
+    .reading-item {
+      grid-template-columns: minmax(0, 1fr) 96px;
+      gap: 16px;
+    }
+
+    .reading-title {
+      font-size: 18px;
+    }
+  }
+</style>
