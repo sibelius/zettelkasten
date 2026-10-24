@@ -1,0 +1,1 @@
+import{t as e}from"./interactive.BgETTvwa.js";document.querySelectorAll(`.prose`).forEach(t=>e(t));
