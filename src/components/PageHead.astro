@@ -1,0 +1,43 @@
+---
+type Props = {title: string; note?: string; lede?: string};
+
+const {title, note, lede} = Astro.props;
+---
+
+<header class="row page-head">
+  <div class="margin page-head-note">{note}</div>
+  <div class="body">
+    <h1 class="page-head-title">{title}</h1>
+    {lede && <p class="lede">{lede}</p>}
+    <slot />
+  </div>
+</header>
+
+<style>
+  .page-head {
+    padding: 56px 0 24px;
+  }
+
+  .page-head-note {
+    padding-top: 20px;
+  }
+
+  .page-head-title {
+    margin: 0;
+    font-family: var(--sans);
+    font-weight: 800;
+    font-size: clamp(40px, 6vw, 72px);
+    line-height: 1.02;
+    letter-spacing: -0.035em;
+  }
+
+  @media (max-width: 760px) {
+    .page-head {
+      padding-top: 24px;
+    }
+
+    .page-head-note {
+      padding-top: 0;
+    }
+  }
+</style>

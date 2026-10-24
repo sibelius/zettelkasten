@@ -1,0 +1,89 @@
+---
+type Props = {url: string};
+
+const {url} = Astro.props;
+
+/** YouTube gets a real player. Everything else becomes a link card, so pages stay fast and private. */
+function youtubeId(value: string): string | null {
+  const match = value.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/)?)([\w-]{11})/);
+
+  return match?.[1] ?? null;
+}
+
+const video = youtubeId(url);
+const host = new URL(url).hostname.replace(/^www\./, '');
+const label = host === 'twitter.com' || host === 'x.com' ? 'Post on X' : host;
+---
+
+{
+  video ? (
+    <figure class="embed-video">
+      <iframe
+        src={`https://www.youtube-nocookie.com/embed/${video}`}
+        title="YouTube video"
+        loading="lazy"
+        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      />
+      <figcaption>
+        <a href={url}>Watch on YouTube</a>
+      </figcaption>
+    </figure>
+  ) : (
+    <a class="embed-card" href={url}>
+      <span class="embed-host">{label}</span>
+      <span class="embed-url">{url.replace(/^https?:\/\/(www\.)?/, '')}</span>
+    </a>
+  )
+}
+
+<style>
+  .embed-video {
+    margin: 0 0 1.2em;
+  }
+
+  .embed-video iframe {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: 0;
+    border-radius: 8px;
+    background: var(--card);
+  }
+
+  .embed-video figcaption {
+    margin-top: 6px;
+    font-family: var(--sans);
+    font-size: 15px;
+  }
+
+  .embed-card {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin: 0 0 1em;
+    padding: 14px 16px;
+    border: 1.5px solid var(--rule-strong);
+    border-left: 4px solid var(--blue);
+    border-radius: 6px;
+    background: var(--card);
+    font-family: var(--sans);
+    text-decoration: none;
+  }
+
+  .embed-card:hover {
+    border-color: var(--blue);
+  }
+
+  .embed-host {
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--ink);
+  }
+
+  .embed-url {
+    font-size: 14px;
+    color: var(--pencil);
+    overflow-wrap: anywhere;
+  }
+</style>

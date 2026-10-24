@@ -1,0 +1,5 @@
+---
+const {title = 'Embedded content', ...props} = Astro.props;
+---
+
+<iframe title={title} loading="lazy" {...props}></iframe>

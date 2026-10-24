@@ -1,0 +1,61 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import {getDocs, tagCounts, tagUrl} from '../../lib/docs';
+
+const docs = await getDocs();
+const counts = tagCounts(docs);
+const byLetter = new Map<string, [string, number][]>();
+
+for (const entry of [...counts].sort((a, b) => a[0].localeCompare(b[0]))) {
+  const letter = entry[0][0].toUpperCase().replace(/[^A-Z]/, '#');
+  byLetter.set(letter, [...(byLetter.get(letter) ?? []), entry]);
+}
+---
+
+<Base title="Tags" description="Every tag in my notes, with how many notes carry it.">
+  <PageHead title="Tags" note={`${counts.length} tags`} lede="Every tag in the notes. The number is how many notes carry it." />
+  {
+    [...byLetter].map(([letter, tags]) => (
+      <section class="row list-row" aria-label={letter}>
+        <div class="margin letter">{letter}</div>
+        <div class="body">
+          <ul class="tag-cloud" role="list">
+            {tags.map(([tag, count]) => (
+              <li>
+                <a href={tagUrl(tag)}>{tag}</a> <span class="muted">{count}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    ))
+  }
+</Base>
+
+<style>
+  .letter {
+    font-weight: 800;
+    font-size: 22px;
+    color: var(--ink);
+  }
+
+  .tag-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 24px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family: var(--sans);
+    font-size: 17px;
+  }
+
+  .tag-cloud a {
+    font-weight: 600;
+  }
+
+  .tag-cloud .muted {
+    font-size: 14px;
+  }
+</style>

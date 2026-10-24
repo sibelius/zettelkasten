@@ -1,0 +1,678 @@
+---
+import Base from '../layouts/Base.astro';
+import Graph from '../components/Graph.astro';
+import NoteList from '../components/NoteList.astro';
+import {formatDate, getDocs, tagCounts, withBase} from '../lib/docs';
+import {buildGraph} from '../lib/graph';
+import {featuredNotes, offers, person, skills, starred, vibes, visualized} from '../data/site';
+import writing from '../data/writing.json';
+
+const docs = await getDocs();
+const graph = buildGraph(docs);
+const notes = docs.filter((doc) => doc.section.key === 'notes');
+const featured = featuredNotes.map((id) => docs.find((doc) => doc.id === id)).filter((doc) => !!doc);
+const topTags = tagCounts(docs).slice(0, 8);
+
+const sources = ['All', ...new Set(writing.map((post) => post.source))];
+const ALL_LIMIT = 10;
+const SOURCE_LIMIT = 12;
+
+// Each post knows whether it shows under "All" and under its own site, so filtering is just CSS.
+const perSource = new Map<string, number>();
+const posts = writing.map((post, i) => {
+  const rank = perSource.get(post.source) ?? 0;
+  perSource.set(post.source, rank + 1);
+
+  return {...post, inAll: i < ALL_LIMIT, inSource: rank < SOURCE_LIMIT};
+});
+
+const [firstName, lastName] = person.name.split(' ');
+---
+
+<Base>
+  <header id="top" class="row hero">
+    <div class="margin hero-meta">
+      <p>{person.role}, <a href={person.company.url}>{person.company.name}</a></p>
+      <p>{person.city}</p>
+      <p><a href={person.x.url}>{person.x.handle}</a></p>
+    </div>
+    <div class="body">
+      <h1 class="hero-name">
+        <span class="hero-line"><span>{firstName}</span></span>
+        <span class="hero-line"><span>{lastName}</span></span>
+      </h1>
+      <p class="hero-intro">{person.intro}</p>
+      <p class="hero-actions">
+        <a class="button button-primary" href="#writing">Read my writing</a>
+        <a class="button button-ghost" href="#work">Work with me</a>
+      </p>
+    </div>
+  </header>
+
+  <section id="skills" class="section" aria-labelledby="skills-title">
+    <div class="row">
+      <div class="margin section-note">With the receipts</div>
+      <div class="body"><h2 id="skills-title" class="section-title">What I'm good at</h2></div>
+    </div>
+    {
+      skills.map((skill) => (
+        <div class="row list-row skill">
+          <div class="margin skill-area">{skill.area}</div>
+          <div class="body">
+            <p class="skill-claim">{skill.claim}</p>
+            <p class="links">
+              {skill.proof.map((proof) => (
+                <a href={proof.url}>{proof.label}</a>
+              ))}
+            </p>
+          </div>
+        </div>
+      ))
+    }
+  </section>
+
+  <section id="writing" class="section" aria-labelledby="writing-title" data-writing data-source="All">
+    <div class="row">
+      <div class="margin section-note">Substack, dev.to and Medium, newest first</div>
+      <div class="body">
+        <h2 id="writing-title" class="section-title">Writing</h2>
+        <div class="tabs writing-tabs" role="group" aria-label="Filter writing by site">
+          {
+            sources.map((source) => (
+              <button class="tab" type="button" data-source-button={source} aria-pressed={source === 'All' ? 'true' : 'false'}>
+                {source}
+              </button>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+    <ul class="post-list" role="list">
+      {
+        posts.map((post) => (
+          <li class="row list-row post" data-post-source={post.source} data-in-all={String(post.inAll)} data-in-source={String(post.inSource)}>
+            <div class="margin">
+              <time datetime={post.date}>{formatDate(post.date)}</time>
+            </div>
+            <div class="body post-body">
+              <a class="plain post-title" href={post.url}>
+                {post.title}
+              </a>
+              <span class="post-source">{post.source}</span>
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+    <div class="row">
+      <div class="margin"></div>
+      <div class="body more">
+        <p class="links">
+          <a href="https://sibelius.substack.com/">All posts on Substack</a>
+          <a href="https://dev.to/sibelius">All posts on dev.to</a>
+          <a href="https://sibelius.medium.com/">All posts on Medium</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="visualized" class="section" aria-labelledby="visualized-title">
+    <div class="row">
+      <div class="margin section-note">Study companions where every chapter is a simulation</div>
+      <div class="body">
+        <h2 id="visualized-title" class="section-title">Visualized</h2>
+        <p class="lede">Books and systems I wanted to understand properly, rebuilt as things you can drag, step through and break.</p>
+        <ul class="tiles" role="list">
+          {
+            visualized.map((item) => (
+              <li>
+                <a class="tile" href={item.url}>
+                  <span class="tile-title">{item.title}</span>
+                  <span class="tile-text">{item.description}</span>
+                  <span class="tile-host">{item.host}</span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="code" class="section" aria-labelledby="code-title">
+    <div class="row">
+      <div class="margin section-note">On GitHub as <a href={person.github.url}>{person.github.handle}</a></div>
+      <div class="body">
+        <h2 id="code-title" class="section-title">Code</h2>
+        <div class="split">
+          <div>
+            <h3 class="sub-title">Most starred</h3>
+            <ul class="repos" role="list">
+              {
+                starred.map((repo) => (
+                  <li>
+                    <a class="repo" href={repo.url}>
+                      <span class="repo-stars" aria-label={`${repo.stars} stars`}>{repo.stars}</span>
+                      <span>
+                        <span class="repo-name">{repo.name}</span>
+                        <span class="repo-text">{repo.description}</span>
+                      </span>
+                    </a>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+          <div>
+            <h3 class="sub-title">Vibecoded lately</h3>
+            <p class="vibes-note">Small things built in an afternoon to learn something or scratch an itch.</p>
+            <ul class="vibes" role="list">
+              {
+                vibes.map((vibe) => (
+                  <li>
+                    <a class="plain" href={vibe.url}>
+                      {vibe.name}
+                    </a>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="notes" class="section" aria-labelledby="notes-title">
+    <div class="row">
+      <div class="margin section-note">{notes.length} notes, linked by tag and by hand</div>
+      <div class="body">
+        <h2 id="notes-title" class="section-title">Notes</h2>
+        <p class="lede">
+          Short, unfinished notes on learning, startups, career and code. I write things down so I only have to figure them
+          out once. Pick a tag, search, or click any dot.
+        </p>
+        <div class="notes-grid">
+          <div class="tag-index" role="group" aria-label="Show a tag in the graph">
+            <button type="button" class="tag-index-item" data-graph-tag="" aria-pressed="true">
+              <span>Every note</span><span>{graph.nodes.filter((node) => node.kind === 'note').length}</span>
+            </button>
+            {
+              topTags.map(([tag, count]) => (
+                <button type="button" class="tag-index-item" data-graph-tag={tag} aria-pressed="false">
+                  <span>{tag}</span>
+                  <span>{count}</span>
+                </button>
+              ))
+            }
+            <p class="links tag-index-links">
+              <a href={withBase('/graph')}>Open the full graph</a>
+              <a href={withBase('/tags')}>All tags</a>
+            </p>
+          </div>
+          <Graph data={graph} height="560px" id="home-graph" />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="margin"></div>
+      <div class="body"><h3 class="sub-title featured-title">Good ones to start with</h3></div>
+    </div>
+    <NoteList docs={featured} />
+    <div class="row">
+      <div class="margin"></div>
+      <div class="body more">
+        <a class="button button-ghost" href={withBase('/category/notes')}>Browse all {notes.length} notes</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="elsewhere" class="section" aria-labelledby="elsewhere-title">
+    <div class="row">
+      <div class="margin section-note">Same ideas, out loud</div>
+      <div class="body">
+        <h2 id="elsewhere-title" class="section-title">Talks and everywhere else</h2>
+        <p class="elsewhere">
+          Slides from my talks are on <a href="https://speakerdeck.com/sibelius">SpeakerDeck</a>, recordings on
+          <a href={withBase('/youtube')}>YouTube</a>, and conversations on a few <a href={withBase('/podcast')}>podcasts</a>.
+          Day to day I think out loud on <a href={person.x.url}>X as {person.x.handle}</a>. The longer essays live in
+          <a href={withBase('/food-for-thought')}>Food for thought</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="work" class="section" aria-labelledby="work-title">
+    <div class="row">
+      <div class="margin section-note">For when you want the conversation, not only the notes</div>
+      <div class="body"><h2 id="work-title" class="section-title">Work with me</h2></div>
+    </div>
+    {
+      offers.map((offer) => (
+        <div class="row list-row">
+          <div class="margin offer-price">
+            <span>{offer.price}</span>
+            <span class="muted">a month</span>
+          </div>
+          <div class="body">
+            <a class="offer-title" href={offer.url}>
+              {offer.title}
+            </a>
+            <p class="offer-text">{offer.description}</p>
+          </div>
+        </div>
+      ))
+    }
+  </section>
+</Base>
+
+<script>
+  const section = document.querySelector<HTMLElement>('[data-writing]');
+
+  section?.addEventListener('click', (event) => {
+    const button = (event.target as HTMLElement).closest<HTMLButtonElement>('[data-source-button]');
+
+    if (!button) {
+      return;
+    }
+
+    section.dataset.source = button.dataset.sourceButton;
+    section.querySelectorAll('[data-source-button]').forEach((other) => other.setAttribute('aria-pressed', String(other === button)));
+  });
+</script>
+
+<style>
+  .hero {
+    padding-top: 72px;
+  }
+
+  .hero-meta {
+    padding-top: 24px;
+  }
+
+  .hero-meta p {
+    margin: 0;
+  }
+
+  .hero-name {
+    margin: 0 0 32px;
+    font-family: var(--sans);
+    font-weight: 800;
+    font-size: clamp(60px, 11vw, 148px);
+    line-height: 0.9;
+    letter-spacing: -0.05em;
+  }
+
+  .hero-line {
+    display: block;
+    overflow: hidden;
+    padding-bottom: 0.04em;
+  }
+
+  .hero-line > span {
+    display: inline-block;
+    animation: rise 800ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  }
+
+  .hero-line + .hero-line > span {
+    animation-delay: 90ms;
+  }
+
+  @keyframes rise {
+    from {
+      transform: translateY(100%);
+    }
+  }
+
+  .hero-intro {
+    margin: 0 0 36px;
+    max-width: 30em;
+    font-size: clamp(21px, 2.2vw, 28px);
+    line-height: 1.45;
+    text-wrap: pretty;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 0;
+  }
+
+  .section-note {
+    padding-top: 14px;
+  }
+
+  .section .section-title {
+    margin-bottom: 16px;
+  }
+
+  .skill-area {
+    font-weight: 700;
+    font-size: 17px;
+    color: var(--ink);
+    line-height: 1.35;
+  }
+
+  .skill-claim {
+    margin: 0 0 10px;
+    max-width: 32em;
+    font-size: 22px;
+    line-height: 1.5;
+  }
+
+  .writing-tabs {
+    margin-top: 8px;
+  }
+
+  .post-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  [data-source='All'] .post[data-in-all='false'] {
+    display: none;
+  }
+
+  [data-writing]:not([data-source='All']) .post[data-in-source='false'] {
+    display: none;
+  }
+
+  [data-source='Substack'] .post:not([data-post-source='Substack']),
+  [data-source='dev.to'] .post:not([data-post-source='dev.to']),
+  [data-source='Medium'] .post:not([data-post-source='Medium']) {
+    display: none;
+  }
+
+  .post .margin {
+    padding-top: 19px;
+  }
+
+  .post .body {
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+
+  .post-body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 4px 24px;
+  }
+
+  .post-title {
+    font-size: 21px;
+    line-height: 1.4;
+  }
+
+  .post-source {
+    font-family: var(--sans);
+    font-size: 15px;
+    color: var(--pencil);
+  }
+
+  .more {
+    padding-top: 22px;
+  }
+
+  .tiles {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 40px 32px;
+    margin: 40px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .tile {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding-top: 16px;
+    border-top: 4px solid var(--ink);
+    color: var(--ink);
+    text-decoration: none;
+    transition: border-color 160ms ease;
+  }
+
+  .tile:hover {
+    border-color: var(--blue);
+    color: var(--ink);
+  }
+
+  .tile-title {
+    font-family: var(--sans);
+    font-weight: 800;
+    font-size: 23px;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+
+  .tile-text {
+    margin-top: 8px;
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+  }
+
+  .tile-host {
+    margin-top: auto;
+    padding-top: 12px;
+    font-family: var(--sans);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--blue);
+    overflow-wrap: anywhere;
+  }
+
+  .split {
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    gap: 48px;
+    margin-top: 32px;
+  }
+
+  .repos,
+  .vibes {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .repo {
+    display: grid;
+    grid-template-columns: 56px minmax(0, 1fr);
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--rule);
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .repo:hover .repo-name {
+    color: var(--blue);
+  }
+
+  .repo-stars {
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--pencil);
+    text-align: right;
+  }
+
+  .repo-name {
+    display: block;
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 18px;
+  }
+
+  .repo-text {
+    display: block;
+    font-size: 17px;
+    line-height: 1.45;
+    color: var(--ink-soft);
+  }
+
+  .vibes-note {
+    margin: 14px 0 12px;
+    font-size: 17px;
+    color: var(--ink-soft);
+  }
+
+  .vibes {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 20px;
+    font-family: var(--sans);
+    font-size: 16px;
+  }
+
+  .vibes a {
+    display: block;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--rule);
+    overflow-wrap: anywhere;
+  }
+
+  .notes-grid {
+    display: grid;
+    grid-template-columns: minmax(180px, 1fr) minmax(0, 3fr);
+    gap: 32px;
+    margin-top: 32px;
+    align-items: start;
+  }
+
+  .tag-index {
+    border-top: 2px solid var(--ink);
+    font-family: var(--sans);
+  }
+
+  .tag-index-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    min-height: 44px;
+    padding: 0 12px;
+    border: 0;
+    border-bottom: 1px solid var(--rule-strong);
+    background: transparent;
+    color: var(--ink);
+    font: inherit;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 150ms ease, color 150ms ease;
+  }
+
+  .tag-index-item span:last-child {
+    color: var(--pencil);
+  }
+
+  .tag-index-item:hover {
+    background: var(--card);
+  }
+
+  .tag-index-item[aria-pressed='true'] {
+    background: var(--ink);
+    color: var(--on-ink);
+    font-weight: 700;
+  }
+
+  .tag-index-item[aria-pressed='true'] span:last-child {
+    color: var(--on-ink);
+  }
+
+  .tag-index-links {
+    margin-top: 14px;
+  }
+
+  .featured-title {
+    margin-top: 64px;
+  }
+
+  .elsewhere {
+    margin: 0;
+    max-width: 34em;
+    font-size: 22px;
+    line-height: 1.6;
+  }
+
+  .offer-price span {
+    display: block;
+  }
+
+  .offer-price span:first-child {
+    font-weight: 800;
+    font-size: 22px;
+    color: var(--ink);
+  }
+
+  .offer-title {
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 24px;
+  }
+
+  .offer-text {
+    margin: 6px 0 0;
+    max-width: 36em;
+    color: var(--ink-soft);
+  }
+
+  @media (max-width: 1100px) {
+    .notes-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .tag-index {
+      display: flex;
+      flex-wrap: wrap;
+      border-top: 0;
+      gap: 6px;
+    }
+
+    .tag-index-item {
+      width: auto;
+      gap: 10px;
+      border: 1.5px solid var(--rule-strong);
+      border-radius: 6px;
+    }
+  }
+
+  @media (max-width: 1000px) {
+    .tiles {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 760px) {
+    .hero {
+      padding-top: 32px;
+    }
+
+    .hero-meta {
+      padding: 0 0 16px;
+    }
+
+    .tiles,
+    .split {
+      grid-template-columns: 1fr;
+    }
+
+    .post .margin {
+      padding-top: 16px;
+    }
+
+    .post .body {
+      padding-top: 0;
+    }
+
+    .skill-claim {
+      font-size: 20px;
+    }
+  }
+</style>

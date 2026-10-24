@@ -1,0 +1,254 @@
+[
+  {
+    "source": "dev.to",
+    "title": "Creating a Certificate X.509 expiration Dashboard using Grafana",
+    "url": "https://dev.to/woovi/creating-a-certificate-x509-expiration-dashboard-using-grafana-211k",
+    "date": "2026-01-05"
+  },
+  {
+    "source": "Substack",
+    "title": "Software Development Retrospective",
+    "url": "https://sibelius.substack.com/p/software-development-retrospective",
+    "date": "2025-12-30"
+  },
+  {
+    "source": "dev.to",
+    "title": "Saving Terraform State in S3",
+    "url": "https://dev.to/woovi/saving-terraform-state-in-s3-4ja7",
+    "date": "2025-12-04"
+  },
+  {
+    "source": "dev.to",
+    "title": "Creating a S3 bucket using Terraform",
+    "url": "https://dev.to/woovi/creating-a-s3-bucket-using-terraform-4kgb",
+    "date": "2025-12-03"
+  },
+  {
+    "source": "dev.to",
+    "title": "Copy and Paste on Proxmox VM",
+    "url": "https://dev.to/woovi/copy-and-paste-on-proxmox-vm-15il",
+    "date": "2025-12-02"
+  },
+  {
+    "source": "dev.to",
+    "title": "Using Terraform to create LXC in Proxmox",
+    "url": "https://dev.to/woovi/using-terraform-to-create-lxc-in-proxmox-496h",
+    "date": "2025-12-01"
+  },
+  {
+    "source": "dev.to",
+    "title": "A Modern Node.js + TypeScript Setup for 2025 🚀",
+    "url": "https://dev.to/woovi/a-modern-nodejs-typescript-setup-for-2025-nlk",
+    "date": "2025-01-29"
+  },
+  {
+    "source": "dev.to",
+    "title": "\"ngrok\" from scratch",
+    "url": "https://dev.to/woovi/ngrok-from-scratch-be3",
+    "date": "2025-01-28"
+  },
+  {
+    "source": "dev.to",
+    "title": "How to self-host any open source service?",
+    "url": "https://dev.to/woovi/how-to-self-host-any-open-source-service-1p8d",
+    "date": "2025-01-27"
+  },
+  {
+    "source": "dev.to",
+    "title": "Bootstrapping ArgoCD with Helm and Helmfile",
+    "url": "https://dev.to/woovi/bootstrapping-argocd-with-helm-and-helmfile-2fhe",
+    "date": "2025-01-24"
+  },
+  {
+    "source": "dev.to",
+    "title": "Sharing a Redis using a Prefix",
+    "url": "https://dev.to/woovi/sharing-a-redis-using-a-prefix-43e2",
+    "date": "2025-01-23"
+  },
+  {
+    "source": "dev.to",
+    "title": "Enhancing DX by Using Staging Services in Development",
+    "url": "https://dev.to/woovi/enhancing-dx-by-using-staging-services-in-development-3f0d",
+    "date": "2025-01-22"
+  },
+  {
+    "source": "dev.to",
+    "title": "Optimizing SSH Connections",
+    "url": "https://dev.to/woovi/optimizing-ssh-connections-1oa4",
+    "date": "2025-01-21"
+  },
+  {
+    "source": "Substack",
+    "title": "Use Information Asymmetry to create a defensible Startup moat",
+    "url": "https://sibelius.substack.com/p/use-information-asymmetry-to-create",
+    "date": "2024-01-22"
+  },
+  {
+    "source": "Substack",
+    "title": "The best business models align all stakeholders needs",
+    "url": "https://sibelius.substack.com/p/the-best-business-models-align-all",
+    "date": "2024-01-19"
+  },
+  {
+    "source": "Substack",
+    "title": "From passive to an active Person",
+    "url": "https://sibelius.substack.com/p/from-passive-to-an-active-person",
+    "date": "2024-01-18"
+  },
+  {
+    "source": "Substack",
+    "title": "Common mistakes of developers as first time startup founders",
+    "url": "https://sibelius.substack.com/p/common-mistakes-of-developers-as",
+    "date": "2024-01-17"
+  },
+  {
+    "source": "Substack",
+    "title": "God is omniscient, omnipresent and omnipotent",
+    "url": "https://sibelius.substack.com/p/god-is-omniscient-omnipresent-and",
+    "date": "2024-01-12"
+  },
+  {
+    "source": "Substack",
+    "title": "What is expected from a Tech Lead?",
+    "url": "https://sibelius.substack.com/p/what-is-expected-from-a-tech-lead",
+    "date": "2024-01-11"
+  },
+  {
+    "source": "Substack",
+    "title": "You are never going to get it right at first",
+    "url": "https://sibelius.substack.com/p/you-never-going-to-get-it-right-at",
+    "date": "2024-01-10"
+  },
+  {
+    "source": "Substack",
+    "title": "How to hire and train Juniors",
+    "url": "https://sibelius.substack.com/p/how-to-hire-and-train-juniors",
+    "date": "2024-01-09"
+  },
+  {
+    "source": "Substack",
+    "title": "What is expected from a CTO of a Startup?",
+    "url": "https://sibelius.substack.com/p/what-is-expected-from-a-cto-of-a",
+    "date": "2024-01-08"
+  },
+  {
+    "source": "Substack",
+    "title": "How to build a \"simple\" Product?",
+    "url": "https://sibelius.substack.com/p/how-to-build-a-simple-product",
+    "date": "2024-01-05"
+  },
+  {
+    "source": "Substack",
+    "title": "A practical guide of using a Landing Page to validate your idea",
+    "url": "https://sibelius.substack.com/p/a-practical-guide-of-using-a-landing",
+    "date": "2024-01-04"
+  },
+  {
+    "source": "Substack",
+    "title": "How to become a Senior engineer faster?",
+    "url": "https://sibelius.substack.com/p/how-to-become-a-senior-engineer-faster",
+    "date": "2024-01-03"
+  },
+  {
+    "source": "Substack",
+    "title": "Why should you prefer text/image over video/audio for learning?",
+    "url": "https://sibelius.substack.com/p/why-should-you-prefer-textimage-over",
+    "date": "2024-01-02"
+  },
+  {
+    "source": "Substack",
+    "title": "The evolution of meta game for developers",
+    "url": "https://sibelius.substack.com/p/the-evolution-of-meta-game-for-developers",
+    "date": "2023-03-01"
+  },
+  {
+    "source": "Substack",
+    "title": "Receiving more Feedback",
+    "url": "https://sibelius.substack.com/p/receiving-more-feedback",
+    "date": "2022-10-17"
+  },
+  {
+    "source": "Substack",
+    "title": "We don't have Seniors anymore",
+    "url": "https://sibelius.substack.com/p/we-dont-have-seniors-anymore",
+    "date": "2022-10-13"
+  },
+  {
+    "source": "Substack",
+    "title": "You can do anything",
+    "url": "https://sibelius.substack.com/p/you-can-do-anything",
+    "date": "2022-05-31"
+  },
+  {
+    "source": "Substack",
+    "title": "What developers merge when nobody's looking?",
+    "url": "https://sibelius.substack.com/p/what-developers-merge-when-nobodys",
+    "date": "2022-02-02"
+  },
+  {
+    "source": "Substack",
+    "title": "How to find the best solution?",
+    "url": "https://sibelius.substack.com/p/how-to-find-the-best-solution",
+    "date": "2022-01-10"
+  },
+  {
+    "source": "Medium",
+    "title": "Reduce testing and building time in Monorepos",
+    "url": "https://sibelius.medium.com/reduce-testing-and-building-time-in-monorepos-5843b63972b",
+    "date": "2020-10-15"
+  },
+  {
+    "source": "Medium",
+    "title": "Parsing Slack /remind command",
+    "url": "https://sibelius.medium.com/parsing-slack-remind-command-fc3f5e4026e",
+    "date": "2020-07-22"
+  },
+  {
+    "source": "Medium",
+    "title": "Adding Server Side Rendering to a Relay Production App",
+    "url": "https://sibelius.medium.com/adding-server-side-rendering-to-a-relay-production-app-8df64495aebf",
+    "date": "2020-02-27"
+  },
+  {
+    "source": "Medium",
+    "title": "How we save 1M hours of development using React Navigation",
+    "url": "https://sibelius.medium.com/how-we-save-1m-hours-of-development-using-react-navigation-3681f2f907c9",
+    "date": "2019-02-21"
+  },
+  {
+    "source": "Medium",
+    "title": "Relay Modern: Migration to Typescript",
+    "url": "https://sibelius.medium.com/relay-modern-migration-to-typescript-c26ab0ee749c",
+    "date": "2018-12-28"
+  },
+  {
+    "source": "Medium",
+    "title": "Relay Modern: the Relay Store",
+    "url": "https://sibelius.medium.com/relay-modern-the-relay-store-8984cd148798",
+    "date": "2018-12-28"
+  },
+  {
+    "source": "Medium",
+    "title": "Relay Modern — What is a Fragment?",
+    "url": "https://sibelius.medium.com/relay-modern-what-is-a-fragment-c70f164c2469",
+    "date": "2018-12-19"
+  },
+  {
+    "source": "Medium",
+    "title": "Why your company should have an Open Source Playground",
+    "url": "https://sibelius.medium.com/why-your-company-should-have-an-open-source-playground-4bb93068ce95",
+    "date": "2018-12-15"
+  },
+  {
+    "source": "Medium",
+    "title": "Incremental Migration to TypeScript on a Flowtype codebase",
+    "url": "https://medium.com/entria/incremental-migration-to-typescript-on-a-flowtype-codebase-515f6490d92d",
+    "date": "2018-09-04"
+  },
+  {
+    "source": "Medium",
+    "title": "Relay Modern Network Deep Dive",
+    "url": "https://medium.com/entria/relay-modern-network-deep-dive-ec187629dfd3",
+    "date": "2018-07-22"
+  }
+]

@@ -1,0 +1,29 @@
+---
+import QR from 'qrcode';
+
+type Props = {value: string};
+
+const {value} = Astro.props;
+const svg = await QR.toString(value, {type: 'svg', margin: 2, color: {dark: '#18202b', light: '#ffffff'}});
+---
+
+<figure class="qr" aria-label="Pix QR code">
+  <Fragment set:html={svg} />
+</figure>
+
+<style>
+  .qr {
+    width: 280px;
+    margin: 24px 0 12px;
+    padding: 6px;
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    background: #fff;
+  }
+
+  .qr :global(svg) {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+</style>

@@ -1,0 +1,52 @@
+---
+import {tagUrl, type Doc} from '../lib/docs';
+
+type Props = {docs: Doc[]; showTags?: boolean};
+
+const {docs, showTags = true} = Astro.props;
+---
+
+<ul class="note-list" role="list">
+  {
+    docs.map((doc) => (
+      <li class="row list-row">
+        <div class="margin">
+          {showTags && doc.tags.length > 0 && (
+            <span class="tag-list">
+              {doc.tags.slice(0, 3).map((tag) => (
+                <a href={tagUrl(tag)}>{tag}</a>
+              ))}
+            </span>
+          )}
+        </div>
+        <div class="body">
+          <a class="plain note-list-title" href={doc.url}>
+            {doc.title}
+          </a>
+          {doc.excerpt && <p class="note-list-excerpt">{doc.excerpt}</p>}
+        </div>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .note-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .note-list-title {
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 23px;
+    line-height: 1.25;
+  }
+
+  .note-list-excerpt {
+    margin: 6px 0 0;
+    color: var(--ink-soft);
+    max-width: 38em;
+  }
+</style>

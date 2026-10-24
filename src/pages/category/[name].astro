@@ -1,0 +1,40 @@
+---
+import Base from '../../layouts/Base.astro';
+import NoteList from '../../components/NoteList.astro';
+import PageHead from '../../components/PageHead.astro';
+import {getDocs, tagSlug, type Doc} from '../../lib/docs';
+
+export async function getStaticPaths() {
+  const docs = await getDocs();
+  const sections = new Map<string, {label: string; docs: Doc[]}>();
+
+  for (const doc of docs) {
+    if (doc.section.key === 'essays') {
+      continue;
+    }
+
+    const slug = tagSlug(doc.section.label);
+    const section = sections.get(slug) ?? {label: doc.section.label, docs: []};
+    section.docs.push(doc);
+    sections.set(slug, section);
+  }
+
+  return [...sections].map(([name, section]) => ({params: {name}, props: section}));
+}
+
+type Props = {label: string; docs: Doc[]};
+
+const {label, docs} = Astro.props;
+const sorted = [...docs].sort((a, b) => a.position - b.position || a.title.localeCompare(b.title));
+
+const ledes: Record<string, string> = {
+  Notes: 'Short, unfinished notes, one idea each. Many link to each other; the graph shows how.',
+  Mentorship: 'Questions developers ask me, answered once so I never have to answer them twice.',
+  'Learning Path': 'Ordered routes through a stack, for when “just read the docs” is not an answer.',
+};
+---
+
+<Base title={label} description={ledes[label]}>
+  <PageHead title={label} note={`${docs.length} ${docs.length === 1 ? 'page' : 'pages'}`} lede={ledes[label]} />
+  <NoteList docs={sorted} />
+</Base>

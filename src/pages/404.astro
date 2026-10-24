@@ -1,0 +1,23 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import {withBase} from '../lib/docs';
+---
+
+<Base title="Page not found">
+  <PageHead title="This note is not in the box" note="404" lede="It may have been renamed or removed. Search for it, or start from the notes.">
+    <p class="actions">
+      <button class="button button-primary" type="button" data-search-open>Search notes</button>
+      <a class="button button-ghost" href={withBase('/category/notes')}>Browse all notes</a>
+    </p>
+  </PageHead>
+</Base>
+
+<style>
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 28px;
+  }
+</style>

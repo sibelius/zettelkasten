@@ -1,0 +1,19 @@
+---
+type Props = {value: string};
+
+const {value} = Astro.props;
+---
+
+<button class="button button-ghost copy-qr" type="button" data-copy={value}>Copy Pix code</button>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('[data-copy]').forEach((button) => {
+    const label = button.textContent;
+
+    button.addEventListener('click', async () => {
+      await navigator.clipboard.writeText(button.dataset.copy ?? '');
+      button.textContent = 'Copied';
+      setTimeout(() => (button.textContent = label), 1500);
+    });
+  });
+</script>

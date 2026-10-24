@@ -1,0 +1,182 @@
+---
+import {render} from 'astro:content';
+
+import Base from '../layouts/Base.astro';
+import {mdxComponents} from '../components/mdx';
+import {backlinks, formatDate, getDocs, related, tagUrl, type Doc} from '../lib/docs';
+
+export async function getStaticPaths() {
+  const docs = await getDocs();
+
+  return docs.map((doc) => ({params: {slug: doc.route}, props: {doc}}));
+}
+
+type Props = {doc: Doc};
+
+const {doc} = Astro.props;
+const docs = await getDocs();
+const {Content} = await render(doc.entry);
+
+const byId = new Map(docs.map((d) => [d.id, d]));
+const linksTo = doc.links.map((id) => byId.get(id)!).filter(Boolean);
+const linkedFrom = backlinks(docs, doc);
+const alsoTagged = related(docs, doc);
+
+const connections = [
+  {label: 'Linked from', items: linkedFrom},
+  {label: 'Links to', items: linksTo},
+  {label: 'Shares tags with', items: alsoTagged},
+].filter((group) => group.items.length > 0);
+
+const editUrl = `https://github.com/sibelius/zettelkasten/edit/main/${doc.file}`;
+---
+
+<Base title={doc.title} description={doc.excerpt}>
+  <article class="note">
+    <header class="row note-head">
+      <div class="margin note-section">
+        <a class="plain" href={doc.section.url}>{doc.section.label}</a>
+      </div>
+      <div class="body">
+        <h1 class="note-title">{doc.title}</h1>
+      </div>
+    </header>
+
+    <div class="row">
+      <aside class="margin note-meta" aria-label="About this note">
+        {
+          doc.tags.length > 0 && (
+            <ul class="tag-list note-tags" role="list" aria-label="Tags">
+              {doc.tags.map((tag) => (
+                <li>
+                  <a href={tagUrl(tag)}>{tag}</a>
+                </li>
+              ))}
+            </ul>
+          )
+        }
+        {doc.updated && <p>Updated <time datetime={doc.updated}>{formatDate(doc.updated)}</time></p>}
+        <p><a href={editUrl}>Edit on GitHub</a></p>
+      </aside>
+      <div class="body prose">
+        <Content components={mdxComponents} />
+      </div>
+    </div>
+
+    {
+      connections.map((group, i) => (
+        <section class="row connections" aria-label={group.label}>
+          <div class="margin connections-label">{group.label}</div>
+          <div class={`body${i === 0 ? ' connections-first' : ''}`}>
+            <ul class="connections-list" role="list">
+              {group.items.map((item) => (
+                <li>
+                  <a class="plain" href={item.url}>
+                    {item.title}
+                  </a>
+                  {item.excerpt && <span class="connections-excerpt">{item.excerpt}</span>}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      ))
+    }
+  </article>
+</Base>
+
+<style>
+  .note-head {
+    padding-top: 56px;
+  }
+
+  .note-section {
+    padding-top: 18px;
+    font-weight: 600;
+  }
+
+  .note-title {
+    margin: 0 0 32px;
+    font-family: var(--sans);
+    font-weight: 800;
+    font-size: clamp(36px, 5vw, 60px);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    max-width: 18em;
+    text-wrap: balance;
+  }
+
+  .note-meta p {
+    margin: 12px 0 0;
+  }
+
+  .note-tags {
+    margin: 4px 0 0;
+    padding: 0;
+    list-style: none;
+    font-weight: 600;
+  }
+
+  .connections .margin {
+    padding-top: 22px;
+  }
+
+  .connections-label {
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .connections-first {
+    margin-top: 56px;
+    border-top: 2px solid var(--ink);
+  }
+
+  .connections .body {
+    padding-bottom: 8px;
+  }
+
+  .connections:first-of-type .margin {
+    padding-top: 78px;
+  }
+
+  .connections-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .connections-list li {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .connections-list a {
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 19px;
+  }
+
+  .connections-excerpt {
+    display: block;
+    margin-top: 2px;
+    font-size: 17px;
+    color: var(--ink-soft);
+    max-width: 40em;
+  }
+
+  @media (max-width: 760px) {
+    .note-head {
+      padding-top: 24px;
+    }
+
+    .note-section,
+    .connections .margin,
+    .connections:first-of-type .margin {
+      padding-top: 0;
+    }
+
+    .connections-first {
+      margin-top: 8px;
+    }
+  }
+</style>

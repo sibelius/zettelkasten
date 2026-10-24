@@ -1,0 +1,39 @@
+---
+import Base from '../layouts/Base.astro';
+import Graph from '../components/Graph.astro';
+import {getDocs} from '../lib/docs';
+import {buildGraph} from '../lib/graph';
+
+const docs = await getDocs();
+const graph = buildGraph(docs);
+---
+
+<Base title="Graph" description="Every note I have written, the tags they carry and the links between them.">
+  <section class="graph-page" aria-labelledby="graph-title">
+    <div class="row graph-page-head">
+      <div class="margin">Every note, every link</div>
+      <div class="body">
+        <h1 id="graph-title" class="section-title">Graph</h1>
+        <p class="lede">
+          Dark lines are links I wrote from one note to another. Light lines tie a note to its tags. Search for a note, click
+          any dot to preview it, double-click to open it.
+        </p>
+      </div>
+    </div>
+    <Graph data={graph} height="max(560px, calc(100vh - 300px))" id="full-graph" />
+  </section>
+</Base>
+
+<style>
+  .graph-page {
+    padding: 40px 0 0;
+  }
+
+  .graph-page-head {
+    margin-bottom: 28px;
+  }
+
+  .graph-page-head .margin {
+    padding-top: 14px;
+  }
+</style>
