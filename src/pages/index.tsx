@@ -33,7 +33,7 @@ export default function Home(): JSX.Element {
   const notes = useNotes();
   const history = useHistory();
 
-  const updates = countFor(notes, 'updates/');
+  const atomic = countFor(notes, 'notes/');
   const answers = countFor(notes, 'mentorship/');
   const paths = countFor(notes, 'learning-path/');
 
@@ -49,7 +49,7 @@ export default function Home(): JSX.Element {
 
   const ledger: [string, string][] = [
     [String(notes.length || '—'), 'notes filed'],
-    [String(updates || '—'), 'weekly updates'],
+    [String(atomic || '—'), 'atomic notes'],
     [String(answers || '—'), 'questions answered'],
     [String(paths || '—'), 'learning paths'],
     ['2023', 'filing since'],
@@ -59,7 +59,7 @@ export default function Home(): JSX.Element {
     <Layout
       wrapperClassName="slipbox-home"
       title="Sibelius Seraphini — a slip-box in public"
-      description="The public slip-box of Sibelius Seraphini: weekly updates, mentorship answers, learning paths and essays on building software, plus every channel I publish on."
+      description="The public slip-box of Sibelius Seraphini: notes, mentorship answers, learning paths and essays on building software, plus every channel I publish on."
     >
       <div className={styles.page}>
         {/* ── Hero: the box, drawn as the thing it is ──────────────────── */}
@@ -85,8 +85,8 @@ export default function Home(): JSX.Element {
 
               <p className={styles.lede}>
                 This is my zettelkasten — a slip-box I write into instead of
-                keeping notes to myself. Every week I add what I shipped, what I
-                read, and what I got wrong. Every question a developer asks me
+                keeping notes to myself. One idea per note, linked to the others.
+                Every question a developer asks me
                 gets answered here once, so I never have to answer it twice.
                 Nothing here is finished. That is the point.
               </p>
@@ -94,8 +94,8 @@ export default function Home(): JSX.Element {
               <div className={styles.actions}>
                 <Link
                   className={`${styles.btn} ${styles.btnPrimary}`}
-                  to="/category/updates">
-                  Read the latest update
+                  to="/food-for-thought">
+                  Start here
                 </Link>
                 <button
                   className={`${styles.btn} ${styles.btnGhost}`}
