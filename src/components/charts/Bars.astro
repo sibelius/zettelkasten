@@ -1,0 +1,96 @@
+---
+import type {Row} from '../../lib/stats';
+import {compact} from './scale';
+
+type Props = {title: string; note?: string; rows: Row[]; unit?: string};
+
+const {title, note, rows, unit = ''} = Astro.props;
+
+const max = Math.max(...rows.map((row) => row.value), 1);
+---
+
+<figure class="chart">
+  <figcaption class="chart-head">
+    <h3 class="chart-title">{title}</h3>
+    {note && <p class="chart-note">{note}</p>}
+  </figcaption>
+  <ol class="bars" role="list">
+    {
+      rows.map((row) => (
+        <li class="bars-row" tabindex="0" data-tip={JSON.stringify({title: row.label, total: null, rows: [[unit || 'Value', row.value, 1]]})}>
+          <span class="bars-label">
+            {row.href ? (
+              <a class="plain" href={row.href} tabindex="-1">
+                {row.label}
+              </a>
+            ) : (
+              row.label
+            )}
+          </span>
+          <span class="bars-track">
+            <span class="bars-bar" style={`width: ${(row.value / max) * 100}%`} />
+            <span class="bars-value">{compact(row.value)}</span>
+          </span>
+        </li>
+      ))
+    }
+  </ol>
+</figure>
+
+<style>
+  .bars {
+    margin: 14px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .bars-row {
+    display: grid;
+    grid-template-columns: minmax(0, 40%) minmax(0, 1fr);
+    gap: 12px;
+    align-items: center;
+    min-height: 30px;
+    padding: 2px 4px;
+    border-radius: 4px;
+    outline: none;
+  }
+
+  .bars-row:hover,
+  .bars-row:focus-visible {
+    background: color-mix(in srgb, var(--ink) 5%, transparent);
+  }
+
+  .bars-label {
+    overflow: hidden;
+    font-family: var(--sans);
+    font-size: 14px;
+    text-align: right;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: var(--ink-soft);
+  }
+
+  .bars-track {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+  }
+
+  /* Bars grow from one baseline; the data end is rounded. */
+  .bars-bar {
+    height: 16px;
+    min-width: 2px;
+    border-radius: 0 4px 4px 0;
+    background: var(--series-1);
+  }
+
+  .bars-value {
+    flex: none;
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    color: var(--ink);
+  }
+</style>

@@ -1,0 +1,213 @@
+---
+import {compact, niceScale} from './scale';
+
+type Props = {
+  title: string;
+  note?: string;
+  /** One label per column, left to right (years, weeks…). */
+  categories: string[];
+  /** Series names, bottom to top. Colors follow this order: --series-1, --series-2… */
+  series: string[];
+  /** values[column][series] */
+  values: number[][];
+  /** What one unit is, for the tooltip and table: "posts", "links"… */
+  unit?: string;
+};
+
+const {title, note, categories, series, values, unit = ''} = Astro.props;
+
+const totals = values.map((row) => row.reduce((sum, value) => sum + value, 0));
+const ticks = niceScale(Math.max(...totals));
+const top = ticks.at(-1)!;
+const peak = totals.indexOf(Math.max(...totals));
+
+// Past 12 columns, label every other one so the axis never crowds.
+const every = categories.length > 24 ? 4 : categories.length > 12 ? 2 : 1;
+
+const tip = (index: number) =>
+  JSON.stringify({
+    title: categories[index],
+    total: series.length > 1 ? `${totals[index]} ${unit}`.trim() : null,
+    rows: series.map((name, slot) => [name, values[index][slot], slot + 1]).reverse(),
+  });
+
+const summary = `${title}. ${categories.map((category, index) => `${category}: ${totals[index]}`).join(', ')}.`;
+---
+
+<figure class="chart">
+  <figcaption class="chart-head">
+    <h3 class="chart-title">{title}</h3>
+    {note && <p class="chart-note">{note}</p>}
+  </figcaption>
+
+  {
+    series.length > 1 && (
+      <ul class="chart-legend" role="list">
+        {series.map((name, slot) => (
+          <li>
+            <span class="chart-swatch" style={`background: var(--series-${slot + 1})`} />
+            {name}
+          </li>
+        ))}
+      </ul>
+    )
+  }
+
+  <div class="cols" role="img" aria-label={summary}>
+    <div class="cols-plot">
+      {
+        ticks.map((tick) => (
+          <div class="cols-tick" style={`bottom: ${(tick / top) * 100}%`}>
+            <span>{compact(tick)}</span>
+          </div>
+        ))
+      }
+      <div class="cols-bars" style={`grid-template-columns: repeat(${categories.length}, minmax(0, 1fr))`}>
+        {
+          categories.map((category, index) => (
+            <div class="cols-slot" tabindex="0" data-tip={tip(index)} aria-label={`${category}: ${totals[index]} ${unit}`}>
+              <div class="cols-stack" style={`height: ${(totals[index] / top) * 100}%`}>
+                {index === peak && totals[index] > 0 && <span class="cols-peak">{compact(totals[index])}</span>}
+                {values[index].map(
+                  (value, slot) => value > 0 && <span class="cols-segment" style={`flex: ${value} 0 0; background: var(--series-${slot + 1})`} />,
+                )}
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+    <div class="cols-x" style={`grid-template-columns: repeat(${categories.length}, minmax(0, 1fr))`} aria-hidden="true">
+      {categories.map((category, index) => <span class:list={{hidden: index % every !== 0}}>{category}</span>)}
+    </div>
+  </div>
+
+  <details class="chart-table">
+    <summary>Show as table</summary>
+    <div class="chart-table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col" />
+            {series.map((name) => <th scope="col">{name}</th>)}
+            {series.length > 1 && <th scope="col">Total</th>}
+          </tr>
+        </thead>
+        <tbody>
+          {
+            categories.map((category, index) => (
+              <tr>
+                <th scope="row">{category}</th>
+                {values[index].map((value) => (
+                  <td>{value}</td>
+                ))}
+                {series.length > 1 && <td>{totals[index]}</td>}
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+  </details>
+</figure>
+
+<style>
+  .cols {
+    margin-top: 16px;
+    padding-left: 36px;
+  }
+
+  .cols-plot {
+    position: relative;
+    height: 220px;
+  }
+
+  .cols-tick {
+    position: absolute;
+    right: 0;
+    left: 0;
+    border-top: 1px solid var(--rule);
+  }
+
+  .cols-tick:first-child {
+    border-top-color: var(--rule-strong);
+  }
+
+  .cols-tick span {
+    position: absolute;
+    right: calc(100% + 8px);
+    transform: translateY(-50%);
+    font-family: var(--sans);
+    font-size: 12px;
+    font-variant-numeric: tabular-nums;
+    color: var(--pencil);
+  }
+
+  .cols-bars {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    align-items: end;
+  }
+
+  .cols-slot {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 100%;
+    outline: none;
+    cursor: default;
+  }
+
+  .cols-slot:hover,
+  .cols-slot:focus-visible {
+    background: color-mix(in srgb, var(--ink) 5%, transparent);
+  }
+
+  .cols-stack {
+    position: relative;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 2px;
+    width: min(24px, 70%);
+  }
+
+  .cols-segment {
+    min-height: 2px;
+  }
+
+  /* The top of the stack is the data end: rounded. The baseline stays square. */
+  .cols-segment:last-child {
+    border-radius: 4px 4px 0 0;
+  }
+
+  .cols-peak {
+    position: absolute;
+    bottom: calc(100% + 4px);
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .cols-x {
+    display: grid;
+    margin-top: 6px;
+    font-family: var(--sans);
+    font-size: 12px;
+    text-align: center;
+    color: var(--pencil);
+  }
+
+  .cols-x .hidden {
+    visibility: hidden;
+  }
+
+  @media (max-width: 560px) {
+    .cols-x span:nth-child(even) {
+      visibility: hidden;
+    }
+  }
+</style>
