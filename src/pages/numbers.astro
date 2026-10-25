@@ -1,0 +1,387 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import Bars from '../components/charts/Bars.astro';
+import Columns from '../components/charts/Columns.astro';
+import {compact} from '../components/charts/scale';
+import {withBase} from '../lib/docs';
+import {getStats} from '../lib/stats';
+
+const stats = await getStats();
+const {totals} = stats;
+
+const tiles = [
+  {label: 'Notes', value: totals.notes, href: withBase('/library')},
+  {label: 'Words in notes', value: totals.words},
+  {label: 'Links between notes', value: totals.links, href: withBase('/graph')},
+  {label: 'Posts', value: totals.posts, href: withBase('/#writing')},
+  {label: 'Talks and episodes', value: totals.talks, href: withBase('/media')},
+  {label: 'Open source repos', value: totals.repos, href: 'https://github.com/sibelius'},
+  {label: 'GitHub stars', value: totals.stars},
+  {label: 'Links shared', value: totals.reading, href: withBase('/reading')},
+];
+---
+
+<Base title="Numbers" description="Everything I write, publish, build and read, in charts: over time, by topic and by how the notes connect.">
+  <PageHead
+    title="Numbers"
+    note="Updated on every deploy"
+    lede="Everything I write, publish, build and read, counted. Over time where the dates are real, by topic where they are not. Hover or focus a bar for the numbers, or open any chart as a table."
+  />
+
+  <section class="row numbers-section" aria-label="Totals">
+    <div class="margin numbers-margin">All time</div>
+    <div class="body">
+      <ul class="tiles" role="list">
+        {
+          tiles.map((tile) => (
+            <li class="tile">
+              <span class="tile-value">{compact(tile.value)}</span>
+              {tile.href ? (
+                <a class="tile-label plain" href={tile.href}>
+                  {tile.label}
+                </a>
+              ) : (
+                <span class="tile-label">{tile.label}</span>
+              )}
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section class="row numbers-section" aria-labelledby="time-title">
+    <div class="margin numbers-margin">Posts, slides and repos have real dates</div>
+    <div class="body">
+      <h2 id="time-title" class="sub-title">Over time</h2>
+      <div class="charts">
+        <div class="chart-wide">
+          <Columns
+            title="What I published, per year"
+            note="Open source repos I created, posts on Substack, dev.to and Medium, and talk slides"
+            categories={stats.published.categories}
+            series={stats.published.series}
+            values={stats.published.values}
+            unit="things"
+          />
+        </div>
+        <Columns
+          title="Posts per year, by where I wrote"
+          categories={stats.writingByChannel.categories}
+          series={stats.writingByChannel.series}
+          values={stats.writingByChannel.values}
+          unit="posts"
+        />
+        <Columns
+          title="GitHub stars, by the year the repo started"
+          note="Stars a repo has today, counted in the year I created it"
+          categories={stats.stars.categories}
+          series={stats.stars.series}
+          values={stats.stars.values}
+          unit="stars"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="row numbers-section" aria-labelledby="reading-title">
+    <div class="margin numbers-margin">
+      <a href={withBase('/reading')}>The reading feed</a>, since Slack keeps 90 days
+    </div>
+    <div class="body">
+      <h2 id="reading-title" class="sub-title">Reading</h2>
+      <div class="charts">
+        <div class="chart-wide">
+          <Columns
+            title="Links I shared each week, by kind"
+            note="Weeks start on Monday"
+            categories={stats.readingByWeek.categories}
+            series={stats.readingByWeek.series}
+            values={stats.readingByWeek.values}
+            unit="links"
+          />
+        </div>
+        <Columns
+          title="Which day I share"
+          categories={stats.readingByWeekday.categories}
+          series={stats.readingByWeekday.series}
+          values={stats.readingByWeekday.values}
+          unit="links"
+        />
+        <Bars title="Sites I read the most" rows={stats.sites} unit="Links" />
+      </div>
+    </div>
+  </section>
+
+  <section class="row numbers-section" aria-labelledby="notes-title">
+    <div class="margin numbers-margin">Most notes were split out of my weekly updates in 2026, so they are counted, not dated</div>
+    <div class="body">
+      <h2 id="notes-title" class="sub-title">Notes</h2>
+      <div class="charts">
+        <Bars title="What the notes are about" note="Top 15 tags" rows={stats.tags} unit="Notes" />
+        <Bars title="Most linked notes" note="Notes that other notes link to the most" rows={stats.linked} unit="Links in" />
+        <Columns
+          title="How long the notes are"
+          note={`Words per note. ${stats.orphans} notes link to nothing and nothing links to them yet.`}
+          categories={stats.lengths.categories}
+          series={stats.lengths.series}
+          values={stats.lengths.values}
+          unit="notes"
+        />
+        <Bars title="Notes by section" rows={stats.sections} unit="Notes" />
+      </div>
+    </div>
+  </section>
+
+  <section class="row numbers-section" aria-labelledby="code-title">
+    <div class="margin numbers-margin">Public repos I own, not forks</div>
+    <div class="body">
+      <h2 id="code-title" class="sub-title">Open source</h2>
+      <div class="charts">
+        <Bars title="Most starred repos" rows={stats.starred} unit="Stars" />
+      </div>
+    </div>
+  </section>
+
+  <div class="chart-tip" role="tooltip" data-chart-tip hidden></div>
+</Base>
+
+<script>
+  const tip = document.querySelector<HTMLElement>('[data-chart-tip]')!;
+
+  type Tip = {title: string; total: string | null; rows: [string, number, number][]};
+
+  // Built with textContent: labels come from my data, but never as HTML.
+  function show(target: HTMLElement) {
+    const data = JSON.parse(target.dataset.tip!) as Tip;
+    tip.replaceChildren();
+
+    const title = document.createElement('p');
+    title.className = 'chart-tip-title';
+    title.textContent = data.total ? `${data.title} · ${data.total}` : data.title;
+    tip.append(title);
+
+    for (const [label, value, slot] of data.rows) {
+      const row = document.createElement('p');
+      row.className = 'chart-tip-row';
+      const key = document.createElement('span');
+      key.className = 'chart-tip-key';
+      key.style.background = `var(--series-${slot})`;
+      const strong = document.createElement('strong');
+      strong.textContent = value.toLocaleString('en-US');
+      const name = document.createElement('span');
+      name.textContent = label;
+      row.append(key, strong, name);
+      tip.append(row);
+    }
+
+    tip.hidden = false;
+    const box = target.getBoundingClientRect();
+    const width = tip.offsetWidth;
+    const left = Math.min(Math.max(8, box.left + box.width / 2 - width / 2), window.innerWidth - width - 8);
+    const top = box.top - tip.offsetHeight - 8;
+    tip.style.left = `${left}px`;
+    tip.style.top = `${top < 8 ? box.bottom + 8 : top}px`;
+  }
+
+  const hide = () => (tip.hidden = true);
+
+  for (const target of document.querySelectorAll<HTMLElement>('[data-tip]')) {
+    target.addEventListener('pointerenter', () => show(target));
+    target.addEventListener('pointerleave', hide);
+    target.addEventListener('focus', () => show(target));
+    target.addEventListener('blur', hide);
+  }
+
+  window.addEventListener('scroll', hide, {passive: true});
+</script>
+
+<style>
+  .numbers-section {
+    padding-top: 48px;
+  }
+
+  .numbers-margin {
+    padding-top: 12px;
+  }
+
+  .tiles {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--rule);
+  }
+
+  .tile {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 18px 20px;
+    background: var(--paper);
+  }
+
+  .tile-value {
+    font-family: var(--sans);
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--ink);
+  }
+
+  .tile-label {
+    font-family: var(--sans);
+    font-size: 14px;
+    color: var(--pencil);
+  }
+
+  a.tile-label:hover {
+    color: var(--blue);
+  }
+
+  .charts {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 40px 48px;
+    margin-top: 20px;
+  }
+
+  .chart-wide {
+    grid-column: 1 / -1;
+  }
+
+  /* Shared by every chart on the page. */
+  :global(.chart) {
+    margin: 0;
+  }
+
+  :global(.chart-title) {
+    margin: 0;
+    font-family: var(--sans);
+    font-size: 17px;
+    font-weight: 700;
+  }
+
+  :global(.chart-note) {
+    margin: 2px 0 0;
+    font-family: var(--sans);
+    font-size: 14px;
+    color: var(--pencil);
+  }
+
+  :global(.chart-legend) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 16px;
+    margin: 12px 0 0;
+    padding: 0;
+    list-style: none;
+    font-family: var(--sans);
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+
+  :global(.chart-legend li) {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  :global(.chart-swatch) {
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+  }
+
+  :global(.chart-table) {
+    margin-top: 10px;
+    font-family: var(--sans);
+    font-size: 13px;
+  }
+
+  :global(.chart-table summary) {
+    cursor: pointer;
+    color: var(--pencil);
+  }
+
+  :global(.chart-table-scroll) {
+    max-height: 320px;
+    overflow: auto;
+  }
+
+  :global(.chart-table table) {
+    width: 100%;
+    margin-top: 8px;
+    border-collapse: collapse;
+    font-variant-numeric: tabular-nums;
+  }
+
+  :global(.chart-table th),
+  :global(.chart-table td) {
+    padding: 4px 8px;
+    border-bottom: 1px solid var(--rule);
+    text-align: right;
+  }
+
+  :global(.chart-table th[scope='row']),
+  :global(.chart-table thead th:first-child) {
+    text-align: left;
+  }
+
+  .chart-tip {
+    position: fixed;
+    z-index: 50;
+    min-width: 140px;
+    max-width: 260px;
+    padding: 10px 12px;
+    border: 1px solid var(--rule-strong);
+    border-radius: 6px;
+    background: var(--card);
+    box-shadow: 0 4px 16px rgb(0 0 0 / 0.12);
+    font-family: var(--sans);
+    font-size: 13px;
+    pointer-events: none;
+  }
+
+  .chart-tip :global(.chart-tip-title) {
+    margin: 0 0 6px;
+    font-weight: 600;
+    color: var(--pencil);
+  }
+
+  .chart-tip :global(.chart-tip-row) {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 2px 0 0;
+    color: var(--ink-soft);
+  }
+
+  .chart-tip :global(.chart-tip-row strong) {
+    min-width: 2ch;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .chart-tip :global(.chart-tip-key) {
+    width: 12px;
+    height: 2px;
+    border-radius: 1px;
+  }
+
+  @media (max-width: 900px) {
+    .charts {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .tiles {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+</style>
