@@ -13,6 +13,7 @@ export const colors = {
   blue: '#2f5bd3',
   red: '#c8343c',
   ruled: '#d3ddef',
+  purple: '#7a3fc4',
 };
 
 const require = createRequire(import.meta.url);
@@ -104,7 +105,28 @@ export type Card = {
   tags?: string[];
   /** The home card sets the name in huge type instead of a page title. */
   variant?: 'page' | 'home';
+  /** Columns of short items under the title, like the teams of a roadmap. */
+  lanes?: Lane[];
 };
+
+export type Lane = {label: string; color?: 'blue' | 'red' | 'purple' | 'ink'; items: string[]};
+
+function lanesRow(lanes: Lane[]): Node {
+  return h(
+    'div',
+    {marginTop: 30, gap: 22},
+    ...lanes.slice(0, 3).map((lane) => {
+      const color = colors[lane.color ?? 'ink'];
+
+      return h(
+        'div',
+        {flex: 1, flexDirection: 'column', borderTop: `6px solid ${color}`, paddingTop: 12},
+        h('div', {fontSize: 24, fontWeight: 800, color, textTransform: 'uppercase', letterSpacing: 1}, lane.label),
+        ...lane.items.slice(0, 4).map((item) => h('div', {marginTop: 6, fontSize: 22, fontWeight: 700, color: colors.inkSoft}, item)),
+      );
+    }),
+  );
+}
 
 export const OG_WIDTH = 1200;
 export const OG_HEIGHT = 630;
@@ -114,7 +136,8 @@ const MARGIN = 250;
 export async function renderCard(card: Card): Promise<Buffer> {
   const home = card.variant === 'home';
   const title = clip(card.title, 80);
-  const titleSize = home ? 128 : title.length <= 22 ? 96 : title.length <= 44 ? 76 : 60;
+  const lanes = card.lanes?.length ? card.lanes : null;
+  const titleSize = home ? 128 : lanes ? 64 : title.length <= 22 ? 96 : title.length <= 44 ? 76 : 60;
 
   const rules = Array.from({length: Math.floor(OG_HEIGHT / 42)}, (_, i) =>
     h('div', {position: 'absolute', left: 0, right: 0, top: 41 + i * 42, height: 1, background: colors.ruled}),
@@ -147,10 +170,11 @@ export async function renderCard(card: Card): Promise<Buffer> {
       card.description
         ? h(
             'div',
-            {marginTop: 28, fontFamily: 'Newsreader', fontSize: home ? 32 : 30, lineHeight: 1.38, color: colors.inkSoft, maxWidth: 800},
-            clip(card.description, home ? 220 : 135),
+            {marginTop: lanes ? 16 : 28, fontFamily: 'Newsreader', fontSize: home ? 32 : lanes ? 28 : 30, lineHeight: 1.38, color: colors.inkSoft, maxWidth: 800},
+            clip(card.description, home ? 220 : lanes ? 90 : 135),
           )
         : null,
+      lanes ? lanesRow(lanes) : null,
       h(
         'div',
         {marginTop: 'auto', justifyContent: 'space-between', alignItems: 'flex-end', fontSize: 24},

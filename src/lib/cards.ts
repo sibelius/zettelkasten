@@ -33,7 +33,10 @@ export async function socialCards(): Promise<Map<string, Card>> {
   const sections = new Map<string, {label: string; count: number}>();
 
   for (const doc of docs) {
-    cards.set(doc.route, {kicker: doc.section.label, title: doc.title, description: doc.excerpt, tags: doc.tags});
+    // A note can design its own card with an `og` block in its front matter.
+    const og = ((doc.entry.data as Record<string, unknown>).og ?? {}) as Partial<Card>;
+
+    cards.set(doc.route, {kicker: doc.section.label, title: doc.title, description: doc.excerpt, tags: doc.tags, ...og});
 
     if (doc.section.key !== 'essays') {
       const key = `category/${tagSlug(doc.section.label)}`;
