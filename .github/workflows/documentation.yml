@@ -40,9 +40,22 @@ jobs:
           pnpm build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages (/zettelkasten)
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          # Build output to publish to the `gh-pages` branch:
+          publish_dir: ./dist
+
+      - name: Build for root site
+        run: pnpm build
+        env:
+          ASTRO_BASE: /
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Deploy to sibelius.github.io
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          personal_token: ${{ secrets.DEPLOY_TOKEN }}
+          external_repository: sibelius/sibelius.github.io
+          publish_branch: gh-pages
           publish_dir: ./dist

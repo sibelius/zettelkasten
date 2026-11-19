@@ -41,6 +41,7 @@
     "reading": "node scripts/sync-reading.mjs",
     "prepare": "husky",
     "publish:docs": "pnpm build && gh-pages -d dist",
+    "publish:root": "ASTRO_BASE=/ pnpm build && gh-pages -d dist -r https://github.com/sibelius/sibelius.github.io.git -b gh-pages --dotfiles",
     "mcp": "node mcp/server.mjs"
   }
 }
