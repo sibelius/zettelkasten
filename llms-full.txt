@@ -4984,6 +4984,116 @@ I usually only go deep when my current knowldge/experience is not enough to solv
 
 ---
 
+# Learning Path AI Engineer
+
+URL: https://sibelius.github.io/zettelkasten/learning-path/learning-path-ai-engineer
+Tags: learning-path, ai
+
+An AI engineer builds products on top of models, they do not train them.
+The hard part is not calling the API, it is knowing if the answer is good.
+
+Learn it in this order: understand the model, build with it, measure it, then ship it.
+Write an eval before you write the second prompt.
+
+## 0. Foundations
+
+- [ ] be a good software engineer first: APIs, databases, queues, tests. Follow the [backend roadmap](./learning-path-backend)
+- [ ] learn how a transformer works at a high level with [The Illustrated Transformer](https://jalammar.github.io/illustrated-transformer/)
+  - [ ] build a tiny GPT from scratch with Karpathy's [Neural Networks: Zero to Hero](https://karpathy.ai/zero-to-hero.html)
+- [ ] learn what a token is, and see how text is split with [Tiktokenizer](https://tiktokenizer.vercel.app/)
+- [ ] learn the knobs: context window, temperature, top-p, max tokens, stop sequences
+- [ ] learn what models are bad at: math, counting, recent facts, long exact recall, and confident hallucination
+- [ ] read [AI Engineering](https://www.oreilly.com/library/view/ai-engineering/9781098166298/) by Chip Huyen
+
+## 1. Talk to the model
+
+- [ ] call a model API directly with fetch, no framework: [Claude API docs](https://docs.claude.com/)
+- [ ] stream the response token by token to the UI
+- [ ] learn prompting: clear instructions, examples, roles, and giving the model room to think
+  - [ ] read the [prompt engineering guide](https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview)
+- [ ] get structured output: JSON that matches a schema, validated with [Zod](https://zod.dev/)
+- [ ] send images and PDFs, not only text
+- [ ] run a model on your own machine with [Ollama](https://ollama.com/) or [llama.cpp](https://github.com/ggml-org/llama.cpp)
+- [ ] play with prompts in the terminal with Simon Willison's [llm](https://llm.datasette.io/)
+
+## 2. Tool use
+
+The model decides, your code acts.
+
+- [ ] define a tool with a JSON schema, let the model call it, return the result
+- [ ] write tool descriptions as if for a new teammate: what it does, when to use it, what it returns
+- [ ] handle errors as tool results, so the model can recover
+- [ ] never let a tool do something irreversible without a human confirming
+
+## 3. RAG: give the model your data
+
+- [ ] learn embeddings and similarity search
+- [ ] store vectors in the database you already have with [pgvector](https://github.com/pgvector/pgvector) or MongoDB Atlas Vector Search
+- [ ] chunk documents well: by section, with overlap, keeping titles as context
+- [ ] combine keyword search (BM25) and vector search, then rerank
+  - [ ] read [Contextual Retrieval](https://www.anthropic.com/news/contextual-retrieval)
+- [ ] always return the sources, so users can check the answer
+- [ ] try long context first: sometimes the whole document fits and you do not need RAG
+
+## 4. Evals: know if it works
+
+Without evals you are shipping vibes.
+
+- [ ] build a golden dataset: real inputs and the expected outputs, starting with 20 examples
+- [ ] write code-based checks first: valid JSON, right tool called, contains the answer
+- [ ] use LLM as judge for what code cannot check, and validate the judge against human labels
+- [ ] read your traces, every week. Read [Hamel Husain on evals](https://hamel.dev/blog/posts/evals/)
+- [ ] run evals in CI on every prompt change with [promptfoo](https://www.promptfoo.dev/)
+- [ ] trace every call: input, output, tokens, latency, cost, with [Langfuse](https://langfuse.com/)
+
+## 5. Agents
+
+An agent is a model using tools in a loop until the task is done.
+
+- [ ] read [Building effective agents](https://www.anthropic.com/engineering/building-effective-agents)
+- [ ] start with workflows: prompt chaining, routing, parallelization. Use an agent only when the path is not known upfront
+- [ ] write the agent loop yourself once, then use the [Claude Agent SDK](https://docs.claude.com/en/api/agent-sdk/overview) or the [AI SDK](https://ai-sdk.dev/)
+- [ ] manage context: summarize, drop old tool results, keep notes in files
+- [ ] expose your product to any agent with an [MCP](https://modelcontextprotocol.io/) server
+  - [ ] see a real one: the [MCP server of this site](/mcp)
+- [ ] give agents a sandbox, a budget and a stop condition
+
+## 6. Production
+
+- [ ] cut cost and latency with prompt caching and batch APIs
+- [ ] pick the smallest model that passes your evals, route hard tasks to a bigger one
+- [ ] add timeouts, retries and a fallback model
+- [ ] guard against prompt injection: treat every tool result and user document as untrusted data
+- [ ] keep secrets and personal data out of prompts and logs (LGPD)
+- [ ] version prompts like code, and ship them behind a feature flag
+- [ ] collect user feedback (thumbs up, edits, retries) and feed it back into the eval set
+
+## 7. Coding agents in your daily work
+
+- [ ] use a coding agent like [Claude Code](https://docs.claude.com/en/docs/claude-code/overview) for real tasks, not only autocomplete
+- [ ] write a good CLAUDE.md or AGENTS.md: how to run, test and deploy the project
+- [ ] give the agent a way to verify its work: tests, type check, a browser
+- [ ] review every diff as if a junior wrote it, you own what you merge
+- [ ] [always share code](../always-share-code) and prompts with the team
+
+## 8. Capstone
+
+- [ ] an assistant over your company docs: RAG with sources, an eval set of 50 questions, tracing, and a cost per answer
+- [ ] an MCP server for your product, used from Claude Code or Claude Desktop
+- [ ] write what you learned, and share it
+
+## How the pieces connect
+
+```
+ user ──► prompt + context ──► model ──► tool call ──► your code ──┐
+              ▲                  │                                 │
+   RAG: docs ─┘                  └──► answer ◄── tool result ◄─────┘
+                                        │
+                     traces ──► evals ──┴──► change prompt, model or tools
+```
+
+---
+
 # Learning Path AWS Lambda
 
 URL: https://sibelius.github.io/zettelkasten/learning-path/learning-path-aws-lambda
@@ -5185,6 +5295,140 @@ Tags: learning-path, docker, backend
 
 ---
 
+# Learning Path Fintech Brazil
+
+URL: https://sibelius.github.io/zettelkasten/learning-path/learning-path-fintech-brazil
+Tags: learning-path, fintech, payments, pix
+
+Fintech is a ledger, a set of payment rails and a lot of regulation.
+Brazil has one of the best payment systems in the world, and one of the most regulated.
+
+Learn it in this order: the regulator, the money, the rails, then the products you build on top of them.
+Read the regulation yourself, do not trust a summary (not even this one).
+
+## 0. Foundations
+
+- [ ] learn double-entry accounting: every movement is a debit and a credit that sum to zero
+- [ ] build a [ledger](../notes/ledger): immutable entries, balances derived from entries, never updated in place
+  - [ ] read [Accounting for developers](https://www.moderntreasury.com/journal/accounting-for-developers-part-i)
+- [ ] use integers in cents for money, never floats
+- [ ] make every payment operation idempotent, with an idempotency key
+- [ ] learn the difference between authorization, clearing and settlement
+- [ ] learn [instant payments](../notes/instant-payment) and [financial risk](../notes/finantial-risk)
+
+## 1. The regulator and the license
+
+- [ ] learn who is who: CMN sets the rules, the [Banco Central do Brasil](https://www.bcb.gov.br/) (BCB) writes and enforces them, CVM covers securities
+- [ ] learn the payments law, [Lei 12.865/2013](https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2013/lei/l12865.htm): payment arrangements (arranjos) and payment institutions (IPs)
+- [ ] learn the types of payment institution: emissor de moeda eletrônica, emissor de pós-pago, credenciador, iniciador de transação de pagamento (ITP)
+  - [ ] learn the credit licenses: SCD and SEP
+  - [ ] learn the difference between being authorized and operating under a partner (BaaS, banking as a service)
+- [ ] learn anti-money laundering (PLD/FT): KYC, KYB, monitoring and reporting to COAF
+- [ ] learn LGPD for financial data, and bank secrecy (sigilo bancário)
+
+## 2. SPB, the Brazilian payment system
+
+- [ ] read the BCB overview of the [SPB, Sistema de Pagamentos Brasileiro](https://www.bcb.gov.br/estabilidadefinanceira/spb)
+- [ ] learn the reserve account (conta reserva) and the settlement account, where banks hold central bank money
+- [ ] learn the STR (Sistema de Transferência de Reservas), the real-time gross settlement system run by the BCB
+- [ ] learn the RSFN, the private network every institution uses to talk to the BCB, with ICP-Brasil certificates
+- [ ] learn TED, and why it lost to Pix
+- [ ] learn the clearing houses (câmaras): B3 for securities and FX, Núclea for retail payments
+
+## 3. Pix
+
+- [ ] read the [Pix page of the BCB](https://www.bcb.gov.br/estabilidadefinanceira/pix) and the Pix regulation (Resolução BCB nº 1)
+- [ ] learn the pieces: SPI settles, DICT stores keys, the PI account (conta PI) holds the money
+- [ ] learn direct vs indirect participation, and what a PSP needs to join
+- [ ] learn the BR Code: static and dynamic QR codes, built on the EMV QR spec
+- [ ] read the [API Pix](https://github.com/bacen/pix-api) spec: cob, cobv, webhooks, devolução
+- [ ] learn MED (Mecanismo Especial de Devolução) for fraud refunds, and the changes in MED 2.0
+- [ ] learn the new products: Pix Automático (recurring), Pix por aproximação (NFC), Pix Saque and Pix Troco
+- [ ] learn the security rules: night limits, transaction limits, fraud markers in DICT
+- [ ] integrate a real Pix API, for example [Woovi](https://developers.woovi.com/)
+  - [ ] read [the instant payment stack](../notes/the-instant-payment-stack) and [closed loop payment systems](../notes/closed-loop-payment-systems)
+
+## 4. Boleto
+
+- [ ] learn the boleto lifecycle: register, pay, settle, write off (baixa)
+- [ ] learn the barcode and the linha digitável, and how to validate them
+- [ ] learn the NPC (Nova Plataforma de Cobrança) run by Núclea: every boleto is registered before it can be paid
+- [ ] learn DDA, the boletos that show up in the payer's bank app
+- [ ] learn the [Febraban](https://portal.febraban.org.br/) CNAB 240 and CNAB 400 files: remessa and retorno
+- [ ] learn the hybrid boleto with a Pix QR code (bolepix), so it can be paid instantly
+
+## 5. Cards: acquiring (adquirência)
+
+- [ ] learn the four-party model: cardholder, issuer, card brand (bandeira), acquirer, and merchant
+- [ ] learn the roles: credenciadora (acquirer), subcredenciadora (sub-acquirer or payment facilitator), and gateway
+- [ ] learn the money split: MDR for the merchant, interchange for the issuer, brand fee for the bandeira
+  - [ ] learn the BCB caps on debit and prepaid interchange
+- [ ] learn the card flow: authorization, capture, clearing, settlement, and the settlement schedule (D+1, D+30, installments)
+- [ ] learn parcelado lojista vs parcelado emissor, the Brazilian installment
+- [ ] learn antecipação de recebíveis: paying the merchant now for money that arrives later
+- [ ] learn chargebacks, disputes and how to fight them with evidence
+- [ ] learn card present: EMV chip, PIN, contactless, TEF, POS and SoftPOS
+- [ ] learn card not present: tokenization, 3DS 2, network tokens, antifraud
+- [ ] learn [PCI DSS](https://www.pcisecuritystandards.org/), and how to stay out of scope by never touching the card number
+
+## 6. Cards: issuing (emissão de cartão)
+
+- [ ] learn the issuer side: BIN, BIN sponsor, and the card brand membership
+- [ ] learn the processadora: who authorizes in real time on behalf of the issuer, for example [Dock](https://dock.tech/) or [Pismo](https://www.pismo.io/)
+- [ ] learn ISO 8583, the message format of card authorizations
+- [ ] learn debit, prepaid and credit: where the money comes from at authorization time
+  - [ ] learn credit: limit, invoice (fatura), revolving credit (rotativo), minimum payment
+- [ ] learn the card lifecycle: emboss, ship, activate, block, reissue, virtual cards
+- [ ] learn wallets and tokens: Apple Pay, Google Pay, Samsung Pay
+
+## 7. Núclea, SLC and receivables
+
+- [ ] learn [Núclea](https://www.nuclea.com.br/), formerly CIP, the infrastructure behind boletos, card settlement and receivables
+- [ ] learn the SLC, the centralized settlement of card transactions between acquirers and issuers
+- [ ] learn the receivables registry: every future card payment is registered as an asset
+  - [ ] learn the registradoras: Núclea, [CERC](https://www.cerc.inf.br/), B3 and TAG
+  - [ ] learn how receivables are used as collateral (gravame), and why this made credit to merchants cheaper
+- [ ] learn the self-regulation of the card market by [ABECS](https://www.abecs.org.br/)
+
+## 8. Open Finance and what is next
+
+- [ ] learn [Open Finance Brasil](https://openfinancebrasil.org.br/): data sharing, consent and payment initiation (ITP)
+- [ ] learn Pix via Open Finance, and Pix sem redirecionamento (JSR)
+- [ ] follow Drex, the BCB digital currency project
+- [ ] follow the BCB [Agenda BC#](https://www.bcb.gov.br/acessoinformacao/bcmais) to see what comes next
+
+## 9. Operating a fintech
+
+Most of the work is not the happy path.
+
+- [ ] reconcile every day: your ledger, the bank statement, the settlement files, and explain every cent of difference
+- [ ] handle refunds, reversals, duplicated payments and webhooks that arrive twice or never
+- [ ] run fraud and risk: limits, velocity checks, device data, blocklists
+- [ ] answer the regulator: reports, audits and incident communication
+- [ ] keep the [legacy overhead](../notes/fintech-legacy-overhead) small: KYC, statements, withdrawals, sanity checks
+- [ ] design for 24/7: Pix does not stop at night, on weekends or on Christmas
+
+## 10. Capstone
+
+- [ ] a mini payment institution: a double-entry ledger, Pix charges with webhooks, a boleto with a Pix QR code, and a daily reconciliation job
+- [ ] write what you learned, and share it
+
+## How the pieces connect
+
+```
+                     ┌──────── BCB: rules, STR, SPI, DICT ────────┐
+                     ▼                                             ▼
+ payer bank ── Pix ──► SPI ──► receiver PSP ──► your ledger ◄── reconciliation
+                                                    ▲
+ boleto ── NPC (Núclea) ──► payer bank ── settlement┤
+                                                    │
+ card ── acquirer ──► brand ──► issuer              │
+            │                                       │
+            └── SLC (Núclea) ── receivables registry┘
+```
+
+---
+
 # Learning Path Java
 
 URL: https://sibelius.github.io/zettelkasten/learning-path/learning-path-java
@@ -5286,6 +5530,198 @@ Tags: learning-path, react
 - [ ] Learn about virtual dom and optimization
 - [ ] Learn how to type components using Typescript
 - [ ] Learn how to sync state to some external data like localStorage, cookies, querystring
+
+---
+
+# Learning Path SaaS
+
+URL: https://sibelius.github.io/zettelkasten/learning-path/learning-path-saas
+Tags: learning-path, saas, business
+
+A [SaaS](../notes/saas) sells a service delivered every month, not software in a box.
+The subscription only works if you keep delivering value, or customers churn.
+
+Learn it in this order: the business model, the platform, the money, then growth.
+Every engineering decision shows up in a metric: churn, margin or sales cycle.
+
+## 0. Foundations
+
+- [ ] learn why [SaaS beats the software house](../notes/software-house) model: recurring revenue and long term incentives
+- [ ] learn the [key SaaS metrics](../notes/driving-saas-success-using-key-metrics)
+  - [ ] read David Skok's [SaaS Metrics 2.0](https://www.forentrepreneurs.com/saas-metrics-2/)
+- [ ] learn the models: product-led (self-service), sales-led (enterprise), and the hybrid
+- [ ] learn B2B vs B2C: who uses, who buys and who signs the contract
+
+## 1. Multi-tenancy
+
+- [ ] learn the options: shared tables with a tenant id, schema per tenant, database per tenant
+- [ ] put the tenant id in every query, every index and every cache key
+  - [ ] enforce it in one place (a repository layer or row level security), not in every handler
+- [ ] test that tenant A can never see tenant B, in an automated test
+- [ ] handle noisy neighbors: rate limits and quotas per tenant
+- [ ] plan for the big customer who asks for a dedicated environment or data in a specific region
+
+## 2. Identity and access
+
+- [ ] email + password with MFA, magic links and social login
+- [ ] organizations, members, invites and roles (RBAC)
+- [ ] enterprise SSO with SAML and OIDC, and user provisioning with SCIM
+- [ ] audit logs: who did what, when, from where
+- [ ] read [Enterprise Ready](https://www.enterpriseready.io/) to see what big customers will ask for
+
+## 3. Billing and pricing
+
+- [ ] pick a value metric: seats, usage, or a tier of features
+- [ ] design 3 plans, and a free trial or a free tier
+- [ ] handle the lifecycle: trial, upgrade, downgrade, proration, cancel, dunning (failed payments)
+- [ ] use a billing platform like [Stripe Billing](https://docs.stripe.com/billing) instead of building one
+- [ ] in Brazil, accept card, boleto and Pix, and use Pix Automático for recurring payments. See the [fintech roadmap](./learning-path-fintech-brazil)
+- [ ] issue invoices (nota fiscal de serviço), and learn the taxes on software services
+- [ ] usage-based billing: meter every event, aggregate, and let the customer see their usage
+
+## 4. Product
+
+- [ ] onboarding: time to first value in minutes, measured
+- [ ] activation: define the action that predicts retention, and push every new user to it
+- [ ] in-app messages, emails and a changelog to show you keep delivering value
+- [ ] integrations with the tools your customers already use
+- [ ] a public API with keys, docs, rate limits and webhooks
+- [ ] feature flags and plan gating: the same code, different features per plan
+- [ ] data export: customers trust you more when they can leave
+
+## 5. Run it
+
+- [ ] observability per tenant: logs, metrics and traces tagged with the tenant id
+- [ ] a status page and an incident process
+- [ ] SLAs, backups and restore tests, disaster recovery
+- [ ] zero downtime deploys and migrations, customers work in every time zone
+- [ ] security and compliance: LGPD, SOC 2 or ISO 27001 when enterprise customers ask
+- [ ] keep gross margin high: know the infra cost per customer
+
+## 6. Sell, retain, expand
+
+- [ ] customer support: help center, chat, and a response time you measure
+- [ ] customer success: health score, check-ins, and renewal before it is due
+- [ ] measure churn by cohort, talk to every customer who cancels
+- [ ] expand revenue: upsell, more seats, more usage. Aim for net revenue retention above 100%
+- [ ] measure CAC, LTV and payback, and the burn multiple
+- [ ] build [growth loops](../notes/growth-loops): invites, shared content, integrations
+
+## 7. Capstone
+
+- [ ] a multi-tenant SaaS with organizations and roles, a free trial, Pix and card billing, a public API with webhooks, and a dashboard with MRR and churn
+- [ ] follow the [startup roadmap](./learning-path-startup) to get your first paying customers
+- [ ] write what you learned, and share it
+
+## How the pieces connect
+
+```
+ sign up ──► onboarding ──► activation ──► trial ──► paid plan ──► expansion
+                                              │           │            │
+                                          dunning ◄── billing ──► MRR, NRR
+                                                          │
+ tenant isolation, SSO, audit logs, API ──────────────────┴──► enterprise deals
+                                                          │
+                                          churn ◄── support + success
+```
+
+---
+
+# Learning Path Startup
+
+URL: https://sibelius.github.io/zettelkasten/learning-path/learning-path-startup
+Tags: learning-path, startup, business
+
+A startup is a company searching for a product that people want, and a way to grow it.
+Most die from building something nobody wants, not from bad code.
+
+Learn it in this order: find the problem, prove it, sell it, then scale it.
+Talk to customers every week, at every stage.
+
+## 0. Foundations
+
+- [ ] read [Paul Graham's essays](https://paulgraham.com/articles.html), start with [How to Start a Startup](https://paulgraham.com/start.html) and [Do Things that Don't Scale](https://paulgraham.com/ds.html)
+- [ ] watch [YC Startup School](https://www.startupschool.org/)
+- [ ] read Zero to One, The Lean Startup and The Hard Thing About Hard Things
+- [ ] learn [disruption](../notes/disruption) and why incumbents ignore small markets
+- [ ] learn to [handle uncertainty](../notes/hability-to-handle-uncertainty) and [risk](../notes/risk)
+
+## 1. Find a problem
+
+- [ ] pick a problem you understand from the inside, ideally one you have
+- [ ] write down who has the problem, how they solve it today, and how much it costs them
+- [ ] interview 20 potential customers without pitching. Read [The Mom Test](https://www.momtestbook.com/)
+- [ ] look for the [gap](../notes/gap): what people hack together with spreadsheets and WhatsApp
+- [ ] decide [what to build next](../notes/what-should-you-build-next) by pain, not by what is fun to code
+
+## 2. Build the MVP
+
+- [ ] build the smallest [MVP](../notes/mvp) that solves the core workflow
+- [ ] ship in weeks, not months, use boring technology you already know
+- [ ] do things manually behind the scenes before you automate them
+- [ ] charge from day one, money is the only real validation
+- [ ] learn [product development](../notes/product-development) as a flow, small batches and fast feedback
+
+## 3. Product market fit
+
+- [ ] measure retention: do users come back without you asking
+- [ ] ask "how would you feel if you could no longer use this product?", aim for 40% very disappointed
+- [ ] talk to the users who love it, find out why, and build more of that
+- [ ] pivot fast when it is not working, but change one thing at a time
+
+## 4. Sell and grow
+
+- [ ] founders sell first: do the first 100 sales yourself before hiring sales
+- [ ] write a sales playbook: who to call, what to say, what objections come up
+- [ ] pick one channel and master it: outbound, content, partnerships, or product-led
+- [ ] build [growth loops](../notes/growth-loops), not funnels
+- [ ] build an [audience](../notes/audience) by writing in public
+- [ ] learn pricing: charge for value, raise prices, and test it
+- [ ] track the numbers that matter: revenue, growth rate, gross margin, CAC, LTV, burn and runway
+
+## 5. Company and money
+
+- [ ] open the company with a good accountant (contador): CNPJ, LTDA or S.A., tax regime (Simples Nacional, Lucro Presumido, Lucro Real)
+- [ ] split equity between founders with vesting and a cliff
+- [ ] learn the [Marco Legal das Startups](https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp182.htm), and the investment instruments used in Brazil: mútuo conversível and SAFE-like contracts
+- [ ] learn how venture capital works, read Venture Deals
+- [ ] bootstrap as long as you can, raise money to accelerate something that already works
+- [ ] learn [blitzscaling](../notes/blitzscaling): when speed matters more than efficiency
+- [ ] understand your [investing](../notes/investing) and personal runway before you quit your job
+
+## 6. Hire and build culture
+
+- [ ] hire slowly, fire fast, avoid the [wrong hiring strategy](../notes/wrong-hiring-strategy)
+- [ ] hire people better than you, and give them ownership
+- [ ] write down the [culture](../culture) before it writes itself, see [creating a culture from scratch](../notes/criar-cultura-do-zero)
+- [ ] build a hiring pipeline, see the [hiring](/hiring) page
+- [ ] run the company in writing: docs, async updates, decisions recorded
+
+## 7. Operate and scale
+
+- [ ] automate operations with code, see [StartupOps at Woovi](../notes/startupops-building-woovi)
+- [ ] keep a [product vision](../notes/product-vision): vision, strategy and tactics
+- [ ] set goals for the quarter and review them every week
+- [ ] read High Output Management to learn how to manage managers
+- [ ] learn from the [PayPal mafia](../notes/paypal-mafia): great teams spread and build more companies
+
+## 8. Capstone
+
+- [ ] a company with paying customers, a monthly update to investors or advisors, and one metric that grows every month
+- [ ] get [startup mentorship](../notes/startup-mentorship) or [paid consulting](../paid-consulting-startups) when you are stuck
+- [ ] write what you learned, and share it
+
+## How the pieces connect
+
+```
+ problem ──► interviews ──► MVP ──► paying users ──► retention?
+                ▲                                       │
+                └──────────── no: change one thing ◄────┤
+                                                        ▼ yes
+                         sales + growth loops ──► revenue ──► hire ──► culture
+                                                     │
+                                                     └──► raise money to go faster
+```
 
 ---
 
